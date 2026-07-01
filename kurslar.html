@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kurslar | KDS Akademi</title>
+<meta name="description" content="KDS Akademi Müzik, Dans, Tiyatro ve Çocuk Akademisi kurs programları."/>
+<link rel="icon" href="assets/img/kds-logo.jpg" type="image/jpeg"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/style.css"/>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
+
+<!-- Nav -->
+<nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-200">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20">
+<a class="flex items-center gap-3" href="index.html">
+<img alt="KDS Akademi logosu" class="h-12 w-12 object-contain rounded-full" src="assets/img/kds-logo.jpg"/>
+<span class="font-headline-md text-headline-md font-bold text-primary">KDS Akademi</span>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="index.html">Anasayfa</a>
+<a class="nav-link active font-label-md text-label-md pb-1 transition-colors duration-300" href="kurslar.html">Kurslar</a>
+<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="egitmenler.html">Eğitmenler</a>
+<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="galeri.html">Galeri</a>
+<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="iletisim.html">İletişim</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-zinc-900 text-white font-label-md text-label-md rounded-full shadow-sm hover:bg-zinc-800 transition-colors active:scale-95" href="https://wa.me/905419050042" rel="noopener" target="_blank">Hemen Başvur</a>
+<button class="md:hidden text-primary p-2" id="mobile-menu-btn"><span class="material-symbols-outlined">menu</span></button>
+</div>
+</div>
+<div class="mobile-menu md:hidden bg-surface border-t border-outline-variant/30" id="mobile-menu">
+<div class="flex flex-col px-margin-mobile py-4 gap-4">
+<a class="font-label-md text-label-md text-on-surface" href="index.html">Anasayfa</a>
+<a class="font-label-md text-label-md text-secondary" href="kurslar.html">Kurslar</a>
+<a class="font-label-md text-label-md text-on-surface" href="egitmenler.html">Eğitmenler</a>
+<a class="font-label-md text-label-md text-on-surface" href="galeri.html">Galeri</a>
+<a class="font-label-md text-label-md text-on-surface" href="hakkimizda.html">Hakkımızda</a>
+<a class="font-label-md text-label-md text-on-surface" href="iletisim.html">İletişim</a>
+<a class="inline-flex items-center justify-center px-6 py-2.5 bg-zinc-900 text-white font-label-md text-label-md rounded-full shadow-sm mt-2" href="https://wa.me/905419050042" rel="noopener" target="_blank">Hemen Başvur</a>
+</div>
+</div>
+</nav>
+
+<!-- Page Hero -->
+<header class="pt-40 pb-20 bg-zinc-900 text-center">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<span class="font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-4 block">Programlarımız</span>
+<h1 class="font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">Kurslar</h1>
+<p class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto">Müzik, dans, tiyatro ve çocuk gelişimi alanlarında her yaş ve seviyeye uygun kurs programlarımızı inceleyin.</p>
+</div>
+</header>
+
+<main>
+<!-- Music Department -->
+<section id="muzik" class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop scroll-mt-24">
+<div class="flex items-center gap-4 mb-4">
+<span class="w-12 h-12 rounded-full bg-kds-blue/10 flex items-center justify-center"><span class="material-symbols-outlined text-kds-blue">piano</span></span>
+<span class="font-label-md text-label-md text-kds-blue uppercase tracking-widest">Müzik ve Enstrüman</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-zinc-900 mb-4">Müzik Bölümü</h2>
+<p class="font-body-lg text-body-lg text-zinc-600 max-w-2xl mb-12">Nota okumadan tekniğe, sahne performansına kadar enstrümanınızda ustalaşmak için uzman eğitmenler eşliğinde bireysel ve grup dersleri.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Piyano</h3>
+<p class="font-body-md text-body-md text-zinc-600">Klasik ve modern repertuvarla nota okuma, tekniği ve performans becerisi kazandırır.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Keman</h3>
+<p class="font-body-md text-body-md text-zinc-600">Yay tekniği, entonasyon ve müzikal ifade üzerine adım adım eğitim.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Kanun</h3>
+<p class="font-body-md text-body-md text-zinc-600">Geleneksel Türk müziği repertuvarıyla mızrap tekniği ve makam bilgisi.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Yan Flüt</h3>
+<p class="font-body-md text-body-md text-zinc-600">Nefes kontrolü, tonlama ve repertuvar çalışmalarıyla flüt eğitimi.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Gitar</h3>
+<p class="font-body-md text-body-md text-zinc-600">Akustik ve elektro gitarda akor, tekniği ve solo çalma becerileri.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Çello</h3>
+<p class="font-body-md text-body-md text-zinc-600">Duruş, yay tekniği ve repertuvar çalışmasıyla çello eğitimi.</p>
+</div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue">
+<h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Bağlama</h3>
+<p class="font-body-md text-body-md text-zinc-600">Türk halk müziği ezgileriyle tezene ve parmak tekniği eğitimi.</p>
+</div>
+</div>
+</section>
+
+<!-- Dance Department -->
+<section id="dans" class="py-section-gap bg-surface-stone scroll-mt-24">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4 mb-4">
+<span class="w-12 h-12 rounded-full bg-kds-pink/10 flex items-center justify-center"><span class="material-symbols-outlined text-kds-pink">nightlife</span></span>
+<span class="font-label-md text-label-md text-kds-pink uppercase tracking-widest">Dans</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-zinc-900 mb-4">Dans Akademisi</h2>
+<p class="font-body-lg text-body-lg text-zinc-600 max-w-2xl mb-12">Latin dünyasından modern sokak dansına, geleneksel oyunlardan oryantale kadar geniş bir yelpazede hareketle kendini ifade et.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Salsa</h3><p class="font-body-md text-body-md text-zinc-600">Küba ve Porto Riko kökenli ritim ve partner çalışmasıyla enerjik Latin dansı.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Bachata</h3><p class="font-body-md text-body-md text-zinc-600">Duygusal ve akıcı adımlarla Dominik kökenli partner dansı.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Zeybek</h3><p class="font-body-md text-body-md text-zinc-600">Anadolu'nun köklü figürleriyle geleneksel halk dansı eğitimi.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Hip Hop</h3><p class="font-body-md text-body-md text-zinc-600">Sokak dansı kökenli ritim, güç ve stil çalışmalarıyla modern koreografi.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Breakdance</h3><p class="font-body-md text-body-md text-zinc-600">Akrobatik hareketler ve freeze teknikleriyle enerjik sokak dansı.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Rumba</h3><p class="font-body-md text-body-md text-zinc-600">Duygusal ifade ve kalça hareketleriyle Latin partner dansı.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Zumba</h3><p class="font-body-md text-body-md text-zinc-600">Müzik eşliğinde eğlenceli ve enerjik tam vücut fitness dansı.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Oryantal</h3><p class="font-body-md text-body-md text-zinc-600">Karın dansı temelli izole hareketler ve zarif koreografiler.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Roman</h3><p class="font-body-md text-body-md text-zinc-600">Canlı ritim ve omuz-kalça hareketleriyle geleneksel Roman dansı.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Theater Department -->
+<section id="tiyatro" class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop scroll-mt-24">
+<div class="flex items-center gap-4 mb-4">
+<span class="w-12 h-12 rounded-full bg-kds-purple/10 flex items-center justify-center"><span class="material-symbols-outlined text-kds-purple">theater_comedy</span></span>
+<span class="font-label-md text-label-md text-kds-purple uppercase tracking-widest">Sahne Sanatları</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-zinc-900 mb-4">Tiyatro ve Oyunculuk</h2>
+<p class="font-body-lg text-body-lg text-zinc-600 max-w-2xl mb-12">Sahne duruşu, ses ve doğaçlama becerilerini geliştirerek karakter yaratma sürecine adım at.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-purple"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Doğaçlama</h3><p class="font-body-md text-body-md text-zinc-600">Anlık tepki, yaratıcılık ve sahne refleksleri geliştiren atölye çalışmaları.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-purple"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Diksiyon</h3><p class="font-body-md text-body-md text-zinc-600">Doğru telaffuz, nefes ve vurgu teknikleriyle etkili konuşma eğitimi.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-purple"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Tiyatro / Oyunculuk</h3><p class="font-body-md text-body-md text-zinc-600">Karakter analizi, sahne çalışması ve prodüksiyon deneyimiyle oyunculuk eğitimi.</p></div>
+</div>
+</section>
+
+<!-- Kids Academy -->
+<section id="cocuk" class="py-section-gap bg-surface-stone scroll-mt-24">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center gap-4 mb-4">
+<span class="w-12 h-12 rounded-full bg-kds-yellow/20 flex items-center justify-center"><span class="material-symbols-outlined text-[#FBC02D]">child_care</span></span>
+<span class="font-label-md text-label-md text-[#FBC02D] uppercase tracking-widest">Çocuk Akademisi</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-zinc-900 mb-4">Çocuk Akademisi</h2>
+<p class="font-body-lg text-body-lg text-zinc-600 max-w-2xl mb-12">Küçük yaştaki çocuklarda erken yaratıcılığı ve özgüveni destekleyen, yaşa uygun programlar.</p>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-yellow"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Halk Dansları</h3><p class="font-body-md text-body-md text-zinc-600">Yöresel figürlerle çocuklarda ritim duygusu ve takım çalışması gelişimi.</p></div>
+<div class="glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-yellow"><h3 class="font-headline-md text-headline-md text-zinc-900 mb-2">Yaratıcı Drama</h3><p class="font-body-md text-body-md text-zinc-600">Oyun temelli etkinliklerle hayal gücü, ifade ve sosyal beceri kazandırma.</p></div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="dark-glass bg-zinc-900 rounded-2xl p-8 md:p-16 text-center">
+<h2 class="font-headline-lg text-headline-lg text-white mb-4">Sanat Yolculuğuna Bugün Başla</h2>
+<p class="font-body-lg text-body-lg text-surface-variant/80 max-w-xl mx-auto mb-8">Ücretsiz deneme dersi ve program bilgisi için bizimle iletişime geç.</p>
+<a href="iletisim.html" class="inline-flex items-center justify-center px-8 py-4 bg-kds-pink text-white font-label-md text-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-secondary-container transition-all active:scale-95">Bize Ulaşın</a>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full bg-zinc-900">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="col-span-1 md:col-span-1">
+<a class="flex items-center gap-3 mb-6" href="index.html">
+<img alt="KDS Akademi logosu" class="h-10 w-10 object-contain rounded-full" src="assets/img/kds-logo.jpg"/>
+<span class="font-headline-md text-headline-md text-white">KDS Akademi</span>
+</a>
+<p class="font-body-md text-body-md text-surface-variant/80 mb-6">Konya'da müzik, dans ve tiyatro alanlarında sanatsal mükemmelliği geliştiriyoruz.</p>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Departmanlar</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="kurslar.html#dans">Dans Akademisi</a></li>
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="kurslar.html#muzik">Müzik Bölümü</a></li>
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="kurslar.html#tiyatro">Tiyatro ve Oyunculuk</a></li>
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="kurslar.html#cocuk">Çocuk Akademisi</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Kurumsal</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="hakkimizda.html">Hakkımızda</a></li>
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="egitmenler.html">Eğitmenler</a></li>
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="galeri.html">Galeri</a></li>
+<li><a class="font-body-md text-body-md text-surface-variant/80 hover:text-white transition-colors duration-200" href="iletisim.html">İletişim</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Bize Ulaşın</h4>
+<p class="font-body-md text-body-md text-surface-variant/80 mb-4">En Tepe Mall, Karatay / Konya<br/><a href="tel:+905419050042" class="hover:text-white">0541 905 00 42</a></p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-kds-pink transition-colors" href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram"><span class="material-symbols-outlined">photo_camera</span></a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-kds-blue transition-colors" href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook"><span class="material-symbols-outlined">thumb_up</span></a>
+<a class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-green-500 transition-colors" href="https://wa.me/905419050042" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="material-symbols-outlined">chat</span></a>
+</div>
+</div>
+<div class="col-span-1 md:col-span-4 mt-12 pt-8 border-t border-white/10 text-center">
+<p class="font-body-md text-body-md text-surface-variant/50">© 2026 KDS Akademi - Konya Dans ve Sanat Akademisi. Tüm hakları saklıdır. Karatay, Konya.</p>
+</div>
+</div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
