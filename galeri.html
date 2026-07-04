@@ -102,29 +102,35 @@
 <!-- TODO (site sahibi için not): Aşağıdaki fotoğraflar geçici görsellerdir. Gerçek stüdyo/etkinlik fotoğrafları iletildiğinde bu galeri güncellenmelidir. -->
 <main id="main">
 <section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-wrap justify-center gap-2 mb-10" id="gallery-filters">
+<button type="button" data-filter-gallery="tumu" class="filter-pill active">Tümü</button>
+<button type="button" data-filter-gallery="gosteri" class="filter-pill">Gösteriler</button>
+<button type="button" data-filter-gallery="atolye" class="filter-pill">Prova ve Atölye</button>
+<button type="button" data-filter-gallery="cocuk" class="filter-pill">Çocuk Akademisi</button>
+</div>
 <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
 
-<div class="glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-lightbox="assets/img/kds-muzik-eller.jpg" data-lightbox-alt="Müzik dersi">
+<div class="gallery-item glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-category="atolye" data-lightbox="assets/img/kds-muzik-eller.jpg" data-lightbox-alt="Müzik dersi">
 <img class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500" alt="Müzik dersi" src="assets/img/kds-muzik-eller.jpg" loading="lazy" decoding="async"/>
 </div>
 
-<div class="glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-lightbox="assets/img/kds-dans-provasi.jpg" data-lightbox-alt="Dans provası">
+<div class="gallery-item glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-category="atolye" data-lightbox="assets/img/kds-dans-provasi.jpg" data-lightbox-alt="Dans provası">
 <img class="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" alt="Dans provası" src="assets/img/kds-dans-provasi.jpg" loading="lazy" decoding="async"/>
 </div>
 
-<div class="glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-lightbox="assets/img/kds-tiyatro-provasi.jpg" data-lightbox-alt="Tiyatro provası">
+<div class="gallery-item glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-category="atolye" data-lightbox="assets/img/kds-tiyatro-provasi.jpg" data-lightbox-alt="Tiyatro provası">
 <img class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" alt="Tiyatro provası" src="assets/img/kds-tiyatro-provasi.jpg" loading="lazy" decoding="async"/>
 </div>
 
-<div class="glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-lightbox="assets/img/kds-cocuk-drama.jpg" data-lightbox-alt="Çocuk akademisi dersi">
+<div class="gallery-item glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-category="cocuk" data-lightbox="assets/img/kds-cocuk-drama.jpg" data-lightbox-alt="Çocuk akademisi dersi">
 <img class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500" alt="Çocuk akademisi dersi" src="assets/img/kds-cocuk-drama.jpg" loading="lazy" decoding="async"/>
 </div>
 
-<div class="glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-lightbox="assets/img/kds-gala-sahne.jpg" data-lightbox-alt="Gala gösterisi">
+<div class="gallery-item glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid cursor-pointer group" data-category="gosteri" data-lightbox="assets/img/kds-gala-sahne.jpg" data-lightbox-alt="Gala gösterisi">
 <img class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500" alt="Gala gösterisi" src="assets/img/kds-gala-sahne.jpg" loading="lazy" decoding="async"/>
 </div>
 
-<div class="glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid diffused-shadow">
+<div class="gallery-item glass-panel rounded-xl overflow-hidden diffused-shadow break-inside-avoid diffused-shadow" data-category="gosteri">
 <div class="relative h-64 cursor-pointer group" data-open-video>
 <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="Tanıtım videosu kapak görseli" src="assets/img/kds-tanitim-kapak.jpg" loading="lazy" decoding="async"/>
 <div class="absolute inset-0 dark-glass flex items-center justify-center">
@@ -197,7 +203,7 @@
 </ul>
 </div>
 <div class="col-span-1">
-<h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">Bize Ulaşın</h4>
+<h4 class="font-label-md text-label-md text-white uppercase tracking-widest mb-6">İletişim</h4>
 <p class="font-body-md text-body-md text-surface-variant/80 mb-4">En Tepe Mall Ofis, B Blok 117/303<br/>Kalenderhane, Karatay / Konya<br/><a href="tel:+905419050042" class="hover:text-white">0541 905 00 42</a></p>
 <div class="flex flex-wrap gap-x-6 gap-y-2">
 <a class="font-label-md text-label-md text-surface-variant/80 hover:text-white transition-colors" href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener">Instagram</a>
