@@ -67,6 +67,11 @@ picture {
     display: block;
 }
 
+/* Ensure every element falls back to the local SF Pro Display font, even without an explicit font-* utility class */
+html {
+    font-family: 'SF Pro Display', sans-serif;
+}
+
 .glass-panel {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
@@ -392,7 +397,7 @@ nav > div:first-child {
     right: 20px;
     font-size: 72px;
     line-height: 1;
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'SF Pro Display', sans-serif;
     opacity: 0.06;
     pointer-events: none;
     color: currentColor;
