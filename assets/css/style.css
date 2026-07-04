@@ -494,22 +494,31 @@ nav a:hover img {
     transform: rotate(-3deg) scale(1.05);
 }
 
-/* Course Accordion styles */
-.course-accordion-item {
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* Course tab panel switch: match site's signature spring-like easing */
+.course-tab-panel {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition-duration: 0.4s !important;
 }
-.course-accordion-item:hover,
-.course-accordion-item.expanded {
-    border-color: rgba(233, 30, 99, 0.4);
-    box-shadow: 0 10px 30px -10px rgba(28, 27, 28, 0.08);
+.course-tab-btn {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
 }
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+
+/* Link arrow micro-interaction (CSS-drawn, no icon font) */
+.link-arrow::after {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    margin-left: 6px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(-45deg) translateX(0);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    vertical-align: middle;
 }
-.accordion-icon {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+.group:hover .link-arrow::after,
+.link-arrow:hover::after {
+    transform: rotate(-45deg) translateX(4px);
 }
 
 /* Enhanced Reduced Motion */
