@@ -70,7 +70,7 @@ module.exports = {
                 xl: "0.75rem",
                 "2xl": "0.75rem",
                 "3xl": "0.75rem",
-                full: "9999px"
+                full: "0.75rem"
             },
             spacing: {
                 "margin-desktop": "80px",
