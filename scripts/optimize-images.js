@@ -17,7 +17,8 @@ const CONTENT_PHOTOS = [
     'kds-tiyatro-provasi.jpg',
     'kds-cocuk-drama.jpg',
     'kds-gala-sahne.jpg',
-    'kds-tanitim-kapak.jpg'
+    'kds-tanitim-kapak.jpg',
+    'kds-entepe-mall-bina.jpg'
 ];
 
 function formatKb(bytes) {
@@ -35,8 +36,8 @@ async function optimizeHero() {
     const jpgPath = path.join(IMG_DIR, baseName + '.jpg');
     const webpPath = path.join(IMG_DIR, baseName + '.webp');
 
-    const jpgInfo = await image.clone().resize({ width }).jpeg({ quality: 80, mozjpeg: true }).toFile(jpgPath);
-    const webpInfo = await sharp(srcPath).resize({ width }).webp({ quality: 78 }).toFile(webpPath);
+    const jpgInfo = await image.clone().resize({ width }).jpeg({ quality: 92, mozjpeg: true }).toFile(jpgPath);
+    const webpInfo = await sharp(srcPath).resize({ width }).webp({ quality: 88 }).toFile(webpPath);
 
     console.log(`${HERO.file}: ${formatKb(originalSize)} (png) -> ${formatKb(jpgInfo.size)} (jpg, ${jpgInfo.width}x${jpgInfo.height}) / ${formatKb(webpInfo.size)} (webp)`);
 }
