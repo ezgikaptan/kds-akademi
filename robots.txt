@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ezgikaptan.github.io/kds-akademi/sitemap.xml

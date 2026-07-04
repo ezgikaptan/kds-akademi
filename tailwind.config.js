@@ -1,4 +1,6 @@
-tailwind.config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ["./*.html"],
     darkMode: "class",
     theme: {
         extend: {
@@ -60,9 +62,14 @@ tailwind.config = {
                 "on-tertiary": "#ffffff"
             },
             borderRadius: {
-                DEFAULT: "0.125rem",
-                lg: "0.25rem",
-                xl: "0.5rem",
+                none: "0px",
+                sm: "0.75rem",
+                DEFAULT: "0.75rem",
+                md: "0.75rem",
+                lg: "0.75rem",
+                xl: "0.75rem",
+                "2xl": "0.75rem",
+                "3xl": "0.75rem",
                 full: "0.75rem"
             },
             spacing: {
@@ -91,5 +98,9 @@ tailwind.config = {
                 "body-lg": ["16px", { lineHeight: "25px", fontWeight: "400" }]
             }
         }
-    }
+    },
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/container-queries")
+    ]
 };

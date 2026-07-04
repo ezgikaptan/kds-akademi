@@ -1,11 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var revealTargets = document.querySelectorAll(
-        'header h1, header p, header span, main h1, main h2, .glass-panel, main .grid > a, main .grid > div'
+    // Headings and intro text: fade + slide up
+    var slideTargets = document.querySelectorAll('header h1, header p, header span, header .hero-cta, main h1, main h2');
+    // Cards and panels: fade + gentle scale-in (visually distinct from headings)
+    var scaleTargets = document.querySelectorAll(
+        '.glass-panel, main .grid > a, main .grid > div, .course-grid > div'
     );
-    revealTargets.forEach(function (el, i) {
-        el.classList.add('reveal');
-        el.style.transitionDelay = (Math.min(i % 6, 5) * 0.08) + 's';
+
+    slideTargets.forEach(function (el, i) {
+        el.classList.add('reveal-slide');
+        el.style.transitionDelay = (Math.min(i % 4, 3) * 0.1) + 's';
     });
+    scaleTargets.forEach(function (el, i) {
+        el.classList.add('reveal-scale');
+        if (!el.querySelector('form, input, textarea, select')) {
+            el.classList.add('hover-lift');
+        }
+        el.style.transitionDelay = (Math.min(i % 6, 5) * 0.07) + 's';
+    });
+
+    var revealTargets = Array.prototype.slice.call(slideTargets).concat(Array.prototype.slice.call(scaleTargets));
     if ('IntersectionObserver' in window) {
         var revealObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
@@ -24,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var mobileMenu = document.getElementById('mobile-menu');
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', function () {
-            mobileMenu.classList.toggle('open');
+            var isOpen = mobileMenu.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
     }
 
@@ -75,6 +89,22 @@ document.addEventListener('DOMContentLoaded', function () {
         if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
         lightbox.addEventListener('click', function (e) {
             if (e.target === lightbox) closeLightbox();
+        });
+    }
+
+    var heroWrap = document.querySelector('.parallax-hero');
+    var heroImg = document.querySelector('.parallax-img');
+    if (heroWrap && heroImg && window.matchMedia('(hover: hover)').matches) {
+        heroWrap.addEventListener('mousemove', function (e) {
+            var rect = heroWrap.getBoundingClientRect();
+            var x = (e.clientX - rect.left) / rect.width - 0.5;
+            var y = (e.clientY - rect.top) / rect.height - 0.5;
+            heroImg.style.transition = 'transform 0.1s linear';
+            heroImg.style.transform = 'scale(1.08) translate(' + (x * -16) + 'px, ' + (y * -16) + 'px)';
+        });
+        heroWrap.addEventListener('mouseleave', function () {
+            heroImg.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            heroImg.style.transform = 'scale(1.08) translate(0px, 0px)';
         });
     }
 
