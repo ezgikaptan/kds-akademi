@@ -145,6 +145,25 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
+        var prevBtn = document.querySelector('.testimonial-prev');
+        var nextBtn = document.querySelector('.testimonial-next');
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function () {
+                var prevIdx = currentIdx - 1;
+                if (prevIdx < 0) prevIdx = cards.length - 1;
+                goTo(prevIdx);
+                stopAuto();
+                startAuto();
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function () {
+                goTo((currentIdx + 1) % cards.length);
+                stopAuto();
+                startAuto();
+            });
+        }
+
         carousel.addEventListener('mouseenter', stopAuto);
         carousel.addEventListener('mouseleave', startAuto);
         carousel.addEventListener('touchstart', stopAuto, { passive: true });
@@ -167,6 +186,109 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setDot(0);
         startAuto();
+    }
+
+    /* ==============================
+       Testimonials Typewriter Animation
+       ============================== */
+    var testimonialsTitle = document.getElementById('testimonials-title');
+    if (testimonialsTitle) {
+        var textToType = "Öğrencilerimiz Ne Diyor?";
+        var tIndex = 0;
+        var hasTyped = false;
+
+        // Clear initially for typewriter start, but keep a spacer
+        testimonialsTitle.innerHTML = '&nbsp;';
+
+        var typeText = function() {
+            var cursorSpan = document.createElement('span');
+            cursorSpan.className = 'typewriter-cursor';
+            cursorSpan.innerHTML = '|';
+
+            function cycle() {
+                tIndex = 0;
+                testimonialsTitle.innerHTML = '';
+                testimonialsTitle.appendChild(cursorSpan);
+
+                // Typing phase
+                var typeTimer = setInterval(function() {
+                    if (tIndex < textToType.length) {
+                        var char = textToType.charAt(tIndex);
+                        var textNode = document.createTextNode(char);
+                        testimonialsTitle.insertBefore(textNode, cursorSpan);
+                        tIndex++;
+                    } else {
+                        clearInterval(typeTimer);
+                        // Hold typed text, then start deleting
+                        setTimeout(function() {
+                            // Deleting phase
+                            var deleteTimer = setInterval(function() {
+                                if (tIndex > 0) {
+                                    tIndex--;
+                                    var currentText = textToType.substring(0, tIndex);
+                                    testimonialsTitle.innerHTML = '';
+                                    var textNode = document.createTextNode(currentText);
+                                    testimonialsTitle.appendChild(textNode);
+                                    testimonialsTitle.appendChild(cursorSpan);
+                                } else {
+                                    clearInterval(deleteTimer);
+                                    // Wait a bit, then repeat
+                                    setTimeout(cycle, 1000);
+                                }
+                            }, 50); // Deletion speed
+                        }, 3000); // Hold time
+                    }
+                }, 90); // Typing speed
+            }
+            cycle();
+        };
+
+        if ('IntersectionObserver' in window) {
+            var titleObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting && !hasTyped) {
+                        hasTyped = true;
+                        typeText();
+                        titleObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            titleObserver.observe(testimonialsTitle);
+        } else {
+            // Fallback for older browsers
+            typeText();
+        }
+    }
+
+    /* ==============================
+       Departments Staggered Reveal Animation
+       ============================== */
+    var deptGrid = document.querySelector('.las-card-grid');
+    if (deptGrid) {
+        var deptCards = deptGrid.querySelectorAll('.las-card');
+        deptCards.forEach(function(card) {
+            card.classList.add('reveal-card');
+        });
+
+        if ('IntersectionObserver' in window) {
+            var gridObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        deptCards.forEach(function(card, index) {
+                            setTimeout(function() {
+                                card.classList.add('revealed');
+                            }, index * 250); // 250ms staggered delay
+                        });
+                        gridObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            gridObserver.observe(deptGrid);
+        } else {
+            deptCards.forEach(function(card) {
+                card.classList.add('revealed');
+            });
+        }
     }
 
     /* ==============================

@@ -60,52 +60,68 @@
 <a href="#main" class="skip-link">İçeriğe geç</a>
 
 <!-- Nav -->
-<nav class="fixed top-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant/30 shadow-sm transition-all duration-200" aria-label="Ana navigasyon">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20">
-<a class="flex items-center gap-3" href="index.html">
-<img alt="KDS Akademi logosu" class="h-12 w-12 object-contain rounded-full" src="assets/img/kds-logo.jpg"/>
-<span class="font-headline-md text-headline-md font-bold text-primary">KDS Akademi</span>
+<nav class="navbar-las fixed top-0 w-full z-50 transition-all duration-200" aria-label="Ana navigasyon">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-16">
+<a class="flex items-center gap-2" href="index.html">
+<img alt="KDS Akademi logosu" class="h-8 w-8 object-contain rounded-full border border-white/20" src="assets/img/kds-logo.jpg"/>
+<span class="flex flex-col justify-center text-white font-bold uppercase leading-none" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+    <span class="text-sm tracking-widest">KDS</span>
+    <span class="text-[8px] tracking-wider opacity-75 font-normal mt-0.5">AKADEMİ</span>
+</span>
 </a>
-<div class="hidden md:flex items-center gap-8">
-<a class="nav-link active font-label-md text-label-md pb-1 transition-colors duration-300" href="index.html">Anasayfa</a>
-<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="kurslar.html">Kurslar</a>
-<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="egitmenler.html">Eğitmenler</a>
-<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="galeri.html">Galeri</a>
-<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link font-label-md text-label-md text-on-surface hover:text-secondary pb-1 transition-colors duration-300" href="iletisim.html">İletişim</a>
+<div class="hidden md:flex items-center gap-2">
+<a class="nav-link-las active" href="index.html">Anasayfa</a>
+<a class="nav-link-las" href="kurslar.html">Kurslar</a>
+<a class="nav-link-las" href="egitmenler.html">Eğitmenler</a>
+<a class="nav-link-las" href="galeri.html">Galeri</a>
+<a class="nav-link-las" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link-las" href="iletisim.html">İletişim</a>
 </div>
 <div class="flex items-center gap-4">
-<a class="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-zinc-900 text-white font-label-md text-label-md rounded-full shadow-sm hover:bg-zinc-800 transition-colors active:scale-95 cta-shimmer" href="https://wa.me/905419050042" rel="noopener" target="_blank">Hemen Başvur</a>
-<button class="md:hidden text-primary p-2" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç/kapat"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
+<button class="md:hidden text-white p-2" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç/kapat"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
 </div>
 </div>
-<div class="mobile-menu md:hidden bg-surface border-t border-outline-variant/30" id="mobile-menu">
-<div class="flex flex-col px-margin-mobile py-4 gap-4">
-<a class="font-label-md text-label-md text-secondary" href="index.html">Anasayfa</a>
-<a class="font-label-md text-label-md text-on-surface" href="kurslar.html">Kurslar</a>
-<a class="font-label-md text-label-md text-on-surface" href="egitmenler.html">Eğitmenler</a>
-<a class="font-label-md text-label-md text-on-surface" href="galeri.html">Galeri</a>
-<a class="font-label-md text-label-md text-on-surface" href="hakkimizda.html">Hakkımızda</a>
-<a class="font-label-md text-label-md text-on-surface" href="iletisim.html">İletişim</a>
-<a class="inline-flex items-center justify-center px-6 py-2.5 bg-zinc-900 text-white font-label-md text-label-md rounded-full shadow-sm mt-2" href="https://wa.me/905419050042" rel="noopener" target="_blank">Hemen Başvur</a>
+<div class="mobile-menu md:hidden bg-zinc-950/95 backdrop-blur-lg border-t border-white/10" id="mobile-menu">
+<div class="flex flex-col px-margin-mobile py-6 gap-4">
+<a class="font-label-md text-label-md text-white font-bold" href="index.html">Anasayfa</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="kurslar.html">Kurslar</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="egitmenler.html">Eğitmenler</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="galeri.html">Galeri</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="hakkimizda.html">Hakkımızda</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="iletisim.html">İletişim</a>
+<a class="inline-flex items-center justify-center px-6 py-2.5 bg-white text-zinc-950 font-bold text-label-md rounded-full shadow-sm mt-2 hover:bg-white/90" href="https://wa.me/905419050042" rel="noopener" target="_blank">Hemen Başvur</a>
 </div>
 </div>
 </nav>
 
 <!-- Hero -->
-<header class="parallax-hero relative w-full min-h-[860px] flex items-center justify-center pt-20 overflow-hidden">
-<div class="absolute inset-0 z-0">
-<picture>
-<source srcset="assets/img/kds-sahne-performans.webp" type="image/webp"/>
-<img alt="KDS Akademi öğrencileri ve eğitmenlerinden oluşan koro ve orkestranın sahne performansı" class="parallax-img w-full h-full object-cover" src="assets/img/kds-sahne-performans.jpg" width="1917" height="897" fetchpriority="high"/>
-</picture>
-<div class="absolute inset-0 dark-glass"></div>
+<header class="hero-las relative w-full overflow-hidden">
+<video autoplay muted loop playsinline class="hero-video-bg">
+    <source src="assets/web3.mp4" type="video/mp4" />
+    <source src="https://stream.mux.com/clpRdBjAELzdOM1xi02Nb5N1AViiCHZ02X2yQsNTu2Huc/medium.mp4" type="video/mp4" />
+    <source src="assets/web3.MOV" type="video/quicktime" />
+</video>
+<div class="hero-las-overlay"></div>
+
+<div class="hero-las-container">
+    <div>
+        <h1 class="hero-las-title">
+            Bugünü yansıt,<br><span>geleceği hayal et</span>
+        </h1>
+    </div>
+    <div class="hero-las-right">
+        <a class="newsletter-prompt" href="https://wa.me/905419050042" rel="noopener" target="_blank">
+            Hemen Başvur
+            <svg class="stroke-current shrink-0" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 31 31" style="vertical-align: middle;">
+                <path d="M18.749 8.75H22.2501V12.25" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                <path d="M17.75 13.25L22.25 8.75" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                <path d="M12.251 22.25L8.74988 22.25L8.74988 18.75" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+                <path d="M13.25 17.75L8.75 22.25" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+            </svg>
+        </a>
+    </div>
 </div>
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center">
-<span class="font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-4">Konya Dans ve Sanat Akademisi</span>
-<h1 class="font-display-lg text-headline-lg md:text-display-lg text-white mb-6 max-w-3xl">Sanatsal Mükemmelliği <br/><span class="gradient-text" id="typed-text">Müzik</span><span class="typed-cursor"></span> ile Keşfet</h1>
-<p class="font-body-lg text-body-lg text-surface-variant max-w-2xl">Müzik, dans ve tiyatro alanlarında çok disiplinli eğitimle potansiyelini ortaya çıkar. Konya'da tutkulu sanatçılardan oluşan bir topluluğa katıl.</p>
-</div>
+
 <a href="#departmanlar" aria-label="Aşağı kaydır" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/80 hover:text-white transition-colors animate-bounce">
 <span class="material-symbols-outlined text-3xl" aria-hidden="true">keyboard_arrow_down</span>
 </a>
@@ -115,133 +131,365 @@
 <main id="main">
 <!-- Departments Section -->
 <section id="departmanlar" class="relative overflow-hidden py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="bg-blob w-72 h-72 bg-kds-pink -top-10 -left-10"></div>
-<div class="bg-blob w-72 h-72 bg-kds-blue top-10 -right-10 blob-delay"></div>
+<div class="bg-blob bg-blob-animated w-72 h-72 bg-kds-pink -top-10 -left-10"></div>
+<div class="bg-blob bg-blob-animated w-72 h-72 bg-kds-blue top-10 -right-10 blob-delay"></div>
 <div class="relative z-10 text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg text-zinc-900 mb-4">Akademik Departmanlar</h2>
+<h2 class="font-headline-lg text-headline-lg text-zinc-900 las-title-accent">Akademik Departmanlar</h2>
 <p class="font-body-lg text-body-lg text-zinc-600 max-w-2xl mx-auto">Farklı sanat disiplinlerinde yeteneği geliştirmek için tasarlanmış kapsamlı programlarımızı keşfedin.</p>
 </div>
-<div class="relative z-10 flex flex-wrap justify-center gap-8">
+<div class="max-w-[1380px] mx-auto">
+<div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 las-card-grid">
 <!-- Music Card -->
-<a href="kurslar.html#muzik" class="glass-panel rounded-xl overflow-hidden diffused-shadow group cursor-pointer transition-transform duration-300 hover:-translate-y-1 block w-full md:w-[calc(50%-1rem)] card-glow">
-<div class="relative h-64 overflow-hidden">
+<a href="kurslar.html#muzik" class="las-card group cursor-pointer block w-full" style="--card-theme-color: #2E4057;">
+<div class="las-card-img-wrap relative aspect-[3/2] overflow-hidden">
 <picture>
 <source srcset="assets/img/kds-muzik-eller.webp" type="image/webp"/>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Çello çalan bir öğrencinin elleri" src="assets/img/kds-muzik-eller.jpg" width="512" height="279" loading="lazy" decoding="async"/>
 </picture>
-<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
-<span class="absolute bottom-4 left-4 font-label-md text-label-md text-white tracking-widest bg-kds-blue/90 px-3 py-1 rounded-full">MÜZİK VE ENSTRÜMAN</span>
+<div class="las-card-img-overlay"></div>
+<div class="las-card-arrow-btn">
+    <span class="material-symbols-outlined" style="font-size: 1.1rem; font-weight: bold;">arrow_forward</span>
 </div>
-<div class="p-8">
-<h3 class="font-headline-md text-headline-md text-zinc-900 mb-3">Müzik Bölümü</h3>
-<p class="font-body-md text-body-md text-zinc-600 mb-4">Piyano, Keman, Kanun, Yan Flüt, Gitar, Çello ve Bağlama derslerinde uzman eğitimle enstrümanında ustalaş.</p>
-<div class="pt-4 border-t border-outline-variant/20 text-kds-blue font-label-md text-label-md link-arrow group-hover:underline underline-offset-4 transition-all">Programları Keşfet</div>
+</div>
+<div class="pt-4">
+<div class="las-card-meta mb-1">MÜZİK &nbsp;|&nbsp; KDS</div>
+<h3 class="las-card-title text-lg" style="font-size: 1.2rem !important;">Müzik Bölümü</h3>
 </div>
 </a>
+
 <!-- Dance Card -->
-<a href="kurslar.html#dans" class="glass-panel rounded-xl overflow-hidden diffused-shadow group cursor-pointer transition-transform duration-300 hover:-translate-y-1 block w-full md:w-[calc(50%-1rem)] card-glow">
-<div class="relative h-64 overflow-hidden">
+<a href="kurslar.html#dans" class="las-card group cursor-pointer block w-full" style="--card-theme-color: #8B263E;">
+<div class="las-card-img-wrap relative aspect-[3/2] overflow-hidden">
 <picture>
 <source srcset="assets/img/kds-dans-provasi.webp" type="image/webp"/>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Stüdyoda hareket halinde dansçılar" src="assets/img/kds-dans-provasi.jpg" width="512" height="279" loading="lazy" decoding="async"/>
 </picture>
-<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
-<span class="absolute bottom-4 left-4 font-label-md text-label-md text-white tracking-widest bg-kds-pink/90 px-3 py-1 rounded-full">DANS</span>
+<div class="las-card-img-overlay"></div>
+<div class="las-card-arrow-btn">
+    <span class="material-symbols-outlined" style="font-size: 1.1rem; font-weight: bold;">arrow_forward</span>
 </div>
-<div class="p-8">
-<h3 class="font-headline-md text-headline-md text-zinc-900 mb-3">Dans Akademisi</h3>
-<p class="font-body-md text-body-md text-zinc-600 mb-4">Salsa, Bachata, Zeybek, Hip Hop, Breakdance, Rumba, Zumba, Oryantal ve Roman dersleriyle hareketle kendini ifade et.</p>
-<div class="pt-4 border-t border-outline-variant/20 text-kds-pink font-label-md text-label-md link-arrow group-hover:underline underline-offset-4 transition-all">Programları Keşfet</div>
+</div>
+<div class="pt-4">
+<div class="las-card-meta mb-1">DANS &nbsp;|&nbsp; KDS</div>
+<h3 class="las-card-title text-lg" style="font-size: 1.2rem !important;">Dans Akademisi</h3>
 </div>
 </a>
+
 <!-- Theater Card -->
-<a href="kurslar.html#tiyatro" class="glass-panel rounded-xl overflow-hidden diffused-shadow group cursor-pointer transition-transform duration-300 hover:-translate-y-1 block w-full md:w-[calc(50%-1rem)] card-glow">
-<div class="relative h-64 overflow-hidden">
+<a href="kurslar.html#tiyatro" class="las-card group cursor-pointer block w-full" style="--card-theme-color: #5D3754;">
+<div class="las-card-img-wrap relative aspect-[3/2] overflow-hidden">
 <picture>
 <source srcset="assets/img/kds-tiyatro-provasi.webp" type="image/webp"/>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Sahnede prova yapan oyuncular" src="assets/img/kds-tiyatro-provasi.jpg" width="512" height="279" loading="lazy" decoding="async"/>
 </picture>
-<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
-<span class="absolute bottom-4 left-4 font-label-md text-label-md text-white tracking-widest bg-kds-purple/90 px-3 py-1 rounded-full">SAHNE SANATLARI</span>
+<div class="las-card-img-overlay"></div>
+<div class="las-card-arrow-btn">
+    <span class="material-symbols-outlined" style="font-size: 1.1rem; font-weight: bold;">arrow_forward</span>
 </div>
-<div class="p-8">
-<h3 class="font-headline-md text-headline-md text-zinc-900 mb-3">Tiyatro ve Oyunculuk</h3>
-<p class="font-body-md text-body-md text-zinc-600 mb-4">Doğaçlama, Diksiyon ve Tiyatro/Oyunculuk çalışmalarıyla sahne duruşunu ve ses becerini geliştir.</p>
-<div class="pt-4 border-t border-outline-variant/20 text-kds-purple font-label-md text-label-md link-arrow group-hover:underline underline-offset-4 transition-all">Programları Keşfet</div>
+</div>
+<div class="pt-4">
+<div class="las-card-meta mb-1">SAHNE &nbsp;|&nbsp; KDS</div>
+<h3 class="las-card-title text-lg" style="font-size: 1.2rem !important;">Tiyatro ve Oyunculuk</h3>
 </div>
 </a>
+
 <!-- Visual Arts Card -->
-<a href="kurslar.html#resim" class="glass-panel rounded-xl overflow-hidden diffused-shadow group cursor-pointer transition-transform duration-300 hover:-translate-y-1 block w-full md:w-[calc(50%-1rem)] card-glow">
-<div class="relative h-64 overflow-hidden bg-gradient-to-br from-kds-orange to-amber-800 flex items-end p-4">
-<span class="font-label-md text-label-md text-white tracking-widest bg-zinc-900/70 px-3 py-1 rounded-full">GÖRSEL SANATLAR</span>
+<a href="kurslar.html#resim" class="las-card group cursor-pointer block w-full" style="--card-theme-color: #D05A3F;">
+<div class="las-card-img-wrap relative aspect-[3/2] overflow-hidden">
+<picture>
+<source srcset="assets/img/kds-tanitim-kapak.webp" type="image/webp"/>
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Sanat çalışmaları" src="assets/img/kds-tanitim-kapak.jpg" width="512" height="279" loading="lazy" decoding="async"/>
+</picture>
+<div class="las-card-img-overlay"></div>
+<div class="las-card-arrow-btn">
+    <span class="material-symbols-outlined" style="font-size: 1.1rem; font-weight: bold;">arrow_forward</span>
 </div>
-<div class="p-8">
-<h3 class="font-headline-md text-headline-md text-zinc-900 mb-3">Görsel Sanatlar</h3>
-<p class="font-body-md text-body-md text-zinc-600 mb-4">Temel resim tekniklerinden güzel sanatlar lisesi ve fakültesi sınav hazırlığına kadar her seviyede resim eğitimi.</p>
-<div class="pt-4 border-t border-outline-variant/20 text-kds-orange font-label-md text-label-md link-arrow group-hover:underline underline-offset-4 transition-all">Programları Keşfet</div>
+</div>
+<div class="pt-4">
+<div class="las-card-meta mb-1">GÖRSEL &nbsp;|&nbsp; KDS</div>
+<h3 class="las-card-title text-lg" style="font-size: 1.2rem !important;">Görsel Sanatlar</h3>
 </div>
 </a>
+
 <!-- Kids Card -->
-<a href="kurslar.html#cocuk" class="glass-panel rounded-xl overflow-hidden diffused-shadow group cursor-pointer transition-transform duration-300 hover:-translate-y-1 block w-full md:w-[calc(50%-1rem)] card-glow">
-<div class="relative h-64 overflow-hidden">
+<a href="kurslar.html#cocuk" class="las-card group cursor-pointer block w-full" style="--card-theme-color: #C5A059;">
+<div class="las-card-img-wrap relative aspect-[3/2] overflow-hidden">
 <picture>
 <source srcset="assets/img/kds-cocuk-drama.webp" type="image/webp"/>
 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Yaratıcı drama dersinde çocuklar" src="assets/img/kds-cocuk-drama.jpg" width="512" height="279" loading="lazy" decoding="async"/>
 </picture>
-<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
-<span class="absolute bottom-4 left-4 font-label-md text-label-md text-white tracking-widest bg-kds-yellow/90 text-zinc-900 px-3 py-1 rounded-full">ÇOCUK AKADEMİSİ</span>
+<div class="las-card-img-overlay"></div>
+<div class="las-card-arrow-btn">
+    <span class="material-symbols-outlined" style="font-size: 1.1rem; font-weight: bold;">arrow_forward</span>
 </div>
-<div class="p-8">
-<h3 class="font-headline-md text-headline-md text-zinc-900 mb-3">Çocuk Akademisi</h3>
-<p class="font-body-md text-body-md text-zinc-600 mb-4">Halk dansları ve Yaratıcı drama programlarıyla küçük yaştaki çocuklarda özgüven ve yaratıcılığı destekliyoruz.</p>
-<div class="pt-4 border-t border-outline-variant/20 text-[#FBC02D] font-label-md text-label-md link-arrow group-hover:underline underline-offset-4 transition-all">Programları Keşfet</div>
+</div>
+<div class="pt-4">
+<div class="las-card-meta mb-1">ÇOCUK &nbsp;|&nbsp; KDS</div>
+<h3 class="las-card-title text-lg" style="font-size: 1.2rem !important;">Çocuk Akademisi</h3>
 </div>
 </a>
+</div>
+</div>
 </div>
 </section>
 
 <!-- Testimonials Section -->
 <section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
 <div class="text-center mb-12">
-<h2 class="font-headline-lg text-headline-lg text-zinc-900 mb-4">Öğrencilerimiz Ne Diyor?</h2>
+<h2 id="testimonials-title" class="font-headline-lg text-headline-lg text-zinc-900 mb-4 min-h-[38px]">Öğrencilerimiz Ne Diyor?</h2>
 <p class="font-body-lg text-body-lg text-zinc-600 max-w-2xl mx-auto mb-4">Google üzerindeki gerçek öğrenci ve veli yorumlarımızdan bir seçki.</p>
-<a href="https://www.google.com/maps?cid=1158344855775406738" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-label-md text-label-md text-zinc-700 hover:text-kds-pink transition-colors">
+<a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="inline-flex items-center gap-2 font-label-md text-label-md text-zinc-700 hover:text-kds-pink transition-colors">
 <span class="text-kds-yellow tracking-widest">★★★★★</span>
 5,0 · Google'da 49 yorum · Tümünü görüntüle
 </a>
 </div>
 <div class="relative px-4">
+<button class="carousel-arrow carousel-arrow-left testimonial-prev" aria-label="Önceki Yorum">
+  <span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="carousel-arrow carousel-arrow-right testimonial-next" aria-label="Sonraki Yorum">
+  <span class="material-symbols-outlined">chevron_right</span>
+</button>
 <div class="testimonial-carousel">
-<div class="testimonial-card glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue card-glow">
-<p class="font-body-md text-body-md text-zinc-600 mb-4">"Bir süredir Okan Hocadan piyano dersi alıyorum ve çok memnunum. Dersler hem keyifli hem de verimli geçiyor. Anlatımı anlaşılır, sabırlı ve motive edici."</p>
-<p class="font-label-md text-label-md text-zinc-900 font-bold">Dr. Çağın Ünal</p>
-<p class="font-label-md text-label-md text-zinc-500">Piyano · Müzik Bölümü</p>
-</div>
-<div class="testimonial-card glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-blue card-glow">
-<p class="font-body-md text-body-md text-zinc-600 mb-4">"Darbuka ve bendir derslerine katıldım, gerçekten çok keyifli ve verimli bir süreçti. Özenir hocamın ilgisi, sabrı ve enerjisi sayesinde kendimi kısa sürede geliştirdiğimi hissettim."</p>
-<p class="font-label-md text-label-md text-zinc-900 font-bold">Melek Ulupınar</p>
-<p class="font-label-md text-label-md text-zinc-500">Darbuka ve Bendir · Müzik Bölümü</p>
-</div>
-<div class="testimonial-card glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink card-glow">
-<p class="font-body-md text-body-md text-zinc-600 mb-4">"Düğünümüz için giriş dansı ve zeybek eğitimi aldık. Her şey harikaydı. Daha önce hiçbir deneyimimiz olmamasına rağmen 4 saatte çok güzel bir performans ortaya çıkardık."</p>
-<p class="font-label-md text-label-md text-zinc-900 font-bold">Zeynep Karagöz</p>
-<p class="font-label-md text-label-md text-zinc-500">Düğün Dansı ve Zeybek · Dans Akademisi</p>
-</div>
-<div class="testimonial-card glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-pink card-glow">
-<p class="font-body-md text-body-md text-zinc-600 mb-4">"Oryantal ve Roman dans kursuna geliyorum ve her derste büyük bir keyifle katılıyorum. Ortamı temiz, nezih ve samimi. Hocamın enerjisi, ilgisi ve eğitim kalitesi gerçekten harika."</p>
-<p class="font-label-md text-label-md text-zinc-900 font-bold">Esra</p>
-<p class="font-label-md text-label-md text-zinc-500">Oryantal ve Roman · Dans Akademisi</p>
-</div>
-<div class="testimonial-card glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-[#FBC02D] card-glow">
-<p class="font-body-md text-body-md text-zinc-600 mb-4">"7 ve 9 yaşındaki iki kızım için drama derslerine katıldık ve iyi ki de başlamışız! Kızlarımın her ders gününü sabırsızlıkla beklemesi bizim için paha biçilmez."</p>
-<p class="font-label-md text-label-md text-zinc-900 font-bold">Faruk Tan</p>
-<p class="font-label-md text-label-md text-zinc-500">Yaratıcı Drama · Çocuk Akademisi</p>
-</div>
-<div class="testimonial-card glass-panel rounded-xl p-6 diffused-shadow border-t-4 border-kds-purple card-glow">
-<p class="font-body-md text-body-md text-zinc-600 mb-4">"Her biri kendi alanlarında çok iyi olan deneyimli ve profesyonel hocalar, sıcak ve samimi bir aile ortamı, her seviyeye hitap eden dersler ve sahne deneyimi. Çok severek gidiyorum ve gideceğim."</p>
-<p class="font-label-md text-label-md text-zinc-900 font-bold">Leyla Kurt</p>
-<p class="font-label-md text-label-md text-zinc-500">Google Yorumu</p>
-</div>
+      <!-- Card 1 -->
+      <a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="testimonial-card block cursor-pointer bg-white border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:no-underline flex flex-col justify-between min-h-[220px]">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Circle -->
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white" style="background-color: #4A8B9B;">
+                CÜ
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-zinc-900 leading-none">Dr. Çağın Ünal</h4>
+                <div class="flex items-center gap-1 mt-1.5">
+                  <span class="text-[#fbbc05] text-[11px] leading-none">★★★★★</span>
+                  <span class="text-[10px] text-zinc-400 font-medium leading-none">Yerel Rehber</span>
+                </div>
+              </div>
+            </div>
+            <!-- Google "G" Icon -->
+            <div class="opacity-90">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Quote content -->
+          <p class="text-zinc-600 text-sm leading-relaxed mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            "Bir süredir Okan Hocadan piyano dersi alıyorum ve çok memnunum. Dersler hem keyifli hem de verimli geçiyor. Anlatımı anlaşılır, sabırlı ve motive edici."
+          </p>
+        </div>
+        <!-- Footer info -->
+        <div class="border-t border-zinc-100 pt-3 flex items-center justify-between text-[11px] text-zinc-400">
+          <span class="font-medium">Piyano · Müzik Bölümü</span>
+          <span class="font-semibold" style="color: #6b7280 !important;"><span style="color: #4285F4 !important;">G</span><span style="color: #EA4335 !important;">o</span><span style="color: #FBBC05 !important;">o</span><span style="color: #4285F4 !important;">g</span><span style="color: #34A853 !important;">l</span><span style="color: #EA4335 !important;">e</span>'dan</span>
+        </div>
+      </a>
+
+      <!-- Card 2 -->
+      <a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="testimonial-card block cursor-pointer bg-white border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:no-underline flex flex-col justify-between min-h-[220px]">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Circle -->
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white" style="background-color: #4A8B9B;">
+                MU
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-zinc-900 leading-none">Melek Ulupınar</h4>
+                <div class="flex items-center gap-1 mt-1.5">
+                  <span class="text-[#fbbc05] text-[11px] leading-none">★★★★★</span>
+                  <span class="text-[10px] text-zinc-400 font-medium leading-none">Doğrulanmış Öğrenci</span>
+                </div>
+              </div>
+            </div>
+            <!-- Google "G" Icon -->
+            <div class="opacity-90">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Quote content -->
+          <p class="text-zinc-600 text-sm leading-relaxed mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            "Darbuka ve bendir derslerine katıldım, gerçekten çok keyifli ve verimli bir süreçti. Özenir hocamın ilgisi, sabrı ve enerjisi sayesinde kendimi kısa sürede geliştirdiğimi hissettim."
+          </p>
+        </div>
+        <!-- Footer info -->
+        <div class="border-t border-zinc-100 pt-3 flex items-center justify-between text-[11px] text-zinc-400">
+          <span class="font-medium">Darbuka ve Bendir · Müzik Bölümü</span>
+          <span class="font-semibold" style="color: #6b7280 !important;"><span style="color: #4285F4 !important;">G</span><span style="color: #EA4335 !important;">o</span><span style="color: #FBBC05 !important;">o</span><span style="color: #4285F4 !important;">g</span><span style="color: #34A853 !important;">l</span><span style="color: #EA4335 !important;">e</span>'dan</span>
+        </div>
+      </a>
+
+      <!-- Card 3 -->
+      <a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="testimonial-card block cursor-pointer bg-white border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:no-underline flex flex-col justify-between min-h-[220px]">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Circle -->
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white" style="background-color: #D85F68;">
+                ZK
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-zinc-900 leading-none">Zeynep Karagöz</h4>
+                <div class="flex items-center gap-1 mt-1.5">
+                  <span class="text-[#fbbc05] text-[11px] leading-none">★★★★★</span>
+                  <span class="text-[10px] text-zinc-400 font-medium leading-none">Doğrulanmış Veli</span>
+                </div>
+              </div>
+            </div>
+            <!-- Google "G" Icon -->
+            <div class="opacity-90">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Quote content -->
+          <p class="text-zinc-600 text-sm leading-relaxed mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            "Düğünümüz için giriş dansı ve zeybek eğitimi aldık. Her şey harikaydı. Daha önce hiçbir deneyimimiz olmamasına rağmen 4 saatte çok güzel bir performans ortaya çıkardık."
+          </p>
+        </div>
+        <!-- Footer info -->
+        <div class="border-t border-zinc-100 pt-3 flex items-center justify-between text-[11px] text-zinc-400">
+          <span class="font-medium">Düğün Dansı ve Zeybek · Dans Akademisi</span>
+          <span class="font-semibold" style="color: #6b7280 !important;"><span style="color: #4285F4 !important;">G</span><span style="color: #EA4335 !important;">o</span><span style="color: #FBBC05 !important;">o</span><span style="color: #4285F4 !important;">g</span><span style="color: #34A853 !important;">l</span><span style="color: #EA4335 !important;">e</span>'dan</span>
+        </div>
+      </a>
+
+      <!-- Card 4 -->
+      <a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="testimonial-card block cursor-pointer bg-white border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:no-underline flex flex-col justify-between min-h-[220px]">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Circle -->
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white" style="background-color: #D85F68;">
+                ES
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-zinc-900 leading-none">Esra</h4>
+                <div class="flex items-center gap-1 mt-1.5">
+                  <span class="text-[#fbbc05] text-[11px] leading-none">★★★★★</span>
+                  <span class="text-[10px] text-zinc-400 font-medium leading-none">Doğrulanmış Öğrenci</span>
+                </div>
+              </div>
+            </div>
+            <!-- Google "G" Icon -->
+            <div class="opacity-90">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Quote content -->
+          <p class="text-zinc-600 text-sm leading-relaxed mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            "Oryantal ve Roman dans kursuna geliyorum ve her derste büyük bir keyifle katılıyorum. Ortamı temiz, nezih ve samimi. Hocamın enerjisi, ilgisi ve eğitim kalitesi gerçekten harika."
+          </p>
+        </div>
+        <!-- Footer info -->
+        <div class="border-t border-zinc-100 pt-3 flex items-center justify-between text-[11px] text-zinc-400">
+          <span class="font-medium">Oryantal ve Roman · Dans Akademisi</span>
+          <span class="font-semibold" style="color: #6b7280 !important;"><span style="color: #4285F4 !important;">G</span><span style="color: #EA4335 !important;">o</span><span style="color: #FBBC05 !important;">o</span><span style="color: #4285F4 !important;">g</span><span style="color: #34A853 !important;">l</span><span style="color: #EA4335 !important;">e</span>'dan</span>
+        </div>
+      </a>
+
+      <!-- Card 5 -->
+      <a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="testimonial-card block cursor-pointer bg-white border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:no-underline flex flex-col justify-between min-h-[220px]">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Circle -->
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white" style="background-color: #e07a5f;">
+                FT
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-zinc-900 leading-none">Faruk Tan</h4>
+                <div class="flex items-center gap-1 mt-1.5">
+                  <span class="text-[#fbbc05] text-[11px] leading-none">★★★★★</span>
+                  <span class="text-[10px] text-zinc-400 font-medium leading-none">Yerel Rehber</span>
+                </div>
+              </div>
+            </div>
+            <!-- Google "G" Icon -->
+            <div class="opacity-90">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Quote content -->
+          <p class="text-zinc-600 text-sm leading-relaxed mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            "7 ve 9 yaşındaki iki kızım için drama derslerine katıldık ve iyi ki de başlamışız! Kızlarımın her ders gününü sabırsızlıkla beklemesi bizim için paha biçilmez."
+          </p>
+        </div>
+        <!-- Footer info -->
+        <div class="border-t border-zinc-100 pt-3 flex items-center justify-between text-[11px] text-zinc-400">
+          <span class="font-medium">Yaratıcı Drama · Çocuk Akademisi</span>
+          <span class="font-semibold" style="color: #6b7280 !important;"><span style="color: #4285F4 !important;">G</span><span style="color: #EA4335 !important;">o</span><span style="color: #FBBC05 !important;">o</span><span style="color: #4285F4 !important;">g</span><span style="color: #34A853 !important;">l</span><span style="color: #EA4335 !important;">e</span>'dan</span>
+        </div>
+      </a>
+
+      <!-- Card 6 -->
+      <a href="https://www.google.com/maps/place/Konya+Dans+Ve+Sanat+Akademi/@37.8873425,32.5005011,17z/data=!3m1!4b1!4m6!3m5!1s0x14d085f504d66749:0x1013448257e4ea92!8m2!3d37.8873425!4d32.5005011!16s%2Fg%2F11w4csw942?entry=ttu&g_ep=EgoyMDI2MDcwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="testimonial-card block cursor-pointer bg-white border border-zinc-100 rounded-2xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:scale-[1.01] hover:no-underline flex flex-col justify-between min-h-[220px]">
+        <div>
+          <!-- Card Header -->
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <!-- Avatar Circle -->
+              <div class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm text-white" style="background-color: #836096;">
+                LK
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-zinc-900 leading-none">Leyla Kurt</h4>
+                <div class="flex items-center gap-1 mt-1.5">
+                  <span class="text-[#fbbc05] text-[11px] leading-none">★★★★★</span>
+                  <span class="text-[10px] text-zinc-400 font-medium leading-none">Yerel Rehber</span>
+                </div>
+              </div>
+            </div>
+            <!-- Google "G" Icon -->
+            <div class="opacity-90">
+              <svg class="w-4 h-4" viewBox="0 0 24 24">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+            </div>
+          </div>
+          <!-- Quote content -->
+          <p class="text-zinc-600 text-sm leading-relaxed mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+            "Her biri kendi alanlarında çok iyi olan deneyimli ve profesyonel hocalar, sıcak ve samimi bir aile ortamı, her seviyeye hitap eden dersler ve sahne deneyimi. Çok severek gidiyorum ve gideceğim."
+          </p>
+        </div>
+        <!-- Footer info -->
+        <div class="border-t border-zinc-100 pt-3 flex items-center justify-between text-[11px] text-zinc-400">
+          <span class="font-medium">Tiyatro · Sahne Sanatları</span>
+          <span class="font-semibold" style="color: #6b7280 !important;"><span style="color: #4285F4 !important;">G</span><span style="color: #EA4335 !important;">o</span><span style="color: #FBBC05 !important;">o</span><span style="color: #4285F4 !important;">g</span><span style="color: #34A853 !important;">l</span><span style="color: #EA4335 !important;">e</span>'dan</span>
+        </div>
+      </a>
 </div>
 <div class="carousel-dots">
 <button class="carousel-dot active" aria-label="Yorum 1"></button>
@@ -255,30 +503,70 @@
 </section>
 
 <!-- Why KDS Section -->
-<section class="bg-zinc-900 py-section-gap">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="text-center mb-16">
-<h2 class="font-headline-lg text-headline-lg text-white mb-4">Neden KDS Akademi?</h2>
-<p class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto">Sanat eğitiminde kaliteyi ve tutarlılığı ön planda tutuyoruz.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div class="text-center px-6">
-<span class="inline-flex items-center justify-center w-14 h-14 rounded-full border border-kds-pink/40 text-kds-pink font-headline-md text-headline-md mb-4">01</span>
-<h3 class="font-headline-md text-headline-md text-white mb-3">Alanında Uzman Eğitmenler</h3>
-<p class="font-body-md text-body-md text-surface-variant/70">Her departmanda deneyimli, alanında profesyonel eğitmenlerle çalışıyoruz.</p>
-</div>
-<div class="text-center px-6">
-<span class="inline-flex items-center justify-center w-14 h-14 rounded-full border border-kds-blue/40 text-kds-blue font-headline-md text-headline-md mb-4">02</span>
-<h3 class="font-headline-md text-headline-md text-white mb-3">Her Yaşa Uygun Programlar</h3>
-<p class="font-body-md text-body-md text-surface-variant/70">Çocuklardan yetişkinlere, başlangıç seviyesinden ileri seviyeye kadar herkes için program.</p>
-</div>
-<div class="text-center px-6">
-<span class="inline-flex items-center justify-center w-14 h-14 rounded-full border border-kds-orange/40 text-kds-orange font-headline-md text-headline-md mb-4">03</span>
-<h3 class="font-headline-md text-headline-md text-white mb-3">Sahne Deneyimi</h3>
-<p class="font-body-md text-body-md text-surface-variant/70">Düzenli gösteri ve etkinliklerle öğrendiklerini gerçek sahnede uygulama fırsatı.</p>
-</div>
-</div>
-</div>
+<section class="why-kds-section">
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <!-- Header with clean contrast -->
+    <div class="text-center mb-16">
+      <h2 class="why-kds-title">Neden KDS Akademi?</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-kds-pink via-kds-blue to-kds-orange mx-auto mb-6 rounded-full"></div>
+      <p class="why-kds-subtitle">
+        Sanat eğitiminde Konya'nın en kapsamlı ve en donanımlı eğitim vizyonunu sunuyoruz.
+      </p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="why-kds-grid">
+      
+      <!-- Card 1 -->
+      <div class="why-kds-card card-pink">
+        <div>
+          <!-- Number badge -->
+          <div class="why-kds-card-number">01</div>
+          <h3 class="why-kds-card-title">Alanında Uzman Eğitmenler</h3>
+          <p class="why-kds-card-text">
+            Her departmanda akademik kariyerli, konservatuvar mezunu ve pedagojik yaklaşıma sahip profesyonel eğitmen kadrosuyla çalışıyoruz.
+          </p>
+        </div>
+        <div class="why-kds-card-btn">
+          <span>Detayları Gör</span>
+          <span class="material-symbols-outlined text-sm">trending_flat</span>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="why-kds-card card-blue">
+        <div>
+          <!-- Number badge -->
+          <div class="why-kds-card-number">02</div>
+          <h3 class="why-kds-card-title">Her Yaşa Uygun Programlar</h3>
+          <p class="why-kds-card-text">
+            Çocuklardan yetişkinlere, hobi kurslarından akademik hazırlık ve sertifika programlarına kadar her yaştan sanatsevere kapımız açık.
+          </p>
+        </div>
+        <div class="why-kds-card-btn">
+          <span>Detayları Gör</span>
+          <span class="material-symbols-outlined text-sm">trending_flat</span>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="why-kds-card card-orange">
+        <div>
+          <!-- Number badge -->
+          <div class="why-kds-card-number">03</div>
+          <h3 class="why-kds-card-title">Sahne Deneyimi</h3>
+          <p class="why-kds-card-text">
+            Öğrencilerimize öğrendiklerini sadece sınıfta bırakmayıp, gerçek profesyonel tiyatro sahnelerinde, resitallerde ve gala konserlerinde uygulama heyecanını yaşatıyoruz.
+          </p>
+        </div>
+        <div class="why-kds-card-btn">
+          <span>Detayları Gör</span>
+          <span class="material-symbols-outlined text-sm">trending_flat</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
 
 <!-- Features / Performance Section -->
