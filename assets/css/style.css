@@ -171,6 +171,54 @@ html {
     border-radius: 0.75rem;
 }
 
+/* Kayit (registration) wizard: step indicator */
+.step-indicator-dot {
+    border-color: #c8c5cb;
+    color: #77767b;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+.step-indicator-dot--active {
+    border-color: #E91E63;
+    color: #E91E63;
+}
+.step-indicator-dot--done {
+    border-color: #E91E63;
+    background-color: #E91E63;
+    color: #ffffff;
+}
+.step-indicator-line {
+    background-color: #c8c5cb;
+    transition: background-color 0.3s ease;
+}
+.step-indicator-line--done {
+    background-color: #E91E63;
+}
+
+/* Kayit wizard: age group radio pills */
+.age-group-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(200, 197, 203, 0.5);
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #47464b;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.age-group-pill:hover {
+    border-color: #E91E63;
+    color: #E91E63;
+}
+.age-group-pill--active {
+    background-color: #18181b;
+    border-color: #18181b;
+    color: #ffffff;
+}
+
 /* Accessibility: skip-to-content link */
 .skip-link {
     position: absolute;
