@@ -379,60 +379,60 @@ document.addEventListener('DOMContentLoaded', function () {
                 applyCourseFilters();
             });
         });
+    }
 
-        // Tab switching event binding
-        document.querySelectorAll('.course-tab-btn').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var deptId = btn.getAttribute('data-dept-id');
-                var targetId = btn.getAttribute('data-course-id');
-                var section = document.getElementById(deptId);
-                if (!section) return;
+    // Tab switching event binding (independent of the category/age filter bar above)
+    document.querySelectorAll('.course-tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var deptId = btn.getAttribute('data-dept-id');
+            var targetId = btn.getAttribute('data-course-id');
+            var section = document.getElementById(deptId);
+            if (!section) return;
 
-                // Deactivate all buttons in this section
-                section.querySelectorAll('.course-tab-btn').forEach(function(b) {
-                    b.classList.remove('active', 'bg-zinc-900', 'text-white', 'border-kds-blue', 'border-kds-pink', 'border-kds-purple', 'border-kds-orange', 'border-kds-yellow', 'shadow-[0_0_15px_rgba(255,255,255,0.05)]');
-                    b.classList.add('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
-                });
-
-                // Hide all panels
-                section.querySelectorAll('.course-tab-panel').forEach(function(p) {
-                    p.classList.add('hidden', 'opacity-0', 'scale-95');
-                    p.classList.remove('block', 'opacity-100', 'scale-100');
-                });
-
-                // Activate selected button
-                btn.classList.add('active', 'bg-zinc-900', 'text-white');
-                btn.classList.remove('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
-                
-                // Choose active border color based on category
-                var borderClass = 'border-kds-blue';
-                if (deptId === 'dans') borderClass = 'border-kds-pink';
-                if (deptId === 'tiyatro') borderClass = 'border-kds-purple';
-                if (deptId === 'resim') borderClass = 'border-kds-orange';
-                if (deptId === 'cocuk') borderClass = 'border-kds-yellow';
-                
-                btn.classList.add(borderClass);
-
-                // Show selected panel
-                var panel = document.getElementById(targetId);
-                if (panel) {
-                    panel.classList.remove('hidden');
-                    setTimeout(function() {
-                        panel.classList.add('block', 'opacity-100', 'scale-100');
-                        panel.classList.remove('opacity-0', 'scale-95');
-                    }, 50);
-                }
+            // Deactivate all buttons in this section
+            section.querySelectorAll('.course-tab-btn').forEach(function(b) {
+                b.classList.remove('active', 'bg-zinc-900', 'text-white', 'border-kds-blue', 'border-kds-pink', 'border-kds-purple', 'border-kds-orange', 'border-kds-yellow', 'shadow-[0_0_15px_rgba(255,255,255,0.05)]');
+                b.classList.add('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
             });
-        });
 
-        // Initialize tabs by clicking first button of each section
-        document.querySelectorAll('.dept-section').forEach(function(section) {
-            var firstBtn = section.querySelector('.course-tab-btn');
-            if (firstBtn) {
-                firstBtn.click();
+            // Hide all panels
+            section.querySelectorAll('.course-tab-panel').forEach(function(p) {
+                p.classList.add('hidden', 'opacity-0', 'scale-95');
+                p.classList.remove('block', 'opacity-100', 'scale-100');
+            });
+
+            // Activate selected button
+            btn.classList.add('active', 'bg-zinc-900', 'text-white');
+            btn.classList.remove('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
+
+            // Choose active border color based on category
+            var borderClass = 'border-kds-blue';
+            if (deptId === 'dans') borderClass = 'border-kds-pink';
+            if (deptId === 'tiyatro') borderClass = 'border-kds-purple';
+            if (deptId === 'resim') borderClass = 'border-kds-orange';
+            if (deptId === 'cocuk') borderClass = 'border-kds-yellow';
+
+            btn.classList.add(borderClass);
+
+            // Show selected panel
+            var panel = document.getElementById(targetId);
+            if (panel) {
+                panel.classList.remove('hidden');
+                setTimeout(function() {
+                    panel.classList.add('block', 'opacity-100', 'scale-100');
+                    panel.classList.remove('opacity-0', 'scale-95');
+                }, 50);
             }
         });
-    }
+    });
+
+    // Initialize tabs by clicking first button of each section
+    document.querySelectorAll('.dept-section').forEach(function(section) {
+        var firstBtn = section.querySelector('.course-tab-btn');
+        if (firstBtn) {
+            firstBtn.click();
+        }
+    });
 
     /* ==============================
        Gallery Filters
