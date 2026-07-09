@@ -67,12 +67,15 @@ picture {
     display: block;
 }
 
-/* Ensure every element falls back to the local SF Pro Display font, even without an explicit font-* utility class */
-html {
-    font-family: 'SF Pro Display', sans-serif !important;
+/* Ensure every element falls back to the Outfit font, even without an explicit font-* utility class */
+html, body, button, input, select, textarea, p, a, li, label {
+    font-family: 'Outfit', sans-serif !important;
 }
-h1, h2, h3, .font-display-lg, .font-headline-lg, .font-headline-md {
-    font-family: 'SF Pro Display', sans-serif !important;
+h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, .font-headline-sm {
+    font-family: 'Outfit', sans-serif !important;
+}
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined' !important;
 }
 
 .glass-panel {
@@ -520,54 +523,179 @@ footer .pt-8 {
     box-shadow: 0 12px 40px -8px rgba(216, 95, 104, 0.18), 0 4px 20px -4px rgba(0, 0, 0, 0.08);
 }
 
-/* Testimonial Carousel */
-.testimonial-carousel {
+/* ==============================
+   KDS Stories Section (Testimonials carousel in dark theme)
+   ============================== */
+.kds-stories-section {
+    background-color: #1c1b1c;
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    min-height: 100vh;
     display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 1rem;
-    scrollbar-width: none;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    box-sizing: border-box;
 }
-.testimonial-carousel::-webkit-scrollbar {
-    display: none;
+
+.stories-custom-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    color: #FBBC05;
+    font-size: 26px;
+    text-shadow: 0 0 10px rgba(251, 188, 5, 0.7);
+    line-height: 1;
+    display: block;
 }
-.testimonial-carousel > * {
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    width: 320px;
-}
-@media (min-width: 768px) {
-    .testimonial-carousel > * {
-        width: 360px;
+
+/* Hide default cursor on desktop when inside testimonials section */
+@media (min-width: 1024px) {
+    .kds-stories-section,
+    .kds-stories-section * {
+        cursor: none !important;
     }
 }
 
-/* Carousel Dots */
-.carousel-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 1.5rem;
-}
-.carousel-dot {
-    width: 10px;
-    height: 10px;
+
+.stories-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: #c8c5cb;
+    background-color: #ffffff !important;
+    color: #27272a !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(228, 228, 231, 0.8);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stories-arrow-btn span {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.stories-arrow-btn:hover {
+    background-color: #8B263E !important;
+    color: #ffffff !important;
+    border-color: #8B263E !important;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.stories-arrow-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.stories-prev-btn {
+    left: 12px;
+}
+
+.stories-next-btn {
+    right: 12px;
+}
+
+/* Force container padding for absolute buttons to sit within */
+.kds-stories-section .lg\:col-span-8 {
+    padding-left: 56px !important;
+    padding-right: 56px !important;
+}
+
+@media (max-width: 1023px) {
+    .kds-stories-section .lg\:col-span-8 {
+        padding-left: 48px !important;
+        padding-right: 48px !important;
+        padding-top: 20px;
+    }
+}
+
+/* Ensure the grid doesn't overflow */
+.kds-stories-section .grid {
+    align-items: center;
+}
+
+.kds-stories-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
     border: none;
-    padding: 0;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease, width 0.3s ease;
+    padding: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.carousel-dot.active {
-    background: #E91E63;
-    transform: scale(1.15);
-    width: 24px;
-    border-radius: 5px;
+.kds-stories-dot.active {
+    background: #ffffff;
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
+
+#stories-slider-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Card Styles matching premium design */
+.kds-stories-card {
+    width: 320px;
+    height: 290px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.kds-stories-card:hover {
+    transform: translateY(-2px);
+}
+
+.kds-stories-card p {
+    color: #3f3f46; /* zinc-700 */
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+/* Limit card content height */
+.kds-stories-card > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kds-stories-card svg {
+    width: 18px !important;
+    height: 18px !important;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+@media (max-width: 1023px) {
+    .kds-stories-section {
+        min-height: auto;
+        padding: 40px 0;
+    }
+}
+
+
+
+
+
 
 /* Typewriter Cursor */
 .typewriter-cursor {
@@ -1029,38 +1157,71 @@ a[href*="#cocuk"]:hover {
     z-index: 2; /* Sit above overlay (z-index 1) but behind container (z-index 10) */
     top: 0;
     left: 0;
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 190px;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transform: scale(0.88);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .hero-follow-photo.is-active {
     opacity: 1;
+    transform: scale(1);
 }
 .hero-follow-photo img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 0.75rem;
     display: block;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.75);
+    transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 .hero-follow-label {
-    margin-top: 10px;
+    margin-top: 8px;
     color: rgba(255, 255, 255, 0.85);
     font-family: monospace;
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    transition: opacity 0.35s ease;
 }
+
+/* Mobile: fixed-center auto slideshow (no cursor tracking) */
 @media (max-width: 767px) {
-    .hero-follow-photo { display: none !important; }
+    .hero-follow-photo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -44%) scale(0.88);
+        width: 200px;
+        height: 250px;
+        opacity: 0;
+        transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .hero-follow-photo.is-active {
+        opacity: 1;
+        transform: translate(-50%, -44%) scale(1);
+    }
+    .hero-follow-photo img {
+        width: 200px;
+        height: 200px;
+        border-radius: 1rem;
+        box-shadow: 0 24px 48px -8px rgba(0, 0, 0, 0.85);
+    }
+    .hero-follow-label {
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
 }
 
 /* Hero Mouse Coordinate Lines (Crosshairs) */
@@ -1161,6 +1322,49 @@ a[href*="#cocuk"]:hover {
 }
 
 /* LAS Morphing Department Cards */
+/* ==============================
+   Departments Section - Full Viewport Height
+   ============================== */
+.dept-fullpage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.dept-cards-wrap {
+    width: 100%;
+}
+
+.dept-cards-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Desktop: kartlar yatay, viewport yüksekliğinin büyük bölümünü doldurur */
+@media (min-width: 1024px) {
+    .dept-cards-inner {
+        flex-direction: row;
+        height: calc(100vh - 280px);
+        min-height: 420px;
+        max-height: 680px;
+    }
+}
+
+/* Mobile & Tablet: kartlar dikey yığılır */
+@media (max-width: 1023px) {
+    .dept-cards-inner .accordion-item {
+        height: 110px !important;
+        min-height: 110px;
+        flex: none;
+    }
+}
+
+
 .reveal-card {
     opacity: 0;
     transform: translateX(-40px);
@@ -1571,7 +1775,12 @@ a[href*="#cocuk"]:hover {
     max-width: 420px;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
+    background-color: #F5F2EB;
+    border-radius: 32px;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.04), 0 20px 40px rgba(0, 0, 0, 0.03);
+    overflow: hidden;
 }
+
 .kds-sphere-canvas canvas {
     display: block;
     width: 100% !important;
@@ -1700,9 +1909,14 @@ a[href*="#cocuk"]:hover {
     background-color: rgba(0, 0, 0, 0.06) !important;
 }
 
-/* 5. Force local SF Pro Display Font Family Globally (Except Icons) */
+/* 5. Force Outfit Font Family Globally (Except Icons) */
 *:not(.material-symbols-outlined) {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-family: 'Outfit', sans-serif !important;
+}
+
+/* 5b. Force Ornate Serif Font on Headings */
+h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, .accordion-title {
+    font-family: 'Playfair Display', Georgia, serif !important;
 }
 
 /* 6. Force Curve Degree (Border Radius) to exactly 12px (0.75rem) everywhere (Except rounded-full circles) */
@@ -1716,6 +1930,452 @@ a[href*="#cocuk"]:hover {
     border-radius: 12px !important; /* Standalone cards and image wraps have exactly 12px radius */
 }
 
+/* 7. Hakkımızda Premium Hero Styles */
+.about-hero-section {
+    position: relative;
+    height: 100vh; /* Full screen height! */
+    display: flex;
+    align-items: center;
+    background-color: #121212;
+    box-sizing: border-box;
+}
 
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Soft dark overlay for reading text on the left, fades completely to clear on the right to show the piano keys */
+    background: linear-gradient(
+        to right,
+        rgba(18, 18, 16, 0.96) 0%,
+        rgba(18, 18, 16, 0.82) 40%,
+        rgba(18, 18, 16, 0.4) 70%,
+        rgba(18, 18, 16, 0.05) 100%
+    );
+}
 
+.about-hero-section img {
+    object-position: center 70% !important; /* Centers the crop directly on the black and white piano keys */
+}
+
+@media (max-width: 1023px) {
+    .about-hero-overlay {
+        background: rgba(18, 18, 16, 0.85); /* solid overlay on mobile */
+    }
+}
+
+.about-hero-tag {
+    display: block;
+    color: #C5A880; /* Elegant gold/bronze color */
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin-bottom: 24px;
+}
+
+.about-hero-title {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 32px;
+    letter-spacing: -0.02em;
+}
+
+@media (max-width: 767px) {
+    .about-hero-title {
+        font-size: 2.25rem;
+    }
+}
+
+.about-hero-body p {
+    color: rgba(255, 255, 255, 0.78); /* off-white readable body */
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+}
+
+.about-hero-body p:last-child {
+    margin-bottom: 0;
+}
+
+/* 8. Split Custom Typography (Outline + Italic Burgundy) */
+.text-outline-burgundy {
+    font-family: 'Outfit', sans-serif !important;
+    color: #1c1b1c !important;
+    -webkit-text-stroke: 0 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    display: block;
+}
+
+.text-italic-burgundy {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-style: italic !important;
+    color: #8B263E !important;
+    text-transform: lowercase !important;
+    font-weight: 400 !important;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .text-outline-burgundy {
+        font-size: 1.85rem;
+    }
+    .text-italic-burgundy {
+        font-size: 2.1rem;
+    }
+}
+
+/* 9. Curved Loop Marquee Styles */
+.curved-loop-jacket {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+.curved-loop-jacket:active {
+  cursor: grabbing;
+}
+
+.curved-loop-svg {
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+  aspect-ratio: 144 / 18;
+  overflow: visible;
+  display: block;
+  line-height: 1;
+}
+
+/* Custom text path segments styled cleanly */
+.text-outline-burgundy-marquee {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 4.8rem;
+  fill: #1c1b1c !important; /* solid charcoal for clean Turkish characters rendering */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-italic-burgundy-marquee {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: 5.2rem;
+  fill: #8B263E !important; /* deep burgundy */
+  text-transform: lowercase;
+}
+
+.text-gold-marquee {
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 4.5rem;
+  fill: #C5A880 !important; /* gold star */
+}
+
+@media (max-width: 767px) {
+  .text-outline-burgundy-marquee {
+    font-size: 2.2rem;
+  }
+  .text-italic-burgundy-marquee {
+    font-size: 2.4rem;
+  }
+  .text-gold-marquee {
+    font-size: 2rem;
+  }
+}
+
+/* Mission & Vision square cards */
+.mv-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.mv-card {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mv-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.mv-card--mission {
+  border: 1px solid rgba(216, 95, 104, 0.2);
+  background: linear-gradient(180deg, #FFF0F2 0%, #FFF9FA 60%, #FFFFFF 100%);
+}
+
+.mv-card--vision {
+  border: 1px solid rgba(74, 139, 155, 0.2);
+  background: linear-gradient(180deg, #E6F2F5 0%, #F4FAF9 60%, #FFFFFF 100%);
+}
+
+.mv-card-visual {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  height: 5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.mv-card-visual--mission {
+  background: linear-gradient(135deg, #D85F68 0%, #8B263E 100%);
+}
+
+.mv-card-visual--vision {
+  background: linear-gradient(135deg, #4A8B9B 0%, #2E4057 100%);
+}
+
+.mv-card-visual-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(24px);
+}
+
+.mv-card-visual-glow--tl {
+  width: 5rem;
+  height: 5rem;
+  top: -1.5rem;
+  left: -1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.mv-card-visual-glow--br {
+  width: 6rem;
+  height: 6rem;
+  bottom: -2rem;
+  right: -2rem;
+  background: rgba(0, 0, 0, 0.1);
+  filter: blur(32px);
+}
+
+.mv-card-icon {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 2.25rem;
+  opacity: 0.9;
+}
+
+.mv-card--mission .mv-card-icon {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.mv-card-content {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mv-card-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #8B263E;
+  margin-bottom: 0.35rem;
+}
+
+.mv-card-label--vision {
+  color: #4A8B9B;
+}
+
+.mv-card-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #18181b;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.mv-card-text {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: #52525b;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.mv-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  margin-top: auto;
+  border-top: 1px solid #f4f4f5;
+  flex-shrink: 0;
+}
+
+.mv-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.mv-card-link .material-symbols-outlined {
+  font-size: 1rem;
+}
+
+.mv-card-link--mission {
+  color: #8B263E;
+}
+
+.mv-card-link--mission:hover {
+  color: rgba(139, 38, 62, 0.8);
+}
+
+.mv-card-link--vision {
+  color: #4A8B9B;
+}
+
+.mv-card-link--vision:hover {
+  color: rgba(74, 139, 155, 0.8);
+}
+
+.mv-card-brand {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a1a1aa;
+}
+
+@media (max-width: 767px) {
+  .mv-cards-grid {
+    gap: 0.75rem;
+    max-width: 100%;
+  }
+
+  .mv-card {
+    padding: 0.85rem;
+    border-radius: 1.1rem;
+  }
+
+  .mv-card-visual {
+    height: 3.5rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .mv-card-icon {
+    font-size: 1.75rem;
+  }
+
+  .mv-card-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .mv-card-text {
+    font-size: 0.68rem;
+    line-height: 1.45;
+    -webkit-line-clamp: 4;
+  }
+
+  .mv-card-footer {
+    padding-top: 0.5rem;
+  }
+
+  .mv-card-link {
+    font-size: 0.75rem;
+  }
+
+  .mv-card-brand {
+    font-size: 0.5rem;
+  }
+}
+
+/* 10. Istanbul Modern Inspired Hanging Logo Styles */
+.navbar-las {
+    height: 80px !important;
+    background-color: transparent;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Ensure the inner wrapper handles height and overflow nicely */
+.navbar-las > div:first-child {
+    height: 100% !important;
+    overflow: visible !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Scrolled navbar container height */
+.navbar-las.nav-scrolled {
+    height: 60px !important;
+    background-color: rgba(9, 9, 11, 0.95) !important; /* Zinc 950 with glass blur */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* If it is the light navbar (like on Hakkimizda page) */
+.navbar-las-light {
+    background-color: rgba(253, 251, 247, 0.95) !important; /* Light cream */
+    border-bottom: 1px solid #e4e4e7 !important;
+}
+.navbar-las-light.nav-scrolled {
+    background-color: rgba(253, 251, 247, 0.98) !important;
+    border-bottom: 1px solid #e4e4e7 !important;
+}
+
+/* Logo container link - must allow overflow */
+.nav-logo-link {
+    position: relative;
+    overflow: visible !important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Logo image style at scroll = 0 (Large and hanging down) */
+.nav-logo-img {
+    width: 64px !important;
+    height: 64px !important;
+    border-radius: 0px !important; /* Make it a perfect clean square like Istanbul Modern logo! */
+    border: none !important;
+    transform: translateY(16px); /* Hangs down past the bottom line of the navbar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    z-index: 100;
+}
+
+/* Logo image style at scroll > 0 (Shrinks and aligns inside) */
+.nav-scrolled .nav-logo-img {
+    width: 40px !important;
+    height: 40px !important;
+    transform: translateY(0); /* Returns inside the navbar boundaries */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
 

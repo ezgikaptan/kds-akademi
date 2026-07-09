@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
        and displays dynamic photo descriptions in brackets.
        ============================== */
     var followPhoto = document.getElementById('hero-follow-photo');
-    if (followPhoto && window.matchMedia('(pointer: fine)').matches) {
+    if (followPhoto) {
         var heroEl = followPhoto.closest('.hero-las');
         if (heroEl) {
             var photoImg = followPhoto.querySelector('img');
@@ -48,28 +48,58 @@ document.addEventListener('DOMContentLoaded', function () {
             ];
             var photoIndex = 0;
 
-            setInterval(function () {
-                photoIndex = (photoIndex + 1) % PHOTOS.length;
+            var isMobile = window.matchMedia('(pointer: coarse)').matches ||
+                           window.matchMedia('(max-width: 767px)').matches;
+
+            /* Shared smooth photo swap function */
+            function swapPhoto(nextIndex) {
                 if (hasGsap && !prefersReducedMotion) {
                     gsap.to([photoImg, labelEl], {
                         opacity: 0,
-                        duration: 0.25,
+                        scale: 0.90,
+                        duration: 0.38,
+                        ease: 'power2.in',
                         onComplete: function () {
-                            photoImg.src = PHOTOS[photoIndex];
-                            if (labelEl) labelEl.textContent = LABELS[photoIndex];
-                            gsap.to([photoImg, labelEl], { opacity: 1, duration: 0.25 });
+                            photoImg.src = PHOTOS[nextIndex];
+                            if (labelEl) labelEl.textContent = LABELS[nextIndex];
+                            gsap.to([photoImg, labelEl], {
+                                opacity: 1,
+                                scale: 1,
+                                duration: 0.5,
+                                ease: 'power3.out'
+                            });
                         }
                     });
                 } else {
-                    photoImg.src = PHOTOS[photoIndex];
-                    if (labelEl) labelEl.textContent = LABELS[photoIndex];
+                    photoImg.style.transition = 'opacity 0.4s ease';
+                    photoImg.style.opacity = '0';
+                    if (labelEl) { labelEl.style.transition = 'opacity 0.4s ease'; labelEl.style.opacity = '0'; }
+                    setTimeout(function () {
+                        photoImg.src = PHOTOS[nextIndex];
+                        if (labelEl) labelEl.textContent = LABELS[nextIndex];
+                        photoImg.style.opacity = '1';
+                        if (labelEl) labelEl.style.opacity = '1';
+                    }, 420);
                 }
-            }, 1800);
+            }
 
-            if (hasGsap && !prefersReducedMotion) {
+            /* Auto-cycle interval: 2s on mobile, 2.2s on desktop */
+            var cycleInterval = isMobile ? 2000 : 2200;
+            setInterval(function () {
+                photoIndex = (photoIndex + 1) % PHOTOS.length;
+                swapPhoto(photoIndex);
+            }, cycleInterval);
+
+            /* Mobile: show slideshow immediately, centered in hero */
+            if (isMobile) {
+                followPhoto.classList.add('is-active');
+            }
+
+            /* Desktop: cursor-follow behaviour */
+            if (!isMobile && hasGsap && !prefersReducedMotion) {
                 var followX = gsap.quickTo(followPhoto, 'x', { duration: 0.45, ease: 'power3' });
                 var followY = gsap.quickTo(followPhoto, 'y', { duration: 0.45, ease: 'power3' });
-                
+
                 var lineX = crosshairV ? gsap.quickTo(crosshairV, 'left', { duration: 0.45, ease: 'power3' }) : null;
                 var lineY = crosshairH ? gsap.quickTo(crosshairH, 'top', { duration: 0.45, ease: 'power3' }) : null;
 
@@ -80,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     followX(mouseX - followPhoto.offsetWidth / 2);
                     followY(mouseY - followPhoto.offsetHeight / 2);
-                    
+
                     if (lineX) lineX(mouseX);
                     if (lineY) lineY(mouseY);
 
@@ -97,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     }
+
 
     /* ==============================
        Line reveal: masked slide-up text (hero + page headlines)

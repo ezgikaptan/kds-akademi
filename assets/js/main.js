@@ -792,3 +792,215 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+/* ==============================
+   KDS Stories Carousel Slider JS
+   ============================== */
+(function () {
+    var track = document.getElementById('stories-slider-track');
+    var dotsContainer = document.getElementById('stories-dots');
+    if (!track || !dotsContainer) return;
+
+    var cards = track.children;
+    var totalCards = cards.length;
+    var currentIdx = 0;
+    var autoPlayTimer = null;
+    var autoPlayDelay = 5000; // Auto play every 5 seconds
+
+    // Build dots dynamically based on screen width
+    function rebuildDots() {
+        dotsContainer.innerHTML = '';
+        var isDesktop = window.innerWidth >= 1024;
+        // On desktop we display 2 cards at a time, so we exclude the last two dots to avoid sliding into empty space
+        var dotsCount = isDesktop ? (totalCards - 2) : totalCards;
+        
+        for (var i = 0; i < dotsCount; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'kds-stories-dot' + (i === currentIdx ? ' active' : '');
+            dot.setAttribute('aria-label', 'Yorum slaytı ' + (i + 1));
+            (function (idx) {
+                dot.addEventListener('click', function () {
+                    goToSlide(idx);
+                    resetAutoPlay();
+                });
+            })(i);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function getTranslateAmount(idx) {
+        if (totalCards === 0) return 0;
+        var firstCard = cards[0];
+        var cardWidth = firstCard.offsetWidth;
+        var style = window.getComputedStyle(track);
+        var gap = parseInt(style.columnGap || style.gap) || 20;
+        return idx * (cardWidth + gap);
+    }
+
+    function goToSlide(idx) {
+        var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+        if (idx > maxIdx) idx = maxIdx;
+        if (idx < 0) idx = 0;
+        currentIdx = idx;
+
+        var translateVal = getTranslateAmount(currentIdx);
+        track.style.transform = 'translateX(-' + translateVal + 'px)';
+
+        var dots = dotsContainer.children;
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle('active', i === currentIdx);
+        }
+    }
+
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(function () {
+            var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+            var next = currentIdx + 1;
+            if (next > maxIdx) {
+                next = 0;
+            }
+            goToSlide(next);
+        }, autoPlayDelay);
+    }
+
+    function resetAutoPlay() {
+        clearInterval(autoPlayTimer);
+        startAutoPlay();
+    }
+
+    // Arrows Navigation
+    var prevBtn = document.getElementById('stories-prev');
+    var nextBtn = document.getElementById('stories-next');
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+            var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+            var prev = currentIdx - 1;
+            if (prev < 0) prev = maxIdx;
+            goToSlide(prev);
+            resetAutoPlay();
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+            var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+            var next = currentIdx + 1;
+            if (next > maxIdx) next = 0;
+            goToSlide(next);
+            resetAutoPlay();
+        });
+    }
+
+    // Custom Star Cursor Follower
+    var cursor = document.getElementById('stories-cursor');
+    var section = document.getElementById('yorumlar');
+    if (cursor && section) {
+        section.addEventListener('mouseenter', function () {
+            cursor.style.opacity = '1';
+        });
+        section.addEventListener('mousemove', function (e) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+        section.addEventListener('mouseleave', function () {
+            cursor.style.opacity = '0';
+        });
+    }
+
+    // Drag-to-slide & Swipe functionality
+    var isDragging = false;
+    var startX = 0;
+    var prevTranslate = 0;
+
+    track.addEventListener('mousedown', dragStart);
+    track.addEventListener('touchstart', dragStart, { passive: true });
+    
+    window.addEventListener('mouseup', dragEnd);
+    window.addEventListener('touchend', dragEnd);
+    window.addEventListener('mousemove', dragAction);
+    window.addEventListener('touchmove', dragAction, { passive: true });
+
+    function getPositionX(event) {
+        return event.type.includes('touch') ? event.touches[0].clientX : event.clientX;
+    }
+
+    function dragStart(event) {
+        // Only trigger drag if clicking slider track or card
+        var isClickable = event.target.closest('a, button');
+        if (isClickable) return;
+
+        isDragging = true;
+        startX = getPositionX(event);
+        clearInterval(autoPlayTimer);
+        
+        track.style.transition = 'none';
+        prevTranslate = -getTranslateAmount(currentIdx);
+    }
+
+    function dragAction(event) {
+        if (!isDragging) return;
+        var currentX = getPositionX(event);
+        var currentTranslate = prevTranslate + (currentX - startX);
+        
+        // Limits & elasticity
+        var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+        var maxTranslate = 0;
+        var minTranslate = -getTranslateAmount(maxIdx);
+        
+        if (currentTranslate > maxTranslate) {
+            currentTranslate = maxTranslate + (currentTranslate - maxTranslate) * 0.3;
+        } else if (currentTranslate < minTranslate) {
+            currentTranslate = minTranslate + (currentTranslate - minTranslate) * 0.3;
+        }
+        
+        track.style.transform = 'translateX(' + currentTranslate + 'px)';
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        track.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        
+        var finalTranslate = getTranslateX(track);
+        var firstCard = cards[0];
+        var cardWidth = firstCard.offsetWidth;
+        var style = window.getComputedStyle(track);
+        var gap = parseInt(style.columnGap || style.gap) || 20;
+        var step = cardWidth + gap;
+        
+        var targetIdx = Math.round(-finalTranslate / step);
+        var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+        
+        if (targetIdx < 0) targetIdx = 0;
+        if (targetIdx > maxIdx) targetIdx = maxIdx;
+        
+        goToSlide(targetIdx);
+        startAutoPlay();
+    }
+
+    function getTranslateX(el) {
+        var style = window.getComputedStyle(el);
+        var transform = style.transform || style.webkitTransform;
+        if (!transform || transform === 'none') return 0;
+        var matrix = transform.match(/^matrix3d\((.+)\)$/);
+        if (matrix) return parseFloat(matrix[1].split(', ')[12]);
+        matrix = transform.match(/^matrix\((.+)\)$/);
+        if (matrix) return parseFloat(matrix[1].split(', ')[4]);
+        return 0;
+    }
+
+    // Initialize
+    rebuildDots();
+    goToSlide(0);
+    startAutoPlay();
+
+    window.addEventListener('resize', function () {
+        rebuildDots();
+        goToSlide(currentIdx);
+    });
+})();
+
+
+
+
+
+
