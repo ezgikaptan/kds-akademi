@@ -54,29 +54,23 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==============================
-       Custom cursor - fine pointer (desktop) only
+       Hero floating photo card: directly follows the cursor
        ============================== */
-    if (hasGsap && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
-        var cursorDot = document.createElement('div');
-        cursorDot.className = 'custom-cursor';
-        document.body.appendChild(cursorDot);
-        document.documentElement.classList.add('has-custom-cursor');
+    var heroFloatCard = document.querySelector('.hero-float-card');
+    if (heroFloatCard) {
+        var heroEl = heroFloatCard.closest('.hero-las') || heroFloatCard.parentElement;
+        var cardOffsetX = 28;  // keep the card just to the right of the pointer...
+        var cardOffsetY = -120; // ...and above it, so the cursor is never hidden underneath
 
-        var moveX = gsap.quickTo(cursorDot, 'x', { duration: 0.35, ease: 'power3' });
-        var moveY = gsap.quickTo(cursorDot, 'y', { duration: 0.35, ease: 'power3' });
+        if (hasGsap && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+            var followX = gsap.quickTo(heroFloatCard, 'x', { duration: 0.5, ease: 'power3' });
+            var followY = gsap.quickTo(heroFloatCard, 'y', { duration: 0.5, ease: 'power3' });
 
-        window.addEventListener('mousemove', function (e) {
-            moveX(e.clientX);
-            moveY(e.clientY);
-        });
-
-        var interactiveSelector = 'a, button, .course-tab-btn, input, textarea, select, .filter-pill, .age-group-pill';
-        document.addEventListener('mouseover', function (e) {
-            if (e.target.closest(interactiveSelector)) cursorDot.classList.add('custom-cursor--active');
-        });
-        document.addEventListener('mouseout', function (e) {
-            if (e.target.closest(interactiveSelector)) cursorDot.classList.remove('custom-cursor--active');
-        });
+            heroEl.addEventListener('mousemove', function (e) {
+                followX(e.clientX + cardOffsetX);
+                followY(e.clientY + cardOffsetY);
+            });
+        }
     }
 
     /* ==============================

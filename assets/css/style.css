@@ -1045,16 +1045,19 @@ a[href*="#cocuk"]:hover {
 
 /* Hero floating photo callout */
 .hero-float-card {
-    position: absolute;
-    z-index: 2;
-    top: 20%;
-    left: 68%;
-    transform: translateX(-50%);
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
     width: 160px;
     text-align: center;
+    pointer-events: none;
+    will-change: transform;
+    transform: translate(62vw, 18vh);
+    transition: transform 0.6s ease;
 }
 @media (max-width: 1023px) {
-    .hero-float-card { left: 50%; width: 120px; }
+    .hero-float-card { width: 120px; }
 }
 .hero-float-card img {
     width: 100%;
@@ -1091,35 +1094,6 @@ a[href*="#cocuk"]:hover {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.65);
-}
-
-/* Custom cursor (desktop / fine-pointer devices only, added by motion.js) */
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 22px;
-    height: 22px;
-    margin-left: -11px;
-    margin-top: -11px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(233, 30, 99, 0.75);
-    pointer-events: none;
-    z-index: 9998;
-    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
-    mix-blend-mode: difference;
-}
-.custom-cursor--active {
-    width: 46px;
-    height: 46px;
-    margin-left: -23px;
-    margin-top: -23px;
-    background-color: rgba(233, 30, 99, 0.18);
-}
-html.has-custom-cursor,
-html.has-custom-cursor a,
-html.has-custom-cursor button {
-    cursor: none;
 }
 
 /* Line-reveal: masked slide-up text lines (hero/heading entrance), driven by motion.js */
