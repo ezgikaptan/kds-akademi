@@ -1,5 +1,5 @@
 /*
- * Real animation-library layer (GSAP + ScrollTrigger + Lenis), loaded via CDN.
+ * Real animation-library layer (GSAP + ScrollTrigger), loaded via CDN.
  * Everything here is additive to main.js - if a library fails to load
  * (offline, blocked CDN), each block guards itself and the site still works
  * with main.js's existing IntersectionObserver-based reveal system.
@@ -11,66 +11,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var hasGsap = typeof gsap !== 'undefined';
     var hasScrollTrigger = hasGsap && typeof ScrollTrigger !== 'undefined';
-    var hasLenis = typeof Lenis !== 'undefined';
 
     if (hasGsap && hasScrollTrigger) {
         gsap.registerPlugin(ScrollTrigger);
-    }
-
-    /* ==============================
-       Lenis smooth scroll
-       ============================== */
-    var lenis = null;
-    if (hasLenis && !prefersReducedMotion) {
-        lenis = new Lenis({
-            duration: 1.05,
-            easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-            smoothWheel: true
-        });
-
-        var lenisRaf = function (time) {
-            lenis.raf(time);
-            requestAnimationFrame(lenisRaf);
-        };
-        requestAnimationFrame(lenisRaf);
-
-        if (hasGsap && hasScrollTrigger) {
-            lenis.on('scroll', ScrollTrigger.update);
-            gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
-            gsap.ticker.lagSmoothing(0);
-        }
-
-        // Smooth in-page anchor scrolling (nav links, "back to top", section jumps)
-        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                var hash = link.getAttribute('href');
-                if (hash.length < 2) return;
-                var target = document.querySelector(hash);
-                if (!target) return;
-                e.preventDefault();
-                lenis.scrollTo(target, { offset: -90 });
-            });
-        });
-    }
-
-    /* ==============================
-       Hero floating photo card: directly follows the cursor
-       ============================== */
-    var heroFloatCard = document.querySelector('.hero-float-card');
-    if (heroFloatCard) {
-        var heroEl = heroFloatCard.closest('.hero-las') || heroFloatCard.parentElement;
-        var cardOffsetX = 28;  // keep the card just to the right of the pointer...
-        var cardOffsetY = -120; // ...and above it, so the cursor is never hidden underneath
-
-        if (hasGsap && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
-            var followX = gsap.quickTo(heroFloatCard, 'x', { duration: 0.5, ease: 'power3' });
-            var followY = gsap.quickTo(heroFloatCard, 'y', { duration: 0.5, ease: 'power3' });
-
-            heroEl.addEventListener('mousemove', function (e) {
-                followX(e.clientX + cardOffsetX);
-                followY(e.clientY + cardOffsetY);
-            });
-        }
     }
 
     /* ==============================
