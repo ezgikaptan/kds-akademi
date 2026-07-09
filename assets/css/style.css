@@ -1093,6 +1093,45 @@ a[href*="#cocuk"]:hover {
     color: rgba(255, 255, 255, 0.65);
 }
 
+/* Custom cursor (desktop / fine-pointer devices only, added by motion.js) */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 22px;
+    height: 22px;
+    margin-left: -11px;
+    margin-top: -11px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(233, 30, 99, 0.75);
+    pointer-events: none;
+    z-index: 9998;
+    transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    mix-blend-mode: difference;
+}
+.custom-cursor--active {
+    width: 46px;
+    height: 46px;
+    margin-left: -23px;
+    margin-top: -23px;
+    background-color: rgba(233, 30, 99, 0.18);
+}
+html.has-custom-cursor,
+html.has-custom-cursor a,
+html.has-custom-cursor button {
+    cursor: none;
+}
+
+/* Line-reveal: masked slide-up text lines (hero/heading entrance), driven by motion.js */
+.line-reveal-inner {
+    display: block;
+    overflow: hidden;
+}
+.line-reveal-line {
+    display: block;
+    will-change: transform;
+}
+
 .newsletter-prompt {
     display: inline-flex;
     align-items: center;
