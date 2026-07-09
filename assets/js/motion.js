@@ -17,6 +17,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==============================
+       Hero cursor-follow photo: tracks the pointer, cycles through
+       real photos, and is clipped by the hero's own overflow:hidden
+       (position:absolute inside .hero-las, never position:fixed) so
+       it can never visually escape the black hero area.
+       ============================== */
+    var followPhoto = document.getElementById('hero-follow-photo');
+    if (followPhoto && window.matchMedia('(pointer: fine)').matches) {
+        var heroEl = followPhoto.closest('.hero-las');
+        if (heroEl) {
+            var photoImg = followPhoto.querySelector('img');
+            var PHOTOS = [
+                'assets/img/kurs-piyano.jpg',
+                'assets/img/kurs-oryantal.jpg',
+                'assets/img/kurs-tiyatro.jpg',
+                'assets/img/kurs-resim.jpg',
+                'assets/img/kurs-baglama.jpg',
+                'assets/img/kurs-salsa.jpg'
+            ];
+            var photoIndex = 0;
+            setInterval(function () {
+                photoIndex = (photoIndex + 1) % PHOTOS.length;
+                if (hasGsap && !prefersReducedMotion) {
+                    gsap.to(photoImg, {
+                        opacity: 0,
+                        duration: 0.25,
+                        onComplete: function () {
+                            photoImg.src = PHOTOS[photoIndex];
+                            gsap.to(photoImg, { opacity: 1, duration: 0.25 });
+                        }
+                    });
+                } else {
+                    photoImg.src = PHOTOS[photoIndex];
+                }
+            }, 1800);
+
+            if (hasGsap && !prefersReducedMotion) {
+                var followX = gsap.quickTo(followPhoto, 'x', { duration: 0.45, ease: 'power3' });
+                var followY = gsap.quickTo(followPhoto, 'y', { duration: 0.45, ease: 'power3' });
+
+                heroEl.addEventListener('mousemove', function (e) {
+                    var rect = heroEl.getBoundingClientRect();
+                    followX(e.clientX - rect.left - followPhoto.offsetWidth / 2);
+                    followY(e.clientY - rect.top - followPhoto.offsetHeight / 2);
+                    followPhoto.classList.add('is-active');
+                });
+                heroEl.addEventListener('mouseleave', function () {
+                    followPhoto.classList.remove('is-active');
+                });
+            }
+        }
+    }
+
+    /* ==============================
        Line reveal: masked slide-up text (hero + page headlines)
        ============================== */
     document.querySelectorAll('.line-reveal').forEach(function (el) {
