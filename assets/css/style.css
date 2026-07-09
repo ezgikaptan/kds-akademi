@@ -1490,3 +1490,16 @@ a[href*="#cocuk"]:hover {
     opacity: 1 !important;
     transform: translateY(0) !important;
 }
+
+/* Interactive 3D sphere (vanilla Three.js, see assets/js/sphere.js) */
+.kds-sphere-canvas {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+.kds-sphere-canvas canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
