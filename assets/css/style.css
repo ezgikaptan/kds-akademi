@@ -219,6 +219,41 @@ html {
     color: #ffffff;
 }
 
+/* Bracket tag: small square-bracket wrapped eyebrow/meta label, inspired by roshan-sahu.com's [OPEN]/[CONTACT] tags */
+.bracket-tag::before {
+    content: '[';
+    margin-right: 0.15em;
+}
+.bracket-tag::after {
+    content: ']';
+    margin-left: 0.15em;
+}
+
+/* Display-tight: large uppercase headline treatment with tighter negative tracking */
+.display-tight {
+    letter-spacing: -0.03em;
+}
+
+/* Footer nav columns: subtle top-to-bottom opacity fade (brightest link first) */
+footer .space-y-4 > li:nth-child(1) > a { opacity: 1; }
+footer .space-y-4 > li:nth-child(2) > a { opacity: 0.88; }
+footer .space-y-4 > li:nth-child(3) > a { opacity: 0.76; }
+footer .space-y-4 > li:nth-child(4) > a { opacity: 0.64; }
+footer .space-y-4 > li:nth-child(5) > a { opacity: 0.52; }
+footer .space-y-4 > li > a:hover { opacity: 1; }
+
+/* Inline photo tag: small real photo embedded mid-sentence in large flowing text */
+.inline-photo-tag {
+    display: inline-block;
+    width: 1.1em;
+    height: 1.1em;
+    object-fit: cover;
+    border-radius: 0.3em;
+    vertical-align: middle;
+    margin: 0 0.08em;
+    transform: translateY(-0.08em);
+}
+
 /* Accessibility: skip-to-content link */
 .skip-link {
     position: absolute;
