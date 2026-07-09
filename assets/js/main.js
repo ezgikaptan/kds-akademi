@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Check if current page is the homepage using DOM check (independent of URL folder layout)
+    var isHome = !!document.querySelector('.hero-las-container');
 
     /* ==============================
        Hero Live Clock (Istanbul time)
@@ -640,5 +642,153 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.style.transform = 'rotate(180deg)';
         }
     };
+
+    /* ==========================================================================
+       Roshan Sahu Inspired Page Slide Transitions & Odometer Loader
+       ========================================================================== */
+
+    // 1. Dynamic Page Transition Panel Injection
+    var isLoaderRunning = !sessionStorage.getItem('kds_loaded'); // Initialize based on session state
+    var transOverlay = document.createElement('div');
+    transOverlay.id = 'page-transition-panel';
+    transOverlay.className = 'page-transition-overlay';
+    transOverlay.innerHTML = '<span class="page-transition-label">[ KDS AKADEMİ ]</span>';
+    document.body.appendChild(transOverlay);
+
+    // Slide out overlay on page load / pageshow (Optimized to avoid multiple transition overlays)
+    window.addEventListener('pageshow', function() {
+        var firstVisit = !sessionStorage.getItem('kds_loaded');
+        if (isHome && (firstVisit || isLoaderRunning)) {
+            // First visit on homepage: odometer loader runs, so hide transition overlay instantly
+            transOverlay.style.display = 'none';
+            return;
+        }
+        transOverlay.style.display = 'flex';
+        transOverlay.classList.remove('is-animating-in');
+        transOverlay.classList.add('is-animating-out');
+        setTimeout(function() {
+            transOverlay.classList.remove('is-animating-out');
+        }, 700);
+    });
+
+    // Intercept local links for page cover transition
+    document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (!link) return;
+        var href = link.getAttribute('href');
+        if (!href) return;
+        
+        // Filter out anchors, external sites, tel, mailto, etc.
+        if (href.startsWith('#') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript:') || link.getAttribute('target') === '_blank') {
+            return;
+        }
+        if (href.indexOf('://') !== -1 && !href.startsWith(window.location.origin)) {
+            return;
+        }
+        
+        e.preventDefault();
+        transOverlay.classList.remove('is-animating-out');
+        transOverlay.classList.add('is-animating-in');
+        setTimeout(function() {
+            window.location.href = href;
+        }, 600);
+    });
+
+    // 2. Odometer Rotating Digit Loader Injection (Only on Homepage & First Visit of Session)
+    var firstVisit = !sessionStorage.getItem('kds_loaded');
+    
+    if (isHome && firstVisit) {
+        isLoaderRunning = true;
+        sessionStorage.setItem('kds_loaded', 'true'); // Set immediately to block on subsequent loads or refreshes
+        var loader = document.createElement('div');
+        loader.id = 'page-loader';
+        loader.className = 'loader-container';
+        loader.innerHTML = '<div class="animated-number">' +
+            '<div class="rotating-digit-container" id="digit-hundreds">' +
+                '<div class="rotating-digit-column"><div class="rotating-digit">0</div><div class="rotating-digit">1</div></div>' +
+            '</div>' +
+            '<div class="rotating-digit-container" id="digit-tens">' +
+                '<div class="rotating-digit-column">' +
+                    '<div class="rotating-digit">0</div><div class="rotating-digit">1</div><div class="rotating-digit">2</div><div class="rotating-digit">3</div><div class="rotating-digit">4</div>' +
+                    '<div class="rotating-digit">5</div><div class="rotating-digit">6</div><div class="rotating-digit">7</div><div class="rotating-digit">8</div><div class="rotating-digit">9</div><div class="rotating-digit">0</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="rotating-digit-container" id="digit-ones">' +
+                '<div class="rotating-digit-column">' +
+                    '<div class="rotating-digit">0</div><div class="rotating-digit">1</div><div class="rotating-digit">2</div><div class="rotating-digit">3</div><div class="rotating-digit">4</div>' +
+                    '<div class="rotating-digit">5</div><div class="rotating-digit">6</div><div class="rotating-digit">7</div><div class="rotating-digit">8</div><div class="rotating-digit">9</div><div class="rotating-digit">0</div>' +
+                '</div>' +
+            '</div>' +
+            '<span style="margin-left: 0.5rem; font-size: 4rem; align-self: center; font-weight: 500; opacity: 0.8;">%</span>' +
+        '</div>';
+        
+        document.body.appendChild(loader);
+        document.body.style.overflow = 'hidden';
+        
+        // Setup odometer GSAP animation
+        setTimeout(function() {
+            var hCol = loader.querySelector('#digit-hundreds .rotating-digit-column');
+            var tCol = loader.querySelector('#digit-tens .rotating-digit-column');
+            var oCol = loader.querySelector('#digit-ones .rotating-digit-column');
+            var digitEl = loader.querySelector('.rotating-digit');
+            
+            var digitHeight = digitEl ? digitEl.offsetHeight : 0;
+            if (digitHeight < 10) {
+                // Layout fallback: if offsetHeight is 0 due to rendering race, use standard font height
+                digitHeight = window.innerWidth < 768 ? 80 : 128;
+            }
+            
+            if (typeof gsap !== 'undefined') {
+                gsap.set([hCol, tCol, oCol], { y: 0 });
+                
+                var tl = gsap.timeline({
+                    onComplete: function() {
+                        loader.classList.add('is-loaded');
+                        document.body.style.overflow = '';
+                        sessionStorage.setItem('kds_loaded', 'true');
+                        // Trigger entry animations for hero headline
+                        var lineReveal = document.querySelectorAll('.line-reveal-line');
+                        if (lineReveal.length) {
+                            gsap.set(lineReveal, { yPercent: 110 });
+                            gsap.to(lineReveal, {
+                                yPercent: 0,
+                                duration: 1.0,
+                                ease: 'power4.out',
+                                stagger: 0.1,
+                                delay: 0.2
+                            });
+                        }
+                    }
+                });
+                
+                tl.to(oCol, { y: -digitHeight * 10, duration: 2.2, ease: 'power2.inOut' }, 0);
+                tl.to(tCol, { y: -digitHeight * 10, duration: 2.2, ease: 'power2.inOut' }, 0);
+                tl.to(hCol, { y: -digitHeight * 1, duration: 0.7, ease: 'power3.out' }, 1.5);
+            } else {
+                setTimeout(function() {
+                    loader.classList.add('is-loaded');
+                    document.body.style.overflow = '';
+                    sessionStorage.setItem('kds_loaded', 'true');
+                }, 2000);
+            }
+        }, 100);
+    } else {
+        // If not home page or not first visit, trigger hero headline immediately
+        setTimeout(function() {
+            if (typeof gsap !== 'undefined') {
+                var lineReveal = document.querySelectorAll('.line-reveal-line');
+                if (lineReveal.length) {
+                    gsap.set(lineReveal, { yPercent: 110 });
+                    gsap.to(lineReveal, {
+                        yPercent: 0,
+                        duration: 1.0,
+                        ease: 'power4.out',
+                        stagger: 0.1,
+                        delay: 0.2
+                    });
+                }
+            }
+        }, 100);
+    }
 });
 

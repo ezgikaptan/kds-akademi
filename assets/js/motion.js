@@ -17,16 +17,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==============================
-       Hero cursor-follow photo: tracks the pointer, cycles through
-       real photos, and is clipped by the hero's own overflow:hidden
-       (position:absolute inside .hero-las, never position:fixed) so
-       it can never visually escape the black hero area.
+       Hero cursor-follow photo & Dotted Coordinate Lines:
+       Tracks the pointer inside .hero-las, updates dotted vertical/horizontal crosshairs,
+       and displays dynamic photo descriptions in brackets.
        ============================== */
     var followPhoto = document.getElementById('hero-follow-photo');
     if (followPhoto && window.matchMedia('(pointer: fine)').matches) {
         var heroEl = followPhoto.closest('.hero-las');
         if (heroEl) {
             var photoImg = followPhoto.querySelector('img');
+            var labelEl = document.getElementById('hero-follow-label');
+            var crosshairV = document.getElementById('crosshair-v');
+            var crosshairH = document.getElementById('crosshair-h');
+
             var PHOTOS = [
                 'assets/img/kurs-piyano.jpg',
                 'assets/img/kurs-oryantal.jpg',
@@ -35,35 +38,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 'assets/img/kurs-baglama.jpg',
                 'assets/img/kurs-salsa.jpg'
             ];
+            var LABELS = [
+                '[PİYANO]',
+                '[DANS]',
+                '[TİYATRO]',
+                '[RESİM]',
+                '[BAĞLAMA]',
+                '[SALSA]'
+            ];
             var photoIndex = 0;
+
             setInterval(function () {
                 photoIndex = (photoIndex + 1) % PHOTOS.length;
                 if (hasGsap && !prefersReducedMotion) {
-                    gsap.to(photoImg, {
+                    gsap.to([photoImg, labelEl], {
                         opacity: 0,
                         duration: 0.25,
                         onComplete: function () {
                             photoImg.src = PHOTOS[photoIndex];
-                            gsap.to(photoImg, { opacity: 1, duration: 0.25 });
+                            if (labelEl) labelEl.textContent = LABELS[photoIndex];
+                            gsap.to([photoImg, labelEl], { opacity: 1, duration: 0.25 });
                         }
                     });
                 } else {
                     photoImg.src = PHOTOS[photoIndex];
+                    if (labelEl) labelEl.textContent = LABELS[photoIndex];
                 }
             }, 1800);
 
             if (hasGsap && !prefersReducedMotion) {
                 var followX = gsap.quickTo(followPhoto, 'x', { duration: 0.45, ease: 'power3' });
                 var followY = gsap.quickTo(followPhoto, 'y', { duration: 0.45, ease: 'power3' });
+                
+                var lineX = crosshairV ? gsap.quickTo(crosshairV, 'left', { duration: 0.45, ease: 'power3' }) : null;
+                var lineY = crosshairH ? gsap.quickTo(crosshairH, 'top', { duration: 0.45, ease: 'power3' }) : null;
 
                 heroEl.addEventListener('mousemove', function (e) {
                     var rect = heroEl.getBoundingClientRect();
-                    followX(e.clientX - rect.left - followPhoto.offsetWidth / 2);
-                    followY(e.clientY - rect.top - followPhoto.offsetHeight / 2);
+                    var mouseX = e.clientX - rect.left;
+                    var mouseY = e.clientY - rect.top;
+
+                    followX(mouseX - followPhoto.offsetWidth / 2);
+                    followY(mouseY - followPhoto.offsetHeight / 2);
+                    
+                    if (lineX) lineX(mouseX);
+                    if (lineY) lineY(mouseY);
+
                     followPhoto.classList.add('is-active');
+                    if (crosshairV) crosshairV.classList.add('is-active');
+                    if (crosshairH) crosshairH.classList.add('is-active');
                 });
+
                 heroEl.addEventListener('mouseleave', function () {
                     followPhoto.classList.remove('is-active');
+                    if (crosshairV) crosshairV.classList.remove('is-active');
+                    if (crosshairH) crosshairH.classList.remove('is-active');
                 });
             }
         }
@@ -72,15 +101,8 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ==============================
        Line reveal: masked slide-up text (hero + page headlines)
        ============================== */
-    document.querySelectorAll('.line-reveal').forEach(function (el) {
-        var rawLines = el.innerHTML.split(/<br\s*\/?>/i);
-        el.innerHTML = rawLines.map(function (line) {
-            return '<span class="line-reveal-inner"><span class="line-reveal-line">' + line.trim() + '</span></span>';
-        }).join('');
-
-        var lineEls = el.querySelectorAll('.line-reveal-line');
-        if (!hasGsap || prefersReducedMotion) return;
-
+    var lineEls = document.querySelectorAll('.line-reveal-line');
+    if (lineEls.length && hasGsap && !prefersReducedMotion) {
         gsap.set(lineEls, { yPercent: 110 });
         gsap.to(lineEls, {
             yPercent: 0,
@@ -89,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function () {
             stagger: 0.1,
             delay: 0.15
         });
-    });
+    }
+
 
     /* ==============================
        Department card images: base zoom buffer (so hover-zoom and
@@ -133,4 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
     }
+
+
 });

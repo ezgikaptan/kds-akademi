@@ -292,16 +292,14 @@ select:focus-visible {
     transform: translateY(0);
 }
 
-/* Scroll-reveal: cards/panels fade + gentle scale (visually distinct from headings) */
+/* Scroll-reveal: cards/panels fade (no scale, to avoid shrinking text feeling) */
 .reveal-scale {
     opacity: 0;
-    transform: scale(0.96);
-    transition: opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    transition: opacity 0.5s ease-out;
+    will-change: opacity;
 }
 .reveal-scale.in-view {
     opacity: 1;
-    transform: scale(1);
 }
 @media (prefers-reduced-motion: reduce) {
     .reveal-slide, .reveal-scale {
@@ -417,14 +415,7 @@ button[class*="shadow-[0_0_20px_rgba"] {
    DESIGN IMPROVEMENTS
    ============================================ */
 
-/* Page Load Animation */
-body {
-    animation: page-fade-in 0.6s ease-out;
-}
-@keyframes page-fade-in {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* Page Load Animation Disabled */
 
 /* Scroll Progress Bar */
 #scroll-progress {
@@ -652,6 +643,17 @@ footer .pt-8 {
 /* Testimonial Quote Decoration */
 .testimonial-card {
     position: relative;
+    min-height: 220px;
+    background-color: #ffffff !important;
+    border: 1px solid #e4e4e7 !important; /* zinc-200 */
+    border-radius: 0px !important; /* Flat card corners */
+    box-shadow: none !important;
+    transition: background-color 0.3s ease !important;
+}
+.testimonial-card:hover {
+    background-color: #f4f4f5 !important;
+    transform: none !important;
+    box-shadow: none !important;
 }
 .testimonial-card::before {
     content: '\201C';
@@ -859,7 +861,7 @@ a[href*="#cocuk"]:hover {
 }
 
 .navbar-las.nav-scrolled {
-    background-color: rgba(15, 15, 15, 0.85) !important;
+    background-color: rgba(0, 0, 0, 0.25) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -978,7 +980,7 @@ a[href*="#cocuk"]:hover {
     margin: 0 auto;
     padding: 0 4%;
     position: relative;
-    z-index: 2;
+    z-index: 10; /* Set high z-index to overlay cursor-follow photos */
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
@@ -1024,28 +1026,84 @@ a[href*="#cocuk"]:hover {
    (which has overflow:hidden), so it can never escape the black hero area */
 .hero-follow-photo {
     position: absolute;
-    z-index: 2;
+    z-index: 2; /* Sit above overlay (z-index 1) but behind container (z-index 10) */
     top: 0;
     left: 0;
-    width: 130px;
-    height: 130px;
+    width: 200px;
+    height: 250px;
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .hero-follow-photo.is-active {
     opacity: 1;
 }
 .hero-follow-photo img {
-    width: 100%;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 0.75rem;
     display: block;
-    box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+}
+.hero-follow-label {
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.6);
 }
 @media (max-width: 767px) {
-    .hero-follow-photo { display: none; }
+    .hero-follow-photo { display: none !important; }
+}
+
+/* Hero Mouse Coordinate Lines (Crosshairs) */
+.crosshair-v {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    border-left: 1px dotted rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.crosshair-h {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    border-top: 1px dotted rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.crosshair-v.is-active,
+.crosshair-h.is-active {
+    opacity: 1;
+}
+.crosshair-text {
+    position: absolute;
+    left: 2rem;
+    bottom: 6px;
+    color: rgba(255, 255, 255, 0.45);
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+@media (max-width: 767px) {
+    .crosshair-v, .crosshair-h { display: none !important; }
 }
 
 /* Hero bottom info bar */
@@ -1117,25 +1175,27 @@ a[href*="#cocuk"]:hover {
 
 .las-card {
     text-decoration: none !important;
-    margin-bottom: 3rem;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    background-color: transparent;
+    margin-bottom: 0px !important;
+    transition: background-color 0.3s ease !important;
+    background-color: #FDFBF7 !important;
     border: none !important;
     box-shadow: none !important;
+    padding: 24px !important;
 }
 
 .las-card:hover {
+    background-color: #f4f4f5 !important;
     border: none !important;
     box-shadow: none !important;
 }
 
 .las-card-img-wrap {
     background-color: transparent;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: none !important;
     position: relative;
-    border-radius: 20px;
+    border-radius: 0px !important; /* Flat sharp image corners */
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: none !important;
 }
 
 .las-card-img-wrap picture {
@@ -1145,8 +1205,8 @@ a[href*="#cocuk"]:hover {
 }
 
 .las-card:hover .las-card-img-wrap {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    transform: none !important;
+    box-shadow: none !important;
 }
 
 /* Inner overlay gradient that shifts on hover */
@@ -1165,29 +1225,10 @@ a[href*="#cocuk"]:hover {
 
 /* Bottom-right circle arrow button */
 .las-card-arrow-btn {
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    width: 36px;
-    height: 36px;
-    background-color: #ffffff;
-    color: #18181b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    pointer-events: none;
-    border-radius: 50% !important;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    border: none !important;
+    display: none !important; /* Remove float circle arrow button */
 }
 
-.las-card:hover .las-card-arrow-btn {
-    background-color: var(--card-theme-color, #18181b);
-    color: #ffffff;
-    transform: scale(1.1) rotate(-45deg);
-}
+
 
 /* Metadata typography: KATEGORİ | ALAN */
 .las-card-meta {
@@ -1407,7 +1448,11 @@ a[href*="#cocuk"]:hover {
 .why-kds-grid {
     display: grid !important;
     grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
-    gap: 30px !important;
+    gap: 1px !important; /* 1px gap background line */
+    background-color: #e4e4e7 !important; /* zinc-200 divider color */
+    border: 1px solid #e4e4e7 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
     max-width: 1100px !important;
     margin: 0 auto !important;
 }
@@ -1419,12 +1464,12 @@ a[href*="#cocuk"]:hover {
 }
 
 .why-kds-card {
-    background: #ffffff !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    border-radius: 24px !important;
+    background: #FDFBF7 !important; /* Flat card theme background */
+    border: none !important;
+    border-radius: 0px !important; /* Sharp corners */
     padding: 40px 32px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02) !important;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: none !important;
+    transition: background-color 0.3s ease !important;
     position: relative;
     overflow: hidden;
     display: flex !important;
@@ -1433,8 +1478,9 @@ a[href*="#cocuk"]:hover {
 }
 
 .why-kds-card:hover {
-    transform: translateY(-8px) !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06) !important;
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: #f4f4f5 !important;
 }
 
 .why-kds-card::before {
@@ -1442,8 +1488,8 @@ a[href*="#cocuk"]:hover {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 4px;
+    width: 4px; /* Left edge highlight instead of top bar */
+    height: 100%;
     transition: all 0.3s ease;
 }
 
@@ -1456,12 +1502,12 @@ a[href*="#cocuk"]:hover {
 .why-kds-card:hover.card-orange { border-color: rgba(224, 122, 95, 0.3) !important; }
 
 .why-kds-card-number {
-    font-family: 'SF Pro Display', serif !important;
+    font-family: monospace !important;
     font-size: 3.5rem !important;
-    font-weight: 900 !important;
+    font-weight: 700 !important;
     line-height: 1 !important;
     margin-bottom: 20px !important;
-    opacity: 0.15 !important;
+    opacity: 0.25 !important;
     transition: all 0.3s ease !important;
     display: block !important;
 }
@@ -1531,3 +1577,145 @@ a[href*="#cocuk"]:hover {
     width: 100% !important;
     height: 100% !important;
 }
+
+/* ==========================================================================
+   Roshan Sahu Inspired Premium Animations (Phase 2 Additions)
+   ========================================================================== */
+
+/* 1. Page Fade Transition Panel (Focus on text only, no sliding overlay) */
+.page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: #09090b; /* zinc-950 */
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+.page-transition-overlay.is-animating-in {
+    opacity: 1 !important;
+    pointer-events: auto;
+}
+.page-transition-overlay.is-animating-out {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+.page-transition-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: monospace;
+    font-size: 0.875rem;
+    letter-spacing: 0.25em;
+    color: #ffffff;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.page-transition-overlay.is-animating-in .page-transition-label,
+.page-transition-overlay.is-animating-out .page-transition-label {
+    opacity: 1;
+}
+
+/* 2. Odometer Rotating Digit Loader */
+.loader-container {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background-color: #09090b; /* zinc-950 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    pointer-events: auto;
+}
+.loader-container.is-loaded {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+.animated-number {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 8rem;
+    font-weight: 800;
+    color: #ffffff;
+    height: 8rem;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1;
+}
+@media (max-width: 768px) {
+    .animated-number {
+        font-size: 5rem;
+        height: 5rem;
+    }
+}
+.rotating-digit-container {
+    display: flex;
+    align-items: flex-start;
+}
+.rotating-digit-column {
+    display: flex;
+    flex-direction: column;
+}
+.rotating-digit {
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 768px) {
+    .rotating-digit {
+        height: 5rem;
+    }
+}
+
+/* ==========================================================================
+   Global Style Overrides (Fonts, Borders, and Light Navbars)
+   ========================================================================== */
+
+/* 4. Navbar Las Light Style */
+.navbar-las-light {
+    background-color: rgba(253, 251, 247, 0.95) !important; /* match light background #FDFBF7 */
+    border-bottom: 1px solid #e4e4e7 !important;
+}
+.nav-link-las-light {
+    color: #71717a !important; /* zinc-500 */
+    font-family: 'SF Pro Display', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    padding: 6px 12px !important;
+    transition: all 0.3s ease !important;
+    border-radius: 12px !important;
+}
+.nav-link-las-light:hover {
+    color: #09090b !important; /* zinc-950 */
+    background-color: rgba(0, 0, 0, 0.04) !important;
+}
+.nav-link-las-light.active {
+    color: #09090b !important;
+    background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 5. Force local SF Pro Display Font Family Globally (Except Icons) */
+*:not(.material-symbols-outlined) {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+/* 6. Force Curve Degree (Border Radius) to exactly 12px (0.75rem) everywhere (Except rounded-full circles) */
+.rounded-sm, .rounded, .rounded-md, .rounded-lg, .rounded-xl, .rounded-2xl, .rounded-3xl, .rounded-none {
+    border-radius: 12px !important;
+}
+.las-card, .why-kds-card {
+    border-radius: 0px !important; /* Internal grid cells should be flat to connect cleanly with grid lines */
+}
+.las-card-img-wrap, .testimonial-card {
+    border-radius: 12px !important; /* Standalone cards and image wraps have exactly 12px radius */
+}
+
+
+
+
