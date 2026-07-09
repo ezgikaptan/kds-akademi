@@ -949,28 +949,30 @@ body {
     font-weight: 600 !important;
 }
 
-/* Individual Department Card Hover Glows */
-a[href*="#muzik"], a[href*="#dans"], a[href*="#tiyatro"], a[href*="#resim"], a[href*="#cocuk"] {
+/* Individual Department Card Hover Glows (homepage accordion cards only -
+   scoped with .accordion-item so this doesn't also match footer links that
+   share the same #muzik/#dans/etc. href fragment) */
+.accordion-item[href*="#muzik"], .accordion-item[href*="#dans"], .accordion-item[href*="#tiyatro"], .accordion-item[href*="#resim"], .accordion-item[href*="#cocuk"] {
     border: 1px solid rgba(226, 223, 216, 0.5) !important;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
-a[href*="#muzik"]:hover {
+.accordion-item[href*="#muzik"]:hover {
     box-shadow: 0 20px 40px -10px rgba(74, 139, 155, 0.25) !important;
     border-color: rgba(74, 139, 155, 0.4) !important;
 }
-a[href*="#dans"]:hover {
+.accordion-item[href*="#dans"]:hover {
     box-shadow: 0 20px 40px -10px rgba(216, 95, 104, 0.25) !important;
     border-color: rgba(216, 95, 104, 0.4) !important;
 }
-a[href*="#tiyatro"]:hover {
+.accordion-item[href*="#tiyatro"]:hover {
     box-shadow: 0 20px 40px -10px rgba(131, 96, 150, 0.25) !important;
     border-color: rgba(131, 96, 150, 0.4) !important;
 }
-a[href*="#resim"]:hover {
+.accordion-item[href*="#resim"]:hover {
     box-shadow: 0 20px 40px -10px rgba(221, 161, 94, 0.25) !important;
     border-color: rgba(221, 161, 94, 0.4) !important;
 }
-a[href*="#cocuk"]:hover {
+.accordion-item[href*="#cocuk"]:hover {
     box-shadow: 0 20px 40px -10px rgba(233, 196, 106, 0.25) !important;
     border-color: rgba(233, 196, 106, 0.4) !important;
 }
