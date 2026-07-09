@@ -1679,6 +1679,8 @@ a[href*="#cocuk"]:hover {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
 .why-kds-card:hover {
