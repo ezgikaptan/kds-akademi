@@ -991,7 +991,7 @@ body {
 }
 
 .navbar-las.nav-scrolled {
-    background-color: rgba(0, 0, 0, 0.25) !important;
+    background-color: rgba(9, 9, 11, 0.7) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -2218,10 +2218,11 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Scrolled navbar container height */
+/* Scrolled navbar container height - a soft dark scrim + blur keeps the
+   white nav text legible once light page content scrolls underneath */
 .navbar-las.nav-scrolled {
     height: 60px !important;
-    background-color: rgba(9, 9, 11, 0.95) !important; /* Zinc 950 with glass blur */
+    background-color: rgba(9, 9, 11, 0.7) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -2229,11 +2230,11 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
 /* If it is the light navbar (like on Hakkimizda page) */
 .navbar-las-light {
-    background-color: rgba(253, 251, 247, 0.95) !important; /* Light cream */
+    background-color: transparent !important;
     border-bottom: 1px solid #e4e4e7 !important;
 }
 .navbar-las-light.nav-scrolled {
-    background-color: rgba(253, 251, 247, 0.98) !important;
+    background-color: rgba(253, 251, 247, 0.85) !important;
     border-bottom: 1px solid #e4e4e7 !important;
 }
 
