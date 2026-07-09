@@ -1019,6 +1019,80 @@ a[href*="#cocuk"]:hover {
     }
 }
 
+/* Hero crosshair guide lines - roshan-sahu.com style technical/engineering accent */
+.hero-crosshair-h,
+.hero-crosshair-v {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.18);
+}
+.hero-crosshair-h {
+    left: 0;
+    right: 0;
+    top: 38%;
+    border-top: 1px dashed rgba(255, 255, 255, 0.18);
+}
+.hero-crosshair-v {
+    top: 0;
+    bottom: 0;
+    left: 68%;
+    border-left: 1px dashed rgba(255, 255, 255, 0.18);
+}
+@media (max-width: 1023px) {
+    .hero-crosshair-v { left: 50%; }
+}
+
+/* Hero floating photo callout */
+.hero-float-card {
+    position: absolute;
+    z-index: 2;
+    top: 20%;
+    left: 68%;
+    transform: translateX(-50%);
+    width: 160px;
+    text-align: center;
+}
+@media (max-width: 1023px) {
+    .hero-float-card { left: 50%; width: 120px; }
+}
+.hero-float-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    display: block;
+    box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.6);
+}
+.hero-float-card figcaption {
+    margin-top: 10px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Hero bottom info bar */
+.hero-info-bar {
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4%;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+}
+
 .newsletter-prompt {
     display: inline-flex;
     align-items: center;

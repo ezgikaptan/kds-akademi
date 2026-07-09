@@ -1,6 +1,23 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     /* ==============================
+       Hero Live Clock (Istanbul time)
+       ============================== */
+    var heroClock = document.getElementById('hero-clock');
+    if (heroClock) {
+        var updateHeroClock = function () {
+            var time = new Date().toLocaleTimeString('tr-TR', {
+                timeZone: 'Europe/Istanbul',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            heroClock.textContent = 'Güncel Saat: ' + time;
+        };
+        updateHeroClock();
+        setInterval(updateHeroClock, 30000);
+    }
+
+    /* ==============================
        Scroll Progress Bar
        ============================== */
     var scrollProgress = document.getElementById('scroll-progress');
