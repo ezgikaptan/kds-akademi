@@ -1206,6 +1206,31 @@ body {
     transform: translateY(-2px);
 }
 
+.btn-pill-pink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #8B263E;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    border: 1px solid #8B263E;
+    padding: 10px 18px;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+}
+
+.btn-pill-pink:hover {
+    color: #ffffff;
+    background-color: #8B263E;
+    transform: translateY(-2px);
+}
+
 /* LAS Morphing Department Cards */
 /* ==============================
    Departments Section - Full Viewport Height
