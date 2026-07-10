@@ -991,7 +991,7 @@ body {
 }
 
 .navbar-las.nav-scrolled {
-    background-color: rgba(9, 9, 11, 0.7) !important;
+    background-color: rgba(63, 63, 70, 0.5) !important;
     backdrop-filter: blur(20px) !important;
     -webkit-backdrop-filter: blur(20px) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -1220,7 +1220,7 @@ body {
     text-decoration: none;
     border: 1px solid #8B263E;
     padding: 10px 18px;
-    border-radius: 999px;
+    border-radius: 12px;
     transition: all 0.3s ease;
     background-color: transparent;
 }
@@ -2247,7 +2247,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
    white nav text legible once light page content scrolls underneath */
 .navbar-las.nav-scrolled {
     height: 60px !important;
-    background-color: rgba(9, 9, 11, 0.7) !important;
+    background-color: rgba(63, 63, 70, 0.5) !important;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
