@@ -3706,3 +3706,139 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     }
 }
 
+/* ==========================================
+   11. Custom Coverflow 3D Gallery Slider & Values screen height
+   ========================================== */
+
+/* Values section full screen layout */
+.values-section {
+    min-height: 100vh !important;
+}
+
+/* Gallery Coverflow Slider Styles */
+.gallery-slider-section {
+    position: relative;
+    background-color: #09090b !important;
+}
+
+/* Spotlight Lighting Effects */
+.gallery-spotlight-beam {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 100%);
+    clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+    filter: blur(35px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gallery-spotlight-glow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    height: 70vh;
+    background: radial-gradient(ellipse at top, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gallery-slider-container {
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    z-index: 2;
+}
+
+.gallery-track {
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-slide {
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.02);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate3d(0, 0, -200px) scale(0.85);
+}
+
+/* First photo slide visible on page load before JS initialization */
+.gallery-slide[data-index="0"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate3d(0, 0, 0) scale(1.15);
+}
+
+.gallery-slide::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: inherit;
+    pointer-events: none;
+    transition: border-color 0.5s ease;
+}
+
+.gallery-slide:hover::after {
+    border-color: rgba(197, 168, 128, 0.35); /* Warm gold hover highlight */
+}
+
+/* Active Slide Highlight */
+.gallery-slide.active {
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(197, 168, 128, 0.15);
+}
+
+/* Float movement on active slide image hover */
+.gallery-slide img {
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-slide:hover img {
+    transform: scale(1.05);
+}
+
+/* Navigation Arrow Button Styling */
+.gallery-arrow {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    color: #ffffff !important;
+}
+
+.gallery-arrow:hover {
+    transform: scale(1.1);
+    background-color: #ffffff !important;
+    color: #09090b !important;
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+    border-color: #ffffff !important;
+}
+
+/* Active info fade-in animation on switch */
+.gallery-active-title {
+    animation: textFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    color: #ffffff !important;
+}
+
+.gallery-active-desc {
+    animation: textFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    color: #a1a1aa !important;
+}
+
+@keyframes textFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+

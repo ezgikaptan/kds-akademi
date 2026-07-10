@@ -5,11 +5,16 @@
   "description": "Build tooling for the KDS Akademi static website (Tailwind CSS production build).",
   "scripts": {
     "build:css": "tailwindcss -i ./assets/css/tailwind-src.css -o ./assets/css/tailwind.build.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/tailwind-src.css -o ./assets/css/tailwind.build.css --watch",
+    "dev:server": "live-server --port=5500",
+    "dev": "concurrently \"npm run watch:css\" \"npm run dev:server\"",
     "optimize:images": "node scripts/optimize-images.js"
   },
   "devDependencies": {
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/forms": "^0.5.7",
+    "concurrently": "^10.0.3",
+    "live-server": "^1.2.2",
     "sharp": "^0.35.3",
     "tailwindcss": "^3.4.1"
   }

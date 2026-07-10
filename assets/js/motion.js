@@ -73,6 +73,28 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             });
         }
+
+        /* ==============================
+           Değerlerimiz (Values) Cards Stagger Animation
+           ============================== */
+        var valueCards = document.querySelectorAll('.value-card');
+        if (valueCards.length && hasGsap && !prefersReducedMotion) {
+            gsap.fromTo(valueCards,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.0,
+                    ease: 'power3.out',
+                    stagger: 0.15,
+                    scrollTrigger: {
+                        trigger: '.values-section',
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                }
+            );
+        }
     }
 
 
