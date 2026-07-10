@@ -338,120 +338,131 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==============================
-       Course Filters
+       Premium Single-Screen Courses Dashboard Navigation
        ============================== */
-    var categoryFilters = document.getElementById('category-filters');
-    var ageFilters = document.getElementById('age-filters');
-    if (categoryFilters && ageFilters) {
-        var deptSections = document.querySelectorAll('.dept-section');
-        var activeCategory = 'tumu';
-        var activeAge = 'tumu';
+    var isCoursePage = document.body.classList.contains('page-kurslar');
+    if (isCoursePage) {
+        var categoryBtns = document.querySelectorAll('.dashboard-category-btn');
+        var sidebarContainer = document.getElementById('course-sidebar');
+        var showcase = document.getElementById('course-showcase');
 
-        var applyCourseFilters = function () {
-            deptSections.forEach(function (section) {
-                var cat = section.getAttribute('data-category');
-                var categoryMatches = (activeCategory === 'tumu' || activeCategory === cat);
-                var anyCardVisible = false;
-                
-                section.querySelectorAll('.course-tab-btn').forEach(function (btn) {
-                    var ages = (btn.getAttribute('data-age') || '').split(' ');
-                    var ageMatches = (activeAge === 'tumu' || ages.indexOf(activeAge) !== -1);
-                    var visible = categoryMatches && ageMatches;
-                    if (visible) {
-                        btn.style.display = '';
-                        anyCardVisible = true;
-                    } else {
-                        btn.style.display = 'none';
-                    }
-                });
-                
-                if (anyCardVisible) {
-                    section.style.display = '';
-                    // Click the first visible button if the currently active one is hidden
-                    var activeBtn = section.querySelector('.course-tab-btn.active');
-                    if (!activeBtn || activeBtn.style.display === 'none') {
-                        var firstVisible = section.querySelector('.course-tab-btn:not([style*="display: none"])');
-                        if (firstVisible) {
-                            firstVisible.click();
-                        }
-                    }
-                } else {
-                    section.style.display = 'none';
+        // Target elements inside the showcase details card
+        var imgEl = document.getElementById('showcase-image');
+        var tagEl = document.getElementById('showcase-tag');
+        var titleEl = document.getElementById('showcase-title');
+        var descEl = document.getElementById('showcase-desc');
+        var ageIconEl = document.getElementById('showcase-age-icon');
+        var ageTextEl = document.getElementById('showcase-age-text');
+        var buttonEl = document.getElementById('showcase-button');
+
+        var activeDept = 'muzik';
+        var activeCourseId = 'muzik-piano';
+
+        // Render sidebar items for active department
+        function renderSidebar(dept) {
+            if (!sidebarContainer) return;
+            sidebarContainer.innerHTML = '';
+            sidebarContainer.setAttribute('data-active-theme', dept);
+
+            var courses = COURSE_DATA[dept];
+            if (!courses) return;
+
+            courses.forEach(function(course) {
+                var btn = document.createElement('button');
+                btn.className = 'dashboard-sidebar-item';
+                btn.setAttribute('data-id', course.id);
+                if (course.id === activeCourseId) {
+                    btn.classList.add('active');
                 }
+
+                btn.innerHTML = '<span class="flex items-center font-bold">' +
+                    '<span class="material-symbols-outlined sidebar-item-icon">' + course.icon + '</span>' +
+                    course.title +
+                    '</span>' +
+                    '<span class="material-symbols-outlined sidebar-item-arrow">arrow_forward</span>';
+
+                btn.addEventListener('click', function() {
+                    selectCourse(course.id);
+                });
+
+                sidebarContainer.appendChild(btn);
             });
-        };
-
-        categoryFilters.querySelectorAll('[data-filter-category]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                activeCategory = btn.getAttribute('data-filter-category');
-                categoryFilters.querySelectorAll('.filter-pill').forEach(function (b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-                applyCourseFilters();
-            });
-        });
-
-        ageFilters.querySelectorAll('[data-filter-age]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                activeAge = btn.getAttribute('data-filter-age');
-                ageFilters.querySelectorAll('.filter-pill').forEach(function (b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-                applyCourseFilters();
-            });
-        });
-    }
-
-    // Tab switching event binding (independent of the category/age filter bar above)
-    document.querySelectorAll('.course-tab-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var deptId = btn.getAttribute('data-dept-id');
-            var targetId = btn.getAttribute('data-course-id');
-            var section = document.getElementById(deptId);
-            if (!section) return;
-
-            // Deactivate all buttons in this section
-            section.querySelectorAll('.course-tab-btn').forEach(function(b) {
-                b.classList.remove('active', 'bg-zinc-900', 'text-white', 'border-kds-blue', 'border-kds-pink', 'border-kds-purple', 'border-kds-orange', 'border-kds-yellow', 'shadow-[0_0_15px_rgba(255,255,255,0.05)]');
-                b.classList.add('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
-            });
-
-            // Hide all panels
-            section.querySelectorAll('.course-tab-panel').forEach(function(p) {
-                p.classList.add('hidden', 'opacity-0', 'scale-95');
-                p.classList.remove('block', 'opacity-100', 'scale-100');
-            });
-
-            // Activate selected button
-            btn.classList.add('active', 'bg-zinc-900', 'text-white');
-            btn.classList.remove('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
-
-            // Choose active border color based on category
-            var borderClass = 'border-kds-blue';
-            if (deptId === 'dans') borderClass = 'border-kds-pink';
-            if (deptId === 'tiyatro') borderClass = 'border-kds-purple';
-            if (deptId === 'resim') borderClass = 'border-kds-orange';
-            if (deptId === 'cocuk') borderClass = 'border-kds-yellow';
-
-            btn.classList.add(borderClass);
-
-            // Show selected panel
-            var panel = document.getElementById(targetId);
-            if (panel) {
-                panel.classList.remove('hidden');
-                setTimeout(function() {
-                    panel.classList.add('block', 'opacity-100', 'scale-100');
-                    panel.classList.remove('opacity-0', 'scale-95');
-                }, 50);
-            }
-        });
-    });
-
-    // Initialize tabs by clicking first button of each section
-    document.querySelectorAll('.dept-section').forEach(function(section) {
-        var firstBtn = section.querySelector('.course-tab-btn');
-        if (firstBtn) {
-            firstBtn.click();
         }
-    });
+
+        // Select a course and update right details panel with animation
+        function selectCourse(courseId) {
+            activeCourseId = courseId;
+
+            // Highlight in sidebar
+            var items = sidebarContainer.querySelectorAll('.dashboard-sidebar-item');
+            items.forEach(function(item) {
+                var id = item.getAttribute('data-id');
+                item.classList.toggle('active', id === courseId);
+            });
+
+            // Find course details
+            var courses = COURSE_DATA[activeDept];
+            var course = courses.find(function(c) { return c.id === courseId; });
+            if (!course) return;
+
+            // Fade out showcase content
+            showcase.classList.add('fade-out');
+
+            // Wait for transition, swap content, fade back in
+            setTimeout(function() {
+                if (imgEl) {
+                    imgEl.src = course.image;
+                    imgEl.alt = course.fullName;
+                }
+                if (tagEl) {
+                    tagEl.textContent = course.tag;
+                    tagEl.className = 'showcase-course-tag ' + course.tagClass;
+                }
+                if (titleEl) {
+                    titleEl.textContent = course.fullName;
+                }
+                if (descEl) {
+                    descEl.textContent = course.desc;
+                }
+                if (ageIconEl) {
+                    ageIconEl.textContent = course.ageIcon;
+                }
+                if (ageTextEl) {
+                    ageTextEl.textContent = course.age;
+                }
+                if (buttonEl) {
+                    buttonEl.href = course.link;
+                }
+
+                showcase.classList.remove('fade-out');
+            }, 250);
+        }
+
+        // Category bar filters click binding
+        categoryBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var dept = btn.getAttribute('data-dept');
+                if (dept === activeDept) return;
+
+                // Toggle active category
+                categoryBtns.forEach(function(b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                activeDept = dept;
+                var courses = COURSE_DATA[dept];
+                if (courses && courses.length > 0) {
+                    activeCourseId = courses[0].id;
+                }
+
+                renderSidebar(activeDept);
+                selectCourse(activeCourseId);
+            });
+        });
+
+        // Initialize dashboard with default data
+        renderSidebar(activeDept);
+        selectCourse(activeCourseId);
+    }
 
     /* ==============================
        Gallery Filters
