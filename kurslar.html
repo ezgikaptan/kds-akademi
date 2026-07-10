@@ -53,7 +53,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link rel="stylesheet" href="assets/css/tailwind.build.css"/>
-<link rel="stylesheet" href="assets/css/style.css"/>
+<link rel="stylesheet" href="assets/css/style.css?v=1.3"/>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
 <div class="page-blob-layer" aria-hidden="true">
@@ -109,945 +109,633 @@
 </header>
 
 <main id="main">
-<!-- Music Department -->
+<!-- Unified Course Browser -->
+<section id="course-browser" class="relative w-full scroll-mt-24">
+<div class="max-w-container-max mx-auto">
 
-<!-- Music Department -->
-<section id="muzik" data-category="muzik" class="dept-section relative overflow-hidden w-full px-4 md:px-6 py-section-gap scroll-mt-40">
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-6">
-<span class="bracket-tag font-label-md text-kds-blue uppercase tracking-widest block mb-2">Müzik ve Enstrüman</span>
-<div class="flex items-end justify-between gap-4 border-b border-outline-variant/30 pb-4 mb-6">
-<h3 class="display-tight font-headline-lg text-zinc-900">Müzik Bölümü</h3>
-<span class="font-label-md text-label-md text-zinc-400 uppercase tracking-widest whitespace-nowrap hidden sm:block">7 Kurs</span>
-</div>
-</div>
-
-<div class="glass-panel p-6 md:p-10 rounded-3xl border border-outline-variant/20 relative overflow-hidden bg-white/50 backdrop-blur-md">
-<div class="relative z-10">
-<!-- Tab Buttons Row -->
-<div class="flex flex-wrap gap-2 md:gap-3 mb-8">
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-piano" data-age="cocuk genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
-<span class="material-symbols-outlined text-lg">piano</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Piyano</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-violin" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
+<!-- Department Tabs - Top Bar -->
+<div class="course-dept-tabs-bar">
+<div class="max-w-container-max mx-auto px-4 md:px-8 flex justify-center">
+<div class="dept-tabs-container flex items-center gap-1 overflow-x-auto hide-scrollbar">
+<button class="dept-tab active" data-dept="muzik">
 <span class="material-symbols-outlined text-lg">music_note</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Keman</span>
+Müzik Bölümü
 </button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-kanun" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
-<span class="material-symbols-outlined text-lg">queue_music</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Kanun</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-flute" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
-<span class="material-symbols-outlined text-lg">music_note</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Yan Flüt</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-guitar" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
-<span class="material-symbols-outlined text-lg">music_note</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Gitar</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-cello" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
-<span class="material-symbols-outlined text-lg">music_note</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Çello</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="muzik" data-course-id="muzik-baglama" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-blue/10 text-kds-blue shrink-0">
-<span class="material-symbols-outlined text-lg">queue_music</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Bağlama</span>
-</button>
-</div>
-
-<!-- Dynamic Showcase Canvas -->
-<div class="w-full relative">
-<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-tr from-kds-blue/20 to-transparent filter blur-3xl pointer-events-none animate-pulse"></div>
-
-<!-- Piyano Panel -->
-<div id="muzik-piano" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-piyano.webp" type="image/webp"/>
-<img src="assets/img/kurs-piyano.jpg" alt="KDS Akademi piyano eğitimi" class="w-full h-full object-cover" width="736" height="1308" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">piano</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Tüm Yaşlar</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Piyano Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Klasik ve modern repertuvarla nota okuma, piyano çalma tekniği ve sahne performans becerisi kazandırır. Her seviye ve yaş grubuna uygun bireyselleştirilmiş program uygulanmaktadır.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Piyano" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Keman Panel -->
-<div id="muzik-violin" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-keman.webp" type="image/webp"/>
-<img src="assets/img/kurs-keman.jpg" alt="KDS Akademi keman eğitimi" class="w-full h-full object-cover" width="675" height="1200" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">music_note</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Keman Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Yay tekniği, entonasyon, doğru duruş ve müzikal ifade üzerine odaklanan keman eğitimi. Klasik batı müziği temelli repertuvar çalışmalarıyla desteklenir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Keman" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Kanun Panel -->
-<div id="muzik-kanun" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-kanun.webp" type="image/webp"/>
-<img src="assets/img/kurs-kanun.jpg" alt="KDS Akademi kanun eğitimi" class="w-full h-full object-cover" width="900" height="1599" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">queue_music</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Kanun Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Geleneksel Türk müziği sazı olan kanunun mızrap teknikleri, makam bilgileri ve zengin repertuvarı eşliğinde icra yöntemleri öğretilir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Kanun" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Yan Flüt Panel -->
-<div id="muzik-flute" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-yanflut.webp" type="image/webp"/>
-<img src="assets/img/kurs-yanflut.jpg" alt="KDS Akademi yan flüt eğitimi" class="w-full h-full object-cover" width="640" height="640" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">music_note</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Yan Flüt Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Diyafram nefesi kontrolü, tonlama teknikleri, dudak ve parmak pozisyonları geliştirilerek flütte zarafet dolu bir icra becerisi kazandırılır.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Yan%20Flut" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Gitar Panel -->
-<div id="muzik-guitar" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-gitar.webp" type="image/webp"/>
-<img src="assets/img/kurs-gitar.jpg" alt="KDS Akademi gitar eğitimi" class="w-full h-full object-cover" width="736" height="1104" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">music_note</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Gitar Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Klasik, akustik veya elektro gitarda temel akor kalıpları, ritim arpej çalışmaları, bare basma ve solo çalgıcılık teknikleri üzerine eğitim.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Gitar" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Çello Panel -->
-<div id="muzik-cello" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-cello.webp" type="image/webp"/>
-<img src="assets/img/kurs-cello.jpg" alt="KDS Akademi çello eğitimi" class="w-full h-full object-cover" width="900" height="1198" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">music_note</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Çello (Viyolonsel) Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Çellonun bas ve lirik tonlarıyla tanışın. Doğru oturuş, yay çekme açısı, perde yerleri ve klasik eser icra teknikleri uzman eşliğinde öğretilir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Cello" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Bağlama Panel -->
-<div id="muzik-baglama" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-baglama.webp" type="image/webp"/>
-<img src="assets/img/kurs-baglama.jpg" alt="KDS Akademi bağlama eğitimi" class="w-full h-full object-cover" width="900" height="1200" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-blue/20 text-kds-blue">
-<span class="material-symbols-outlined text-2xl">queue_music</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-blue/20 text-kds-blue border border-kds-blue/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Bağlama Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Kısa ve uzun sap bağlamada tezene vuruş teknikleri, yöresel tavırlar, nota ve solfej eşliğinde Türk Halk Müziği repertuvar çalışmaları.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Baglama" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-blue text-white font-label-md rounded-full shadow-[0_0_20px_rgba(33,150,243,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Dance Department -->
-<section id="dans" data-category="dans" class="dept-section relative overflow-hidden w-full px-4 md:px-6 py-section-gap scroll-mt-40">
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-6">
-<span class="bracket-tag font-label-md text-kds-pink uppercase tracking-widest block mb-2">Dans</span>
-<div class="flex items-end justify-between gap-4 border-b border-outline-variant/30 pb-4 mb-6">
-<h3 class="display-tight font-headline-lg text-zinc-900">Dans Akademisi</h3>
-<span class="font-label-md text-label-md text-zinc-400 uppercase tracking-widest whitespace-nowrap hidden sm:block">9 Kurs</span>
-</div>
-</div>
-
-<div class="glass-panel p-6 md:p-10 rounded-3xl border border-outline-variant/20 relative overflow-hidden bg-white/50 backdrop-blur-md">
-<div class="relative z-10">
-<!-- Tab Buttons Row -->
-<div class="flex flex-wrap gap-2 md:gap-3 mb-8">
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-salsa" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
+<button class="dept-tab" data-dept="dans">
 <span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Salsa</span>
+Dans Akademisi
 </button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-bachata" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Bachata</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-zeybek" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Zeybek</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-hiphop" data-age="cocuk genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Hip Hop</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-break" data-age="cocuk genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Breakdance</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-rumba" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Rumba</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-zumba" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Zumba</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-oriental" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Oryantal</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="dans" data-course-id="dans-roman" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-pink/10 text-kds-pink shrink-0">
-<span class="material-symbols-outlined text-lg">nightlife</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Roman</span>
-</button>
-</div>
-
-<!-- Dynamic Showcase Canvas -->
-<div class="w-full relative">
-<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-tr from-kds-pink/20 to-transparent filter blur-3xl pointer-events-none animate-pulse"></div>
-
-<!-- Salsa Panel -->
-<div id="dans-salsa" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-salsa.webp" type="image/webp"/>
-<img src="assets/img/kurs-salsa.jpg" alt="KDS Akademi salsa dansı" class="w-full h-full object-cover" width="736" height="1106" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Salsa Dansı</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Küba ve Porto Riko kökenli, son derece dinamik ve popüler bir partner dansıdır. Ritim duygusu, koordinasyon ve sosyal etkileşimi en üst seviyeye çıkarır.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Salsa" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Bachata Panel -->
-<div id="dans-bachata" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-bachata.webp" type="image/webp"/>
-<img src="assets/img/kurs-bachata.jpg" alt="KDS Akademi bachata dansı" class="w-full h-full object-cover" width="470" height="705" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Bachata Dansı</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Dominik Cumhuriyeti kökenli, romantik ve akıcı adımlardan oluşan popüler bir partner dansıdır. Vücut koordinasyonunu ve ritim uyumunu geliştirir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Bachata" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Zeybek Panel -->
-<div id="dans-zeybek" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-zeybek.webp" type="image/webp"/>
-<img src="assets/img/kurs-zeybek.jpg" alt="KDS Akademi zeybek eğitimi" class="w-full h-full object-cover" width="845" height="1197" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Zeybek Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Ege yöresinin asil ve gururlu duruşunu temsil eden zeybek figürleri. Bireysel duruş, müzikal ritim ve geleneksel sahne koreografileri üzerine çalışılır.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Zeybek" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Hip Hop Panel -->
-<div id="dans-hiphop" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-hiphop.webp" type="image/webp"/>
-<img src="assets/img/kurs-hiphop.jpg" alt="KDS Akademi hip hop eğitimi" class="w-full h-full object-cover" width="900" height="675" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Tüm Yaşlar</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Hip Hop Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Sokak kültürü ve modern müziklerin enerjisiyle şekillenen, özgür ruhlu sokak dansı. Ritim takibi, güç, kondisyon ve stil çalışmaları içerir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Hip%20Hop" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Breakdance Panel -->
-<div id="dans-break" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-breakdance.webp" type="image/webp"/>
-<img src="assets/img/kurs-breakdance.jpg" alt="KDS Akademi breakdance eğitimi" class="w-full h-full object-cover" width="476" height="636" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Tüm Yaşlar</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Breakdance Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Akrobatik yer hareketleri (footwork), güç hareketleri (power moves) ve donma (freeze) tekniklerini bir araya getiren enerjik bir sokak dansı stilidir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Breakdance" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Rumba Panel -->
-<div id="dans-rumba" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-rumba.webp" type="image/webp"/>
-<img src="assets/img/kurs-rumba.jpg" alt="KDS Akademi rumba dansı" class="w-full h-full object-cover" width="600" height="514" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Rumba Dansı</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Aşkın ve tutkunun dansı olarak bilinen yavaş tempolu Latin Amerikan dansıdır. Vücut esnekliğini, duruşu ve partnerler arası dramatik ifadeyi geliştirir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Rumba" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Zumba Panel -->
-<div id="dans-zumba" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-zumba.webp" type="image/webp"/>
-<img src="assets/img/kurs-zumba.jpg" alt="KDS Akademi zumba fitness dersi" class="w-full h-full object-cover" width="448" height="502" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Zumba Fitness</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Latin müzikleri eşliğinde dans ve fitness hareketlerinin harmanlandığı, yüksek kalori yakımı sağlayan son derece eğlenceli grup egzersizi dersidir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Zumba" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Oryantal Panel -->
-<div id="dans-oriental" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-oryantal.webp" type="image/webp"/>
-<img src="assets/img/kurs-oryantal.jpg" alt="KDS Akademi oryantal dansı" class="w-full h-full object-cover" width="900" height="675" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Oryantal Dansı</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Orta Doğu geleneksel dans figürleri ve ritimleri. Kalça, karın ve omuz kaslarının izole çalıştırılmasıyla esneklik ve estetik katmaktadır.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Oryantal" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Roman Panel -->
-<div id="dans-roman" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-roman.webp" type="image/webp"/>
-<img src="assets/img/kurs-roman.jpg" alt="KDS Akademi roman dansı" class="w-full h-full object-cover" width="900" height="1193" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-pink/20 text-kds-pink">
-<span class="material-symbols-outlined text-2xl">nightlife</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-pink/20 text-kds-pink border border-kds-pink/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Roman Dansı</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Trakya ve Roman kültürünün neşeli, kıvrak ve özgün 9/8'lik ritimleriyle hazırlanan figürler. Yüksek tempolu ve neşeli bir ders içeriği sunar.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Roman" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-pink text-white font-label-md rounded-full shadow-[0_0_20px_rgba(233,30,99,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Theater Department -->
-<section id="tiyatro" data-category="tiyatro" class="dept-section relative overflow-hidden w-full px-4 md:px-6 py-section-gap scroll-mt-40">
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-6">
-<span class="bracket-tag font-label-md text-kds-purple uppercase tracking-widest block mb-2">Sahne Sanatları</span>
-<div class="flex items-end justify-between gap-4 border-b border-outline-variant/30 pb-4 mb-6">
-<h3 class="display-tight font-headline-lg text-zinc-900">Tiyatro ve Oyunculuk</h3>
-<span class="font-label-md text-label-md text-zinc-400 uppercase tracking-widest whitespace-nowrap hidden sm:block">3 Kurs</span>
-</div>
-</div>
-
-<div class="glass-panel p-6 md:p-10 rounded-3xl border border-outline-variant/20 relative overflow-hidden bg-white/50 backdrop-blur-md">
-<div class="relative z-10">
-<!-- Tab Buttons Row -->
-<div class="flex flex-wrap gap-2 md:gap-3 mb-8">
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="tiyatro" data-course-id="tiyatro-impro" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-purple/10 text-kds-purple shrink-0">
+<button class="dept-tab" data-dept="tiyatro">
 <span class="material-symbols-outlined text-lg">theater_comedy</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Doğaçlama</span>
+Tiyatro &amp; Oyunculuk
 </button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="tiyatro" data-course-id="tiyatro-speech" data-age="genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-purple/10 text-kds-purple shrink-0">
-<span class="material-symbols-outlined text-lg">theater_comedy</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Diksiyon</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="tiyatro" data-course-id="tiyatro-drama" data-age="cocuk genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-purple/10 text-kds-purple shrink-0">
-<span class="material-symbols-outlined text-lg">theater_comedy</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Tiyatro / Oyunculuk</span>
-</button>
-</div>
-
-<!-- Dynamic Showcase Canvas -->
-<div class="w-full relative">
-<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-tr from-kds-purple/20 to-transparent filter blur-3xl pointer-events-none animate-pulse"></div>
-
-<!-- Doğaçlama Panel -->
-<div id="tiyatro-impro" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-dogaclama.webp" type="image/webp"/>
-<img src="assets/img/kurs-dogaclama.jpg" alt="KDS Akademi sahne doğaçlama eğitimi" class="w-full h-full object-cover" width="640" height="960" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-purple/20 text-kds-purple">
-<span class="material-symbols-outlined text-2xl">theater_comedy</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-purple/20 text-kds-purple border border-kds-purple/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Sahne Doğaçlama</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Önceden yazılmış bir metin olmaksızın anlık sahne refleksleri, hayal gücü ve yaratıcılık geliştiren, özgüveni artıran son derece interaktif atölye çalışmaları.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Dogaclama" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-purple text-white font-label-md rounded-full shadow-[0_0_20px_rgba(156,39,176,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Diksiyon Panel -->
-<div id="tiyatro-speech" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-diksiyon.webp" type="image/webp"/>
-<img src="assets/img/kurs-diksiyon.jpg" alt="KDS Akademi diksiyon eğitimi" class="w-full h-full object-cover" width="500" height="750" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-purple/20 text-kds-purple">
-<span class="material-symbols-outlined text-2xl">theater_comedy</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-purple/20 text-kds-purple border border-kds-purple/30">Genç · Yetişkin</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Etkili Diksiyon</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Doğru diyafram nefesi, ses tonunu ayarlama, artikülasyon ve tonlama egzersizleriyle topluluk önünde veya günlük hayatta etkili, akıcı ve özgüvenli konuşma eğitimi.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Diksiyon" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-purple text-white font-label-md rounded-full shadow-[0_0_20px_rgba(156,39,176,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Tiyatro Panel -->
-<div id="tiyatro-drama" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-tiyatro.webp" type="image/webp"/>
-<img src="assets/img/kurs-tiyatro.jpg" alt="KDS Akademi tiyatro sahne performansı" class="w-full h-full object-cover" width="736" height="981" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-purple/20 text-kds-purple">
-<span class="material-symbols-outlined text-2xl">theater_comedy</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-purple/20 text-kds-purple border border-kds-purple/30">Tüm Yaşlar</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Tiyatro ve Oyunculuk</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Temel oyunculuk, rol analizi, beden dili, sahne hakimiyeti ve karakter oluşturma süreçleri. Dönem sonu profesyonel bir tiyatro oyunu sahneleme deneyimi hedeflenir.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Tiyatro%20ve%20Oyunculuk" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-purple text-white font-label-md rounded-full shadow-[0_0_20px_rgba(156,39,176,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Visual Arts Department -->
-<section id="resim" data-category="resim" class="dept-section relative overflow-hidden w-full px-4 md:px-6 py-section-gap scroll-mt-40">
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-6">
-<span class="bracket-tag font-label-md text-kds-orange uppercase tracking-widest block mb-2">Görsel Sanatlar</span>
-<div class="flex items-end justify-between gap-4 border-b border-outline-variant/30 pb-4 mb-6">
-<h3 class="display-tight font-headline-lg text-zinc-900">Resim Atölyesi</h3>
-<span class="font-label-md text-label-md text-zinc-400 uppercase tracking-widest whitespace-nowrap hidden sm:block">3 Kurs</span>
-</div>
-</div>
-
-<div class="glass-panel p-6 md:p-10 rounded-3xl border border-outline-variant/20 relative overflow-hidden bg-white/50 backdrop-blur-md">
-<div class="relative z-10">
-<!-- Tab Buttons Row -->
-<div class="flex flex-wrap gap-2 md:gap-3 mb-8">
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="resim" data-course-id="resim-basic" data-age="cocuk genc yetiskin">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-orange/10 text-kds-orange shrink-0">
+<button class="dept-tab" data-dept="resim">
 <span class="material-symbols-outlined text-lg">palette</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Temel Resim</span>
+Resim Atölyesi
 </button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="resim" data-course-id="resim-exam" data-age="genc">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-orange/10 text-kds-orange shrink-0">
-<span class="material-symbols-outlined text-lg">palette</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Sınav Hazırlık</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="resim" data-course-id="resim-kids" data-age="cocuk">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-kds-orange/10 text-kds-orange shrink-0">
-<span class="material-symbols-outlined text-lg">palette</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Çocuk Resim</span>
-</button>
-</div>
-
-<!-- Dynamic Showcase Canvas -->
-<div class="w-full relative">
-<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-tr from-kds-orange/20 to-transparent filter blur-3xl pointer-events-none animate-pulse"></div>
-
-<!-- Temel Resim Panel -->
-<div id="resim-basic" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden text-white min-h-[380px] grid grid-cols-1 md:grid-cols-2">
-<div class="relative h-56 md:h-auto">
-<picture>
-<source srcset="assets/img/kurs-resim.webp" type="image/webp"/>
-<img src="assets/img/kurs-resim.jpg" alt="KDS Akademi resim atölyesi" class="w-full h-full object-cover" width="900" height="1199" loading="lazy" decoding="async"/>
-</picture>
-</div>
-<div class="p-8 md:p-12 flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-orange/20 text-kds-orange">
-<span class="material-symbols-outlined text-2xl">palette</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-orange/20 text-kds-orange border border-kds-orange/30">Tüm Yaşlar</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Temel Resim Eğitimi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Karakalem çizim tekniği, oran-orantı, gölgelendirme, perspektif ve farklı boyama yöntemleriyle (yağlı boya, sulu boya, akrilik) yaratıcılığınızı yansıtacak çalışmalar.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Temel%20Resim" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-orange text-white font-label-md rounded-full shadow-[0_0_20px_rgba(255,87,34,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-
-<!-- Sınav Hazırlık Panel -->
-<div id="resim-exam" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 text-white min-h-[380px] flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-orange/20 text-kds-orange">
-<span class="material-symbols-outlined text-2xl">palette</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-orange/20 text-kds-orange border border-kds-orange/30">Genç</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Güzel Sanatlara Hazırlık</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Güzel sanatlar liseleri ve üniversitelerin güzel sanatlar fakültelerine yönelik profesyonel çizim, imgesel kompozisyon ve hazırlık portfolyo atölyesi.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Sinav%20Hazirlik" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-orange text-white font-label-md rounded-full shadow-[0_0_20px_rgba(255,87,34,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-
-<!-- Çocuk Resim Panel -->
-<div id="resim-kids" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 text-white min-h-[380px] flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-kds-orange/20 text-kds-orange">
-<span class="material-symbols-outlined text-2xl">palette</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-kds-orange/20 text-kds-orange border border-kds-orange/30">Çocuk</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Çocuk Resim Atölyesi</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Çocukların hayal dünyasını zenginleştiren, el-göz koordinasyonunu artıran, renk teorisini oyunlarla öğreten eğlenceli ve yaratıcı çizim atölyeleri.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Cocuk%20Resim%20Atolyesi" class="inline-flex items-center gap-2 px-6 py-3 bg-kds-orange text-white font-label-md rounded-full shadow-[0_0_20px_rgba(255,87,34,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<!-- Kids Academy -->
-<section id="cocuk" data-category="cocuk" class="dept-section relative overflow-hidden w-full px-4 md:px-6 py-section-gap scroll-mt-40">
-<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-6">
-<span class="bracket-tag font-label-md text-[#FBC02D] uppercase tracking-widest block mb-2">Çocuk Akademisi</span>
-<div class="flex items-end justify-between gap-4 border-b border-outline-variant/30 pb-4 mb-6">
-<h3 class="display-tight font-headline-lg text-zinc-900">Çocuk Akademisi</h3>
-<span class="font-label-md text-label-md text-zinc-400 uppercase tracking-widest whitespace-nowrap hidden sm:block">2 Kurs</span>
-</div>
-</div>
-
-<div class="glass-panel p-6 md:p-10 rounded-3xl border border-outline-variant/20 relative overflow-hidden bg-white/50 backdrop-blur-md">
-<div class="relative z-10">
-<!-- Tab Buttons Row -->
-<div class="flex flex-wrap gap-2 md:gap-3 mb-8">
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="cocuk" data-course-id="cocuk-dance" data-age="cocuk">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-[#FBC02D]/10 text-[#FBC02D] shrink-0">
+<button class="dept-tab" data-dept="cocuk">
 <span class="material-symbols-outlined text-lg">child_care</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Halk Dansları</span>
-</button>
-
-<button class="course-tab-btn inline-flex items-center gap-3 px-4 py-2.5 border rounded-full transition-all duration-300 active:scale-[0.98] focus:outline-none" data-dept-id="cocuk" data-course-id="cocuk-drama" data-age="cocuk">
-<div class="w-8 h-8 rounded-full flex items-center justify-center bg-[#FBC02D]/10 text-[#FBC02D] shrink-0">
-<span class="material-symbols-outlined text-lg">child_care</span>
-</div>
-<span class="font-headline-md text-sm font-semibold">Yaratıcı Drama</span>
+Çocuk Akademisi
 </button>
 </div>
-
-<!-- Dynamic Showcase Canvas -->
-<div class="w-full relative">
-<div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-gradient-to-tr from-[#FBC02D]/20 to-transparent filter blur-3xl pointer-events-none animate-pulse"></div>
-
-<!-- Halk Dansları Panel -->
-<div id="cocuk-dance" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 text-white min-h-[380px] flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-[#FBC02D]/20 text-[#FBC02D]">
-<span class="material-symbols-outlined text-2xl">child_care</span>
-</div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#FBC02D]/20 text-[#FBC02D] border border-[#FBC02D]/30">Çocuk</span>
-</div>
-<h4 class="font-headline-lg text-white mb-4">Halk Dansları</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Çocuklarda ritim kulağını geliştiren, grup disiplini ve takım ruhu aşılayan, Anadolu'nun renkli figürlerinden oluşan geleneksel halk oyunları eğitimi.</p>
-</div>
-<div>
-<a href="iletisim.html?kurs=Halk%20Danslari" class="inline-flex items-center gap-2 px-6 py-3 bg-[#FBC02D] text-white font-label-md rounded-full shadow-[0_0_20px_rgba(251,192,45,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
 </div>
 </div>
 
-<!-- Yaratıcı Drama Panel -->
-<div id="cocuk-drama" class="course-tab-panel hidden opacity-0 scale-95 transition-all duration-300 ease-out bg-zinc-900 border border-white/10 rounded-2xl p-8 md:p-12 text-white min-h-[380px] flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-6">
-<div class="w-12 h-12 rounded-full flex items-center justify-center bg-[#FBC02D]/20 text-[#FBC02D]">
-<span class="material-symbols-outlined text-2xl">child_care</span>
+<!-- Course Browser Body -->
+<div class="course-browser-body">
+<div class="flex flex-col md:flex-row">
+
+<!-- Left Sidebar - Course List -->
+<aside class="course-sidebar" id="course-sidebar">
+
+<!-- Müzik Courses -->
+<div class="sidebar-group active" data-dept-group="muzik">
+<button class="sidebar-course-btn active" data-target="muzik-piano" data-age="cocuk genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">piano</span>
+<span class="sidebar-course-name">Piyano</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="muzik-violin" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">music_note</span>
+<span class="sidebar-course-name">Keman</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="muzik-kanun" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">queue_music</span>
+<span class="sidebar-course-name">Kanun</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="muzik-flute" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">music_note</span>
+<span class="sidebar-course-name">Yan Flüt</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="muzik-guitar" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">music_note</span>
+<span class="sidebar-course-name">Gitar</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="muzik-cello" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">music_note</span>
+<span class="sidebar-course-name">Çello</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="muzik-baglama" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">queue_music</span>
+<span class="sidebar-course-name">Bağlama</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
 </div>
-<span class="px-3 py-1 text-xs font-semibold rounded-full bg-[#FBC02D]/20 text-[#FBC02D] border border-[#FBC02D]/30">Çocuk</span>
+
+<!-- Dans Courses -->
+<div class="sidebar-group" data-dept-group="dans">
+<button class="sidebar-course-btn active" data-target="dans-salsa" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Salsa</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-bachata" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Bachata</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-zeybek" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Zeybek</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-hiphop" data-age="cocuk genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Hip Hop</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-break" data-age="cocuk genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Breakdance</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-rumba" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Rumba</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-zumba" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Zumba</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-oriental" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Oryantal</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="dans-roman" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">nightlife</span>
+<span class="sidebar-course-name">Roman</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
 </div>
-<h4 class="font-headline-lg text-white mb-4">Yaratıcı Drama</h4>
-<p class="font-body-md text-surface-variant/80 max-w-xl leading-relaxed">Rol oynama ve doğaçlama egzersizleriyle çocukların kendilerini rahat ifade etmesini sağlayan, empati becerisini ve sosyal özgüveni en üst düzeye çıkaran pedagojik drama atölyesi.</p>
+
+<!-- Tiyatro Courses -->
+<div class="sidebar-group" data-dept-group="tiyatro">
+<button class="sidebar-course-btn active" data-target="tiyatro-impro" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">theater_comedy</span>
+<span class="sidebar-course-name">Doğaçlama</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="tiyatro-speech" data-age="genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">theater_comedy</span>
+<span class="sidebar-course-name">Diksiyon</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="tiyatro-drama" data-age="cocuk genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">theater_comedy</span>
+<span class="sidebar-course-name">Tiyatro / Oyunculuk</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
 </div>
-<div>
-<a href="iletisim.html?kurs=Yaratici%20Drama" class="inline-flex items-center gap-2 px-6 py-3 bg-[#FBC02D] text-white font-label-md rounded-full shadow-[0_0_20px_rgba(251,192,45,0.4)] hover:bg-white hover:text-zinc-900 transition-colors active:scale-95">
-<span>Bilgi Al & Kaydol</span>
-<span class="material-symbols-outlined text-sm">arrow_forward</span>
-</a>
+
+<!-- Resim Courses -->
+<div class="sidebar-group" data-dept-group="resim">
+<button class="sidebar-course-btn active" data-target="resim-basic" data-age="cocuk genc yetiskin">
+<span class="material-symbols-outlined sidebar-icon">palette</span>
+<span class="sidebar-course-name">Temel Resim</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="resim-exam" data-age="genc">
+<span class="material-symbols-outlined sidebar-icon">palette</span>
+<span class="sidebar-course-name">Sınav Hazırlık</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="resim-kids" data-age="cocuk">
+<span class="material-symbols-outlined sidebar-icon">palette</span>
+<span class="sidebar-course-name">Çocuk Resim</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+</div>
+
+<!-- Çocuk Courses -->
+<div class="sidebar-group" data-dept-group="cocuk">
+<button class="sidebar-course-btn active" data-target="cocuk-dance" data-age="cocuk">
+<span class="material-symbols-outlined sidebar-icon">child_care</span>
+<span class="sidebar-course-name">Halk Dansları</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+<button class="sidebar-course-btn" data-target="cocuk-drama" data-age="cocuk">
+<span class="material-symbols-outlined sidebar-icon">child_care</span>
+<span class="sidebar-course-name">Yaratıcı Drama</span>
+<span class="material-symbols-outlined sidebar-arrow">arrow_forward</span>
+</button>
+</div>
+
+</aside>
+
+<!-- Right Content Area - Course Detail -->
+<div class="course-detail-area" id="course-detail-area">
+
+<!-- Müzik Panels -->
+<div class="course-detail-panel active" id="panel-muzik-piano">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-piyano.webp" type="image/webp"/><img src="assets/img/kurs-piyano.jpg" alt="KDS Akademi piyano eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Piyano Eğitimi</h3>
+    <a href="kayit.html?kurs=Piyano" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Klasik ve modern repertuvarla nota okuma, piyano çalma tekniği ve sahne performans becerisi kazandırır. Her seviye ve yaş grubuna uygun bireyselleştirilmiş program uygulanmaktadır.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Tüm Yaşlar</span>
+
 </div>
 </div>
 </div>
+
+<div class="course-detail-panel" id="panel-muzik-violin">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-keman.webp" type="image/webp"/><img src="assets/img/kurs-keman.jpg" alt="KDS Akademi keman eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Keman Eğitimi</h3>
+    <a href="kayit.html?kurs=Keman" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Yay tekniği, entonasyon, doğru duruş ve müzikal ifade üzerine odaklanan keman eğitimi. Klasik batı müziği temelli repertuvar çalışmalarıyla desteklenir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
 </div>
 </div>
 </div>
+
+<div class="course-detail-panel" id="panel-muzik-kanun">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-kanun.webp" type="image/webp"/><img src="assets/img/kurs-kanun.jpg" alt="KDS Akademi kanun eğitimi" loading="lazy" decoding="async"/></picture>
 </div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Kanun Eğitimi</h3>
+    <a href="kayit.html?kurs=Kanun" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Geleneksel Türk müziği sazı olan kanunun mızrap teknikleri, makam bilgileri ve zengin repertuvarı eşliğinde icra yöntemleri öğretilir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-muzik-flute">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-yanflut.webp" type="image/webp"/><img src="assets/img/kurs-yanflut.jpg" alt="KDS Akademi yan flüt eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Yan Flüt Eğitimi</h3>
+    <a href="kayit.html?kurs=Yan%20Flut" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Diyafram nefesi kontrolü, tonlama teknikleri, dudak ve parmak pozisyonları geliştirilerek flütte zarafet dolu bir icra becerisi kazandırılır.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-muzik-guitar">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-gitar.webp" type="image/webp"/><img src="assets/img/kurs-gitar.jpg" alt="KDS Akademi gitar eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Gitar Eğitimi</h3>
+    <a href="kayit.html?kurs=Gitar" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Klasik, akustik veya elektro gitarda temel akor kalıpları, ritim arpej çalışmaları, bare basma ve solo çalgıcılık teknikleri üzerine eğitim.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-muzik-cello">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-cello.webp" type="image/webp"/><img src="assets/img/kurs-cello.jpg" alt="KDS Akademi çello eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Çello (Viyolonsel) Eğitimi</h3>
+    <a href="kayit.html?kurs=Cello" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Çellonun bas ve lirik tonlarıyla tanışın. Doğru oturuş, yay çekme açısı, perde yerleri ve klasik eser icra teknikleri uzman eşliğinde öğretilir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-muzik-baglama">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-baglama.webp" type="image/webp"/><img src="assets/img/kurs-baglama.jpg" alt="KDS Akademi bağlama eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge">Müzik Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Bağlama Eğitimi</h3>
+    <a href="kayit.html?kurs=Baglama" class="course-detail-cta">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Kısa ve uzun sap bağlamada tezene vuruş teknikleri, yöresel tavırlar, nota ve solfej eşliğinde Türk Halk Müziği repertuvar çalışmaları.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<!-- Dans Panels -->
+<div class="course-detail-panel" id="panel-dans-salsa">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-salsa.webp" type="image/webp"/><img src="assets/img/kurs-salsa.jpg" alt="KDS Akademi salsa dansı" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Salsa Dansı</h3>
+    <a href="kayit.html?kurs=Salsa" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Küba ve Porto Riko kökenli, son derece dinamik ve popüler bir partner dansıdır. Ritim duygusu, koordinasyon ve sosyal etkileşimi en üst seviyeye çıkarır.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-bachata">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-bachata.webp" type="image/webp"/><img src="assets/img/kurs-bachata.jpg" alt="KDS Akademi bachata dansı" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Bachata Dansı</h3>
+    <a href="kayit.html?kurs=Bachata" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Dominik Cumhuriyeti kökenli, romantik ve akıcı adımlardan oluşan popüler bir partner dansıdır. Vücut koordinasyonunu ve ritim uyumunu geliştirir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-zeybek">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-zeybek.webp" type="image/webp"/><img src="assets/img/kurs-zeybek.jpg" alt="KDS Akademi zeybek eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Zeybek Eğitimi</h3>
+    <a href="kayit.html?kurs=Zeybek" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Ege yöresinin asil ve gururlu duruşunu temsil eden zeybek figürleri. Bireysel duruş, müzikal ritim ve geleneksel sahne koreografileri üzerine çalışılır.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-hiphop">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-hiphop.webp" type="image/webp"/><img src="assets/img/kurs-hiphop.jpg" alt="KDS Akademi hip hop eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Hip Hop Eğitimi</h3>
+    <a href="kayit.html?kurs=Hip%20Hop" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Sokak kültürü ve modern müziklerin enerjisiyle şekillenen, özgür ruhlu sokak dansı. Ritim takibi, güç, kondisyon ve stil çalışmaları içerir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Tüm Yaşlar</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-break">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-breakdance.webp" type="image/webp"/><img src="assets/img/kurs-breakdance.jpg" alt="KDS Akademi breakdance eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Breakdance Eğitimi</h3>
+    <a href="kayit.html?kurs=Breakdance" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Akrobatik yer hareketleri (footwork), güç hareketleri (power moves) ve donma (freeze) tekniklerini bir araya getiren enerjik bir sokak dansı stilidir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Tüm Yaşlar</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-rumba">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-rumba.webp" type="image/webp"/><img src="assets/img/kurs-rumba.jpg" alt="KDS Akademi rumba dansı" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Rumba Dansı</h3>
+    <a href="kayit.html?kurs=Rumba" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Aşkın ve tutkunun dansı olarak bilinen yavaş tempolu Latin Amerikan dansıdır. Vücut esnekliğini, duruşu ve partnerler arası dramatik ifadeyi geliştirir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-zumba">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-zumba.webp" type="image/webp"/><img src="assets/img/kurs-zumba.jpg" alt="KDS Akademi zumba fitness dersi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Zumba Fitness</h3>
+    <a href="kayit.html?kurs=Zumba" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Latin müzikleri eşliğinde dans ve fitness hareketlerinin harmanlandığı, yüksek kalori yakımı sağlayan son derece eğlenceli grup egzersizi dersidir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-oriental">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-oryantal.webp" type="image/webp"/><img src="assets/img/kurs-oryantal.jpg" alt="KDS Akademi oryantal dansı" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Oryantal Dansı</h3>
+    <a href="kayit.html?kurs=Oryantal" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Orta Doğu geleneksel dans figürleri ve ritimleri. Kalça, karın ve omuz kaslarının izole çalıştırılmasıyla esneklik ve estetik katmaktadır.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-dans-roman">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-roman.webp" type="image/webp"/><img src="assets/img/kurs-roman.jpg" alt="KDS Akademi roman dansı" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-pink">Dans Departmanı</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Roman Dansı</h3>
+    <a href="kayit.html?kurs=Roman" class="course-detail-cta cta-pink">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Trakya ve Roman kültürünün neşeli, kıvrak ve özgün 9/8'lik ritimleriyle hazırlanan figürler. Yüksek tempolu ve neşeli bir ders içeriği sunar.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<!-- Tiyatro Panels -->
+<div class="course-detail-panel" id="panel-tiyatro-impro">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-dogaclama.webp" type="image/webp"/><img src="assets/img/kurs-dogaclama.jpg" alt="KDS Akademi sahne doğaçlama eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-purple">Sahne Sanatları</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Sahne Doğaçlama</h3>
+    <a href="kayit.html?kurs=Dogaclama" class="course-detail-cta cta-purple">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Önceden yazılmış bir metin olmaksızın anlık sahne refleksleri, hayal gücü ve yaratıcılık geliştiren, özgüveni artıran son derece interaktif atölye çalışmaları.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-tiyatro-speech">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-diksiyon.webp" type="image/webp"/><img src="assets/img/kurs-diksiyon.jpg" alt="KDS Akademi diksiyon eğitimi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-purple">Sahne Sanatları</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Etkili Diksiyon</h3>
+    <a href="kayit.html?kurs=Diksiyon" class="course-detail-cta cta-purple">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Doğru diyafram nefesi, ses tonunu ayarlama, artikülasyon ve tonlama egzersizleriyle topluluk önünde veya günlük hayatta etkili, akıcı ve özgüvenli konuşma eğitimi.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç · Yetişkin</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-tiyatro-drama">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-tiyatro.webp" type="image/webp"/><img src="assets/img/kurs-tiyatro.jpg" alt="KDS Akademi tiyatro sahne performansı" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-purple">Sahne Sanatları</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Tiyatro ve Oyunculuk</h3>
+    <a href="kayit.html?kurs=Tiyatro%20ve%20Oyunculuk" class="course-detail-cta cta-purple">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Temel oyunculuk, rol analizi, beden dili, sahne hakimiyeti ve karakter oluşturma süreçleri. Dönem sonu profesyonel bir tiyatro oyunu sahneleme deneyimi hedeflenir.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Tüm Yaşlar</span>
+
+</div>
+</div>
+</div>
+
+<!-- Resim Panels -->
+<div class="course-detail-panel" id="panel-resim-basic">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-resim.webp" type="image/webp"/><img src="assets/img/kurs-resim.jpg" alt="KDS Akademi resim atölyesi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-orange">Görsel Sanatlar</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Temel Resim Eğitimi</h3>
+    <a href="kayit.html?kurs=Temel%20Resim" class="course-detail-cta cta-orange">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Karakalem çizim tekniği, oran-orantı, gölgelendirme, perspektif ve farklı boyama yöntemleriyle (yağlı boya, sulu boya, akrilik) yaratıcılığınızı yansıtacak çalışmalar.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Tüm Yaşlar</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-resim-exam">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-resim.webp" type="image/webp"/><img src="assets/img/kurs-resim.jpg" alt="KDS Akademi güzel sanatlar sınav hazırlık" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-orange">Görsel Sanatlar</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Güzel Sanatlara Hazırlık</h3>
+    <a href="kayit.html?kurs=Sinav%20Hazirlik" class="course-detail-cta cta-orange">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Güzel sanatlar liseleri ve üniversitelerin güzel sanatlar fakültelerine yönelik profesyonel çizim, imgesel kompozisyon ve hazırlık portfolyo atölyesi.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Genç</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-resim-kids">
+<div class="course-detail-bg">
+<picture><source srcset="assets/img/kurs-resim.webp" type="image/webp"/><img src="assets/img/kurs-resim.jpg" alt="KDS Akademi çocuk resim atölyesi" loading="lazy" decoding="async"/></picture>
+</div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-orange">Görsel Sanatlar</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Çocuk Resim Atölyesi</h3>
+    <a href="kayit.html?kurs=Cocuk%20Resim%20Atolyesi" class="course-detail-cta cta-orange">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Çocukların hayal dünyasını zenrichleştiren, el-göz koordinasyonunu artıran, renk teorisini oyunlarla öğreten eğlenceli ve yaratıcı çizim atölyeleri.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Çocuk</span>
+
+</div>
+</div>
+</div>
+
+<!-- Çocuk Panels -->
+<div class="course-detail-panel" id="panel-cocuk-dance">
+<div class="course-detail-bg" style="background: linear-gradient(135deg, rgba(251,192,45,0.15), rgba(24,24,27,0.95));"></div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-yellow">Çocuk Akademisi</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Halk Dansları</h3>
+    <a href="kayit.html?kurs=Halk%20Danslari" class="course-detail-cta cta-yellow">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Çocuklarda ritim kulağını geliştiren, grup disiplini ve takım ruhu aşılayan, Anadolu'nun renkli figürlerinden oluşan geleneksel halk oyunları eğitimi.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Çocuk</span>
+
+</div>
+</div>
+</div>
+
+<div class="course-detail-panel" id="panel-cocuk-drama">
+<div class="course-detail-bg" style="background: linear-gradient(135deg, rgba(251,192,45,0.15), rgba(24,24,27,0.95));"></div>
+<div class="course-detail-content">
+<span class="course-detail-dept-badge badge-yellow">Çocuk Akademisi</span>
+<div class="course-detail-title-row">
+    <h3 class="course-detail-title">Yaratıcı Drama</h3>
+    <a href="kayit.html?kurs=Yaratici%20Drama" class="course-detail-cta cta-yellow">Kayıt Ol <span class="material-symbols-outlined text-base">arrow_outward</span></a>
+  </div>
+<p class="course-detail-desc">Rol oynama ve doğaçlama egzersizleriyle çocukların kendilerini rahat ifade etmesini sağlayan, empati becerisini ve sosyal özgüveni en üst düzeye çıkaran pedagojik drama atölyesi.</p>
+<div class="course-detail-footer">
+<span class="course-detail-age"><span class="material-symbols-outlined text-sm">group</span> Çocuk</span>
+
+</div>
+</div>
+</div>
+
+</div><!-- /course-detail-area -->
+
+</div><!-- /flex -->
+</div><!-- /course-browser-body -->
+
+</div><!-- /max-w-container-max -->
 </section>
 
-<!-- Footer -->
+</main>
+
 <footer class="w-full bg-zinc-900">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-20 grid grid-cols-1 md:grid-cols-4 gap-gutter">
 <div class="col-span-1 md:col-span-1">
@@ -1095,7 +783,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js?v=1.3"></script>
 <script src="assets/js/motion.js"></script>
 </body>
 </html>

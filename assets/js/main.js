@@ -338,120 +338,119 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==============================
-       Course Filters
+       Course Browser - Unified Tabs
        ============================== */
-    var categoryFilters = document.getElementById('category-filters');
-    var ageFilters = document.getElementById('age-filters');
-    if (categoryFilters && ageFilters) {
-        var deptSections = document.querySelectorAll('.dept-section');
-        var activeCategory = 'tumu';
-        var activeAge = 'tumu';
+    var deptTabs = document.querySelectorAll('.dept-tab');
+    var sidebarGroups = document.querySelectorAll('.sidebar-group');
+    var sidebarBtns = document.querySelectorAll('.sidebar-course-btn');
+    var detailPanels = document.querySelectorAll('.course-detail-panel');
 
-        var applyCourseFilters = function () {
-            deptSections.forEach(function (section) {
-                var cat = section.getAttribute('data-category');
-                var categoryMatches = (activeCategory === 'tumu' || activeCategory === cat);
-                var anyCardVisible = false;
-                
-                section.querySelectorAll('.course-tab-btn').forEach(function (btn) {
-                    var ages = (btn.getAttribute('data-age') || '').split(' ');
-                    var ageMatches = (activeAge === 'tumu' || ages.indexOf(activeAge) !== -1);
-                    var visible = categoryMatches && ageMatches;
-                    if (visible) {
-                        btn.style.display = '';
-                        anyCardVisible = true;
-                    } else {
-                        btn.style.display = 'none';
+    if (deptTabs.length) {
+        // Department tab switching
+        deptTabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                var dept = tab.getAttribute('data-dept');
+
+                // Update active tab
+                deptTabs.forEach(function(t) { t.classList.remove('active'); });
+                tab.classList.add('active');
+
+                // Show matching sidebar group
+                sidebarGroups.forEach(function(g) { g.classList.remove('active'); });
+                var targetGroup = document.querySelector('[data-dept-group="' + dept + '"]');
+                if (targetGroup) {
+                    targetGroup.classList.add('active');
+                    // Click the first active button in that group
+                    var activeBtn = targetGroup.querySelector('.sidebar-course-btn.active');
+                    if (activeBtn) {
+                        activeBtn.click();
                     }
-                });
-                
-                if (anyCardVisible) {
-                    section.style.display = '';
-                    // Click the first visible button if the currently active one is hidden
-                    var activeBtn = section.querySelector('.course-tab-btn.active');
-                    if (!activeBtn || activeBtn.style.display === 'none') {
-                        var firstVisible = section.querySelector('.course-tab-btn:not([style*="display: none"])');
-                        if (firstVisible) {
-                            firstVisible.click();
-                        }
-                    }
-                } else {
-                    section.style.display = 'none';
                 }
             });
-        };
+        });
 
-        categoryFilters.querySelectorAll('[data-filter-category]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                activeCategory = btn.getAttribute('data-filter-category');
-                categoryFilters.querySelectorAll('.filter-pill').forEach(function (b) { b.classList.remove('active'); });
+        // Sidebar course button switching
+        sidebarBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var target = btn.getAttribute('data-target');
+                var parentGroup = btn.closest('.sidebar-group');
+
+                // Deactivate siblings
+                if (parentGroup) {
+                    parentGroup.querySelectorAll('.sidebar-course-btn').forEach(function(b) {
+                        b.classList.remove('active');
+                    });
+                }
                 btn.classList.add('active');
-                applyCourseFilters();
+
+                // Show matching panel
+                detailPanels.forEach(function(p) { p.classList.remove('active'); });
+                var panel = document.getElementById('panel-' + target);
+                if (panel) {
+                    panel.classList.add('active');
+                }
             });
         });
 
-        ageFilters.querySelectorAll('[data-filter-age]').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                activeAge = btn.getAttribute('data-filter-age');
-                ageFilters.querySelectorAll('.filter-pill').forEach(function (b) { b.classList.remove('active'); });
-                btn.classList.add('active');
-                applyCourseFilters();
-            });
-        });
+        // Initialize: click first dept tab's first course
+        var firstGroup = document.querySelector('.sidebar-group.active');
+        if (firstGroup) {
+            var firstBtn = firstGroup.querySelector('.sidebar-course-btn.active');
+            if (firstBtn) {
+                var target = firstBtn.getAttribute('data-target');
+                var panel = document.getElementById('panel-' + target);
+                if (panel) panel.classList.add('active');
+            }
+        }
     }
 
-    // Tab switching event binding (independent of the category/age filter bar above)
-    document.querySelectorAll('.course-tab-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-            var deptId = btn.getAttribute('data-dept-id');
-            var targetId = btn.getAttribute('data-course-id');
-            var section = document.getElementById(deptId);
-            if (!section) return;
+    /* ==============================
+       Floating Contact Bar Visibility Controller
+       ============================== */
+    var floatingBar = document.getElementById('floating-contact-bar');
+    var departmanlarSection = document.getElementById('departmanlar');
+    if (floatingBar && departmanlarSection) {
+        // Hide initial state on homepage
+        floatingBar.classList.add('hidden-bar');
 
-            // Deactivate all buttons in this section
-            section.querySelectorAll('.course-tab-btn').forEach(function(b) {
-                b.classList.remove('active', 'bg-zinc-900', 'text-white', 'border-kds-blue', 'border-kds-pink', 'border-kds-purple', 'border-kds-orange', 'border-kds-yellow', 'shadow-[0_0_15px_rgba(255,255,255,0.05)]');
-                b.classList.add('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
-            });
+        if ('IntersectionObserver' in window) {
+            var contactObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        floatingBar.classList.remove('hidden-bar');
+                    } else {
+                        // Hide it only if we scroll up past the section, keep it if we scroll down
+                        var rect = departmanlarSection.getBoundingClientRect();
+                        if (rect.top > 0) {
+                            floatingBar.classList.add('hidden-bar');
+                        } else {
+                            floatingBar.classList.remove('hidden-bar');
+                        }
+                    }
+                });
+            }, { threshold: 0.1 });
+            contactObserver.observe(departmanlarSection);
+        } else {
+            // Fallback for older browsers
+            floatingBar.classList.remove('hidden-bar');
+        }
+    }
 
-            // Hide all panels
-            section.querySelectorAll('.course-tab-panel').forEach(function(p) {
-                p.classList.add('hidden', 'opacity-0', 'scale-95');
-                p.classList.remove('block', 'opacity-100', 'scale-100');
-            });
-
-            // Activate selected button
-            btn.classList.add('active', 'bg-zinc-900', 'text-white');
-            btn.classList.remove('bg-zinc-50/50', 'border-zinc-200/50', 'text-zinc-500');
-
-            // Choose active border color based on category
-            var borderClass = 'border-kds-blue';
-            if (deptId === 'dans') borderClass = 'border-kds-pink';
-            if (deptId === 'tiyatro') borderClass = 'border-kds-purple';
-            if (deptId === 'resim') borderClass = 'border-kds-orange';
-            if (deptId === 'cocuk') borderClass = 'border-kds-yellow';
-
-            btn.classList.add(borderClass);
-
-            // Show selected panel
-            var panel = document.getElementById(targetId);
-            if (panel) {
-                panel.classList.remove('hidden');
-                setTimeout(function() {
-                    panel.classList.add('block', 'opacity-100', 'scale-100');
-                    panel.classList.remove('opacity-0', 'scale-95');
-                }, 50);
+    /* ==============================
+       Hero Video Start-Time Skipper (Plays from 1.0s and loops from 1.0s)
+       ============================== */
+    var heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+        // Enforce 1s starting time initially
+        heroVideo.currentTime = 1;
+        
+        // Loop back to 1.0s when it updates below 1s (like on loop restart)
+        heroVideo.addEventListener('timeupdate', function() {
+            if (heroVideo.currentTime < 1) {
+                heroVideo.currentTime = 1;
             }
         });
-    });
-
-    // Initialize tabs by clicking first button of each section
-    document.querySelectorAll('.dept-section').forEach(function(section) {
-        var firstBtn = section.querySelector('.course-tab-btn');
-        if (firstBtn) {
-            firstBtn.click();
-        }
-    });
+    }
 
     /* ==============================
        Gallery Filters
