@@ -3,5 +3,3 @@ node_modules/
 # Raw, uncompressed source footage (too large for git; keep locally only).
 # Web-optimized versions live in assets/video/.
 assets/img/KDS-video/
-.idea/
-*.orig
