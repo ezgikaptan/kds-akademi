@@ -357,6 +357,16 @@ button[class*="shadow-[0_0_20px_rgba"] {
     animation-delay: 3s;
 }
 
+/* Single continuous full-page blob wash - fixed to the viewport so it
+   never gets clipped/seamed at individual section boundaries */
+.page-blob-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
 /* Fluid morphing and glowing background blobs */
 .bg-blob-animated {
     animation: blob-glow-shift 16s infinite alternate ease-in-out;
