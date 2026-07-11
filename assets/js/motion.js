@@ -98,4 +98,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-});
+
+    /* ==============================
+       Değerlerimiz (Values) Cards Auto-Play Highlight Loop (Mobile View)
+       ============================== */
+    var autoplayCards = document.querySelectorAll('.value-card');
+    if (autoplayCards.length) {
+        var activeIndex = 0;
+        setInterval(function() {
+            if (window.innerWidth < 1024) {
+                autoplayCards.forEach(function(card, idx) {
+                    if (idx === activeIndex) {
+                        card.classList.add('active-card');
+                    } else {
+                        card.classList.remove('active-card');
+                    }
+                });
+                activeIndex = (activeIndex + 1) % autoplayCards.length;
+            } else {
+                // Clear simulated state on desktop
+                autoplayCards.forEach(function(card) {
+                    card.classList.remove('active-card');
+                });
+            }
+        }, 2000);
+    }
+    });

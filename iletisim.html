@@ -54,6 +54,111 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link rel="stylesheet" href="assets/css/tailwind.build.css"/>
 <link rel="stylesheet" href="assets/css/style.css?v=1.4"/>
+<style>
+/* Solid dark navbar background on contact page for high readability */
+nav.navbar-las {
+    background-color: rgba(24, 24, 27, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Custom underline inputs for Contact Box Form */
+.contact-box-input {
+    width: 100% !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1.5px solid #e4e4e7 !important;
+    padding: 8px 0 !important;
+    color: #1c1b1c !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    border-radius: 0 !important;
+}
+
+.contact-box-input:focus {
+    outline: none !important;
+    border-bottom-color: #8B263E !important;
+    box-shadow: none !important;
+}
+
+.contact-box-input::placeholder {
+    color: #a1a1aa !important;
+    opacity: 0.6;
+}
+
+/* Custom Radios for Mockup 1 */
+.contact-radio-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.contact-radio-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.contact-radio-custom {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #d4d4d8;
+    border-radius: 50%;
+    background-color: #ffffff;
+    display: inline-block;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.contact-radio-input:checked ~ .contact-radio-custom {
+    border-color: #8B263E;
+    background-color: #8B263E;
+}
+
+.contact-radio-input:checked ~ .contact-radio-custom::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Form button */
+.contact-box-submit-btn {
+    background: #8B263E !important;
+    color: #ffffff !important;
+    font-family: 'Outfit', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(139, 38, 62, 0.15) !important;
+}
+
+.contact-box-submit-btn:hover {
+    background: #a02e48 !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(139, 38, 62, 0.25) !important;
+}
+</style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
 <div id="scroll-progress"></div>
@@ -96,136 +201,156 @@
 </nav>
 
 <main id="main">
-<section class="contact-sky-bg">
-    <!-- Map Background -->
-    <iframe class="contact-sky-bg-map" src="https://www.google.com/maps?q=Konya+Dans+ve+Sanat+Akademisi&ftid=0x14d085f504d66749:0x1013448257e4ea92&output=embed" loading="lazy" allowfullscreen title="KDS Konum Haritası"></iframe>
-    <!-- Light Overlay for high readability -->
-    <div class="contact-sky-bg-overlay"></div>
+<section class="contact-premium-section relative overflow-hidden w-full bg-[#f8fafc] py-20 flex flex-col justify-center min-h-[calc(100vh-64px)]">
+    
+    <!-- Floating Gold & Burgundy Outline Rings (Stylish Background Decoration) -->
+    <div class="absolute left-10 top-1/4 w-32 h-32 rounded-full border border-[#C5A880]/20 pointer-events-none z-0 animate-spin-slow"></div>
+    <div class="absolute right-20 top-1/3 w-48 h-48 rounded-full border border-[#8B263E]/10 pointer-events-none z-0 animate-spin-slow-reverse"></div>
+    <div class="absolute left-1/4 bottom-10 w-24 h-24 rounded-full border border-[#3B82F6]/10 pointer-events-none z-0 animate-float-slow"></div>
 
-    <!-- Header info above card -->
-    <div class="contact-sky-title-area">
-        <h1 class="contact-sky-main-title">Bize Ulaşın</h1>
-        <p class="contact-sky-subtitle">Sorularınız ve ücretsiz deneme dersi için bize ulaşın.</p>
+    <!-- Outer Header area (Burgundy Color with Typist Effect) -->
+    <div class="text-center mb-10 relative z-10">
+        <h1 class="font-headline font-bold text-3xl md:text-5xl text-[#8B263E] mb-3">Bize Ulaşın</h1>
+        <p id="contact-typing-subtitle" class="text-[#8B263E] text-sm md:text-base font-semibold max-w-md mx-auto min-h-[24px]"></p>
     </div>
 
-    <!-- Main Card -->
-    <div class="contact-sky-card max-w-5xl px-0">
-        <!-- Left Part: Send us a Message -->
-        <div class="contact-sky-left">
-            <div class="contact-sky-section-header">
-                <div>
-                    <h2 class="contact-sky-form-title font-bold">Bize Yazın</h2>
-                    <p class="contact-sky-form-subtitle">Formu doldurun, mesajınız WhatsApp üzerinden doğrudan tarafımıza iletilsin.</p>
+    <!-- Main Outer Container -->
+    <div class="max-w-5xl mx-auto px-4 w-full relative z-10">
+        <div class="contact-box-container bg-white rounded-2xl shadow-2xl p-4 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch w-full relative">
+            
+            <!-- Golden/Teal/Pink Accent Bar at the top of the card -->
+            <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#F43F5E] via-[#C5A880] to-[#3B82F6] rounded-t-2xl z-20"></div>
+
+            <!-- Left Info Card Panel (Burgundy/KDS coordinated) -->
+            <div class="lg:col-span-5 bg-[#8B263E] rounded-xl p-8 text-white flex flex-col justify-between relative overflow-hidden min-h-[440px]">
+                
+                <!-- Abstract circles in KDS colors -->
+                <div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full bg-[#F43F5E]/20 z-0"></div>
+                <div class="absolute right-8 -bottom-24 w-44 h-44 rounded-full bg-[#3B82F6]/15 z-0"></div>
+                <div class="absolute right-0 bottom-8 w-32 h-32 rounded-full bg-[#C5A880]/25 z-0"></div>
+                
+                <div class="relative z-10 text-left">
+                    <h3 class="text-xl md:text-2xl font-bold font-headline mb-3 text-white">İletişim Bilgileri</h3>
+                    <p class="text-white/70 text-xs md:text-sm leading-relaxed mb-10">Formu doldurarak KDS Akademi ailesine mesajınızı doğrudan WhatsApp üzerinden iletebilirsiniz.</p>
+                    
+                    <!-- Contacts list -->
+                    <div class="space-y-5">
+                        <a href="tel:+905419050042" class="flex items-center gap-4 text-white hover:text-[#C5A880] transition-colors text-sm">
+                            <span class="material-symbols-outlined text-[#C5A880]">phone</span>
+                            <span class="font-medium">+90 (541) 905 00 42</span>
+                        </a>
+                        <a href="mailto:info@kdsakademi.com" class="flex items-center gap-4 text-white hover:text-[#C5A880] transition-colors text-sm">
+                            <span class="material-symbols-outlined text-[#C5A880]">mail</span>
+                            <span class="font-medium text-xs">info@kdsakademi.com</span>
+                        </a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=Konya+Dans+ve+Sanat+Akademisi" target="_blank" rel="noopener" class="flex items-center gap-4 text-white hover:text-[#C5A880] transition-colors text-sm">
+                            <span class="material-symbols-outlined text-[#C5A880]">location_on</span>
+                            <span class="font-medium text-xs">En Tepe Mall Ofis, Karatay / Konya</span>
+                        </a>
+                    </div>
                 </div>
-                <!-- Message Icon -->
-                <div style="color: #3498db;">
-                    <span class="material-symbols-outlined text-4xl">mail</span>
+
+                <!-- Socials row -->
+                <div class="flex items-center gap-4 relative z-10 mt-10">
+                    <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#8B263E] flex items-center justify-center text-white transition-all duration-300 font-bold text-xs" aria-label="Facebook">f</a>
+                    <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#8B263E] flex items-center justify-center text-white transition-all duration-300 font-bold text-xs" aria-label="Instagram">ig</a>
+                    <a href="https://wa.me/905419050042" target="_blank" rel="noopener" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white hover:text-[#8B263E] flex items-center justify-center text-white transition-all duration-300 font-bold text-xs" aria-label="WhatsApp">wa</a>
                 </div>
             </div>
+            
+            <!-- Right Form Panel -->
+            <div class="lg:col-span-7 p-4 lg:p-6 flex flex-col justify-center">
+                <form id="contact-form" class="space-y-6 text-left">
+                    
+                    <!-- Hidden inputs preserving main.js state -->
+                    <input type="hidden" id="cf-name" name="name" value="" />
+                    <input type="hidden" id="cf-department" name="department" value="Müzik Bölümü" />
 
-            <form id="contact-form" class="space-y-6">
-                <!-- Grid Fields for Name and Phone -->
-                <div class="contact-sky-grid-fields">
-                    <div class="contact-sky-input-wrapper">
-                        <label for="cf-name" class="contact-sky-label">Ad Soyad</label>
-                        <input id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Adınız Soyadınız" class="contact-sky-input"/>
+                    <!-- Row 1: Name and Last Name -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="flex flex-col gap-1">
+                            <label for="cf-first-name" class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Adınız</label>
+                            <input id="cf-first-name" type="text" required placeholder="Adınız" class="contact-box-input" oninput="document.getElementById('cf-name').value = this.value + ' ' + document.getElementById('cf-last-name').value" />
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="cf-last-name" class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Soyadınız</label>
+                            <input id="cf-last-name" type="text" required placeholder="Soyadınız" class="contact-box-input" oninput="document.getElementById('cf-name').value = document.getElementById('cf-first-name').value + ' ' + this.value" />
+                        </div>
                     </div>
-                    <div class="contact-sky-input-wrapper">
-                        <label for="cf-phone" class="contact-sky-label">Telefon</label>
-                        <input id="cf-phone" name="phone" type="tel" autocomplete="tel" required placeholder="Telefon Numaranız" class="contact-sky-input"/>
-                    </div>
-                </div>
 
-                <!-- Department Select (Dropdown) -->
-                <div class="contact-sky-input-wrapper">
-                    <label for="cf-department" class="contact-sky-label">İlgilendiğiniz Bölüm</label>
-                    <select id="cf-department" name="department" class="contact-sky-select">
-                        <option>Müzik Bölümü</option>
-                        <option>Dans Akademisi</option>
-                        <option>Tiyatro ve Oyunculuk</option>
-                        <option>Görsel Sanatlar</option>
-                        <option>Çocuk Akademisi</option>
-                        <option>Bilgi almak istiyorum</option>
-                    </select>
-                </div>
-
-                <!-- Message Input -->
-                <div class="contact-sky-input-wrapper">
-                    <label for="cf-message" class="contact-sky-label">Mesajınız</label>
-                    <input id="cf-message" name="message" required placeholder="Bize Mesajınız" class="contact-sky-input"/>
-                </div>
-
-                <!-- Consent checkbox only (Quick Reply removed as requested) -->
-                <div class="space-y-3">
-                    <div class="contact-sky-checkbox-group" style="align-items: flex-start;">
-                        <input type="checkbox" id="cf-consent" class="contact-sky-checkbox" required checked />
-                        <label for="cf-consent" class="contact-sky-checkbox-label">Formu göndererek <a href="gizlilik-politikasi.html" target="_blank" class="underline">Gizlilik Politikamızı</a> ve kişisel verilerinizin işlenmesine ilişkin aydınlatma metnini kabul etmiş olursunuz.</label>
+                    <!-- Row 2: Mail and Phone -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="flex flex-col gap-1">
+                            <label for="cf-email" class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">E-posta</label>
+                            <input id="cf-email" type="email" placeholder="E-posta Adresiniz" class="contact-box-input" />
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <label for="cf-phone" class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Telefon</label>
+                            <input id="cf-phone" name="phone" type="tel" required placeholder="Telefon Numaranız" class="contact-box-input" />
+                        </div>
                     </div>
-                </div>
 
-                <!-- Send Button -->
-                <div class="flex justify-end pt-4">
-                    <button type="submit" class="contact-sky-btn">
-                        <span>WhatsApp ile Gönder</span>
-                        <span class="material-symbols-outlined">send</span>
-                    </button>
-                </div>
-            </form>
-        </div>
+                    <!-- Row 3: Bölüm Seçimi (Radios matching Mockup 1 style) -->
+                    <div class="flex flex-col gap-2">
+                        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">İlgilendiğiniz Bölüm</span>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                            <label class="contact-radio-label">
+                                <input type="radio" name="department" value="Müzik Bölümü" checked class="contact-radio-input" onclick="document.getElementById('cf-department').value = this.value" />
+                                <span class="contact-radio-custom"></span>
+                                <span class="text-xs font-medium text-zinc-700">Müzik Bölümü</span>
+                            </label>
+                            <label class="contact-radio-label">
+                                <input type="radio" name="department" value="Dans Akademisi" class="contact-radio-input" onclick="document.getElementById('cf-department').value = this.value" />
+                                <span class="contact-radio-custom"></span>
+                                <span class="text-xs font-medium text-zinc-700">Dans Akademisi</span>
+                            </label>
+                            <label class="contact-radio-label">
+                                <input type="radio" name="department" value="Tiyatro ve Oyunculuk" class="contact-radio-input" onclick="document.getElementById('cf-department').value = this.value" />
+                                <span class="contact-radio-custom"></span>
+                                <span class="text-xs font-medium text-zinc-700">Tiyatro &amp; Sahne</span>
+                            </label>
+                            <label class="contact-radio-label">
+                                <input type="radio" name="department" value="Görsel Sanatlar" class="contact-radio-input" onclick="document.getElementById('cf-department').value = this.value" />
+                                <span class="contact-radio-custom"></span>
+                                <span class="text-xs font-medium text-zinc-700">Görsel Sanatlar</span>
+                            </label>
+                            <label class="contact-radio-label">
+                                <input type="radio" name="department" value="Çocuk Akademisi" class="contact-radio-input" onclick="document.getElementById('cf-department').value = this.value" />
+                                <span class="contact-radio-custom"></span>
+                                <span class="text-xs font-medium text-zinc-700">Çocuk Akademisi</span>
+                            </label>
+                            <label class="contact-radio-label">
+                                <input type="radio" name="department" value="Bilgi almak istiyorum" class="contact-radio-input" onclick="document.getElementById('cf-department').value = this.value" />
+                                <span class="contact-radio-custom"></span>
+                                <span class="text-xs font-medium text-zinc-700">Genel Bilgi</span>
+                            </label>
+                        </div>
+                    </div>
 
-        <!-- Right Part: Contact Info -->
-        <div class="contact-sky-right">
-            <div>
-                <h3 class="contact-sky-info-title">İletişim Bilgileri</h3>
+                    <!-- Row 4: Message -->
+                    <div class="flex flex-col gap-1">
+                        <label for="cf-message" class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Mesajınız</label>
+                        <input id="cf-message" name="message" required placeholder="Mesajınızı buraya yazın..." class="contact-box-input" />
+                    </div>
 
-                <!-- Address -->
-                <div class="contact-sky-info-item">
-                    <div class="contact-sky-info-icon-box">
-                        <span class="material-symbols-outlined">location_on</span>
+                    <!-- Consent + Submit Row -->
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-3 border-t border-zinc-100">
+                        <div class="flex items-start gap-2 max-w-xs">
+                            <input type="checkbox" id="cf-consent" required checked class="w-4 h-4 rounded border-zinc-300 text-[#8B263E] focus:ring-[#8B263E] mt-0.5" />
+                            <label for="cf-consent" class="text-[10px] text-zinc-400 leading-tight">Formu göndererek <a href="gizlilik-politikasi.html" target="_blank" class="underline hover:text-[#8B263E]">Gizlilik Politikamızı</a> kabul edersiniz.</label>
+                        </div>
+                        <button type="submit" class="contact-box-submit-btn">
+                            <span>WhatsApp ile Gönder</span>
+                            <span class="material-symbols-outlined text-sm">send</span>
+                        </button>
                     </div>
-                    <div class="contact-sky-info-text">
-                        En Tepe Mall Ofis, B Blok 117/303<br/>
-                        Kalenderhane, Karatay / Konya
-                    </div>
-                </div>
 
-                <!-- Phone -->
-                <div class="contact-sky-info-item">
-                    <div class="contact-sky-info-icon-box">
-                        <span class="material-symbols-outlined">phone</span>
-                    </div>
-                    <div class="contact-sky-info-text">
-                        <a href="tel:+905419050042">+90 (541) 905 00 42</a>
-                    </div>
-                </div>
-
-                <!-- Google Maps Direction Button -->
-                <div class="contact-sky-info-item mt-4">
-                    <div class="contact-sky-info-icon-box" style="background-color: #3498db; width: 40px; height: 40px;">
-                        <span class="material-symbols-outlined" style="color: #ffffff; font-size: 20px;">near_me</span>
-                    </div>
-                    <div class="contact-sky-info-text">
-                        <a href="https://www.google.com/maps/dir/?api=1&destination=Konya+Dans+ve+Sanat+Akademisi" target="_blank" rel="noopener" class="font-bold hover:underline" style="color: #3498db;">Yol Tarifi Al (Google Maps)</a>
-                    </div>
-                </div>
+                </form>
             </div>
-
-            <!-- Social & Map Marker info at the bottom -->
-            <div>
-                <div class="contact-sky-socials">
-                    <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram">
-                        <span class="material-symbols-outlined">share</span>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook">
-                        <span class="material-symbols-outlined">public</span>
-                    </a>
-                    <a href="https://wa.me/905419050042" target="_blank" rel="noopener" aria-label="WhatsApp">
-                        <span class="material-symbols-outlined">chat</span>
-                    </a>
-                </div>
-            </div>
+            
         </div>
     </div>
+
 </section>
 </main>
 
@@ -317,5 +442,42 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/js/main.js?v=1.3"></script>
 <script src="assets/js/motion.js"></script>
+<script>
+// Loop typing subtitle animation
+document.addEventListener('DOMContentLoaded', function() {
+    var element = document.getElementById('contact-typing-subtitle');
+    if (!element) return;
+    
+    var text = "Sorularınız ve ücretsiz deneme dersi için bize ulaşın.";
+    var index = 0;
+    var isDeleting = false;
+    var speed = 75; // typing speed
+    var pause = 1500; // pause duration
+    var deleteSpeed = 50; // deleting speed
+    
+    function type() {
+        if (!isDeleting) {
+            element.innerHTML = text.substring(0, index) + '<span class="typing-cursor">_</span>';
+            index++;
+            if (index > text.length) {
+                isDeleting = true;
+                setTimeout(type, pause);
+            } else {
+                setTimeout(type, speed);
+            }
+        } else {
+            element.innerHTML = text.substring(0, index) + '<span class="typing-cursor">_</span>';
+            index--;
+            if (index < 0) {
+                isDeleting = false;
+                setTimeout(type, 500); // delay before restart
+            } else {
+                setTimeout(type, deleteSpeed);
+            }
+        }
+    }
+    type();
+});
+</script>
 </body>
 </html>

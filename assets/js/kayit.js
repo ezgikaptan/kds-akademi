@@ -71,9 +71,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 dot.classList.add('step-indicator-dot--done');
             }
         });
-        indicatorLines.forEach(function (line, idx) {
-            line.classList.toggle('step-indicator-line--done', idx + 1 < step);
-        });
+        
+        // Update timeline progress bar height
+        var progressBar = document.getElementById('timeline-progress-bar');
+        if (progressBar) {
+            progressBar.style.height = ((step - 1) / (TOTAL_STEPS - 1) * 100) + '%';
+        }
+
+        // Update sidebar step descriptions
+        var sidebarStepNum = document.getElementById('sidebar-step-num');
+        var sidebarStepTitle = document.getElementById('sidebar-step-title');
+        var sidebarStepDesc = document.getElementById('sidebar-step-desc');
+        if (sidebarStepNum && sidebarStepTitle && sidebarStepDesc) {
+            var stepMeta = [
+                { num: 'Adım 1', title: 'Kişisel Bilgiler', desc: 'Kayıt işlemlerini başlatmak için kişisel bilgilerinizi eksiksiz doldurun.' },
+                { num: 'Adım 2', title: 'Kurs Seçimi', desc: 'Kayıt olmak istediğiniz sanat branşını, dersi ve yaş grubunu belirtin.' },
+                { num: 'Adım 3', title: 'Veli & Adres', desc: 'Öğrencinin adres detaylarını ve varsa veli iletişim bilgilerini doldurun.' },
+                { num: 'Adım 4', title: 'Ödeme ve Onay', desc: 'iyzico altyapısı ile güvenli ödemenizi gerçekleştirip kaydı tamamlayın.' }
+            ];
+            var currentMeta = stepMeta[step - 1];
+            if (currentMeta) {
+                sidebarStepNum.textContent = currentMeta.num;
+                sidebarStepTitle.textContent = currentMeta.title;
+                sidebarStepDesc.textContent = currentMeta.desc;
+            }
+        }
 
         backBtn.classList.toggle('invisible', step === 1);
         if (step === TOTAL_STEPS) {

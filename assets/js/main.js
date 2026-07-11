@@ -346,60 +346,101 @@ document.addEventListener('DOMContentLoaded', function () {
     var detailPanels = document.querySelectorAll('.course-detail-panel');
 
     if (deptTabs.length) {
-        // Department tab switching
-        deptTabs.forEach(function(tab) {
-            tab.addEventListener('click', function() {
-                var dept = tab.getAttribute('data-dept');
-
-                // Update active tab
-                deptTabs.forEach(function(t) { t.classList.remove('active'); });
-                tab.classList.add('active');
-
-                // Show matching sidebar group
-                sidebarGroups.forEach(function(g) { g.classList.remove('active'); });
-                var targetGroup = document.querySelector('[data-dept-group="' + dept + '"]');
-                if (targetGroup) {
-                    targetGroup.classList.add('active');
-                    // Click the first active button in that group
-                    var activeBtn = targetGroup.querySelector('.sidebar-course-btn.active');
-                    if (activeBtn) {
-                        activeBtn.click();
+        var premiumCards = document.querySelectorAll('.premium-course-card');
+        if (premiumCards.length) {
+            // Premium Card Grid Filtering
+            var filterCards = function(dept) {
+                premiumCards.forEach(function(card) {
+                    var cardDept = card.getAttribute('data-dept');
+                    if (dept === 'all' || cardDept === dept) {
+                        card.style.display = 'flex';
+                        setTimeout(function() {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1) translateY(0)';
+                        }, 50);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.96) translateY(8px)';
+                        setTimeout(function() {
+                            card.style.display = 'none';
+                        }, 300);
                     }
-                }
+                });
+            };
+
+            deptTabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    var dept = tab.getAttribute('data-dept');
+                    deptTabs.forEach(function(t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
+                    filterCards(dept);
+                });
             });
-        });
+        } else {
+            // Legacy Sidebar / Detail Panels Logic
+            deptTabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    var dept = tab.getAttribute('data-dept');
 
-        // Sidebar course button switching
-        sidebarBtns.forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                var target = btn.getAttribute('data-target');
-                var parentGroup = btn.closest('.sidebar-group');
+                    // Update active tab
+                    deptTabs.forEach(function(t) { t.classList.remove('active'); });
+                    tab.classList.add('active');
 
-                // Deactivate siblings
-                if (parentGroup) {
-                    parentGroup.querySelectorAll('.sidebar-course-btn').forEach(function(b) {
-                        b.classList.remove('active');
-                    });
-                }
-                btn.classList.add('active');
-
-                // Show matching panel
-                detailPanels.forEach(function(p) { p.classList.remove('active'); });
-                var panel = document.getElementById('panel-' + target);
-                if (panel) {
-                    panel.classList.add('active');
-                }
+                    // Show matching sidebar group
+                    sidebarGroups.forEach(function(g) { g.classList.remove('active'); });
+                    var targetGroup = document.querySelector('[data-dept-group="' + dept + '"]');
+                    if (targetGroup) {
+                        targetGroup.classList.add('active');
+                        // Click the first active button in that group
+                        var activeBtn = targetGroup.querySelector('.sidebar-course-btn.active');
+                        if (activeBtn) {
+                            activeBtn.click();
+                        }
+                    }
+                });
             });
-        });
 
-        // Initialize: click first dept tab's first course
-        var firstGroup = document.querySelector('.sidebar-group.active');
-        if (firstGroup) {
-            var firstBtn = firstGroup.querySelector('.sidebar-course-btn.active');
-            if (firstBtn) {
-                var target = firstBtn.getAttribute('data-target');
-                var panel = document.getElementById('panel-' + target);
-                if (panel) panel.classList.add('active');
+            // Sidebar course button switching
+            sidebarBtns.forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var target = btn.getAttribute('data-target');
+                    var parentGroup = btn.closest('.sidebar-group');
+
+                    // Deactivate siblings
+                    if (parentGroup) {
+                        parentGroup.querySelectorAll('.sidebar-course-btn').forEach(function(b) {
+                            b.classList.remove('active');
+                        });
+                    }
+                    btn.classList.add('active');
+
+                    // Show matching panel
+                    detailPanels.forEach(function(p) { p.classList.remove('active'); });
+                    var panel = document.getElementById('panel-' + target);
+                    if (panel) {
+                        panel.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Initialize: check hash in URL to select department
+        var hash = window.location.hash;
+        var initialTab = null;
+        if (hash) {
+            var deptName = hash.substring(1); // e.g. "muzik", "dans"
+            initialTab = document.querySelector('.dept-tab[data-dept="' + deptName + '"]');
+        }
+        
+        if (initialTab) {
+            initialTab.click();
+        } else {
+            // Default to click the active or first tab
+            var activeTab = document.querySelector('.dept-tab.active');
+            if (activeTab) {
+                activeTab.click();
+            } else if (deptTabs.length) {
+                deptTabs[0].click();
             }
         }
     }
@@ -702,23 +743,33 @@ document.addEventListener('DOMContentLoaded', function () {
         var loader = document.createElement('div');
         loader.id = 'page-loader';
         loader.className = 'loader-container';
-        loader.innerHTML = '<div class="animated-number">' +
-            '<div class="rotating-digit-container" id="digit-hundreds">' +
-                '<div class="rotating-digit-column"><div class="rotating-digit">0</div><div class="rotating-digit">1</div></div>' +
+        loader.innerHTML = '<div class="loader-content">' +
+            '<div class="loader-logo-wrap">' +
+                '<img src="assets/img/kds-logo.jpg" alt="KDS Akademi Logo" class="loader-logo-img" />' +
+                '<div class="loader-logo-ring"></div>' +
             '</div>' +
-            '<div class="rotating-digit-container" id="digit-tens">' +
-                '<div class="rotating-digit-column">' +
-                    '<div class="rotating-digit">0</div><div class="rotating-digit">1</div><div class="rotating-digit">2</div><div class="rotating-digit">3</div><div class="rotating-digit">4</div>' +
-                    '<div class="rotating-digit">5</div><div class="rotating-digit">6</div><div class="rotating-digit">7</div><div class="rotating-digit">8</div><div class="rotating-digit">9</div><div class="rotating-digit">0</div>' +
+            '<div class="animated-number">' +
+                '<div class="rotating-digit-container" id="digit-hundreds">' +
+                    '<div class="rotating-digit-column"><div class="rotating-digit">0</div><div class="rotating-digit">1</div></div>' +
                 '</div>' +
-            '</div>' +
-            '<div class="rotating-digit-container" id="digit-ones">' +
-                '<div class="rotating-digit-column">' +
-                    '<div class="rotating-digit">0</div><div class="rotating-digit">1</div><div class="rotating-digit">2</div><div class="rotating-digit">3</div><div class="rotating-digit">4</div>' +
-                    '<div class="rotating-digit">5</div><div class="rotating-digit">6</div><div class="rotating-digit">7</div><div class="rotating-digit">8</div><div class="rotating-digit">9</div><div class="rotating-digit">0</div>' +
+                '<div class="rotating-digit-container" id="digit-tens">' +
+                    '<div class="rotating-digit-column">' +
+                        '<div class="rotating-digit">0</div><div class="rotating-digit">1</div><div class="rotating-digit">2</div><div class="rotating-digit">3</div><div class="rotating-digit">4</div>' +
+                        '<div class="rotating-digit">5</div><div class="rotating-digit">6</div><div class="rotating-digit">7</div><div class="rotating-digit">8</div><div class="rotating-digit">9</div><div class="rotating-digit">0</div>' +
+                    '</div>' +
                 '</div>' +
+                '<div class="rotating-digit-container" id="digit-ones">' +
+                    '<div class="rotating-digit-column">' +
+                        '<div class="rotating-digit">0</div><div class="rotating-digit">1</div><div class="rotating-digit">2</div><div class="rotating-digit">3</div><div class="rotating-digit">4</div>' +
+                        '<div class="rotating-digit">5</div><div class="rotating-digit">6</div><div class="rotating-digit">7</div><div class="rotating-digit">8</div><div class="rotating-digit">9</div><div class="rotating-digit">0</div>' +
+                    '</div>' +
+                '</div>' +
+                '<span class="loader-percentage">%</span>' +
             '</div>' +
-            '<span style="margin-left: 0.5rem; font-size: 4rem; align-self: center; font-weight: 500; opacity: 0.8;">%</span>' +
+            '<div class="loader-text">Sanatın ve Dansın Akademisi</div>' +
+            '<div class="loader-line-wrap">' +
+                '<div class="loader-line-progress"></div>' +
+            '</div>' +
         '</div>';
         
         document.body.appendChild(loader);
@@ -734,7 +785,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var digitHeight = digitEl ? digitEl.offsetHeight : 0;
             if (digitHeight < 10) {
                 // Layout fallback: if offsetHeight is 0 due to rendering race, use standard font height
-                digitHeight = window.innerWidth < 768 ? 80 : 128;
+                digitHeight = window.innerWidth < 768 ? 64 : 96;
             }
             
             if (typeof gsap !== 'undefined') {
@@ -997,6 +1048,30 @@ document.addEventListener('DOMContentLoaded', function () {
         goToSlide(currentIdx);
     });
 })();
+
+// Beautify mobile menu links by adding icons dynamically
+document.addEventListener('DOMContentLoaded', function() {
+    var mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    var menuIcons = {
+        'Anasayfa': 'home',
+        'Kurslar': 'school',
+        'Eğitmenler': 'group',
+        'Galeri': 'photo_library',
+        'Hakkımızda': 'info',
+        'İletişim': 'mail',
+        'Kayıt Ol': 'person_add'
+    };
+    mobileMenuLinks.forEach(function(a) {
+        var text = a.textContent.trim();
+        var iconName = menuIcons[text] || 'arrow_forward';
+        if (text === 'Kayıt Ol') {
+            a.className = 'btn-nav-register mt-2 flex items-center justify-center gap-2';
+            a.innerHTML = '<span class="material-symbols-outlined text-sm">person_add</span>' + text;
+        } else {
+            a.innerHTML = '<span class="material-symbols-outlined text-[20px] text-white/50 group-hover:text-[#C5A880] transition-colors">' + iconName + '</span>' + text;
+        }
+    });
+});
 
 
 
