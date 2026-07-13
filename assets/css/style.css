@@ -4969,7 +4969,89 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
     /* Footer feels oversized with 80px top padding on small screens */
     .footer-clean-dark {
-        padding: 48px 0 32px 0 !important;
+        padding: 40px 0 24px 0 !important;
+    }
+
+    /* Footer: use the horizontal space with 2 columns instead of stacking
+       every column full-width (was needlessly tall on mobile) */
+    .footer-grid-layout {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 28px 20px !important;
+    }
+    .footer-brand-col {
+        grid-column: 1 / -1;
+    }
+
+    /* Why KDS section: 100px padding + big numbers made this ~2 screens tall */
+    .why-kds-section {
+        padding: 56px 0 !important;
+    }
+    .why-kds-title {
+        font-size: 1.9rem !important;
+    }
+    .why-kds-card {
+        padding: 24px 20px !important;
+    }
+    .why-kds-card-number {
+        font-size: 2.4rem !important;
+        margin-bottom: 10px !important;
+    }
+    .why-kds-card-text {
+        font-size: 0.85rem !important;
+    }
+    .why-kds-card-btn {
+        margin-top: 14px !important;
+    }
+
+    /* Course/department cards: fixed 220px image + generous padding
+       made each card very tall when stacked single-column */
+    .premium-course-card-img-wrap {
+        height: 150px !important;
+    }
+    .premium-course-card-body {
+        padding: 16px !important;
+    }
+    .premium-course-card-title {
+        font-size: 1.05rem !important;
+        margin-bottom: 6px !important;
+    }
+    .premium-course-card-desc {
+        font-size: 0.82rem !important;
+        margin-bottom: 14px !important;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .premium-course-card-footer {
+        padding-top: 12px !important;
+    }
+    #course-grid.grid,
+    #dept-grid {
+        gap: 16px !important;
+    }
+
+    /* Instructor cards: tighten avatar, padding and margins */
+    #instructor-grid {
+        gap: 16px !important;
+    }
+    #instructor-grid > div {
+        padding: 18px !important;
+    }
+    #instructor-grid img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    #instructor-grid .w-20.h-20 {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    #instructor-grid h3 {
+        font-size: 1rem !important;
+        margin-top: 4px !important;
+    }
+    #instructor-grid p.leading-relaxed {
+        margin-bottom: 16px !important;
     }
 }
 
