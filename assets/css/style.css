@@ -4959,13 +4959,23 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     
     /* Compact padding for general cards */
     .kds-stories-card {
-        width: 290px !important;
+        width: calc(100vw - 96px) !important;
+        max-width: 290px !important;
         height: 270px !important;
         padding: 16px !important;
     }
     .kds-stories-card p {
         font-size: 0.8rem !important;
     }
+
+    /* Testimonial carousel container padding was wide enough to push the
+       card past the right edge of the screen (card didn't fully fit) */
+    .kds-stories-section .lg\:col-span-8 {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .stories-prev-btn { left: 4px; }
+    .stories-next-btn { right: 4px; }
 
     /* Footer feels oversized with 80px top padding on small screens */
     .footer-clean-dark {
@@ -5029,6 +5039,18 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     #course-grid.grid,
     #dept-grid {
         gap: 16px !important;
+    }
+
+    /* Department tab bar (Kurslar sayfası): horizontally scrollable, but the
+       last tab was getting abruptly cut off at the screen edge - add a
+       fade-out mask so it reads as "scroll for more" instead of a glitch */
+    .dept-tabs-container {
+        mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+    }
+    .dept-tab {
+        padding: 8px 14px !important;
+        font-size: 10.5px !important;
     }
 
     /* Instructor cards: tighten avatar, padding and margins */
