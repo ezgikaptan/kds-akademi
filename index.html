@@ -84,7 +84,7 @@
 <button class="md:hidden text-white p-2" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç/kapat"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
 </div>
 </div>
-<div class="mobile-menu md:hidden bg-zinc-950/95 backdrop-blur-lg border-t border-white/10" id="mobile-menu">
+<div class="mobile-menu md:hidden bg-[#000000]/95 backdrop-blur-lg border-t border-white/10" id="mobile-menu">
 <div class="flex flex-col px-margin-mobile py-6 gap-4">
 <a class="font-label-md text-label-md text-white font-bold" href="index.html">Anasayfa</a>
 <a class="font-label-md text-label-md text-white/70 hover:text-white" href="kurslar.html">Kurslar</a>
@@ -221,8 +221,7 @@
 </div>
 </section>
 
-<!-- Testimonials Section -->
-<section class="kds-stories-section py-20 bg-[#1c1b1c] overflow-hidden" id="yorumlar">
+<section class="kds-stories-section py-20 bg-[#000000] overflow-hidden" id="yorumlar">
   <div class="max-w-[1400px] mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
     <!-- Left Column -->
     <div class="lg:col-span-4 flex flex-col justify-center">
@@ -241,14 +240,7 @@
     </div>
     
     <!-- Right Column (Slider Container) -->
-    <div class="lg:col-span-8 relative py-4 px-12">
-      <!-- Arrows -->
-      <button class="stories-arrow-btn stories-prev-btn" id="stories-prev" aria-label="Önceki Yorum">
-        <span class="material-symbols-outlined">chevron_left</span>
-      </button>
-      <button class="stories-arrow-btn stories-next-btn" id="stories-next" aria-label="Sonraki Yorum">
-        <span class="material-symbols-outlined">chevron_right</span>
-      </button>
+    <div class="lg:col-span-8 relative py-4 px-0">
       
       <!-- Inner overflow container -->
       <div class="overflow-hidden w-full">
@@ -447,8 +439,6 @@
       </div>
     </div>
   </div>
-  <!-- Custom cursor star -->
-  <div class="stories-custom-cursor" id="stories-cursor">★</div>
 </section>
 
 <!-- Why KDS Section -->

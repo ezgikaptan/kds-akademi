@@ -581,7 +581,7 @@ footer .pt-8 {
    KDS Stories Section (Testimonials carousel in dark theme)
    ============================== */
 .kds-stories-section {
-    background-color: #1c1b1c;
+    background-color: #000000;
     position: relative;
     z-index: 10;
     overflow: hidden;
@@ -604,14 +604,6 @@ footer .pt-8 {
     text-shadow: 0 0 10px rgba(251, 188, 5, 0.7);
     line-height: 1;
     display: block;
-}
-
-/* Hide default cursor on desktop when inside testimonials section */
-@media (min-width: 1024px) {
-    .kds-stories-section,
-    .kds-stories-section * {
-        cursor: none !important;
-    }
 }
 
 
@@ -696,6 +688,10 @@ footer .pt-8 {
     display: flex;
     gap: 20px;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: grab;
+}
+#stories-slider-track:active {
+    cursor: grabbing;
 }
 
 /* Card Styles matching premium design */
@@ -3611,7 +3607,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
 /* Premium Clean Dark Footer */
 .footer-clean-dark {
-    background-color: #0f0f11 !important;
+    background-color: #000000 !important;
     border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
     color: #a1a1aa !important;
     font-family: 'Outfit', sans-serif !important;
