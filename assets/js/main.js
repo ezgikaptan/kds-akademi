@@ -822,14 +822,25 @@ document.addEventListener('DOMContentLoaded', function () {
     var totalCards = cards.length;
     var currentIdx = 0;
     var autoPlayTimer = null;
-    var autoPlayDelay = 5000; // Auto play every 5 seconds
+    var autoPlayDelay = 3500; // Auto play every 3.5 seconds
+
+    function getCardsPerPage() {
+        if (totalCards === 0) return 1;
+        var firstCard = cards[0];
+        var cardWidth = firstCard.offsetWidth;
+        var style = window.getComputedStyle(track);
+        var gap = parseInt(style.columnGap || style.gap) || 20;
+        var containerWidth = track.parentElement.offsetWidth;
+        var cpp = Math.floor((containerWidth + gap) / (cardWidth + gap));
+        return cpp > 0 ? cpp : 1;
+    }
 
     // Build dots dynamically based on screen width
     function rebuildDots() {
         dotsContainer.innerHTML = '';
-        var isDesktop = window.innerWidth >= 1024;
-        // On desktop we display 2 cards at a time, so we exclude the last two dots to avoid sliding into empty space
-        var dotsCount = isDesktop ? (totalCards - 2) : totalCards;
+        var cpp = getCardsPerPage();
+        var dotsCount = totalCards - cpp + 1;
+        if (dotsCount < 1) dotsCount = 1;
         
         for (var i = 0; i < dotsCount; i++) {
             var dot = document.createElement('button');
@@ -855,7 +866,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function goToSlide(idx) {
-        var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+        var cpp = getCardsPerPage();
+        var maxIdx = totalCards - cpp;
+        if (maxIdx < 0) maxIdx = 0;
         if (idx > maxIdx) idx = maxIdx;
         if (idx < 0) idx = 0;
         currentIdx = idx;
@@ -865,13 +878,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var dots = dotsContainer.children;
         for (var i = 0; i < dots.length; i++) {
-            dots[i].classList.toggle('active', i === currentIdx);
+            if (dots[i]) {
+                dots[i].classList.toggle('active', i === currentIdx);
+            }
         }
     }
 
     function startAutoPlay() {
+        clearInterval(autoPlayTimer);
         autoPlayTimer = setInterval(function () {
-            var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+            var cpp = getCardsPerPage();
+            var maxIdx = totalCards - cpp;
+            if (maxIdx < 0) maxIdx = 0;
             var next = currentIdx + 1;
             if (next > maxIdx) {
                 next = 0;
@@ -881,46 +899,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function resetAutoPlay() {
-        clearInterval(autoPlayTimer);
         startAutoPlay();
-    }
-
-    // Arrows Navigation
-    var prevBtn = document.getElementById('stories-prev');
-    var nextBtn = document.getElementById('stories-next');
-    if (prevBtn) {
-        prevBtn.addEventListener('click', function () {
-            var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
-            var prev = currentIdx - 1;
-            if (prev < 0) prev = maxIdx;
-            goToSlide(prev);
-            resetAutoPlay();
-        });
-    }
-    if (nextBtn) {
-        nextBtn.addEventListener('click', function () {
-            var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
-            var next = currentIdx + 1;
-            if (next > maxIdx) next = 0;
-            goToSlide(next);
-            resetAutoPlay();
-        });
-    }
-
-    // Custom Star Cursor Follower
-    var cursor = document.getElementById('stories-cursor');
-    var section = document.getElementById('yorumlar');
-    if (cursor && section) {
-        section.addEventListener('mouseenter', function () {
-            cursor.style.opacity = '1';
-        });
-        section.addEventListener('mousemove', function (e) {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        section.addEventListener('mouseleave', function () {
-            cursor.style.opacity = '0';
-        });
     }
 
     // Drag-to-slide & Swipe functionality
@@ -941,7 +920,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function dragStart(event) {
-        // Only trigger drag if clicking slider track or card
         var isClickable = event.target.closest('a, button');
         if (isClickable) return;
 
@@ -958,8 +936,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var currentX = getPositionX(event);
         var currentTranslate = prevTranslate + (currentX - startX);
         
-        // Limits & elasticity
-        var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+        var cpp = getCardsPerPage();
+        var maxIdx = totalCards - cpp;
+        if (maxIdx < 0) maxIdx = 0;
         var maxTranslate = 0;
         var minTranslate = -getTranslateAmount(maxIdx);
         
@@ -986,7 +965,9 @@ document.addEventListener('DOMContentLoaded', function () {
         var step = cardWidth + gap;
         
         var targetIdx = Math.round(-finalTranslate / step);
-        var maxIdx = (window.innerWidth >= 1024) ? (totalCards - 3) : (totalCards - 1);
+        var cpp = getCardsPerPage();
+        var maxIdx = totalCards - cpp;
+        if (maxIdx < 0) maxIdx = 0;
         
         if (targetIdx < 0) targetIdx = 0;
         if (targetIdx > maxIdx) targetIdx = maxIdx;
