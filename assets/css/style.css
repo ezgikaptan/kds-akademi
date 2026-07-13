@@ -4877,3 +4877,84 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     animation: spin-slow-reverse 30s infinite linear;
 }
 
+/* ==========================================================================
+   Mobile Responsive Overrides & Visual Fit Optimization (KDS Website)
+   ========================================================================== */
+@media (max-width: 767px) {
+    /* Compress overly spacious page headers on mobile */
+    header.bg-\[\#000000\],
+    header.bg-zinc-900,
+    header.bg-black,
+    header.pt-40 {
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    header.bg-\[\#000000\] h1,
+    header.bg-zinc-900 h1,
+    header.bg-black h1,
+    header.pt-40 h1 {
+        font-size: 1.85rem !important;
+        line-height: 1.25 !important;
+    }
+    
+    header.bg-\[\#000000\] p,
+    header.bg-zinc-900 p,
+    header.bg-black p,
+    header.pt-40 p {
+        font-size: 0.88rem !important;
+        padding: 0 16px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Hakkımızda Page Hero Mobile Fit */
+    .about-hero-section {
+        height: auto !important;
+        min-height: 70vh !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .about-hero-title {
+        font-size: 1.85rem !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .about-hero-body p {
+        font-size: 0.88rem !important;
+        margin-bottom: 14px !important;
+    }
+    
+    /* Navbar compact padding on mobile */
+    .navbar-las {
+        height: 60px !important;
+    }
+    .navbar-las .max-w-container-max {
+        height: 60px !important;
+    }
+    
+    /* Section gap reduction */
+    .py-section-gap {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+    
+    /* Compact buttons for better mobile alignment */
+    .btn-next,
+    .btn-back,
+    .course-detail-cta {
+        padding: 11px 20px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Compact padding for general cards */
+    .kds-stories-card {
+        width: 290px !important;
+        height: 270px !important;
+        padding: 16px !important;
+    }
+    .kds-stories-card p {
+        font-size: 0.8rem !important;
+    }
+}
+
