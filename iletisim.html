@@ -126,30 +126,6 @@
     transform: translate(-50%, -50%);
 }
 
-/* Form button */
-.contact-box-submit-btn {
-    background: #8B263E !important;
-    color: #ffffff !important;
-    font-family: 'Outfit', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 14px !important;
-    border: none !important;
-    border-radius: 0.75rem !important;
-    padding: 12px 24px !important;
-    cursor: pointer;
-    transition: all 0.3s ease !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 4px 12px rgba(139, 38, 62, 0.15) !important;
-}
-
-.contact-box-submit-btn:hover {
-    background: #a02e48 !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(139, 38, 62, 0.25) !important;
-}
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
@@ -192,18 +168,20 @@
 </div>
 </nav>
 
-<main id="main">
-<section class="contact-premium-section relative overflow-hidden w-full bg-[#f8fafc] py-20 flex flex-col justify-center min-h-[calc(100vh-64px)]">
-    
-    <!-- Floating Gold & Burgundy Outline Rings (Stylish Background Decoration) -->
-    <div class="absolute left-10 top-1/4 w-32 h-32 rounded-full border border-[#C5A059]/20 pointer-events-none z-0 animate-spin-slow"></div>
-    <div class="absolute right-20 top-1/3 w-48 h-48 rounded-full border border-[#8B263E]/10 pointer-events-none z-0 animate-spin-slow-reverse"></div>
-    <div class="absolute left-1/4 bottom-10 w-24 h-24 rounded-full border border-[#2E4057]/10 pointer-events-none z-0 animate-float-slow"></div>
+<header class="pt-40 pb-20 bg-zinc-900 text-center">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<span class="bracket-tag font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-4 block">Bize Ulaşın</span>
+<h1 class="line-reveal display-tight font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">İletişim</h1>
+<p id="contact-typing-subtitle" class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto min-h-[24px]"></p>
+</div>
+</header>
 
-    <!-- Outer Header area (Burgundy Color with Typist Effect) -->
-    <div class="text-center mb-10 relative z-10">
-        <h1 class="font-headline font-bold text-3xl md:text-5xl text-[#8B263E] mb-3">Bize Ulaşın</h1>
-        <p id="contact-typing-subtitle" class="text-[#8B263E] text-sm md:text-base font-semibold max-w-md mx-auto min-h-[24px]"></p>
+<main id="main">
+<section class="contact-premium-section relative overflow-hidden w-full py-20 flex flex-col justify-center">
+    <div class="page-blob-layer" aria-hidden="true">
+        <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-pink" style="top:5%; left:-6%;"></div>
+        <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-blue blob-delay" style="top:40%; right:-6%;"></div>
+        <div class="bg-blob bg-blob-animated w-80 h-80 bg-kds-orange" style="bottom:5%; left:8%;"></div>
     </div>
 
     <!-- Main Outer Container -->
@@ -331,7 +309,7 @@
                             <input type="checkbox" id="cf-consent" required checked class="w-4 h-4 rounded border-zinc-300 text-[#8B263E] focus:ring-[#8B263E] mt-0.5" />
                             <label for="cf-consent" class="text-[10px] text-zinc-400 leading-tight">Formu göndererek <a href="gizlilik-politikasi.html" target="_blank" class="underline hover:text-[#8B263E]">Gizlilik Politikamızı</a> kabul edersiniz.</label>
                         </div>
-                        <button type="submit" class="contact-box-submit-btn">
+                        <button type="submit" class="btn-nav-register">
                             <span>WhatsApp ile Gönder</span>
                             <span class="material-symbols-outlined text-sm">send</span>
                         </button>

@@ -4694,15 +4694,8 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
    LIGHT THEME CONTACT SECTION OVERRIDES (Mockup Inspired)
    ========================================================================== */
 .contact-premium-section {
-    background-color: #FDFBF7 !important; /* light cream brand background */
-    /* dot grid pattern + soft organic brand color gradients */
-    background-image: 
-        radial-gradient(rgba(28, 27, 28, 0.05) 1.5px, transparent 1.5px),
-        radial-gradient(circle at 15% 20%, rgba(197, 168, 128, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 85% 75%, rgba(244, 63, 94, 0.08) 0%, transparent 55%) !important;
-    background-size: 24px 24px, 100% 100%, 100% 100% !important;
+    background-color: transparent !important;
     color: #1c1b1c !important;
-    min-height: calc(100vh - 64px);
     display: flex;
     align-items: center;
 }
