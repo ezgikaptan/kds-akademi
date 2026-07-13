@@ -446,38 +446,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     /* ==============================
-       Floating Contact Bar Visibility Controller
-       ============================== */
-    var floatingBar = document.getElementById('floating-contact-bar');
-    var departmanlarSection = document.getElementById('departmanlar');
-    if (floatingBar && departmanlarSection) {
-        // Hide initial state on homepage
-        floatingBar.classList.add('hidden-bar');
-
-        if ('IntersectionObserver' in window) {
-            var contactObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(function(entry) {
-                    if (entry.isIntersecting) {
-                        floatingBar.classList.remove('hidden-bar');
-                    } else {
-                        // Hide it only if we scroll up past the section, keep it if we scroll down
-                        var rect = departmanlarSection.getBoundingClientRect();
-                        if (rect.top > 0) {
-                            floatingBar.classList.add('hidden-bar');
-                        } else {
-                            floatingBar.classList.remove('hidden-bar');
-                        }
-                    }
-                });
-            }, { threshold: 0.1 });
-            contactObserver.observe(departmanlarSection);
-        } else {
-            // Fallback for older browsers
-            floatingBar.classList.remove('hidden-bar');
-        }
-    }
-
-    /* ==============================
        Hero Video Start-Time Skipper (Plays from 1.0s and loops from 1.0s)
        ============================== */
     var heroVideo = document.getElementById('hero-video');
