@@ -3612,6 +3612,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     color: #a1a1aa !important;
     font-family: 'Outfit', sans-serif !important;
     padding: 80px 0 40px 0;
+    margin-top: 0 !important;
 }
 
 .footer-clean-dark a {
