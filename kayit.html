@@ -20,27 +20,15 @@
    Kayıt Sayfası — Özel Stiller
    ══════════════════════════════════════ */
 
-/* Page bg matches site (#FDFBF7) perfectly */
 .kayit-page-bg {
-    background-color: #FDFBF7;
+    background-color: transparent;
     position: relative;
 }
 
 /* Hero banner */
 .kayit-hero {
-    background: linear-gradient(135deg, #1E1E22 0%, #2d1520 60%, #1E1E22 100%);
     position: relative;
     overflow: hidden;
-    padding-top: 110px;
-    padding-bottom: 80px;
-}
-.kayit-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(139,38,62,0.25) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 80% at 80% 20%, rgba(46,64,87,0.2) 0%, transparent 70%);
-    pointer-events: none;
 }
 
 /* Progress steps bar */
@@ -121,7 +109,7 @@
 .kayit-card {
     background: #fff;
     border: 1px solid #e5e2e1;
-    border-radius: 20px;
+    border-radius: 0.75rem;
     box-shadow: 0 4px 40px rgba(28,27,28,0.07), 0 1px 3px rgba(28,27,28,0.04);
     overflow: hidden;
 }
@@ -197,7 +185,7 @@
 @media(min-width:640px) { .dept-grid { grid-template-columns: repeat(3, 1fr); } }
 .dept-card {
     border: 2px solid #e4e4e7;
-    border-radius: 14px;
+    border-radius: 0.75rem;
     padding: 16px 14px;
     cursor: pointer;
     background: #fafafa;
@@ -234,7 +222,7 @@
 .age-pill {
     cursor: pointer;
     border: 1.5px solid #e4e4e7;
-    border-radius: 99px;
+    border-radius: 0.75rem;
     padding: 9px 22px;
     font-size: 13px;
     font-weight: 600;
@@ -259,7 +247,7 @@
 .info-box {
     background: #f8f6f4;
     border: 1px solid #e5e2e1;
-    border-radius: 14px;
+    border-radius: 0.75rem;
     padding: 16px 18px;
     display: flex;
     gap: 12px;
@@ -272,7 +260,7 @@
 @media(min-width:480px) { .contact-pref-grid { grid-template-columns: repeat(3, 1fr); } }
 .contact-pref-card {
     border: 2px solid #e4e4e7;
-    border-radius: 14px;
+    border-radius: 0.75rem;
     padding: 14px 12px;
     cursor: pointer;
     background: #fafafa;
@@ -295,21 +283,24 @@
     align-items: center;
     gap: 8px;
     padding: 14px 32px;
-    background: #8B263E;
+    background: linear-gradient(180deg, #8B263E 0%, #5E1525 100%);
     color: #fff;
-    font-size: 15px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 0.8rem;
     font-weight: 700;
-    border-radius: 14px;
-    border: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
     cursor: pointer;
-    box-shadow: 0 4px 18px rgba(139,38,62,0.28);
-    transition: all 0.2s ease;
-    letter-spacing: 0.01em;
+    box-shadow: 0 4px 15px rgba(94, 21, 37, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .btn-next:hover {
-    background: #721e32;
-    box-shadow: 0 6px 22px rgba(139,38,62,0.4);
-    transform: translateY(-1px);
+    background: linear-gradient(180deg, #9C304A 0%, #6E1A2B 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(94, 21, 37, 0.5), inset 0 1.5px 1px rgba(255, 255, 255, 0.45);
+    transform: translateY(-2px);
 }
 .btn-back {
     display: inline-flex;
@@ -317,9 +308,12 @@
     gap: 6px;
     padding: 14px 20px;
     color: #71717a;
-    font-size: 14px;
-    font-weight: 600;
-    border-radius: 14px;
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 0.75rem;
     background: transparent;
     border: 1.5px solid #e4e4e7;
     cursor: pointer;
@@ -334,7 +328,7 @@
     gap: 6px;
     background: rgba(139,38,62,0.08);
     border: 1px solid rgba(139,38,62,0.2);
-    border-radius: 99px;
+    border-radius: 0.75rem;
     padding: 6px 14px;
     font-size: 12px;
     font-weight: 700;
@@ -360,6 +354,11 @@
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
+<div class="page-blob-layer" aria-hidden="true">
+<div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-pink" style="top:5%; left:-6%;"></div>
+<div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-blue blob-delay" style="top:40%; right:-6%;"></div>
+<div class="bg-blob bg-blob-animated w-80 h-80 bg-kds-orange" style="bottom:5%; left:8%;"></div>
+</div>
 <div id="scroll-progress"></div>
 <a href="#main" class="skip-link">İçeriğe geç</a>
 
@@ -400,11 +399,11 @@
 </nav>
 
 <!-- Hero -->
-<div class="kayit-hero text-center relative z-10">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-    <span class="bracket-tag font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-5 block">Hemen Başla</span>
-    <h1 class="display-tight font-headline-lg md:text-display-lg text-white mb-4" style="font-size:clamp(2rem,5vw,3.5rem); font-weight:800;">Kayıt Ol</h1>
-    <p class="text-white/60 max-w-xl mx-auto text-base leading-relaxed">Formu doldurun, eğitim danışmanımız kısa sürede sizi arayarak ders planlaması ve ücretlendirme hakkında bilgi versin.</p>
+<header class="pt-40 pb-20 bg-zinc-900 text-center">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <span class="bracket-tag font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-4 block">Hemen Başla</span>
+    <h1 class="line-reveal display-tight font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">Kayıt Ol</h1>
+    <p class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto">Formu doldurun, eğitim danışmanımız kısa sürede sizi arayarak ders planlaması ve ücretlendirme hakkında bilgi versin.</p>
 
     <!-- Trust badges -->
     <div class="flex flex-wrap justify-center gap-6 mt-8">
@@ -422,7 +421,7 @@
         </div>
     </div>
 </div>
-</div>
+</header>
 
 <!-- Progress Bar -->
 <div class="progress-bar-wrap">
@@ -557,27 +556,27 @@
                 <div class="dept-grid" id="dept-grid">
                     <label class="dept-card" data-dept="muzik">
                         <input type="radio" name="department" value="muzik" class="sr-only" required/>
-                        <div class="dept-card-icon bg-blue-50 text-blue-500">🎵</div>
+                        <div class="dept-card-icon bg-kds-blue/10 text-kds-blue">🎵</div>
                         <span class="dept-name">Müzik</span>
                     </label>
                     <label class="dept-card" data-dept="dans">
                         <input type="radio" name="department" value="dans" class="sr-only" required/>
-                        <div class="dept-card-icon bg-rose-50 text-rose-500">💃</div>
+                        <div class="dept-card-icon bg-kds-pink/10 text-kds-pink">💃</div>
                         <span class="dept-name">Dans</span>
                     </label>
                     <label class="dept-card" data-dept="tiyatro">
                         <input type="radio" name="department" value="tiyatro" class="sr-only" required/>
-                        <div class="dept-card-icon bg-purple-50 text-purple-500">🎭</div>
+                        <div class="dept-card-icon bg-kds-purple/10 text-kds-purple">🎭</div>
                         <span class="dept-name">Tiyatro</span>
                     </label>
                     <label class="dept-card" data-dept="resim">
                         <input type="radio" name="department" value="resim" class="sr-only" required/>
-                        <div class="dept-card-icon bg-orange-50 text-orange-500">🎨</div>
+                        <div class="dept-card-icon bg-kds-orange/10 text-kds-orange">🎨</div>
                         <span class="dept-name">Görsel Sanat</span>
                     </label>
                     <label class="dept-card" data-dept="cocuk">
                         <input type="radio" name="department" value="cocuk" class="sr-only" required/>
-                        <div class="dept-card-icon bg-yellow-50 text-yellow-500">⭐</div>
+                        <div class="dept-card-icon bg-kds-yellow/10 text-kds-yellow">⭐</div>
                         <span class="dept-name">Çocuk Akademisi</span>
                     </label>
                 </div>
