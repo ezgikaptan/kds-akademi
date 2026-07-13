@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kayıt & Ödeme | KDS Akademi</title>
+<title>Kayıt &amp; Ödeme | KDS Akademi</title>
 <meta name="description" content="KDS Akademi'ye online kayıt olun ve güvenli ödeme ile kaydınızı tamamlayın."/>
 <meta name="theme-color" content="#18181b"/>
-<link rel="canonical" href="https://ezgikaptan.github.io/kds-akademi/kayit.html"/>
+<link rel="canonical" href="https://kds-akademi.vercel.app/kayit.html"/>
 <link rel="icon" href="assets/img/kds-logo.jpg" type="image/jpeg"/>
 <link rel="apple-touch-icon" href="assets/img/kds-logo.jpg"/>
 <meta name="robots" content="noindex,follow"/>
@@ -15,6 +15,168 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link rel="stylesheet" href="assets/css/tailwind.build.css"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
+<style>
+/* ── Kayıt Formu Özel Stiller ──────────────────────── */
+.kayit-step { display: block; }
+.kayit-step.hidden { display: none; }
+
+/* Form input unified dark look */
+.kayit-input {
+    width: 100%;
+    border-radius: 12px;
+    border: 1.5px solid #3f3f46;
+    background-color: rgba(255,255,255,0.04);
+    padding: 12px 16px 12px 44px;
+    color: #f4f4f5;
+    font-size: 0.875rem;
+    font-family: 'Outfit', sans-serif;
+    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+}
+.kayit-input::placeholder { color: #71717a; }
+.kayit-input:focus {
+    border-color: #8B263E;
+    background-color: rgba(139,38,62,0.06);
+    box-shadow: 0 0 0 3px rgba(139,38,62,0.15);
+}
+.kayit-input-no-icon {
+    padding-left: 16px;
+}
+.kayit-input-textarea {
+    padding-left: 44px;
+    resize: none;
+    padding-top: 12px;
+}
+
+/* Step indicator dots */
+.step-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.06);
+    border: 1.5px solid rgba(255,255,255,0.12);
+    color: #71717a;
+    transition: all 0.35s ease;
+    flex-shrink: 0;
+}
+.step-dot.active {
+    background: #8B263E;
+    border-color: #8B263E;
+    color: #fff;
+    box-shadow: 0 0 16px rgba(139,38,62,0.45);
+}
+.step-dot.done {
+    background: rgba(139,38,62,0.18);
+    border-color: #8B263E;
+    color: #8B263E;
+}
+.step-label-text { transition: color 0.3s; }
+.step-label-text.active { color: #f4f4f5; font-weight: 700; }
+.step-label-text.done { color: #8B263E; }
+.step-label-text.inactive { color: #52525b; }
+
+/* Timeline line */
+#timeline-line-fill { transition: height 0.4s ease; }
+
+/* Age group pills */
+.age-group-pill { cursor: pointer; }
+.age-group-pill span {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 99px;
+    border: 1.5px solid #3f3f46;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #a1a1aa;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+}
+.age-group-pill input:checked + span {
+    background: #8B263E;
+    border-color: #8B263E;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(139,38,62,0.3);
+}
+.age-group-pill:hover span { border-color: #8B263E; color: #f4f4f5; }
+
+/* Kayıt wizard card */
+.kayit-wizard {
+    background: linear-gradient(145deg, #1c1b1f 0%, #18181b 100%);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+    overflow: hidden;
+}
+
+/* Sidebar */
+.kayit-sidebar {
+    background: linear-gradient(160deg, rgba(139,38,62,0.12) 0%, rgba(24,24,27,0) 60%);
+    border-right: 1px solid rgba(255,255,255,0.07);
+}
+
+/* Payment summary box */
+.payment-summary-box {
+    background: rgba(139,38,62,0.08);
+    border: 1px solid rgba(139,38,62,0.2);
+    border-radius: 14px;
+}
+
+/* Next/submit buttons */
+.btn-kayit-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 28px;
+    background: #8B263E;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(139,38,62,0.35);
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+}
+.btn-kayit-next:hover {
+    background: #6e1a2b;
+    box-shadow: 0 6px 24px rgba(139,38,62,0.5);
+    transform: translateX(2px);
+}
+.btn-kayit-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 13px 20px;
+    color: #71717a;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.btn-kayit-back:hover { color: #f4f4f5; }
+
+/* Select arrow */
+.select-wrap { position: relative; }
+.select-wrap::after {
+    content: "expand_more";
+    font-family: 'Material Symbols Outlined';
+    font-size: 1.1rem;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #71717a;
+    pointer-events: none;
+}
+</style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
 <div id="scroll-progress"></div>
@@ -31,309 +193,314 @@
 </span>
 </a>
 <div class="hidden md:flex items-center gap-2">
-<a class="nav-link-las " href="index.html">Anasayfa</a>
-<a class="nav-link-las " href="kurslar.html">Kurslar</a>
-<a class="nav-link-las " href="egitmenler.html">Eğitmenler</a>
-<a class="nav-link-las " href="galeri.html">Galeri</a>
-<a class="nav-link-las " href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link-las " href="iletisim.html">İletişim</a>
+<a class="nav-link-las" href="index.html">Anasayfa</a>
+<a class="nav-link-las" href="kurslar.html">Kurslar</a>
+<a class="nav-link-las" href="egitmenler.html">Eğitmenler</a>
+<a class="nav-link-las" href="galeri.html">Galeri</a>
+<a class="nav-link-las" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link-las" href="iletisim.html">İletişim</a>
 </div>
 <div class="flex items-center gap-4">
-<span class="hidden md:inline-flex"><a class="btn-nav-register" href="kayit.html">Kayıt Ol</a></span>
+<span class="hidden md:inline-flex"><a class="btn-nav-register active" href="kayit.html">Kayıt Ol</a></span>
 <button class="md:hidden text-white p-2" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç/kapat"><span class="material-symbols-outlined" aria-hidden="true">menu</span></button>
 </div>
 </div>
 <div class="mobile-menu md:hidden bg-zinc-950/95 backdrop-blur-lg border-t border-white/10" id="mobile-menu">
 <div class="flex flex-col px-margin-mobile py-6 gap-4">
-<a class="font-label-md text-label-md text-white " href="index.html">Anasayfa</a>
-<a class="font-label-md text-label-md text-white/70 hover:text-white " href="kurslar.html">Kurslar</a>
-<a class="font-label-md text-label-md text-white/70 hover:text-white " href="egitmenler.html">Eğitmenler</a>
-<a class="font-label-md text-label-md text-white/70 hover:text-white " href="galeri.html">Galeri</a>
-<a class="font-label-md text-label-md text-white/70 hover:text-white " href="hakkimizda.html">Hakkımızda</a>
-<a class="font-label-md text-label-md text-white/70 hover:text-white " href="iletisim.html">İletişim</a>
+<a class="font-label-md text-label-md text-white" href="index.html">Anasayfa</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="kurslar.html">Kurslar</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="egitmenler.html">Eğitmenler</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="galeri.html">Galeri</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="hakkimizda.html">Hakkımızda</a>
+<a class="font-label-md text-label-md text-white/70 hover:text-white" href="iletisim.html">İletişim</a>
 <a class="btn-nav-register mt-2" href="kayit.html">Kayıt Ol</a>
 </div>
 </div>
 </nav>
 
-<header class="pt-40 pb-16 bg-zinc-900 text-center">
+<!-- Hero Header -->
+<header class="pt-40 pb-20 bg-zinc-900 text-center">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <span class="bracket-tag font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-4 block">Online Kayıt</span>
-<h1 class="line-reveal display-tight font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">Kayıt & Ödeme</h1>
-<p class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto">Aşağıdaki adımları tamamlayarak kaydınız�<main id="main">
-<section class="relative overflow-hidden w-full px-4 md:px-6 py-section-gap bg-background">
-<div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-pink -top-20 -left-20 opacity-30" aria-hidden="true"></div>
-<div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-blue bottom-10 left-1/3 blob-delay opacity-20" aria-hidden="true"></div>
-<div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-orange -bottom-20 -right-20 blob-delay opacity-30" aria-hidden="true"></div>
-<div class="relative z-10 max-w-5xl mx-auto">
+<h1 class="line-reveal display-tight font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">Kayıt &amp; Ödeme</h1>
+<p class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto">Aşağıdaki adımları tamamlayarak kaydınızı gerçekleştirin.</p>
+</div>
+</header>
 
-<div class="registration-wizard bg-white border border-zinc-200/80 rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row items-stretch min-h-[600px] w-full">
-    
-    <!-- Left Sidebar (Steps timeline) -->
-    <div class="registration-sidebar w-full lg:w-[35%] bg-zinc-50 border-b lg:border-b-0 lg:border-r border-zinc-200/60 p-8 md:p-10 flex flex-col justify-between relative">
-        <!-- Ambient lighting / top header inside sidebar -->
-        <div>
-            <span id="sidebar-step-num" class="text-xs font-bold tracking-widest text-[#8B263E] bg-[#8B263E]/10 px-2.5 py-1 rounded-xl uppercase">Adım 1</span>
-            <h3 id="sidebar-step-title" class="text-2xl font-bold text-zinc-950 mt-3 mb-2">Kişisel Bilgiler</h3>
-            <p id="sidebar-step-desc" class="text-xs text-zinc-500 leading-relaxed">Kayıt işlemlerini başlatmak için kişisel bilgilerinizi eksiksiz doldurun.</p>
-        </div>
-        
-        <!-- Steps progress indicator vertical list -->
-        <div class="relative my-8 pr-4 lg:pr-2">
-            <!-- Connecting Vertical Line -->
-            <div class="absolute right-[19px] top-[20px] bottom-[20px] w-0.5 bg-zinc-200" aria-hidden="true">
-                <div id="timeline-progress-bar" class="w-full bg-[#8B263E] h-0 transition-all duration-300" style="height: 0%;"></div>
+<main id="main">
+<section class="relative overflow-hidden w-full px-4 md:px-8 py-section-gap bg-background">
+
+    <!-- Ambient blobs -->
+    <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-pink -top-20 -left-20 opacity-20" aria-hidden="true"></div>
+    <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-blue bottom-10 left-1/3 blob-delay opacity-15" aria-hidden="true"></div>
+    <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-orange -bottom-20 -right-20 blob-delay opacity-20" aria-hidden="true"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto">
+
+        <!-- Wizard Card -->
+        <div class="kayit-wizard flex flex-col lg:flex-row items-stretch min-h-[560px] w-full">
+
+            <!-- ── Left Sidebar ───────────────────── -->
+            <div class="kayit-sidebar w-full lg:w-[300px] flex-shrink-0 p-8 md:p-10 flex flex-col justify-between">
+                <div>
+                    <span id="sidebar-step-num" class="text-xs font-bold tracking-widest text-[#8B263E] bg-[#8B263E]/12 px-3 py-1 rounded-xl uppercase">Adım 1</span>
+                    <h3 id="sidebar-step-title" class="text-2xl font-bold text-white mt-4 mb-2" style="font-family:'SF Pro Display',sans-serif;">Kişisel Bilgiler</h3>
+                    <p id="sidebar-step-desc" class="text-xs text-zinc-500 leading-relaxed">Kayıt işlemlerini başlatmak için kişisel bilgilerinizi eksiksiz doldurun.</p>
+                </div>
+
+                <!-- Step Indicators -->
+                <div class="relative my-10">
+                    <!-- Vertical line -->
+                    <div class="absolute left-[19px] top-5 bottom-5 w-0.5 bg-zinc-800" aria-hidden="true">
+                        <div id="timeline-line-fill" class="w-full bg-[#8B263E] transition-all duration-500" style="height: 0%;"></div>
+                    </div>
+
+                    <ol id="step-indicator" class="space-y-8 relative z-10" aria-label="Kayıt adımları">
+                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="1">
+                            <span class="step-dot active" id="dot-1">
+                                <span class="material-symbols-outlined text-base">person</span>
+                            </span>
+                            <span class="step-label-text active text-sm" id="label-1">Kişisel Bilgiler</span>
+                        </li>
+                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="2">
+                            <span class="step-dot" id="dot-2">
+                                <span class="material-symbols-outlined text-base">school</span>
+                            </span>
+                            <span class="step-label-text inactive text-sm" id="label-2">Kurs Seçimi</span>
+                        </li>
+                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="3">
+                            <span class="step-dot" id="dot-3">
+                                <span class="material-symbols-outlined text-base">supervisor_account</span>
+                            </span>
+                            <span class="step-label-text inactive text-sm" id="label-3">Veli &amp; Adres</span>
+                        </li>
+                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="4">
+                            <span class="step-dot" id="dot-4">
+                                <span class="material-symbols-outlined text-base">credit_card</span>
+                            </span>
+                            <span class="step-label-text inactive text-sm" id="label-4">Ödeme</span>
+                        </li>
+                    </ol>
+                </div>
+
+                <!-- Brand -->
+                <div class="hidden lg:block pt-4 border-t border-white/8">
+                    <span class="text-[10px] tracking-widest font-bold text-zinc-600 uppercase">KDS AKADEMİ</span>
+                </div>
             </div>
-            
-            <ol id="step-indicator" class="space-y-8 relative z-10" aria-label="Kayıt adımları">
-                <!-- Step 1 -->
-                <li class="step-indicator-item flex flex-row-reverse items-center justify-start gap-4 cursor-pointer" data-step="1">
-                    <span class="step-indicator-dot w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-500 flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <span class="material-symbols-outlined text-base">person</span>
-                    </span>
-                    <span class="step-label text-right font-bold text-zinc-950 text-sm">Kişisel Bilgiler</span>
-                </li>
-                <!-- Step 2 -->
-                <li class="step-indicator-item flex flex-row-reverse items-center justify-start gap-4 cursor-pointer" data-step="2">
-                    <span class="step-indicator-dot w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-500 flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <span class="material-symbols-outlined text-base">school</span>
-                    </span>
-                    <span class="step-label text-right font-semibold text-zinc-400 text-sm">Kurs Seçimi</span>
-                </li>
-                <!-- Step 3 -->
-                <li class="step-indicator-item flex flex-row-reverse items-center justify-start gap-4 cursor-pointer" data-step="3">
-                    <span class="step-indicator-dot w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-500 flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <span class="material-symbols-outlined text-base">supervisor_account</span>
-                    </span>
-                    <span class="step-label text-right font-semibold text-zinc-400 text-sm">Veli & Adres</span>
-                </li>
-                <!-- Step 4 -->
-                <li class="step-indicator-item flex flex-row-reverse items-center justify-start gap-4 cursor-pointer" data-step="4">
-                    <span class="step-indicator-dot w-10 h-10 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-500 flex items-center justify-center transition-all duration-300 shadow-sm">
-                        <span class="material-symbols-outlined text-base">credit_card</span>
-                    </span>
-                    <span class="step-label text-right font-semibold text-zinc-400 text-sm">Ödeme</span>
-                </li>
-            </ol>
+
+            <!-- ── Right Form Content ─────────────── -->
+            <div class="flex-1 p-8 md:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/[0.06]">
+                <form id="kayit-form" class="flex-1 flex flex-col justify-between" novalidate>
+                    <div class="flex-1">
+
+                        <!-- STEP 1: Kişisel Bilgiler -->
+                        <div class="kayit-step" data-step="1">
+                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Kişisel Bilgileriniz</h2>
+                            <p class="text-sm text-zinc-500 mb-8">Kayıt işlemini başlatmak için önce sizi tanıyalım.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="k-name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Ad Soyad</label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">person</span>
+                                        <input id="k-name" name="fullName" type="text" autocomplete="name" required class="kayit-input" placeholder="Adınız ve soyadınız"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="k-birthdate" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Doğum Tarihi</label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">calendar_today</span>
+                                        <input id="k-birthdate" name="birthDate" type="date" required class="kayit-input" style="color-scheme: dark;"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="k-phone" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Telefon</label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">call</span>
+                                        <input id="k-phone" name="phone" type="tel" autocomplete="tel" required class="kayit-input" placeholder="05XX XXX XX XX"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="k-email" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">E-posta</label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">mail</span>
+                                        <input id="k-email" name="email" type="email" autocomplete="email" required class="kayit-input" placeholder="ornek@email.com"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: Kurs Seçimi -->
+                        <div class="kayit-step hidden" data-step="2">
+                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Kurs Seçimi</h2>
+                            <p class="text-sm text-zinc-500 mb-8">Hangi departman ve kursa kayıt olmak istiyorsunuz?</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
+                                <div>
+                                    <label for="k-department" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Departman</label>
+                                    <div class="relative select-wrap">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none z-10">category</span>
+                                        <select id="k-department" name="department" required class="kayit-input">
+                                            <option value="">Departman seçin</option>
+                                            <option value="muzik">Müzik Bölümü</option>
+                                            <option value="dans">Dans Akademisi</option>
+                                            <option value="tiyatro">Tiyatro ve Oyunculuk</option>
+                                            <option value="resim">Görsel Sanatlar</option>
+                                            <option value="cocuk">Çocuk Akademisi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="k-course" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Kurs</label>
+                                    <div class="relative select-wrap">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none z-10">auto_stories</span>
+                                        <select id="k-course" name="course" required disabled class="kayit-input opacity-60">
+                                            <option value="">Önce departman seçin</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-3">Yaş Grubu</span>
+                                <div class="flex flex-wrap gap-3" role="radiogroup" aria-label="Yaş grubu">
+                                    <label class="age-group-pill">
+                                        <input type="radio" name="ageGroup" value="cocuk" required class="sr-only"/>
+                                        <span>Çocuk</span>
+                                    </label>
+                                    <label class="age-group-pill">
+                                        <input type="radio" name="ageGroup" value="genc" required class="sr-only"/>
+                                        <span>Genç</span>
+                                    </label>
+                                    <label class="age-group-pill">
+                                        <input type="radio" name="ageGroup" value="yetiskin" required class="sr-only"/>
+                                        <span>Yetişkin</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: Veli & Adres -->
+                        <div class="kayit-step hidden" data-step="3">
+                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Veli Bilgisi &amp; Adres</h2>
+                            <p class="text-sm text-zinc-500 mb-8">Öğrenci çocuk yaş grubundaysa veli bilgisi zorunludur.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label for="k-guardian-name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Veli Ad Soyad <span id="guardian-name-optional" class="text-zinc-600 font-normal normal-case tracking-normal">(opsiyonel)</span></label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">supervisor_account</span>
+                                        <input id="k-guardian-name" name="guardianName" type="text" autocomplete="off" class="kayit-input" placeholder="Veli adı soyadı"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="k-guardian-phone" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Veli Telefon <span id="guardian-phone-optional" class="text-zinc-600 font-normal normal-case tracking-normal">(opsiyonel)</span></label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">call</span>
+                                        <input id="k-guardian-phone" name="guardianPhone" type="tel" autocomplete="off" class="kayit-input" placeholder="05XX XXX XX XX"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="k-address" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Adres</label>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-3.5 top-3.5 text-zinc-600 text-lg pointer-events-none">home</span>
+                                    <textarea id="k-address" name="address" rows="3" required placeholder="Mahalle, cadde/sokak, il/ilçe" class="kayit-input kayit-input-textarea"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: Ödeme -->
+                        <div class="kayit-step hidden" data-step="4">
+                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Ödeme Bilgileri</h2>
+                            <p class="text-sm text-zinc-500 mb-6">Ödeme bilgileriniz iyzico güvenli altyapısı ile korunur.</p>
+
+                            <div class="payment-summary-box p-4 mb-6 flex items-center justify-between gap-4">
+                                <div>
+                                    <span class="text-[10px] font-bold text-zinc-500 block mb-1 uppercase tracking-widest">Seçilen Kurs</span>
+                                    <span id="summary-course" class="text-base font-bold text-white">—</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="text-[10px] font-bold text-zinc-500 block mb-1 uppercase tracking-widest">Tutar</span>
+                                    <span class="text-sm font-bold text-[#8B263E] bg-[#8B263E]/12 px-3 py-1.5 rounded-xl">İletişime geçilecektir</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-5 mb-5">
+                                <div>
+                                    <label for="k-card-name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Kart Üzerindeki İsim</label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">person</span>
+                                        <input id="k-card-name" name="cardName" type="text" autocomplete="cc-name" required class="kayit-input" placeholder="Kart sahibinin adı soyadı"/>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="k-card-number" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Kart Numarası</label>
+                                    <div class="relative">
+                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">credit_card</span>
+                                        <input id="k-card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="0000 0000 0000 0000" required class="kayit-input"/>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-4">
+                                    <div>
+                                        <label for="k-card-expiry" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Son Kul.</label>
+                                        <input id="k-card-expiry" name="cardExpiry" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="AA/YY" required class="kayit-input kayit-input-no-icon text-center"/>
+                                    </div>
+                                    <div>
+                                        <label for="k-card-cvv" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">CVV</label>
+                                        <input id="k-card-cvv" name="cardCvv" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="000" required class="kayit-input kayit-input-no-icon text-center"/>
+                                    </div>
+                                    <div>
+                                        <label for="k-installments" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Taksit</label>
+                                        <div class="relative select-wrap">
+                                            <select id="k-installments" name="installments" class="kayit-input kayit-input-no-icon text-center">
+                                                <option value="1">Tek Çekim</option>
+                                                <option value="2">2 Taksit</option>
+                                                <option value="3">3 Taksit</option>
+                                                <option value="6">6 Taksit</option>
+                                                <option value="9">9 Taksit</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 text-zinc-500 bg-zinc-900/60 border border-zinc-800 p-3.5 rounded-xl">
+                                <span class="material-symbols-outlined text-lg text-[#8B263E] flex-shrink-0" aria-hidden="true">lock</span>
+                                <span class="text-xs">256-bit SSL ile şifrelenir, iyzico güvenli ödeme altyapısı üzerinden işlenir.</span>
+                            </div>
+                        </div>
+
+                        <!-- Onay (Success) -->
+                        <div id="kayit-confirmation" class="hidden text-center py-16">
+                            <div class="w-20 h-20 rounded-full bg-[#8B263E]/15 border border-[#8B263E]/30 flex items-center justify-center mx-auto mb-6">
+                                <span class="material-symbols-outlined text-4xl text-[#8B263E]" aria-hidden="true">check_circle</span>
+                            </div>
+                            <h2 class="text-2xl font-bold text-white mb-3" style="font-family:'SF Pro Display',sans-serif;">Kaydınız Başarıyla Alındı</h2>
+                            <p class="text-sm text-zinc-500 max-w-md mx-auto leading-relaxed">Kayıt talebiniz tarafımıza ulaşmıştır. Eğitim danışmanlarımız kısa süre içinde verdiğiniz telefon numarasından sizinle iletişime geçerek ders planlaması ve ödeme detaylarını tamamlayacaktır.</p>
+                        </div>
+
+                    </div>
+
+                    <!-- Nav Buttons -->
+                    <div id="kayit-nav" class="flex items-center justify-between mt-8 pt-6 border-t border-white/[0.07]">
+                        <button type="button" id="kayit-back-btn" class="btn-kayit-back invisible">
+                            <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
+                            Geri
+                        </button>
+                        <button type="button" id="kayit-next-btn" class="btn-kayit-next">
+                            Devam Et
+                            <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
+                        </button>
+                        <button type="submit" id="kayit-submit-btn" class="btn-kayit-next hidden">
+                            Kaydı Tamamla
+                            <span class="material-symbols-outlined text-lg" aria-hidden="true">check</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
-        
-        <!-- Brand footer -->
-        <div class="hidden lg:block pt-4 border-t border-zinc-200/50">
-            <span class="text-[10px] tracking-widest font-bold text-zinc-400 uppercase">KDS AKADEMİ</span>
-        </div>
+
+        <p class="text-xs text-zinc-600 text-center mt-6">Kaydınızı tamamlayarak <a href="gizlilik-politikasi.html" class="underline hover:text-[#8B263E] transition-colors">Gizlilik Politikamızı</a> kabul etmiş olursunuz.</p>
+
     </div>
-    
-    <!-- Right Side Form Content -->
-    <div class="flex-1 p-8 md:p-10 flex flex-col justify-between">
-        <form id="kayit-form" class="space-y-8 flex-1 flex flex-col justify-between" novalidate>
-            
-            <div class="flex-1">
-                <!-- Step 1: Kişisel Bilgiler -->
-                <div class="kayit-step" data-step="1">
-                    <h2 class="font-headline-md text-headline-md text-zinc-955 mb-2">Kişisel Bilgileriniz</h2>
-                    <p class="font-body-md text-body-md text-zinc-500 mb-8">Kayıt işlemini başlatmak için önce sizi tanıyalım.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label for="k-name" class="font-label-md text-label-md text-zinc-700 block mb-2">Ad Soyad</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">person</span>
-                                <input id="k-name" name="fullName" type="text" autocomplete="name" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-950 transition-all outline-none" placeholder="Adınız ve soyadınız"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="k-birthdate" class="font-label-md text-label-md text-zinc-700 block mb-2">Doğum Tarihi</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">calendar_today</span>
-                                <input id="k-birthdate" name="birthDate" type="date" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="k-phone" class="font-label-md text-label-md text-zinc-700 block mb-2">Telefon</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">call</span>
-                                <input id="k-phone" name="phone" type="tel" autocomplete="tel" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-950 transition-all outline-none" placeholder="05XX XXX XX XX"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="k-email" class="font-label-md text-label-md text-zinc-700 block mb-2">E-posta</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">mail</span>
-                                <input id="k-email" name="email" type="email" autocomplete="email" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-950 transition-all outline-none" placeholder="ornek@email.com"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 2: Kurs Seçimi -->
-                <div class="kayit-step hidden" data-step="2">
-                    <h2 class="font-headline-md text-headline-md text-zinc-955 mb-2">Kurs Seçimi</h2>
-                    <p class="font-body-md text-body-md text-zinc-500 mb-8">Hangi departman ve kursa kayıt olmak istiyorsunuz?</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="k-department" class="font-label-md text-label-md text-zinc-700 block mb-2">Departman</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">category</span>
-                                <select id="k-department" name="department" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none appearance-none">
-                                    <option value="">Departman seçin</option>
-                                    <option value="muzik">Müzik Bölümü</option>
-                                    <option value="dans">Dans Akademisi</option>
-                                    <option value="tiyatro">Tiyatro ve Oyunculuk</option>
-                                    <option value="resim">Görsel Sanatlar</option>
-                                    <option value="cocuk">Çocuk Akademisi</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="k-course" class="font-label-md text-label-md text-zinc-700 block mb-2">Kurs</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">auto_stories</span>
-                                <select id="k-course" name="course" required disabled class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none appearance-none">
-                                    <option value="">Önce departman seçin</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <span class="font-label-md text-label-md text-zinc-700 block mb-3">Yaş Grubu</span>
-                        <div class="flex flex-wrap gap-3" role="radiogroup" aria-label="Yaş grubu">
-                            <label class="age-group-pill">
-                                <input type="radio" name="ageGroup" value="cocuk" required class="sr-only"/>
-                                <span>Çocuk</span>
-                            </label>
-                            <label class="age-group-pill">
-                                <input type="radio" name="ageGroup" value="genc" required class="sr-only"/>
-                                <span>Genç</span>
-                            </label>
-                            <label class="age-group-pill">
-                                <input type="radio" name="ageGroup" value="yetiskin" required class="sr-only"/>
-                                <span>Yetişkin</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 3: Veli & Adres -->
-                <div class="kayit-step hidden" data-step="3">
-                    <h2 class="font-headline-md text-headline-md text-zinc-955 mb-2">Veli Bilgisi & Adres</h2>
-                    <p class="font-body-md text-body-md text-zinc-500 mb-8">Öğrenci çocuk yaş grubundaysa veli bilgisi zorunludur.</p>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="k-guardian-name" class="font-label-md text-label-md text-zinc-700 block mb-2">Veli Ad Soyad <span id="guardian-name-optional" class="text-zinc-400 font-normal">(opsiyonel)</span></label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">supervisor_account</span>
-                                <input id="k-guardian-name" name="guardianName" type="text" autocomplete="off" class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none" placeholder="Veli adı soyadı"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="k-guardian-phone" class="font-label-md text-label-md text-zinc-700 block mb-2">Veli Telefon <span id="guardian-phone-optional" class="text-zinc-400 font-normal">(opsiyonel)</span></label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">call</span>
-                                <input id="k-guardian-phone" name="guardianPhone" type="tel" autocomplete="off" class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none" placeholder="05XX XXX XX XX"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label for="k-address" class="font-label-md text-label-md text-zinc-700 block mb-2">Adres</label>
-                        <div class="relative">
-                            <span class="material-symbols-outlined absolute left-3.5 top-4 text-zinc-400 text-lg">home</span>
-                            <textarea id="k-address" name="address" rows="3" required placeholder="Mahalle, cadde/sokak, il/ilçe" class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none"></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Step 4: Ödeme -->
-                <div class="kayit-step hidden" data-step="4">
-                    <h2 class="font-headline-md text-headline-md text-zinc-955 mb-2">Ödeme Bilgileri</h2>
-                    <p class="font-body-md text-body-md text-zinc-500 mb-6">Ödeme bilgileriniz iyzico güvenli altyapısı ile korunur.</p>
-                    
-                    <div id="payment-summary" class="rounded-2xl bg-zinc-50 border border-zinc-200/60 p-5 mb-8 flex items-center justify-between gap-4">
-                        <div>
-                            <span class="text-xs font-semibold text-zinc-400 block mb-1 uppercase tracking-wider">Seçilen Kurs</span>
-                            <span id="summary-course" class="text-lg font-bold text-zinc-955">—</span>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs font-semibold text-zinc-400 block mb-1 uppercase tracking-wider">Tutar</span>
-                            <span class="text-base font-bold text-zinc-950 bg-[#8B263E]/10 text-[#8B263E] px-3.5 py-1.5 rounded-xl">İletişime geçilecektir</span>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 gap-6 mb-6">
-                        <div>
-                            <label for="k-card-name" class="font-label-md text-label-md text-zinc-700 block mb-2">Kart Üzerindeki İsim</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">person</span>
-                                <input id="k-card-name" name="cardName" type="text" autocomplete="cc-name" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none" placeholder="Kart sahibinin adı soyadı"/>
-                            </div>
-                        </div>
-                        <div>
-                            <label for="k-card-number" class="font-label-md text-label-md text-zinc-700 block mb-2">Kart Numarası</label>
-                            <div class="relative">
-                                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-400 text-lg">credit_card</span>
-                                <input id="k-card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="0000 0000 0000 0000" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] pl-10 pr-4 py-3 text-sm text-zinc-955 transition-all outline-none"/>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3 gap-4">
-                            <div class="col-span-1">
-                                <label for="k-card-expiry" class="font-label-md text-label-md text-zinc-700 block mb-2">Son Kul.</label>
-                                <input id="k-card-expiry" name="cardExpiry" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="AA/YY" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] px-4 py-3 text-sm text-zinc-955 transition-all outline-none text-center"/>
-                            </div>
-                            <div class="col-span-1">
-                                <label for="k-card-cvv" class="font-label-md text-label-md text-zinc-700 block mb-2">CVV</label>
-                                <input id="k-card-cvv" name="cardCvv" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="000" required class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] px-4 py-3 text-sm text-zinc-955 transition-all outline-none text-center"/>
-                            </div>
-                            <div class="col-span-1">
-                                <label for="k-installments" class="font-label-md text-label-md text-zinc-700 block mb-2">Taksit</label>
-                                <select id="k-installments" name="installments" class="w-full rounded-xl border border-zinc-200 bg-zinc-50/50 focus:bg-white focus:border-[#8B263E] focus:ring-1 focus:ring-[#8B263E] px-4 py-3 text-sm text-zinc-955 transition-all outline-none appearance-none text-center animate-none">
-                                    <option value="1">Tek Çekim</option>
-                                    <option value="2">2 Taksit</option>
-                                    <option value="3">3 Taksit</option>
-                                    <option value="6">6 Taksit</option>
-                                    <option value="9">9 Taksit</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center gap-2 text-zinc-400 mt-6 bg-zinc-50 border border-zinc-100 p-3.5 rounded-xl">
-                        <span class="material-symbols-outlined text-lg text-[#8B263E]" aria-hidden="true">lock</span>
-                        <span class="text-xs text-zinc-500">256-bit SSL ile şifrelenir, iyzico güvenli ödeme altyapısı üzerinden işlenir.</span>
-                    </div>
-                </div>
-
-                <!-- Confirmation (shown after submit) -->
-                <div id="kayit-confirmation" class="hidden text-center py-12 scroll-mt-28">
-                    <span class="material-symbols-outlined text-6xl text-[#8B263E] mb-5 block" aria-hidden="true">check_circle</span>
-                    <h2 class="text-2xl font-bold text-zinc-950 mb-3">Kaydınız Başarıyla Alındı</h2>
-                    <p class="text-sm text-zinc-500 max-w-md mx-auto leading-relaxed">Kayıt talebiniz tarafımıza ulaşmıştır. Eğitim danışmanlarımız kısa süre içinde verdiğiniz telefon numarasından sizinle iletişime geçerek ders planlaması ve ödeme detaylarını tamamlayacaktır.</p>
-                </div>
-            </div>
-
-            <!-- Navigation Buttons -->
-            <div id="kayit-nav" class="flex items-center justify-between mt-8 pt-6 border-t border-zinc-100">
-                <button type="button" id="kayit-back-btn" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-zinc-500 hover:text-zinc-955 transition-colors invisible">
-                    <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
-                    Geri
-                </button>
-                <button type="button" id="kayit-next-btn" class="kayit-btn-next inline-flex items-center gap-2 px-8 py-3.5 bg-[#8B263E] hover:bg-[#6E1A2B] text-white text-sm font-bold rounded-xl shadow-lg shadow-[#8B263E]/25 hover:shadow-[#6E1A2B]/30 transition-all duration-300 hover:translate-x-1">
-                    Devam Et
-                    <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
-                </button>
-                <button type="submit" id="kayit-submit-btn" class="hidden inline-flex items-center gap-2 px-8 py-3.5 bg-[#8B263E] hover:bg-[#6E1A2B] text-white text-sm font-bold rounded-xl shadow-lg shadow-[#8B263E]/25 hover:shadow-[#6E1A2B]/30 transition-all duration-300 hover:translate-x-1">
-                    Kaydı Tamamla ve Öde
-                    <span class="material-symbols-outlined text-lg" aria-hidden="true">check</span>
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<p class="font-body-md text-body-md text-zinc-400 text-xs text-center mt-6">Kaydınızı tamamlayarak <a href="gizlilik-politikasi.html" class="underline hover:text-[#8B263E]">Gizlilik Politikamızı</a> kabul etmiş olursunuz.</p>
-
-</div>
-</section>
-</main> class="underline hover:text-kds-pink">Gizlilik Politikamızı</a> kabul etmiş olursunuz.</p>
-
-</div>
 </section>
 </main>
 

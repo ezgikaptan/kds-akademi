@@ -57,44 +57,50 @@ document.addEventListener('DOMContentLoaded', function () {
     var kayitNav = document.getElementById('kayit-nav');
     var confirmation = document.getElementById('kayit-confirmation');
 
+    var STEP_META = [
+        { num: 'Adım 1', title: 'Kişisel Bilgiler', desc: 'Kayıt işlemlerini başlatmak için kişisel bilgilerinizi eksiksiz doldurun.' },
+        { num: 'Adım 2', title: 'Kurs Seçimi', desc: 'Kayıt olmak istediğiniz sanat branşını, dersi ve yaş grubunu belirtin.' },
+        { num: 'Adım 3', title: 'Veli & Adres', desc: 'Öğrencinin adres detaylarını ve varsa veli iletişim bilgilerini doldurun.' },
+        { num: 'Adım 4', title: 'Ödeme ve Onay', desc: 'iyzico altyapısı ile güvenli ödemenizi gerçekleştirip kaydı tamamlayın.' }
+    ];
+
     function showStep(step) {
         steps.forEach(function (panel) {
             panel.classList.toggle('hidden', parseInt(panel.dataset.step, 10) !== step);
         });
-        indicatorItems.forEach(function (item) {
-            var itemStep = parseInt(item.dataset.step, 10);
-            var dot = item.querySelector('.step-indicator-dot');
-            dot.classList.remove('step-indicator-dot--active', 'step-indicator-dot--done');
-            if (itemStep === step) {
-                dot.classList.add('step-indicator-dot--active');
-            } else if (itemStep < step) {
-                dot.classList.add('step-indicator-dot--done');
+
+        // Update dot + label classes
+        for (var i = 1; i <= TOTAL_STEPS; i++) {
+            var dot = document.getElementById('dot-' + i);
+            var label = document.getElementById('label-' + i);
+            if (dot) {
+                dot.classList.remove('active', 'done');
+                if (i === step) dot.classList.add('active');
+                else if (i < step) dot.classList.add('done');
             }
-        });
-        
-        // Update timeline progress bar height
-        var progressBar = document.getElementById('timeline-progress-bar');
-        if (progressBar) {
-            progressBar.style.height = ((step - 1) / (TOTAL_STEPS - 1) * 100) + '%';
+            if (label) {
+                label.classList.remove('active', 'done', 'inactive');
+                if (i === step) label.classList.add('active');
+                else if (i < step) label.classList.add('done');
+                else label.classList.add('inactive');
+            }
         }
 
-        // Update sidebar step descriptions
+        // Update timeline fill
+        var lineFill = document.getElementById('timeline-line-fill');
+        if (lineFill) {
+            lineFill.style.height = ((step - 1) / (TOTAL_STEPS - 1) * 100) + '%';
+        }
+
+        // Update sidebar
         var sidebarStepNum = document.getElementById('sidebar-step-num');
         var sidebarStepTitle = document.getElementById('sidebar-step-title');
         var sidebarStepDesc = document.getElementById('sidebar-step-desc');
-        if (sidebarStepNum && sidebarStepTitle && sidebarStepDesc) {
-            var stepMeta = [
-                { num: 'Adım 1', title: 'Kişisel Bilgiler', desc: 'Kayıt işlemlerini başlatmak için kişisel bilgilerinizi eksiksiz doldurun.' },
-                { num: 'Adım 2', title: 'Kurs Seçimi', desc: 'Kayıt olmak istediğiniz sanat branşını, dersi ve yaş grubunu belirtin.' },
-                { num: 'Adım 3', title: 'Veli & Adres', desc: 'Öğrencinin adres detaylarını ve varsa veli iletişim bilgilerini doldurun.' },
-                { num: 'Adım 4', title: 'Ödeme ve Onay', desc: 'iyzico altyapısı ile güvenli ödemenizi gerçekleştirip kaydı tamamlayın.' }
-            ];
-            var currentMeta = stepMeta[step - 1];
-            if (currentMeta) {
-                sidebarStepNum.textContent = currentMeta.num;
-                sidebarStepTitle.textContent = currentMeta.title;
-                sidebarStepDesc.textContent = currentMeta.desc;
-            }
+        var meta = STEP_META[step - 1];
+        if (meta && sidebarStepNum && sidebarStepTitle && sidebarStepDesc) {
+            sidebarStepNum.textContent = meta.num;
+            sidebarStepTitle.textContent = meta.title;
+            sidebarStepDesc.textContent = meta.desc;
         }
 
         backBtn.classList.toggle('invisible', step === 1);
@@ -106,9 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.classList.add('hidden');
         }
 
-        if (step === TOTAL_STEPS) {
-            updatePaymentSummary();
-        }
+        if (step === TOTAL_STEPS) updatePaymentSummary();
 
         currentStep = step;
     }
