@@ -4881,6 +4881,16 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
    Mobile Responsive Overrides & Visual Fit Optimization (KDS Website)
    ========================================================================== */
 @media (max-width: 767px) {
+    /* Homepage hero: full-screen 100vh feels oversized on small phones */
+    .hero-las {
+        height: auto !important;
+        min-height: 78vh !important;
+        padding-bottom: 48px !important;
+    }
+    .hero-las-title {
+        font-size: clamp(1.8rem, 8vw, 2.4rem) !important;
+    }
+
     /* Compress overly spacious page headers on mobile */
     header.bg-\[\#000000\],
     header.bg-zinc-900,
@@ -4955,6 +4965,11 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     }
     .kds-stories-card p {
         font-size: 0.8rem !important;
+    }
+
+    /* Footer feels oversized with 80px top padding on small screens */
+    .footer-clean-dark {
+        padding: 48px 0 32px 0 !important;
     }
 }
 
