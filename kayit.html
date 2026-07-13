@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Kayıt &amp; Ödeme | KDS Akademi</title>
-<meta name="description" content="KDS Akademi'ye online kayıt olun ve güvenli ödeme ile kaydınızı tamamlayın."/>
+<title>Kayıt Ol | KDS Akademi</title>
+<meta name="description" content="KDS Akademi'ye kolayca kayıt olun. Birkaç adımda kurs seçiminizi yapın, biz sizi arayalım."/>
 <meta name="theme-color" content="#18181b"/>
 <link rel="canonical" href="https://kds-akademi.vercel.app/kayit.html"/>
 <link rel="icon" href="assets/img/kds-logo.jpg" type="image/jpeg"/>
@@ -16,166 +16,347 @@
 <link rel="stylesheet" href="assets/css/tailwind.build.css"/>
 <link rel="stylesheet" href="assets/css/style.css"/>
 <style>
-/* ── Kayıt Formu Özel Stiller ──────────────────────── */
-.kayit-step { display: block; }
-.kayit-step.hidden { display: none; }
+/* ══════════════════════════════════════
+   Kayıt Sayfası — Özel Stiller
+   ══════════════════════════════════════ */
 
-/* Form input unified dark look */
-.kayit-input {
-    width: 100%;
-    border-radius: 12px;
-    border: 1.5px solid #3f3f46;
-    background-color: rgba(255,255,255,0.04);
-    padding: 12px 16px 12px 44px;
-    color: #f4f4f5;
-    font-size: 0.875rem;
-    font-family: 'Outfit', sans-serif;
-    transition: border-color 0.2s, background-color 0.2s, box-shadow 0.2s;
-    outline: none;
-    appearance: none;
-}
-.kayit-input::placeholder { color: #71717a; }
-.kayit-input:focus {
-    border-color: #8B263E;
-    background-color: rgba(139,38,62,0.06);
-    box-shadow: 0 0 0 3px rgba(139,38,62,0.15);
-}
-.kayit-input-no-icon {
-    padding-left: 16px;
-}
-.kayit-input-textarea {
-    padding-left: 44px;
-    resize: none;
-    padding-top: 12px;
+/* Page bg matches site (#FDFBF7) perfectly */
+.kayit-page-bg {
+    background-color: #FDFBF7;
+    position: relative;
 }
 
-/* Step indicator dots */
-.step-dot {
-    width: 40px;
-    height: 40px;
+/* Hero banner */
+.kayit-hero {
+    background: linear-gradient(135deg, #1E1E22 0%, #2d1520 60%, #1E1E22 100%);
+    position: relative;
+    overflow: hidden;
+    padding-top: 110px;
+    padding-bottom: 80px;
+}
+.kayit-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 30% 50%, rgba(139,38,62,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 80% at 80% 20%, rgba(46,64,87,0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Progress steps bar */
+.progress-bar-wrap {
+    background: #fff;
+    border-bottom: 1px solid #e5e2e1;
+    padding: 0;
+    position: sticky;
+    top: 64px;
+    z-index: 40;
+}
+.progress-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 24px;
+}
+.progress-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    cursor: pointer;
+}
+.progress-step-dot {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.06);
-    border: 1.5px solid rgba(255,255,255,0.12);
-    color: #71717a;
-    transition: all 0.35s ease;
+    font-size: 13px;
+    font-weight: 700;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+    border: 2px solid #e5e2e1;
+    background: #fff;
+    color: #a1a1aa;
 }
-.step-dot.active {
+.progress-step-dot.active {
+    border-color: #8B263E;
     background: #8B263E;
-    border-color: #8B263E;
     color: #fff;
-    box-shadow: 0 0 16px rgba(139,38,62,0.45);
+    box-shadow: 0 2px 14px rgba(139,38,62,0.35);
 }
-.step-dot.done {
-    background: rgba(139,38,62,0.18);
+.progress-step-dot.done {
     border-color: #8B263E;
+    background: rgba(139,38,62,0.1);
     color: #8B263E;
 }
-.step-label-text { transition: color 0.3s; }
-.step-label-text.active { color: #f4f4f5; font-weight: 700; }
-.step-label-text.done { color: #8B263E; }
-.step-label-text.inactive { color: #52525b; }
-
-/* Timeline line */
-#timeline-line-fill { transition: height 0.4s ease; }
-
-/* Age group pills */
-.age-group-pill { cursor: pointer; }
-.age-group-pill span {
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 99px;
-    border: 1.5px solid #3f3f46;
-    font-size: 0.8rem;
+.progress-step-label {
+    font-size: 12px;
     font-weight: 600;
     color: #a1a1aa;
-    transition: all 0.2s;
-    letter-spacing: 0.03em;
+    transition: color 0.3s;
+    white-space: nowrap;
 }
-.age-group-pill input:checked + span {
+.progress-step-label.active { color: #1c1b1c; }
+.progress-step-label.done { color: #8B263E; }
+.progress-connector {
+    height: 2px;
+    flex: 1;
+    background: #e5e2e1;
+    margin: 0 8px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.progress-connector-fill {
+    height: 100%;
     background: #8B263E;
-    border-color: #8B263E;
-    color: #fff;
-    box-shadow: 0 2px 12px rgba(139,38,62,0.3);
+    width: 0%;
+    transition: width 0.4s ease;
 }
-.age-group-pill:hover span { border-color: #8B263E; color: #f4f4f5; }
 
-/* Kayıt wizard card */
-.kayit-wizard {
-    background: linear-gradient(145deg, #1c1b1f 0%, #18181b 100%);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 24px;
-    box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+/* Form card */
+.kayit-card {
+    background: #fff;
+    border: 1px solid #e5e2e1;
+    border-radius: 20px;
+    box-shadow: 0 4px 40px rgba(28,27,28,0.07), 0 1px 3px rgba(28,27,28,0.04);
     overflow: hidden;
 }
 
-/* Sidebar */
-.kayit-sidebar {
-    background: linear-gradient(160deg, rgba(139,38,62,0.12) 0%, rgba(24,24,27,0) 60%);
-    border-right: 1px solid rgba(255,255,255,0.07);
-}
-
-/* Payment summary box */
-.payment-summary-box {
-    background: rgba(139,38,62,0.08);
-    border: 1px solid rgba(139,38,62,0.2);
-    border-radius: 14px;
-}
-
-/* Next/submit buttons */
-.btn-kayit-next {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 13px 28px;
-    background: #8B263E;
-    color: #fff;
-    font-size: 0.875rem;
+/* Input fields */
+.kf-label {
+    display: block;
+    font-size: 11px;
     font-weight: 700;
-    border-radius: 12px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(139,38,62,0.35);
-    transition: all 0.25s ease;
-    letter-spacing: 0.02em;
-}
-.btn-kayit-next:hover {
-    background: #6e1a2b;
-    box-shadow: 0 6px 24px rgba(139,38,62,0.5);
-    transform: translateX(2px);
-}
-.btn-kayit-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 13px 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: #71717a;
-    font-size: 0.875rem;
-    font-weight: 600;
+    margin-bottom: 7px;
+}
+.kf-input {
+    width: 100%;
+    border: 1.5px solid #e4e4e7;
     border-radius: 12px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    background: #fafafa;
+    padding: 13px 16px 13px 46px;
+    font-size: 15px;
+    color: #1c1b1c;
+    font-weight: 500;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+}
+.kf-input::placeholder { color: #b4b4b4; font-weight: 400; }
+.kf-input:focus {
+    border-color: #8B263E;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(139,38,62,0.1);
+}
+.kf-input-noi { padding-left: 16px; }
+
+/* Icon wrapper */
+.kf-wrap { position: relative; }
+.kf-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #c4c4c8;
+    font-size: 18px;
+    pointer-events: none;
     transition: color 0.2s;
 }
-.btn-kayit-back:hover { color: #f4f4f5; }
+.kf-wrap:focus-within .kf-icon { color: #8B263E; }
+.kf-textarea-icon { top: 14px; transform: none; }
+
+/* Textarea */
+.kf-textarea {
+    resize: none;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
 
 /* Select arrow */
-.select-wrap { position: relative; }
-.select-wrap::after {
-    content: "expand_more";
-    font-family: 'Material Symbols Outlined';
-    font-size: 1.1rem;
+.kf-select-wrap { position: relative; }
+.kf-select-arrow {
     position: absolute;
     right: 14px;
     top: 50%;
     transform: translateY(-50%);
-    color: #71717a;
+    color: #c4c4c8;
+    font-size: 18px;
     pointer-events: none;
 }
+
+/* Department card selector */
+.dept-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media(min-width:640px) { .dept-grid { grid-template-columns: repeat(3, 1fr); } }
+.dept-card {
+    border: 2px solid #e4e4e7;
+    border-radius: 14px;
+    padding: 16px 14px;
+    cursor: pointer;
+    background: #fafafa;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.dept-card:hover { border-color: #8B263E; background: #fff8f9; }
+.dept-card.selected { border-color: #8B263E; background: rgba(139,38,62,0.05); }
+.dept-card input { display: none; }
+.dept-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    transition: all 0.2s;
+}
+.dept-card .dept-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #3f3f46;
+    line-height: 1.2;
+}
+.dept-card.selected .dept-name { color: #8B263E; }
+
+/* Age pills */
+.age-pill-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.age-pill {
+    cursor: pointer;
+    border: 1.5px solid #e4e4e7;
+    border-radius: 99px;
+    padding: 9px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #71717a;
+    background: #fafafa;
+    transition: all 0.2s;
+    display: inline-block;
+}
+.age-pill:hover { border-color: #8B263E; color: #8B263E; background: #fff; }
+.age-pill input { display: none; }
+.age-pill input:checked + span {
+    /* handled by label.selected class via JS */
+}
+.age-pill.selected {
+    border-color: #8B263E;
+    background: #8B263E;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(139,38,62,0.25);
+}
+
+/* Info box */
+.info-box {
+    background: #f8f6f4;
+    border: 1px solid #e5e2e1;
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+.info-box-icon { color: #8B263E; font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+
+/* Contact preference cards */
+.contact-pref-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media(min-width:480px) { .contact-pref-grid { grid-template-columns: repeat(3, 1fr); } }
+.contact-pref-card {
+    border: 2px solid #e4e4e7;
+    border-radius: 14px;
+    padding: 14px 12px;
+    cursor: pointer;
+    background: #fafafa;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.contact-pref-card:hover { border-color: #8B263E; background: #fff8f9; }
+.contact-pref-card.selected { border-color: #8B263E; background: rgba(139,38,62,0.05); }
+.contact-pref-card .pref-icon { font-size: 22px; }
+.contact-pref-card .pref-label { font-size: 12px; font-weight: 700; color: #3f3f46; }
+.contact-pref-card.selected .pref-label { color: #8B263E; }
+
+/* Buttons */
+.btn-next {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: #8B263E;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(139,38,62,0.28);
+    transition: all 0.2s ease;
+    letter-spacing: 0.01em;
+}
+.btn-next:hover {
+    background: #721e32;
+    box-shadow: 0 6px 22px rgba(139,38,62,0.4);
+    transform: translateY(-1px);
+}
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 20px;
+    color: #71717a;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 14px;
+    background: transparent;
+    border: 1.5px solid #e4e4e7;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.btn-back:hover { border-color: #a1a1aa; color: #3f3f46; }
+
+/* Summary box on step 3 */
+.summary-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(139,38,62,0.08);
+    border: 1px solid rgba(139,38,62,0.2);
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #8B263E;
+    letter-spacing: 0.04em;
+}
+
+/* Success screen */
+.success-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(139,38,62,0.12) 0%, rgba(139,38,62,0.06) 100%);
+    border: 2px solid rgba(139,38,62,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+/* Step panels */
+.kayit-step.hidden { display: none !important; }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased selection:bg-kds-pink selection:text-white">
@@ -218,289 +399,320 @@
 </div>
 </nav>
 
-<!-- Hero Header -->
-<header class="pt-40 pb-20 bg-zinc-900 text-center">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<span class="bracket-tag font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-4 block">Online Kayıt</span>
-<h1 class="line-reveal display-tight font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">Kayıt &amp; Ödeme</h1>
-<p class="font-body-lg text-body-lg text-surface-variant/80 max-w-2xl mx-auto">Aşağıdaki adımları tamamlayarak kaydınızı gerçekleştirin.</p>
+<!-- Hero -->
+<div class="kayit-hero text-center relative z-10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+    <span class="bracket-tag font-label-md text-label-md text-kds-pink uppercase tracking-widest mb-5 block">Hemen Başla</span>
+    <h1 class="display-tight font-headline-lg md:text-display-lg text-white mb-4" style="font-size:clamp(2rem,5vw,3.5rem); font-weight:800;">Kayıt Ol</h1>
+    <p class="text-white/60 max-w-xl mx-auto text-base leading-relaxed">Formu doldurun, eğitim danışmanımız kısa sürede sizi arayarak ders planlaması ve ücretlendirme hakkında bilgi versin.</p>
+
+    <!-- Trust badges -->
+    <div class="flex flex-wrap justify-center gap-6 mt-8">
+        <div class="flex items-center gap-2 text-white/50 text-sm">
+            <span class="material-symbols-outlined text-base text-kds-pink">verified</span>
+            <span>Ücretsiz Danışmanlık</span>
+        </div>
+        <div class="flex items-center gap-2 text-white/50 text-sm">
+            <span class="material-symbols-outlined text-base text-kds-pink">schedule</span>
+            <span>24 Saat İçinde Geri Dönüş</span>
+        </div>
+        <div class="flex items-center gap-2 text-white/50 text-sm">
+            <span class="material-symbols-outlined text-base text-kds-pink">lock</span>
+            <span>Bilgileriniz Güvende</span>
+        </div>
+    </div>
 </div>
-</header>
+</div>
 
-<main id="main">
-<section class="relative overflow-hidden w-full px-4 md:px-8 py-section-gap bg-background">
+<!-- Progress Bar -->
+<div class="progress-bar-wrap">
+    <div class="progress-steps">
+        <div class="progress-step" data-go="1">
+            <div class="progress-step-dot active" id="pdot-1">
+                <span class="material-symbols-outlined" style="font-size:16px;">person</span>
+            </div>
+            <span class="progress-step-label active" id="plabel-1">Kişisel Bilgiler</span>
+        </div>
+        <div class="progress-connector"><div class="progress-connector-fill" id="pcon-1"></div></div>
+        <div class="progress-step" data-go="2">
+            <div class="progress-step-dot" id="pdot-2">
+                <span class="material-symbols-outlined" style="font-size:16px;">school</span>
+            </div>
+            <span class="progress-step-label inactive" id="plabel-2">Kurs Tercihi</span>
+        </div>
+        <div class="progress-connector"><div class="progress-connector-fill" id="pcon-2"></div></div>
+        <div class="progress-step" data-go="3">
+            <div class="progress-step-dot" id="pdot-3">
+                <span class="material-symbols-outlined" style="font-size:16px;">send</span>
+            </div>
+            <span class="progress-step-label inactive" id="plabel-3">Onay</span>
+        </div>
+    </div>
+</div>
 
-    <!-- Ambient blobs -->
-    <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-pink -top-20 -left-20 opacity-20" aria-hidden="true"></div>
-    <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-blue bottom-10 left-1/3 blob-delay opacity-15" aria-hidden="true"></div>
-    <div class="bg-blob bg-blob-animated w-96 h-96 bg-kds-orange -bottom-20 -right-20 blob-delay opacity-20" aria-hidden="true"></div>
+<main id="main" class="kayit-page-bg">
+<section class="py-16 px-4 md:px-6">
+<div class="max-w-[700px] mx-auto">
 
-    <div class="relative z-10 max-w-5xl mx-auto">
+<form id="kayit-form" novalidate>
 
-        <!-- Wizard Card -->
-        <div class="kayit-wizard flex flex-col lg:flex-row items-stretch min-h-[560px] w-full">
+    <!-- ── STEP 1: Kişisel Bilgiler ─────────────────── -->
+    <div class="kayit-step" data-step="1">
+        <div class="kayit-card p-8 md:p-10">
+            <div class="mb-8">
+                <span class="summary-chip mb-4 inline-flex">
+                    <span class="material-symbols-outlined" style="font-size:13px;">person</span>
+                    Adım 1 / 3
+                </span>
+                <h2 class="text-2xl font-bold text-zinc-900 mb-2">Sizi Tanıyalım</h2>
+                <p class="text-zinc-500 text-sm leading-relaxed">Birkaç temel bilgi yeterli. Gerisi için danışmanımız sizi arar.</p>
+            </div>
 
-            <!-- ── Left Sidebar ───────────────────── -->
-            <div class="kayit-sidebar w-full lg:w-[300px] flex-shrink-0 p-8 md:p-10 flex flex-col justify-between">
-                <div>
-                    <span id="sidebar-step-num" class="text-xs font-bold tracking-widest text-[#8B263E] bg-[#8B263E]/12 px-3 py-1 rounded-xl uppercase">Adım 1</span>
-                    <h3 id="sidebar-step-title" class="text-2xl font-bold text-white mt-4 mb-2" style="font-family:'SF Pro Display',sans-serif;">Kişisel Bilgiler</h3>
-                    <p id="sidebar-step-desc" class="text-xs text-zinc-500 leading-relaxed">Kayıt işlemlerini başlatmak için kişisel bilgilerinizi eksiksiz doldurun.</p>
-                </div>
-
-                <!-- Step Indicators -->
-                <div class="relative my-10">
-                    <!-- Vertical line -->
-                    <div class="absolute left-[19px] top-5 bottom-5 w-0.5 bg-zinc-800" aria-hidden="true">
-                        <div id="timeline-line-fill" class="w-full bg-[#8B263E] transition-all duration-500" style="height: 0%;"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <!-- Ad Soyad -->
+                <div class="sm:col-span-2">
+                    <label for="k-name" class="kf-label">Ad Soyad *</label>
+                    <div class="kf-wrap">
+                        <span class="material-symbols-outlined kf-icon">badge</span>
+                        <input id="k-name" name="fullName" type="text" autocomplete="name" required class="kf-input" placeholder="Adınız ve soyadınız"/>
                     </div>
-
-                    <ol id="step-indicator" class="space-y-8 relative z-10" aria-label="Kayıt adımları">
-                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="1">
-                            <span class="step-dot active" id="dot-1">
-                                <span class="material-symbols-outlined text-base">person</span>
-                            </span>
-                            <span class="step-label-text active text-sm" id="label-1">Kişisel Bilgiler</span>
-                        </li>
-                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="2">
-                            <span class="step-dot" id="dot-2">
-                                <span class="material-symbols-outlined text-base">school</span>
-                            </span>
-                            <span class="step-label-text inactive text-sm" id="label-2">Kurs Seçimi</span>
-                        </li>
-                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="3">
-                            <span class="step-dot" id="dot-3">
-                                <span class="material-symbols-outlined text-base">supervisor_account</span>
-                            </span>
-                            <span class="step-label-text inactive text-sm" id="label-3">Veli &amp; Adres</span>
-                        </li>
-                        <li class="step-indicator-item flex items-center gap-4 cursor-pointer" data-step="4">
-                            <span class="step-dot" id="dot-4">
-                                <span class="material-symbols-outlined text-base">credit_card</span>
-                            </span>
-                            <span class="step-label-text inactive text-sm" id="label-4">Ödeme</span>
-                        </li>
-                    </ol>
                 </div>
-
-                <!-- Brand -->
-                <div class="hidden lg:block pt-4 border-t border-white/8">
-                    <span class="text-[10px] tracking-widest font-bold text-zinc-600 uppercase">KDS AKADEMİ</span>
+                <!-- Telefon -->
+                <div>
+                    <label for="k-phone" class="kf-label">Telefon *</label>
+                    <div class="kf-wrap">
+                        <span class="material-symbols-outlined kf-icon">call</span>
+                        <input id="k-phone" name="phone" type="tel" autocomplete="tel" required class="kf-input" placeholder="05XX XXX XX XX"/>
+                    </div>
+                </div>
+                <!-- Doğum Yılı -->
+                <div>
+                    <label for="k-birthyear" class="kf-label">Doğum Yılı *</label>
+                    <div class="kf-wrap">
+                        <span class="material-symbols-outlined kf-icon">cake</span>
+                        <input id="k-birthyear" name="birthYear" type="number" min="1940" max="2022" required class="kf-input" placeholder="Ör: 2010"/>
+                    </div>
+                </div>
+                <!-- E-posta -->
+                <div class="sm:col-span-2">
+                    <label for="k-email" class="kf-label">E-posta <span class="text-zinc-400 font-normal normal-case tracking-normal">(opsiyonel)</span></label>
+                    <div class="kf-wrap">
+                        <span class="material-symbols-outlined kf-icon">mail</span>
+                        <input id="k-email" name="email" type="email" autocomplete="email" class="kf-input" placeholder="ornek@email.com"/>
+                    </div>
                 </div>
             </div>
 
-            <!-- ── Right Form Content ─────────────── -->
-            <div class="flex-1 p-8 md:p-10 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-white/[0.06]">
-                <form id="kayit-form" class="flex-1 flex flex-col justify-between" novalidate>
-                    <div class="flex-1">
+            <!-- İletişim tercihi -->
+            <div class="mt-7">
+                <label class="kf-label mb-4 block">Sizi nasıl arayalım? *</label>
+                <div class="contact-pref-grid" role="radiogroup" id="contact-pref-group">
+                    <label class="contact-pref-card" data-pref="telefon">
+                        <input type="radio" name="contactPref" value="telefon" class="sr-only" required/>
+                        <span class="pref-icon material-symbols-outlined text-zinc-400">call</span>
+                        <span class="pref-label">Telefon</span>
+                    </label>
+                    <label class="contact-pref-card" data-pref="whatsapp">
+                        <input type="radio" name="contactPref" value="whatsapp" class="sr-only" required/>
+                        <span class="pref-icon">💬</span>
+                        <span class="pref-label">WhatsApp</span>
+                    </label>
+                    <label class="contact-pref-card" data-pref="eposta">
+                        <input type="radio" name="contactPref" value="eposta" class="sr-only" required/>
+                        <span class="pref-icon material-symbols-outlined text-zinc-400">mail</span>
+                        <span class="pref-label">E-posta</span>
+                    </label>
+                </div>
+            </div>
 
-                        <!-- STEP 1: Kişisel Bilgiler -->
-                        <div class="kayit-step" data-step="1">
-                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Kişisel Bilgileriniz</h2>
-                            <p class="text-sm text-zinc-500 mb-8">Kayıt işlemini başlatmak için önce sizi tanıyalım.</p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div>
-                                    <label for="k-name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Ad Soyad</label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">person</span>
-                                        <input id="k-name" name="fullName" type="text" autocomplete="name" required class="kayit-input" placeholder="Adınız ve soyadınız"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="k-birthdate" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Doğum Tarihi</label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">calendar_today</span>
-                                        <input id="k-birthdate" name="birthDate" type="date" required class="kayit-input" style="color-scheme: dark;"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="k-phone" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Telefon</label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">call</span>
-                                        <input id="k-phone" name="phone" type="tel" autocomplete="tel" required class="kayit-input" placeholder="05XX XXX XX XX"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="k-email" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">E-posta</label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">mail</span>
-                                        <input id="k-email" name="email" type="email" autocomplete="email" required class="kayit-input" placeholder="ornek@email.com"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- STEP 2: Kurs Seçimi -->
-                        <div class="kayit-step hidden" data-step="2">
-                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Kurs Seçimi</h2>
-                            <p class="text-sm text-zinc-500 mb-8">Hangi departman ve kursa kayıt olmak istiyorsunuz?</p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-6">
-                                <div>
-                                    <label for="k-department" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Departman</label>
-                                    <div class="relative select-wrap">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none z-10">category</span>
-                                        <select id="k-department" name="department" required class="kayit-input">
-                                            <option value="">Departman seçin</option>
-                                            <option value="muzik">Müzik Bölümü</option>
-                                            <option value="dans">Dans Akademisi</option>
-                                            <option value="tiyatro">Tiyatro ve Oyunculuk</option>
-                                            <option value="resim">Görsel Sanatlar</option>
-                                            <option value="cocuk">Çocuk Akademisi</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="k-course" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Kurs</label>
-                                    <div class="relative select-wrap">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none z-10">auto_stories</span>
-                                        <select id="k-course" name="course" required disabled class="kayit-input opacity-60">
-                                            <option value="">Önce departman seçin</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <span class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-3">Yaş Grubu</span>
-                                <div class="flex flex-wrap gap-3" role="radiogroup" aria-label="Yaş grubu">
-                                    <label class="age-group-pill">
-                                        <input type="radio" name="ageGroup" value="cocuk" required class="sr-only"/>
-                                        <span>Çocuk</span>
-                                    </label>
-                                    <label class="age-group-pill">
-                                        <input type="radio" name="ageGroup" value="genc" required class="sr-only"/>
-                                        <span>Genç</span>
-                                    </label>
-                                    <label class="age-group-pill">
-                                        <input type="radio" name="ageGroup" value="yetiskin" required class="sr-only"/>
-                                        <span>Yetişkin</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- STEP 3: Veli & Adres -->
-                        <div class="kayit-step hidden" data-step="3">
-                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Veli Bilgisi &amp; Adres</h2>
-                            <p class="text-sm text-zinc-500 mb-8">Öğrenci çocuk yaş grubundaysa veli bilgisi zorunludur.</p>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                                <div>
-                                    <label for="k-guardian-name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Veli Ad Soyad <span id="guardian-name-optional" class="text-zinc-600 font-normal normal-case tracking-normal">(opsiyonel)</span></label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">supervisor_account</span>
-                                        <input id="k-guardian-name" name="guardianName" type="text" autocomplete="off" class="kayit-input" placeholder="Veli adı soyadı"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="k-guardian-phone" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Veli Telefon <span id="guardian-phone-optional" class="text-zinc-600 font-normal normal-case tracking-normal">(opsiyonel)</span></label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">call</span>
-                                        <input id="k-guardian-phone" name="guardianPhone" type="tel" autocomplete="off" class="kayit-input" placeholder="05XX XXX XX XX"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <label for="k-address" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Adres</label>
-                                <div class="relative">
-                                    <span class="material-symbols-outlined absolute left-3.5 top-3.5 text-zinc-600 text-lg pointer-events-none">home</span>
-                                    <textarea id="k-address" name="address" rows="3" required placeholder="Mahalle, cadde/sokak, il/ilçe" class="kayit-input kayit-input-textarea"></textarea>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- STEP 4: Ödeme -->
-                        <div class="kayit-step hidden" data-step="4">
-                            <h2 class="text-xl font-bold text-white mb-1" style="font-family:'SF Pro Display',sans-serif;">Ödeme Bilgileri</h2>
-                            <p class="text-sm text-zinc-500 mb-6">Ödeme bilgileriniz iyzico güvenli altyapısı ile korunur.</p>
-
-                            <div class="payment-summary-box p-4 mb-6 flex items-center justify-between gap-4">
-                                <div>
-                                    <span class="text-[10px] font-bold text-zinc-500 block mb-1 uppercase tracking-widest">Seçilen Kurs</span>
-                                    <span id="summary-course" class="text-base font-bold text-white">—</span>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-[10px] font-bold text-zinc-500 block mb-1 uppercase tracking-widest">Tutar</span>
-                                    <span class="text-sm font-bold text-[#8B263E] bg-[#8B263E]/12 px-3 py-1.5 rounded-xl">İletişime geçilecektir</span>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 gap-5 mb-5">
-                                <div>
-                                    <label for="k-card-name" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Kart Üzerindeki İsim</label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">person</span>
-                                        <input id="k-card-name" name="cardName" type="text" autocomplete="cc-name" required class="kayit-input" placeholder="Kart sahibinin adı soyadı"/>
-                                    </div>
-                                </div>
-                                <div>
-                                    <label for="k-card-number" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Kart Numarası</label>
-                                    <div class="relative">
-                                        <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-600 text-lg pointer-events-none">credit_card</span>
-                                        <input id="k-card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="0000 0000 0000 0000" required class="kayit-input"/>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-3 gap-4">
-                                    <div>
-                                        <label for="k-card-expiry" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Son Kul.</label>
-                                        <input id="k-card-expiry" name="cardExpiry" type="text" inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="AA/YY" required class="kayit-input kayit-input-no-icon text-center"/>
-                                    </div>
-                                    <div>
-                                        <label for="k-card-cvv" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">CVV</label>
-                                        <input id="k-card-cvv" name="cardCvv" type="text" inputmode="numeric" autocomplete="cc-csc" maxlength="4" placeholder="000" required class="kayit-input kayit-input-no-icon text-center"/>
-                                    </div>
-                                    <div>
-                                        <label for="k-installments" class="text-xs font-semibold text-zinc-400 uppercase tracking-widest block mb-2">Taksit</label>
-                                        <div class="relative select-wrap">
-                                            <select id="k-installments" name="installments" class="kayit-input kayit-input-no-icon text-center">
-                                                <option value="1">Tek Çekim</option>
-                                                <option value="2">2 Taksit</option>
-                                                <option value="3">3 Taksit</option>
-                                                <option value="6">6 Taksit</option>
-                                                <option value="9">9 Taksit</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="flex items-center gap-3 text-zinc-500 bg-zinc-900/60 border border-zinc-800 p-3.5 rounded-xl">
-                                <span class="material-symbols-outlined text-lg text-[#8B263E] flex-shrink-0" aria-hidden="true">lock</span>
-                                <span class="text-xs">256-bit SSL ile şifrelenir, iyzico güvenli ödeme altyapısı üzerinden işlenir.</span>
-                            </div>
-                        </div>
-
-                        <!-- Onay (Success) -->
-                        <div id="kayit-confirmation" class="hidden text-center py-16">
-                            <div class="w-20 h-20 rounded-full bg-[#8B263E]/15 border border-[#8B263E]/30 flex items-center justify-center mx-auto mb-6">
-                                <span class="material-symbols-outlined text-4xl text-[#8B263E]" aria-hidden="true">check_circle</span>
-                            </div>
-                            <h2 class="text-2xl font-bold text-white mb-3" style="font-family:'SF Pro Display',sans-serif;">Kaydınız Başarıyla Alındı</h2>
-                            <p class="text-sm text-zinc-500 max-w-md mx-auto leading-relaxed">Kayıt talebiniz tarafımıza ulaşmıştır. Eğitim danışmanlarımız kısa süre içinde verdiğiniz telefon numarasından sizinle iletişime geçerek ders planlaması ve ödeme detaylarını tamamlayacaktır.</p>
-                        </div>
-
-                    </div>
-
-                    <!-- Nav Buttons -->
-                    <div id="kayit-nav" class="flex items-center justify-between mt-8 pt-6 border-t border-white/[0.07]">
-                        <button type="button" id="kayit-back-btn" class="btn-kayit-back invisible">
-                            <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_back</span>
-                            Geri
-                        </button>
-                        <button type="button" id="kayit-next-btn" class="btn-kayit-next">
-                            Devam Et
-                            <span class="material-symbols-outlined text-lg" aria-hidden="true">arrow_forward</span>
-                        </button>
-                        <button type="submit" id="kayit-submit-btn" class="btn-kayit-next hidden">
-                            Kaydı Tamamla
-                            <span class="material-symbols-outlined text-lg" aria-hidden="true">check</span>
-                        </button>
-                    </div>
-                </form>
+            <div class="info-box mt-7">
+                <span class="info-box-icon material-symbols-outlined">info</span>
+                <p class="text-sm text-zinc-500 leading-relaxed">Eğitim danışmanımız <strong class="text-zinc-700">en geç 24 saat</strong> içinde tercih ettiğiniz yöntemle sizinle iletişime geçecektir. Herhangi bir taahhüt yoktur.</p>
             </div>
         </div>
 
-        <p class="text-xs text-zinc-600 text-center mt-6">Kaydınızı tamamlayarak <a href="gizlilik-politikasi.html" class="underline hover:text-[#8B263E] transition-colors">Gizlilik Politikamızı</a> kabul etmiş olursunuz.</p>
-
+        <div class="flex justify-end mt-5">
+            <button type="button" class="btn-next" id="btn-next-1">
+                Kurs Seçimine Geç
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </button>
+        </div>
     </div>
+
+    <!-- ── STEP 2: Kurs Tercihi ────────────────────── -->
+    <div class="kayit-step hidden" data-step="2">
+        <div class="kayit-card p-8 md:p-10">
+            <div class="mb-8">
+                <span class="summary-chip mb-4 inline-flex">
+                    <span class="material-symbols-outlined" style="font-size:13px;">school</span>
+                    Adım 2 / 3
+                </span>
+                <h2 class="text-2xl font-bold text-zinc-900 mb-2">Hangi Alanda İlgileniyorsunuz?</h2>
+                <p class="text-zinc-500 text-sm leading-relaxed">Birden fazla seçebilirsiniz. Danışmanımız size en uygun programı önerecektir.</p>
+            </div>
+
+            <!-- Departman seçimi (kart grid) -->
+            <div>
+                <label class="kf-label mb-4 block">Departman *</label>
+                <div class="dept-grid" id="dept-grid">
+                    <label class="dept-card" data-dept="muzik">
+                        <input type="radio" name="department" value="muzik" class="sr-only" required/>
+                        <div class="dept-card-icon bg-blue-50 text-blue-500">🎵</div>
+                        <span class="dept-name">Müzik</span>
+                    </label>
+                    <label class="dept-card" data-dept="dans">
+                        <input type="radio" name="department" value="dans" class="sr-only" required/>
+                        <div class="dept-card-icon bg-rose-50 text-rose-500">💃</div>
+                        <span class="dept-name">Dans</span>
+                    </label>
+                    <label class="dept-card" data-dept="tiyatro">
+                        <input type="radio" name="department" value="tiyatro" class="sr-only" required/>
+                        <div class="dept-card-icon bg-purple-50 text-purple-500">🎭</div>
+                        <span class="dept-name">Tiyatro</span>
+                    </label>
+                    <label class="dept-card" data-dept="resim">
+                        <input type="radio" name="department" value="resim" class="sr-only" required/>
+                        <div class="dept-card-icon bg-orange-50 text-orange-500">🎨</div>
+                        <span class="dept-name">Görsel Sanat</span>
+                    </label>
+                    <label class="dept-card" data-dept="cocuk">
+                        <input type="radio" name="department" value="cocuk" class="sr-only" required/>
+                        <div class="dept-card-icon bg-yellow-50 text-yellow-500">⭐</div>
+                        <span class="dept-name">Çocuk Akademisi</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Yaş grubu -->
+            <div class="mt-7">
+                <label class="kf-label mb-4 block">Yaş Grubu *</label>
+                <div class="age-pill-group" role="radiogroup" id="age-group">
+                    <label class="age-pill" data-age="cocuk">
+                        <input type="radio" name="ageGroup" value="cocuk" class="sr-only" required/>
+                        <span>Çocuk (6–12)</span>
+                    </label>
+                    <label class="age-pill" data-age="genc">
+                        <input type="radio" name="ageGroup" value="genc" class="sr-only" required/>
+                        <span>Genç (13–18)</span>
+                    </label>
+                    <label class="age-pill" data-age="yetiskin">
+                        <input type="radio" name="ageGroup" value="yetiskin" class="sr-only" required/>
+                        <span>Yetişkin (18+)</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Deneyim -->
+            <div class="mt-7">
+                <label for="k-experience" class="kf-label">Ön Deneyiminiz <span class="text-zinc-400 font-normal normal-case tracking-normal">(opsiyonel)</span></label>
+                <div class="kf-wrap">
+                    <span class="material-symbols-outlined kf-icon kf-textarea-icon">edit_note</span>
+                    <textarea id="k-experience" name="experience" rows="3" class="kf-input kf-textarea" placeholder="Örn: 2 yıl piyano geçmişim var, şimdi yeni bir şey denemek istiyorum…"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-5">
+            <button type="button" class="btn-back" id="btn-back-2">
+                <span class="material-symbols-outlined text-base">arrow_back</span>
+                Geri
+            </button>
+            <button type="button" class="btn-next" id="btn-next-2">
+                İncele ve Gönder
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ── STEP 3: Onay / Özet ─────────────────────── -->
+    <div class="kayit-step hidden" data-step="3">
+        <div class="kayit-card p-8 md:p-10">
+            <div class="mb-8">
+                <span class="summary-chip mb-4 inline-flex">
+                    <span class="material-symbols-outlined" style="font-size:13px;">task_alt</span>
+                    Adım 3 / 3 — Son Adım
+                </span>
+                <h2 class="text-2xl font-bold text-zinc-900 mb-2">Bilgilerinizi Onaylayın</h2>
+                <p class="text-zinc-500 text-sm leading-relaxed">Her şey doğru görünüyorsa "Kaydı Tamamla" butonuna basın.</p>
+            </div>
+
+            <!-- Summary -->
+            <div class="space-y-3 mb-8" id="summary-view">
+                <div class="flex items-center justify-between py-3.5 border-b border-zinc-100">
+                    <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Ad Soyad</span>
+                    <span class="text-sm font-semibold text-zinc-800" id="sum-name">—</span>
+                </div>
+                <div class="flex items-center justify-between py-3.5 border-b border-zinc-100">
+                    <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Telefon</span>
+                    <span class="text-sm font-semibold text-zinc-800" id="sum-phone">—</span>
+                </div>
+                <div class="flex items-center justify-between py-3.5 border-b border-zinc-100">
+                    <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">İletişim Tercihi</span>
+                    <span class="text-sm font-semibold text-zinc-800" id="sum-pref">—</span>
+                </div>
+                <div class="flex items-center justify-between py-3.5 border-b border-zinc-100">
+                    <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Departman</span>
+                    <span class="text-sm font-semibold text-zinc-800" id="sum-dept">—</span>
+                </div>
+                <div class="flex items-center justify-between py-3.5">
+                    <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Yaş Grubu</span>
+                    <span class="text-sm font-semibold text-zinc-800" id="sum-age">—</span>
+                </div>
+            </div>
+
+            <!-- Consent -->
+            <label class="flex items-start gap-3 cursor-pointer mb-6">
+                <input type="checkbox" id="k-consent" required class="mt-0.5 w-4 h-4 rounded accent-[#8B263E] flex-shrink-0"/>
+                <span class="text-sm text-zinc-500 leading-relaxed">Kişisel verilerimin KDS Akademi tarafından iletişim amacıyla işlenmesine onay veriyorum. <a href="gizlilik-politikasi.html" class="text-kds-pink underline" target="_blank">Gizlilik Politikası</a></span>
+            </label>
+
+            <div class="info-box">
+                <span class="info-box-icon material-symbols-outlined">support_agent</span>
+                <div>
+                    <p class="text-sm font-semibold text-zinc-700 mb-1">Danışmanımız sizi arayacak</p>
+                    <p class="text-xs text-zinc-500 leading-relaxed">Ücret, program detayları ve ders saatleri hakkında bilgi verilecektir. Herhangi bir ödeme taahhüdü yoktur.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex items-center justify-between mt-5">
+            <button type="button" class="btn-back" id="btn-back-3">
+                <span class="material-symbols-outlined text-base">arrow_back</span>
+                Geri
+            </button>
+            <button type="submit" class="btn-next" id="btn-submit">
+                <span class="material-symbols-outlined text-lg">check_circle</span>
+                Kaydı Tamamla
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<!-- ── SUCCESS SCREEN ──────────────────────────── -->
+<div id="kayit-success" class="hidden text-center py-8">
+    <div class="kayit-card p-10 md:p-16">
+        <div class="success-circle">
+            <span class="material-symbols-outlined text-5xl text-kds-pink">check_circle</span>
+        </div>
+        <h2 class="text-2xl font-bold text-zinc-900 mb-3">Kaydınız Alındı! 🎉</h2>
+        <p class="text-zinc-500 text-sm max-w-sm mx-auto leading-relaxed mb-8">
+            Eğitim danışmanımız <strong class="text-zinc-700">en geç 24 saat</strong> içinde sizinle iletişime geçecektir. Bizi tercih ettiğiniz için teşekkür ederiz.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="kurslar.html" class="btn-next" style="text-decoration:none;">
+                <span class="material-symbols-outlined text-lg">explore</span>
+                Kursları İncele
+            </a>
+            <a href="index.html" class="btn-back" style="text-decoration:none;">
+                <span class="material-symbols-outlined text-base">home</span>
+                Anasayfa
+            </a>
+        </div>
+    </div>
+</div>
+
+</div>
 </section>
 </main>
 
@@ -541,11 +753,10 @@
 <a class="font-label-md text-label-md text-surface-variant/80 hover:text-white transition-colors" href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener">Instagram</a>
 <a class="font-label-md text-label-md text-surface-variant/80 hover:text-white transition-colors" href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener">Facebook</a>
 <a class="font-label-md text-label-md text-surface-variant/80 hover:text-white transition-colors" href="https://wa.me/905419050042" target="_blank" rel="noopener">WhatsApp</a>
-<a class="font-label-md text-label-md text-surface-variant/80 hover:text-white transition-colors" href="https://www.google.com/maps?cid=1158344855775406738" target="_blank" rel="noopener">Google'da Değerlendirin</a>
 </div>
 </div>
 <div class="col-span-1 md:col-span-4 mt-12 pt-8 border-t border-white/10 text-center">
-<p class="font-body-md text-body-md text-surface-variant/50">© 2026 KDS Akademi - Konya Dans ve Sanat Akademisi. Tüm hakları saklıdır. Karatay, Konya.</p>
+<p class="font-body-md text-body-md text-surface-variant/50">© 2026 KDS Akademi - Konya Dans ve Sanat Akademisi. Tüm hakları saklıdır.</p>
 </div>
 </div>
 </footer>
@@ -554,6 +765,135 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/motion.js"></script>
-<script src="assets/js/kayit.js"></script>
+<script>
+/* ══════════════════════════════════════
+   Kayıt Formu — Inline JS
+   ══════════════════════════════════════ */
+(function(){
+    var TOTAL = 3;
+    var current = 1;
+    var form = document.getElementById('kayit-form');
+    var successScreen = document.getElementById('kayit-success');
+
+    /* ── Progress indicator update ── */
+    function updateProgress(step) {
+        for (var i = 1; i <= TOTAL; i++) {
+            var dot = document.getElementById('pdot-' + i);
+            var label = document.getElementById('plabel-' + i);
+            dot.classList.remove('active','done');
+            label.classList.remove('active','done','inactive');
+            if (i === step) { dot.classList.add('active'); label.classList.add('active'); }
+            else if (i < step) { dot.classList.add('done'); label.classList.add('done'); }
+            else { label.classList.add('inactive'); }
+        }
+        // Fill connectors
+        for (var j = 1; j < TOTAL; j++) {
+            var con = document.getElementById('pcon-' + j);
+            if (con) con.style.width = (j < step) ? '100%' : '0%';
+        }
+    }
+
+    /* ── Show step panel ── */
+    function showStep(step) {
+        document.querySelectorAll('.kayit-step').forEach(function(p){
+            p.classList.toggle('hidden', parseInt(p.dataset.step) !== step);
+        });
+        updateProgress(step);
+        current = step;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /* ── Validate step ── */
+    function validate(step) {
+        var panel = form.querySelector('[data-step="'+step+'"]');
+        var ok = true;
+
+        // Text/email/number fields
+        panel.querySelectorAll('input[required]:not([type=radio]):not([type=checkbox])').forEach(function(f){
+            if (!f.value.trim()) {
+                f.style.borderColor = '#e53e3e';
+                f.focus();
+                ok = false;
+            } else {
+                f.style.borderColor = '';
+            }
+        });
+
+        // Radio groups
+        var radioNames = {};
+        panel.querySelectorAll('input[type=radio][required]').forEach(function(r){ radioNames[r.name] = true; });
+        Object.keys(radioNames).forEach(function(name){
+            var checked = panel.querySelector('input[name="'+name+'"]:checked');
+            if (!checked) ok = false;
+        });
+
+        return ok;
+    }
+
+    /* ── Department cards ── */
+    document.querySelectorAll('.dept-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            document.querySelectorAll('.dept-card').forEach(function(c){ c.classList.remove('selected'); });
+            card.classList.add('selected');
+            card.querySelector('input').checked = true;
+        });
+    });
+
+    /* ── Age pills ── */
+    document.querySelectorAll('.age-pill').forEach(function(pill){
+        pill.addEventListener('click', function(){
+            document.querySelectorAll('.age-pill').forEach(function(p){ p.classList.remove('selected'); });
+            pill.classList.add('selected');
+            pill.querySelector('input').checked = true;
+        });
+    });
+
+    /* ── Contact preference cards ── */
+    document.querySelectorAll('.contact-pref-card').forEach(function(card){
+        card.addEventListener('click', function(){
+            document.querySelectorAll('.contact-pref-card').forEach(function(c){ c.classList.remove('selected'); });
+            card.classList.add('selected');
+            card.querySelector('input').checked = true;
+        });
+    });
+
+    /* ── Nav buttons ── */
+    var DEPT_LABELS = { muzik:'Müzik Bölümü', dans:'Dans Akademisi', tiyatro:'Tiyatro ve Oyunculuk', resim:'Görsel Sanatlar', cocuk:'Çocuk Akademisi' };
+    var AGE_LABELS = { cocuk:'Çocuk (6–12)', genc:'Genç (13–18)', yetiskin:'Yetişkin (18+)' };
+    var PREF_LABELS = { telefon:'Telefon', whatsapp:'WhatsApp', eposta:'E-posta' };
+
+    function fillSummary() {
+        document.getElementById('sum-name').textContent = (document.getElementById('k-name').value||'—');
+        document.getElementById('sum-phone').textContent = (document.getElementById('k-phone').value||'—');
+        var pref = form.querySelector('input[name="contactPref"]:checked');
+        document.getElementById('sum-pref').textContent = pref ? (PREF_LABELS[pref.value]||pref.value) : '—';
+        var dept = form.querySelector('input[name="department"]:checked');
+        document.getElementById('sum-dept').textContent = dept ? (DEPT_LABELS[dept.value]||dept.value) : '—';
+        var age = form.querySelector('input[name="ageGroup"]:checked');
+        document.getElementById('sum-age').textContent = age ? (AGE_LABELS[age.value]||age.value) : '—';
+    }
+
+    document.getElementById('btn-next-1').addEventListener('click', function(){
+        if (validate(1)) showStep(2);
+    });
+    document.getElementById('btn-next-2').addEventListener('click', function(){
+        if (validate(2)) { fillSummary(); showStep(3); }
+    });
+    document.getElementById('btn-back-2').addEventListener('click', function(){ showStep(1); });
+    document.getElementById('btn-back-3').addEventListener('click', function(){ showStep(2); });
+
+    /* ── Submit ── */
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var consent = document.getElementById('k-consent');
+        if (!consent.checked) { consent.focus(); return; }
+        form.style.display = 'none';
+        successScreen.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    showStep(1);
+})();
+</script>
 </body>
 </html>
