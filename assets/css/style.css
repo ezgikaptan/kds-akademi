@@ -61,19 +61,18 @@
     font-style: italic;
     font-display: swap;
 }
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* <picture> is inline by default, which breaks w-full/h-full on the <img> inside it */
 picture {
     display: block;
 }
 
-/* Ensure every element falls back to the Roboto font, even without an explicit font-* utility class */
+/* Ensure every element falls back to the Outfit font, even without an explicit font-* utility class */
 html, body, button, input, select, textarea, p, a, li, label {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Outfit', sans-serif !important;
 }
 h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, .font-headline-sm {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Outfit', sans-serif !important;
 }
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined' !important;
@@ -186,7 +185,7 @@ html {
 /* Kayit (registration) wizard: step indicator */
 .registration-wizard {
     background-color: #ffffff;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Outfit', sans-serif !important;
 }
 .registration-sidebar {
     background: #f9fafb !important;
@@ -239,7 +238,7 @@ html {
 #kayit-form input,
 #kayit-form select,
 #kayit-form textarea {
-    font-family: 'Roboto', sans-serif !important;
+    font-family: 'Outfit', sans-serif !important;
 }
 
 /* Age group radio pills style */
