@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çocuk Başarı Hikayeleri | KDS Akademi</title>
+    <meta name="description" content="KDS Akademi çocuk öğrencilerinin piyano, dans, keman ve resim alanlarındaki ilham verici başarı hikayeleri.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <link rel="stylesheet" href="assets/css/tailwind.build.css" />
+    <link rel="stylesheet" href="assets/css/style.css?v=2.0" />
+</head>
+<body class="bg-white text-zinc-900 font-body-md antialiased selection:bg-sanat-yellow selection:text-white">
+<div id="scroll-progress"></div>
+<a href="#main" class="skip-link">İçeriğe geç</a>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Top Bar -->
+<div id="top-bar-2" class="bg-sanat-yellow text-white text-xs font-semibold py-2.5 px-margin-mobile md:px-margin-desktop shadow-sm border-b border-black/5">
+    <div class="max-w-container-max mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-white"></i> KDS Akademi | MEB Standartlarında Sanat Eğitimi</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <a href="https://wa.me/905419050042" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-zinc-200 transition-colors font-bold"><i class="fa-solid fa-phone text-emerald-400 text-sm"></i> 0541 905 00 42</a>
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:opacity-80 transition-opacity flex items-center"><i class="fa-brands fa-instagram text-base"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook" class="hover:opacity-80 transition-opacity flex items-center"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                <a href="mailto:info@kdsakademi.com" class="hover:opacity-80 transition-opacity flex items-center" aria-label="E-Posta"><i class="fa-solid fa-envelope text-sm"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header / Nav -->
+<header class="bg-white border-b border-zinc-200/50 sticky top-0 w-full z-50 shadow-sm transition-all duration-200">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a class="flex items-center gap-3" href="index.html">
+            <img alt="KDS Akademi Logo" class="h-12 w-12 object-contain rounded-xl border border-zinc-200" src="assets/img/kds-logo.jpg"/>
+            <span class="flex flex-col justify-center text-zinc-950 font-black uppercase leading-none" style="font-family: 'Roboto', sans-serif;">
+                <span class="text-lg tracking-widest font-extrabold text-zinc-900">KDS</span>
+                <span class="text-[9px] tracking-wider text-sanat-yellow font-bold mt-0.5">AKADEMİ</span>
+            </span>
+        </a>
+
+        <!-- Desktop Menu (Hidden below lg to prevent overlap) -->
+        <div class="hidden lg:flex items-center gap-1" role="navigation" aria-label="Ana navigasyon">
+            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-zinc-700 hover:text-sanat-yellow transition-colors hover:bg-zinc-50" href="index.html">Anasayfa</a>
+            
+            <!-- Kurslar Dropdown -->
+            <div class="relative group">
+                <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-zinc-700 hover:text-sanat-yellow transition-colors hover:bg-zinc-50 inline-flex items-center gap-1 cursor-pointer" href="kurslar.html">
+                    Kurslar <span class="material-symbols-outlined text-sm font-bold transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+                </a>
+                <div class="absolute left-0 top-full mt-1 w-64 bg-white border border-zinc-200/60 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-2">
+                    <a href="kurslar.html#muzik" class="flex items-center gap-2 px-4 py-3 rounded-lg text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 transition-colors">
+                        <span class="material-symbols-outlined text-lg text-zinc-500">music_note</span> Müzik Bölümü
+                    </a>
+                    <a href="kurslar.html#dans" class="flex items-center gap-2 px-4 py-3 rounded-lg text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 transition-colors">
+                        <span class="material-symbols-outlined text-lg text-zinc-500">nightlife</span> Dans Akademisi
+                    </a>
+                    <a href="kurslar.html#tiyatro" class="flex items-center gap-2 px-4 py-3 rounded-lg text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 transition-colors">
+                        <span class="material-symbols-outlined text-lg text-zinc-500">theater_comedy</span> Tiyatro ve Oyunculuk
+                    </a>
+                    <a href="kurslar.html#resim" class="flex items-center gap-2 px-4 py-3 rounded-lg text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 transition-colors">
+                        <span class="material-symbols-outlined text-lg text-zinc-500">palette</span> Resim Atölyesi
+                    </a>
+                    <a href="kurslar.html#cocuk" class="flex items-center gap-2 px-4 py-3 rounded-lg text-[14px] text-zinc-700 hover:bg-zinc-50 hover:text-zinc-900 transition-colors">
+                        <span class="material-symbols-outlined text-lg text-zinc-500">child_care</span> Çocuk Akademisi
+                    </a>
+                </div>
+            </div>
+
+            <!-- Kurumsal Mega Menu -->
+            <div class="relative group/mega">
+                <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-zinc-900 active font-bold hover:text-sanat-yellow transition-colors hover:bg-zinc-50 inline-flex items-center gap-1 cursor-pointer">
+                    Kurumsal <span class="material-symbols-outlined text-sm font-bold transition-transform group-hover/mega:rotate-180">keyboard_arrow_down</span>
+                </a>
+                
+                <!-- Mega Menu Dropdown Container -->
+                <div class="absolute left-1/2 -translate-x-1/2 top-full mt-1 w-[95vw] max-w-[1000px] bg-white border-2 border-sanat-yellow rounded-2xl shadow-2xl opacity-0 invisible group-hover/mega:opacity-100 group-hover/mega:visible transition-all duration-200 z-50 p-8 grid grid-cols-1 md:grid-cols-4 gap-8" id="mega-menu-desktop">
+                    
+                    <!-- Column 1 -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">info</span> Kurumsal
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="hakkimizda.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">KDS Akademi</a></li>
+                                <li><a href="kurucumuz.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Kurucumuz</a></li>
+                                <li><a href="egitmenler.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Eğitmenler</a></li>
+                                <li><a href="akademimiz.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Akademimiz</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">newspaper</span> Basında Biz
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="tv-programlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">TV Programları</a></li>
+                                <li><a href="gazete-haberleri.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Gazete Haberleri</a></li>
+                                <li><a href="dergi-roportajlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Dergi Röportajları</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 2 -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">photo_library</span> Medya
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="tanitim-videolari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Tanıtım Videoları</a></li>
+                                <li><a href="fotograf-albumleri.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Fotoğraf Albümleri</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">menu_book</span> Yayınlar
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="gazete-haberleri.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Sanat Yazıları</a></li>
+                                <li><a href="dokumanlar.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Eğitim İçerikleri</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 3 -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">campaign</span> Duyurular
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="etkinlikler.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Etkinlikler</a></li>
+                                <li><a href="bizden-haberler.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Bizden Haberler</a></li>
+                                <li><a href="projeler.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Projeler</a></li>
+                                <li><a href="dokumanlar.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Dokümanlar</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">work</span> İnsan Kaynakları
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="is-ilanlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">İş İlanları</a></li>
+                                <li><a href="staj-ilanlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Staj İlanları</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Column 4 -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">stars</span> Başarı Hikayeleri
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="cocuk-basari-hikayeleri.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Çocuk Öğrenci Başarıları</a></li>
+                                <li><a href="yetiskin-basari-hikayeleri.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Yetişkin Öğrenci Başarıları</a></li>
+                                <li><a href="cocuk-ogrenci-yorumlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Çocuk Öğrenci Yorumları</a></li>
+                                <li><a href="yetiskin-ogrenci-yorumlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Yetişkin Öğrenci Yorumları</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-sanat-yellow uppercase tracking-widest border-b border-zinc-100 pb-2 mb-3 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">gavel</span> Kullanım Şartları
+                            </h4>
+                            <ul class="space-y-2 text-xs">
+                                <li><a href="kvkk.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">KVKK Aydınlatma Metni</a></li>
+                                <li><a href="gizlilik-politikasi.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Gizlilik Politikası</a></li>
+                                <li><a href="site-kullanim-sartlari.html" class="text-zinc-650 hover:text-sanat-yellow transition-colors block py-0.5">Site Kullanım Şartları</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-zinc-700 hover:text-sanat-yellow transition-colors hover:bg-zinc-50" href="galeri.html">Galeri</a>
+            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-zinc-700 hover:text-sanat-yellow transition-colors hover:bg-zinc-50" href="iletisim.html">İletişim</a>
+        </div>
+
+        <!-- CTA & Mobile Trigger -->
+        <div class="flex items-center gap-4">
+            <a class="hidden sm:inline-flex bg-sanat-yellow hover:bg-sanat-yellow-dark text-white font-bold px-6 py-2.5 rounded-lg text-[14px] transition-all hover:scale-[1.02] shadow-md shadow-sanat-yellow/20" href="kayit.html">Kayıt Ol</a>
+            <button class="lg:hidden text-zinc-900 p-2 hover:bg-zinc-100 rounded-lg" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç/kapat">
+                <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown Drawer -->
+    <div class="mobile-menu lg:hidden bg-white border-t border-zinc-200/60 max-h-0 overflow-hidden transition-all duration-300" id="mobile-menu">
+        <div class="flex flex-col px-margin-mobile py-6 gap-3 font-medium text-sm">
+            <a class="text-zinc-800 hover:text-sanat-yellow py-1.5 flex items-center gap-2" href="index.html"><span class="material-symbols-outlined text-zinc-400">home</span> Anasayfa</a>
+            
+            <div class="border-t border-zinc-100 my-1"></div>
+            
+            <!-- Mobile Kurslar Accordion -->
+            <div>
+                <button class="w-full text-left text-zinc-800 hover:text-sanat-yellow py-1.5 flex items-center justify-between focus:outline-none" onclick="toggleMobileSubmenu('mobile-kurslar-sub')">
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-zinc-400">school</span> Kurslar</span>
+                    <span class="material-symbols-outlined text-zinc-400 text-sm transition-transform" id="mobile-kurslar-sub-arrow">keyboard_arrow_down</span>
+                </button>
+                <div id="mobile-kurslar-sub" class="hidden pl-6 py-2 space-y-2 text-zinc-650 flex flex-col border-l border-zinc-100 mt-1">
+                    <a href="kurslar.html#muzik" class="hover:text-sanat-yellow py-0.5">Müzik Bölümü</a>
+                    <a href="kurslar.html#dans" class="hover:text-sanat-yellow py-0.5">Dans Akademisi</a>
+                    <a href="kurslar.html#tiyatro" class="hover:text-sanat-yellow py-0.5">Tiyatro ve Oyunculuk</a>
+                    <a href="kurslar.html#resim" class="hover:text-sanat-yellow py-0.5">Resim Atölyesi</a>
+                    <a href="kurslar.html#cocuk" class="hover:text-sanat-yellow py-0.5">Çocuk Akademisi</a>
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-100 my-1"></div>
+
+            <!-- Mobile Kurumsal Accordion -->
+            <div>
+                <button class="w-full text-left text-zinc-800 hover:text-sanat-yellow py-1.5 flex items-center justify-between focus:outline-none" onclick="toggleMobileSubmenu('mobile-kurumsal-sub')">
+                    <span class="flex items-center gap-2"><span class="material-symbols-outlined text-zinc-400">corporate_fare</span> Kurumsal</span>
+                    <span class="material-symbols-outlined text-zinc-400 text-sm transition-transform" id="mobile-kurumsal-sub-arrow">keyboard_arrow_down</span>
+                </button>
+                <div id="mobile-kurumsal-sub" class="hidden pl-6 py-2 space-y-3 text-zinc-650 flex flex-col border-l border-zinc-100 mt-1">
+                    
+                    <!-- Sub-Group 1 -->
+                    <div>
+                        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Hakkımızda</span>
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="hakkimizda.html" class="hover:text-sanat-yellow py-0.5">KDS Akademi</a>
+                            <a href="kurucumuz.html" class="hover:text-sanat-yellow py-0.5">Kurucumuz</a>
+                            <a href="egitmenler.html" class="hover:text-sanat-yellow py-0.5">Eğitmenler</a>
+                            <a href="akademimiz.html" class="hover:text-sanat-yellow py-0.5">Akademimiz</a>
+                        </div>
+                    </div>
+
+                    <!-- Sub-Group 2 -->
+                    <div>
+                        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Basında Biz</span>
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="tv-programlari.html" class="hover:text-sanat-yellow py-0.5">TV Programları</a>
+                            <a href="gazete-haberleri.html" class="hover:text-sanat-yellow py-0.5">Gazete Haberleri</a>
+                            <a href="dergi-roportajlari.html" class="hover:text-sanat-yellow py-0.5">Dergi Röportajları</a>
+                        </div>
+                    </div>
+
+                    <!-- Sub-Group 3 -->
+                    <div>
+                        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Duyurular &amp; Yayınlar</span>
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="etkinlikler.html" class="hover:text-sanat-yellow py-0.5">Etkinlikler</a>
+                            <a href="bizden-haberler.html" class="hover:text-sanat-yellow py-0.5">Bizden Haberler</a>
+                            <a href="projeler.html" class="hover:text-sanat-yellow py-0.5">Projeler</a>
+                            <a href="dokumanlar.html" class="hover:text-sanat-yellow py-0.5">Dokümanlar</a>
+                        </div>
+                    </div>
+
+                    <!-- Sub-Group 4 -->
+                    <div>
+                        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Başarı Hikayeleri</span>
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="cocuk-basari-hikayeleri.html" class="hover:text-sanat-yellow py-0.5">Çocuk Öğrenci Başarıları</a>
+                            <a href="yetiskin-basari-hikayeleri.html" class="hover:text-sanat-yellow py-0.5">Yetişkin Öğrenci Başarıları</a>
+                            <a href="cocuk-ogrenci-yorumlari.html" class="hover:text-sanat-yellow py-0.5">Çocuk Öğrenci Yorumları</a>
+                            <a href="yetiskin-ogrenci-yorumlari.html" class="hover:text-sanat-yellow py-0.5">Yetişkin Öğrenci Yorumları</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sub-Group 5 -->
+                    <div>
+                        <span class="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-1">Kurumsal Hukuk</span>
+                        <div class="flex flex-col gap-1 pl-1">
+                            <a href="kvkk.html" class="hover:text-sanat-yellow py-0.5">KVKK Aydınlatma</a>
+                            <a href="gizlilik-politikasi.html" class="hover:text-sanat-yellow py-0.5">Gizlilik Politikası</a>
+                            <a href="site-kullanim-sartlari.html" class="hover:text-sanat-yellow py-0.5">Site Kullanım Şartları</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="border-t border-zinc-100 my-1"></div>
+
+            <a class="text-zinc-800 hover:text-sanat-yellow py-1.5 flex items-center gap-2" href="galeri.html"><span class="material-symbols-outlined text-zinc-400">photo_library</span> Galeri</a>
+            <a class="text-zinc-800 hover:text-sanat-yellow py-1.5 flex items-center gap-2" href="iletisim.html"><span class="material-symbols-outlined text-zinc-400">mail</span> İletişim</a>
+            
+            <a class="bg-sanat-yellow hover:bg-sanat-yellow-dark text-white font-bold px-6 py-3 rounded-lg text-center mt-2 shadow-md shadow-sanat-yellow/10 flex items-center justify-center gap-1.5" href="kayit.html">
+                <span class="material-symbols-outlined text-sm">person_add</span> Kayıt Ol
+            </a>
+        </div>
+    </div>
+</header>
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Breadcrumb -->
+<div class="bg-zinc-50 border-b border-zinc-200/50 py-4 px-margin-mobile md:px-margin-desktop text-xs text-zinc-500 text-left">
+    <div class="max-w-container-max mx-auto flex items-center gap-2">
+        <a href="index.html" class="hover:text-sanat-yellow transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm">home</span> Anasayfa</a>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-zinc-500 font-medium">Başarı Hikayeleri</span>
+        <span class="material-symbols-outlined text-[12px]">chevron_right</span>
+        <span class="text-zinc-900 font-medium">Çocuk Öğrenci Başarıları</span>
+    </div>
+</div>
+
+<main id="main">
+
+<!-- Page Hero -->
+<header class="pt-32 pb-16 bg-zinc-950 text-center relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800 via-zinc-950 to-zinc-950 opacity-40"></div>
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+        <span class="bracket-tag font-label-md text-label-md text-sanat-yellow uppercase tracking-widest mb-4 block">ÇOCUK GRUPLARI</span>
+        <h1 class="line-reveal display-tight font-headline-lg text-headline-lg md:text-display-lg text-white mb-4">Çocuk Başarı Hikayeleri</h1>
+        <p class="font-body-lg text-body-lg text-zinc-350 max-w-2xl mx-auto">Sanatın ışığında kendilerini keşfeden, özgüven kazanan ve geleceğin sanatsever bireyleri olma yolunda ilerleyen miniklerimiz.</p>
+    </div>
+</header>
+
+<!-- Success Stories Grid -->
+<!-- MOCK CONTENT: Gerçek KDS verisi geldiğinde güncellenecek -->
+<section class="py-20 bg-white">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 text-left">
+            
+            <!-- Story 1 -->
+            <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 flex flex-col md:flex-row gap-6 shadow-sm hover-lift">
+                <div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden border border-zinc-350 flex-shrink-0">
+                    <img src="assets/img/kurs-piyano.jpg" alt="Çocuk Öğrenci" class="w-full h-full object-cover" />
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-sanat-yellow font-bold uppercase tracking-wider block">PİYANO BÖLÜMÜ</span>
+                    <h3 class="text-lg font-bold text-zinc-900">Defne S. (8 Yaş) - Melodilerle Büyümek</h3>
+                    <p class="text-zinc-650 text-xs leading-relaxed">Defne, 6 yaşında başladığı piyano derslerinde mükemmel bir solfej ve kulak gelişimi kaydetti. Dönem sonu gala konserinde Bach'ın eserini solo olarak çalarak büyük takdir topladı. Sanat, onun konsantrasyon ve okul başarısını da olumlu etkiledi.</p>
+                </div>
+            </div>
+
+            <!-- Story 2 -->
+            <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 flex flex-col md:flex-row gap-6 shadow-sm hover-lift">
+                <div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden border border-zinc-350 flex-shrink-0">
+                    <img src="assets/img/kurs-resim.jpg" alt="Çocuk Öğrenci" class="w-full h-full object-cover" />
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-sanat-yellow font-bold uppercase tracking-wider block">RESİM ATÖLYESİ</span>
+                    <h3 class="text-lg font-bold text-zinc-900">Emir K. (11 Yaş) - Renklerin Dilini Keşfetmek</h3>
+                    <p class="text-zinc-650 text-xs leading-relaxed">Resim atölyelerimize katılan Emir, çizim becerisini geliştirerek üç boyutlu perspektif ve yağlıboya çalışmalarına başladı. Akademimizin yıl sonu sergisinde sergilenen tablosu, onun görsel algı gücünü ve özgüvenini artırdı.</p>
+                </div>
+            </div>
+
+            <!-- Story 3 -->
+            <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 flex flex-col md:flex-row gap-6 shadow-sm hover-lift">
+                <div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden border border-zinc-350 flex-shrink-0">
+                    <img src="assets/img/kurs-salsa.jpg" alt="Çocuk Öğrenci" class="w-full h-full object-cover" />
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-sanat-yellow font-bold uppercase tracking-wider block">BALE &amp; DANS</span>
+                    <h3 class="text-lg font-bold text-zinc-900">Ece Y. (6 Yaş) - Beden Farkındalığı</h3>
+                    <p class="text-zinc-650 text-xs leading-relaxed">Erken yaş dans grubumuzdaki Ece, ritim duygusunu ve esneklik yeteneğini bale dersleriyle birleştirdi. Sınıf içindeki uyumu ve grup çalışmalarındaki liderlik vasfıyla beden dilini özgüvenle yönetmeyi öğrendi.</p>
+                </div>
+            </div>
+
+            <!-- Story 4 -->
+            <div class="bg-zinc-50 border border-zinc-200 rounded-2xl p-8 flex flex-col md:flex-row gap-6 shadow-sm hover-lift">
+                <div class="w-full md:w-1/3 aspect-square rounded-xl overflow-hidden border border-zinc-350 flex-shrink-0">
+                    <img src="assets/img/kurs-tiyatro.jpg" alt="Çocuk Öğrenci" class="w-full h-full object-cover" />
+                </div>
+                <div class="space-y-3">
+                    <span class="text-[10px] text-sanat-yellow font-bold uppercase tracking-wider block">YARATICI DRAMA</span>
+                    <h3 class="text-lg font-bold text-zinc-900">Kerem A. (9 Yaş) - İletişim Gücü</h3>
+                    <p class="text-zinc-650 text-xs leading-relaxed">Okulda çekingen ve sessiz olan Kerem, yaratıcı drama derslerimizle akranlarıyla daha sağlıklı iletişim kurmaya başladı. Sahne doğaçlama seansları sayesinde topluluk önünde kendini rahatça ifade edebiliyor.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Enriched Sections: Aşama 5 Tasarım Yoğunluğu -->
+<section id="additional-info-section" class="py-16 bg-zinc-50 border-t border-zinc-200/50 text-left">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+            <span class="text-xs text-sanat-yellow font-bold uppercase tracking-widest block mb-2">SANATLA BÜTÜNLEŞİN</span>
+            <h2 class="text-xl md:text-3xl font-extrabold text-zinc-900 leading-tight">KDS Akademi'de Sanatsal Gelişim Süreci</h2>
+            <p class="text-zinc-650 text-xs md:text-sm mt-4 leading-relaxed">
+                Akademimiz bünyesinde gerçekleştirdiğimiz her etkinlik, yayınlanan her içerik ve katıldığımız her program, öğrencilerimizin sanatsal özgüvenini artırmayı hedefler. Eğitim kadromuzun rehberliğinde hazırlanan bu içeriklerle, Konya'da sanatı daha erişilebilir kılmak için çalışıyoruz.
+            </p>
+        </div>
+        <div class="bg-white rounded-2xl border border-zinc-200 p-8 shadow-sm space-y-4">
+            <h3 class="text-sm font-bold text-zinc-950 border-b border-zinc-100 pb-2">Neden KDS Akademi?</h3>
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-sanat-yellow text-lg font-bold">verified</span>
+                <div>
+                    <h4 class="text-xs font-bold text-zinc-900">Nitelikli Eğitim Modeli</h4>
+                    <p class="text-zinc-500 text-[10px] leading-relaxed">Öğrencinin seviyesine ve ilgi alanlarına göre özelleştirilen modern ders müfredatı.</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-3">
+                <span class="material-symbols-outlined text-sanat-yellow text-lg font-bold">celebration</span>
+                <div>
+                    <h4 class="text-xs font-bold text-zinc-900">Sahne Deneyimi</h4>
+                    <p class="text-zinc-500 text-[10px] leading-relaxed">Yıl sonu galaları ve halka açık dinletilerle sahne korkusunu yenme imkanı.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-white border-t border-zinc-200/50 text-left">
+    <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin-desktop">
+        <h2 class="text-xl font-bold text-zinc-900 text-center mb-8">Sıkça Sorulan Sorular</h2>
+        <div class="space-y-4">
+            <details class="group bg-zinc-50 border border-zinc-200 rounded-xl p-4 cursor-pointer">
+                <summary class="font-bold text-xs flex justify-between items-center text-zinc-900">
+                    Akademideki etkinlik ve yayınları dışarıdan takip edebilir miyim?
+                    <span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180">keyboard_arrow_down</span>
+                </summary>
+                <p class="text-zinc-650 text-xs mt-3 leading-relaxed">Evet, düzenlediğimiz konserler, sergiler ve açık atölye çalışmaları tüm sanatseverlerin katılımına açıktır. Instagram sayfamız üzerinden tarihleri takip edebilirsiniz.</p>
+            </details>
+            <details class="group bg-zinc-50 border border-zinc-200 rounded-xl p-4 cursor-pointer">
+                <summary class="font-bold text-xs flex justify-between items-center text-zinc-900">
+                    Öğrenciler için katılım zorunlu mu?
+                    <span class="material-symbols-outlined text-sm transition-transform group-open:rotate-180">keyboard_arrow_down</span>
+                </summary>
+                <p class="text-zinc-650 text-xs mt-3 leading-relaxed">Etkinlikler ve sahne performansları tamamen gönüllülük esasına dayanmaktadır. Öğrencilerimizin hazır hissetme durumuna göre sahne alması teşvik edilir.</p>
+            </details>
+        </div>
+    </div>
+</section>
+
+<section class="py-16 bg-zinc-950 text-white relative border-t border-white/5 text-center">
+    <div class="max-w-2xl mx-auto px-6 space-y-6">
+        <h2 class="text-xl md:text-3xl font-extrabold">Hayallerinizi Ertelemeyin</h2>
+        <p class="text-zinc-400 text-xs md:text-sm leading-relaxed max-w-lg mx-auto">Sanat yolculuğunuza bizimle başlamak ve ücretsiz deneme derslerimize randevu oluşturmak için şimdi ön kayıt yaptırın.</p>
+        <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <a href="kayit.html" class="bg-sanat-yellow hover:bg-sanat-yellow-dark text-zinc-950 font-bold px-8 py-3.5 rounded-lg text-xs transition-all shadow-lg">Hemen Başvur</a>
+            <a href="https://wa.me/905419050042" class="bg-white/10 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded-lg text-xs transition-all border border-white/20">WhatsApp ile İletişime Geç</a>
+        </div>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-zinc-950 text-zinc-400 py-16 border-t border-white/5">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-12 text-left">
+        <!-- Brand -->
+        <div class="space-y-4">
+            <a class="flex items-center gap-3" href="index.html">
+                <img alt="KDS Akademi logosu" class="h-10 w-10 object-contain rounded-xl" src="assets/img/kds-logo.jpg"/>
+                <span class="text-base font-extrabold text-white tracking-widest">KDS AKADEMİ</span>
+            </a>
+            <p class="text-xs leading-relaxed text-zinc-400">
+                Konya'da müzik, dans, tiyatro ve görsel sanatlar alanlarında eğitim sunan öncü özel öğretim kurumuyuz. Çocuk ve yetişkin eğitimlerimizle her yaştan sanatsevere kapılarımızı açıyoruz.
+            </p>
+        </div>
+        <!-- Kurumsal -->
+        <div>
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-6">Kurumsal</h4>
+            <div class="flex flex-col gap-3 text-xs">
+                <a href="hakkimizda.html" class="hover:text-sanat-yellow transition-colors">Hakkımızda</a>
+                <a href="kurucumuz.html" class="hover:text-sanat-yellow transition-colors">Kurucumuz</a>
+                <a href="egitmenler.html" class="hover:text-sanat-yellow transition-colors">Eğitmenler</a>
+                <a href="galeri.html" class="hover:text-sanat-yellow transition-colors">Galeri</a>
+                <a href="iletisim.html" class="hover:text-sanat-yellow transition-colors">İletişim</a>
+                <a href="gizlilik-politikasi.html" class="hover:text-sanat-yellow transition-colors">Gizlilik Politikası</a>
+            </div>
+        </div>
+        <!-- Departmanlar -->
+        <div>
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-6">Departmanlar</h4>
+            <div class="flex flex-col gap-3 text-xs">
+                <a href="kurslar.html#dans" class="hover:text-sanat-yellow transition-colors">Dans Akademisi</a>
+                <a href="kurslar.html#muzik" class="hover:text-sanat-yellow transition-colors">Müzik Bölümü</a>
+                <a href="kurslar.html#tiyatro" class="hover:text-sanat-yellow transition-colors">Tiyatro ve Sahne</a>
+                <a href="kurslar.html#resim" class="hover:text-sanat-yellow transition-colors">Görsel Sanatlar</a>
+                <a href="kurslar.html#cocuk" class="hover:text-sanat-yellow transition-colors">Çocuk Akademisi</a>
+            </div>
+        </div>
+        <!-- İletişim -->
+        <div>
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-6">İletişim</h4>
+            <div class="text-xs space-y-4">
+                <p>
+                    <strong>Adres:</strong><br/>
+                    En Tepe Mall Ofis, B Blok 117/303<br/>
+                    Kalenderhane, Karatay / Konya
+                </p>
+                <p>
+                    <strong>Telefon:</strong><br/>
+                    <a href="tel:+905419050042" class="hover:text-sanat-yellow transition-colors">+90 (541) 905 00 42</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-12 pt-8 border-t border-white/5 text-center text-xs text-zinc-500">
+        <p>© 2026 KDS Akademi - Konya Dans ve Sanat Akademisi. Tüm hakları saklıdır. Karatay, Konya.</p>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

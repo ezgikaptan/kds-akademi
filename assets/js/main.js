@@ -424,16 +424,28 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Initialize: check hash in URL to select department
+        // Initialize: check hash in URL to select department and scroll
+        var handleHash = function() {
+            var hash = window.location.hash;
+            if (hash) {
+                var deptName = hash.substring(1); // e.g. "muzik", "dans"
+                var targetTab = document.querySelector('.dept-tab[data-dept="' + deptName + '"]');
+                if (targetTab) {
+                    targetTab.click();
+                    setTimeout(function() {
+                        var targetSec = document.getElementById('course-browser');
+                        if (targetSec) {
+                            targetSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 150);
+                }
+            }
+        };
+
+        // Run on load
         var hash = window.location.hash;
-        var initialTab = null;
         if (hash) {
-            var deptName = hash.substring(1); // e.g. "muzik", "dans"
-            initialTab = document.querySelector('.dept-tab[data-dept="' + deptName + '"]');
-        }
-        
-        if (initialTab) {
-            initialTab.click();
+            handleHash();
         } else {
             // Default to click the active or first tab
             var activeTab = document.querySelector('.dept-tab.active');
@@ -443,6 +455,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 deptTabs[0].click();
             }
         }
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', handleHash);
     }
 
     /* ==============================
@@ -987,6 +1002,22 @@ document.addEventListener('DOMContentLoaded', function () {
         return 0;
     }
 
+    // Prev / Next button listeners
+    var prevBtn = document.getElementById('stories-prev');
+    var nextBtn = document.getElementById('stories-next');
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function () {
+            goToSlide(currentIdx - 1);
+            resetAutoPlay();
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function () {
+            goToSlide(currentIdx + 1);
+            resetAutoPlay();
+        });
+    }
+
     // Initialize
     rebuildDots();
     goToSlide(0);
@@ -1019,6 +1050,35 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             a.innerHTML = '<span class="material-symbols-outlined text-[20px] text-white/50 group-hover:text-[#C5A880] transition-colors">' + iconName + '</span>' + text;
         }
+    });
+});
+
+// Dropdown click/touch toggle logic for desktop view
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdownGroups = document.querySelectorAll('.relative.group');
+    dropdownGroups.forEach(function(group) {
+        var trigger = group.querySelector('a.nav-link');
+        var menu = group.querySelector('div.absolute');
+        if (trigger && menu) {
+            trigger.addEventListener('click', function(e) {
+                if (window.innerWidth >= 1024) {
+                    var isVisible = menu.classList.contains('show-dropdown-active');
+                    if (!isVisible) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        document.querySelectorAll('.relative.group div.absolute').forEach(function(m) {
+                            m.classList.remove('show-dropdown-active');
+                        });
+                        menu.classList.add('show-dropdown-active');
+                    }
+                }
+            });
+        }
+    });
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.relative.group div.absolute').forEach(function(m) {
+            m.classList.remove('show-dropdown-active');
+        });
     });
 });
 

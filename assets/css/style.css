@@ -61,21 +61,26 @@
     font-style: italic;
     font-display: swap;
 }
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /* <picture> is inline by default, which breaks w-full/h-full on the <img> inside it */
 picture {
     display: block;
 }
 
-/* Ensure every element falls back to the Outfit font, even without an explicit font-* utility class */
+/* Ensure every element falls back to the Roboto font, even without an explicit font-* utility class */
 html, body, button, input, select, textarea, p, a, li, label {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, .font-headline-sm {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined' !important;
+}
+
+.text-zinc-350 {
+    color: #e4e4e7 !important; /* zinc-200 equivalent for high contrast */
 }
 
 .glass-panel {
@@ -128,13 +133,17 @@ h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, 
 html {
     scroll-behavior: smooth;
 }
+.show-dropdown-active {
+    opacity: 100 !important;
+    visibility: visible !important;
+}
 .mobile-menu {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
 .mobile-menu.open {
-    max-height: 480px;
+    max-height: 2000px;
 }
 
 /* Course filter pills */
@@ -177,7 +186,7 @@ html {
 /* Kayit (registration) wizard: step indicator */
 .registration-wizard {
     background-color: #ffffff;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 .registration-sidebar {
     background: #f9fafb !important;
@@ -208,8 +217,8 @@ html {
 }
 .step-indicator-dot--done {
     border-color: #8B263E !important;
-    background-color: #F3DDE2 !important;
-    color: #6E1A2B !important;
+    background-color: #fff8e8 !important;
+    color: #8B263E !important;
 }
 
 /* Sibling selectors for labels */
@@ -230,7 +239,7 @@ html {
 #kayit-form input,
 #kayit-form select,
 #kayit-form textarea {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 /* Age group radio pills style */
