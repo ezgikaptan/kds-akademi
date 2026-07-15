@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
     /* ==============================
        Scroll Reveal (Improved Stagger)
        ============================== */
-    var slideTargets = document.querySelectorAll(
-        'header h1, header p, header span, header .hero-cta, main h1, main h2'
+    var slideTargets = Array.prototype.filter.call(
+        document.querySelectorAll('header h1, header p, header span, header .hero-cta, main h1, main h2'),
+        function (el) { return !el.closest('.mobile-menu'); }
     );
     var scaleTargets = document.querySelectorAll(
         '.glass-panel, .course-card, .card-glow, .stat-card'
@@ -501,6 +502,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var menuBtn = document.getElementById('mobile-menu-btn');
     var mobileMenu = document.getElementById('mobile-menu');
     var mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    var mobileMenuClose = document.getElementById('mobile-menu-close');
     function setMobileMenuOpen(isOpen) {
         mobileMenu.classList.toggle('open', isOpen);
         if (mobileMenuBackdrop) mobileMenuBackdrop.classList.toggle('open', isOpen);
@@ -508,11 +510,17 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.style.overflow = isOpen ? 'hidden' : '';
     }
     if (menuBtn && mobileMenu) {
+        menuBtn.style.touchAction = 'manipulation';
         menuBtn.addEventListener('click', function () {
             setMobileMenuOpen(!mobileMenu.classList.contains('open'));
         });
         if (mobileMenuBackdrop) {
             mobileMenuBackdrop.addEventListener('click', function () {
+                setMobileMenuOpen(false);
+            });
+        }
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', function () {
                 setMobileMenuOpen(false);
             });
         }

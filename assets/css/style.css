@@ -163,12 +163,17 @@ html {
     background: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 55;
 }
 .mobile-menu-backdrop.open {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
+}
+#mobile-menu-btn {
+    touch-action: manipulation;
 }
 .mobile-menu {
     overflow-y: auto;
@@ -4850,10 +4855,15 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 .mobile-menu button {
     display: flex !important;
     align-items: center !important;
+    flex: none !important;
+    height: 44px !important;
+    max-height: 44px !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
     gap: 12px !important;
     padding: 10px 14px !important;
     border-radius: 0.75rem !important;
-    transition: all 0.3s ease !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
     font-weight: 500 !important;
     font-size: 15px !important;
     color: rgba(255, 255, 255, 0.8) !important;
@@ -4868,6 +4878,27 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 .mobile-menu button:hover {
     color: #D7EFFF !important;
     background: rgba(255, 255, 255, 0.04) !important;
+}
+#mobile-menu-close {
+    all: unset;
+    box-sizing: border-box;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+#mobile-menu-close:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #D7EFFF;
 }
 .mobile-menu a.active::before {
     content: '';
