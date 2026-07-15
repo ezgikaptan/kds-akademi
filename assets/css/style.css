@@ -467,17 +467,17 @@ button[class*="shadow-[0_0_20px_rgba"] {
     0% {
         filter: blur(80px);
         transform: translate(0, 0) scale(1) rotate(0deg);
-        opacity: 0.32;
+        opacity: 0.42;
     }
     50% {
         filter: blur(100px);
         transform: translate(50px, -40px) scale(1.25) rotate(120deg);
-        opacity: 0.5;
+        opacity: 0.6;
     }
     100% {
         filter: blur(80px);
         transform: translate(-30px, 50px) scale(0.9) rotate(240deg);
-        opacity: 0.32;
+        opacity: 0.42;
     }
 }
 
@@ -4641,7 +4641,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-top: none !important;
 }
 #course-browser {
-    background-color: #FDFBF7 !important;
+    background-color: transparent !important;
 }
 
 
