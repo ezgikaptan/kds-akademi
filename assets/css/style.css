@@ -67,12 +67,12 @@ picture {
     display: block;
 }
 
-/* Ensure every element falls back to the Outfit font, even without an explicit font-* utility class */
+/* Ensure every element falls back to the SF Pro Display font, even without an explicit font-* utility class */
 html, body, button, input, select, textarea, p, a, li, label {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, .font-headline-sm {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 .material-symbols-outlined {
     font-family: 'Material Symbols Outlined' !important;
@@ -185,7 +185,7 @@ html {
 /* Kayit (registration) wizard: step indicator */
 .registration-wizard {
     background-color: #ffffff;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 .registration-sidebar {
     background: #f9fafb !important;
@@ -238,7 +238,7 @@ html {
 #kayit-form input,
 #kayit-form select,
 #kayit-form textarea {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 
 /* Age group radio pills style */
@@ -1876,7 +1876,7 @@ body {
     animation: loader-ring-rotate 6s infinite linear, loader-pulse-glow 2s infinite alternate ease-in-out;
 }
 .animated-number {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 6rem;
     font-weight: 800;
     color: #ffffff;
@@ -1928,7 +1928,7 @@ body {
     }
 }
 .loader-text {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.15em;
@@ -2029,14 +2029,14 @@ body {
     background-color: rgba(0, 0, 0, 0.06) !important;
 }
 
-/* 5. Force Outfit Font Family Globally (Except Icons) */
+/* 5. Force SF Pro Display Font Family Globally (Except Icons) */
 *:not(.material-symbols-outlined) {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 
 /* 5b. Force Ornate Serif Font on Headings */
 h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, .accordion-title {
-    font-family: 'Playfair Display', Georgia, serif !important;
+    font-family: 'SF Pro Display', serif !important;
 }
 
 /* 6. Force Curve Degree (Border Radius) to exactly 12px (0.75rem) everywhere (Except rounded-full circles) */
@@ -2122,7 +2122,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
 /* 8. Split Custom Typography (Outline + Italic Burgundy) */
 .text-outline-burgundy {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     color: #1c1b1c !important;
     -webkit-text-stroke: 0 !important;
     font-weight: 800;
@@ -2134,7 +2134,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .text-italic-burgundy {
-    font-family: 'Playfair Display', Georgia, serif !important;
+    font-family: 'SF Pro Display', serif !important;
     font-style: italic !important;
     color: #8B263E !important;
     text-transform: lowercase !important;
@@ -2179,7 +2179,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
 /* Custom text path segments styled cleanly */
 .text-outline-burgundy-marquee {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'SF Pro Display', sans-serif !important;
   font-weight: 800 !important;
   font-size: 4.8rem;
   fill: #1c1b1c !important; /* solid charcoal for clean Turkish characters rendering */
@@ -2188,7 +2188,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .text-italic-burgundy-marquee {
-  font-family: 'Playfair Display', Georgia, serif !important;
+  font-family: 'SF Pro Display', serif !important;
   font-style: italic !important;
   font-weight: 400 !important;
   font-size: 5.2rem;
@@ -2197,7 +2197,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .text-gold-marquee {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'SF Pro Display', sans-serif !important;
   font-weight: 700 !important;
   font-size: 4.5rem;
   fill: #C5A059 !important; /* gold star */
@@ -2259,7 +2259,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
 .mv-card-label {
   display: block;
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'SF Pro Display', sans-serif !important;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -2273,7 +2273,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .mv-card-title {
-  font-family: 'Playfair Display', Georgia, serif !important;
+  font-family: 'SF Pro Display', serif !important;
   font-size: 24px;
   font-weight: 700;
   color: #18181b;
@@ -2282,7 +2282,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .mv-card-text {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'SF Pro Display', sans-serif !important;
   font-size: 15px;
   line-height: 1.7;
   color: #4a5568;
@@ -2299,7 +2299,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .mv-card-link {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'SF Pro Display', sans-serif !important;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -2324,7 +2324,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .mv-card-brand {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: 'SF Pro Display', sans-serif !important;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
@@ -2461,7 +2461,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     align-items: center;
     gap: 0;
     padding: 10px 22px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.1em;
@@ -2521,7 +2521,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background: transparent;
     border: none;
     color: rgba(255,255,255,0.5);
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -2634,7 +2634,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     padding: 4px 12px;
     background-color: rgba(233,30,99,0.2);
     color: #E91E63;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -2670,7 +2670,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .course-detail-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 2.2rem;
     font-weight: 800;
     color: #ffffff;
@@ -2682,7 +2682,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .course-detail-desc {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 0.85rem;
     color: rgba(255,255,255,0.55);
     line-height: 1.7;
@@ -2705,7 +2705,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 12px;
     color: rgba(255,255,255,0.4);
     letter-spacing: 0.04em;
@@ -2720,7 +2720,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background-color: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.18);
     color: #ffffff;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.06em;
@@ -2846,7 +2846,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     align-items: center;
     justify-content: center;
     padding: 7px 16px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 11px !important;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -2919,7 +2919,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background: transparent;
     border: none;
     color: rgba(255, 255, 255, 0.6) !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
@@ -3093,7 +3093,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background-color: rgba(233, 30, 99, 0.12);
     color: #ff2d55; /* vibrant pinkish red */
     border: 1px solid rgba(233, 30, 99, 0.25);
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -3133,7 +3133,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .course-detail-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 2.75rem;
     font-weight: 800;
     color: #ffffff;
@@ -3144,7 +3144,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .course-detail-desc {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 0.95rem;
     color: rgba(255, 255, 255, 0.65);
     line-height: 1.8;
@@ -3165,7 +3165,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 12px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.45);
@@ -3185,7 +3185,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background-color: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: #ffffff;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -3334,7 +3334,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-main-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: clamp(2.5rem, 5vw, 3.75rem);
     font-weight: 800;
     color: #113f67 !important; /* Dark blue title for high readability on map overlay */
@@ -3342,7 +3342,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-subtitle {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 16px;
     color: #4a6b82;
     max-width: 600px;
@@ -3385,7 +3385,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-form-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 22px;
     font-weight: 700;
     color: #113f67;
@@ -3416,7 +3416,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-label {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -3433,7 +3433,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-bottom: 1.5px solid #eaeded !important;
     padding: 8px 0 !important;
     color: #2c3e50 !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     transition: border-bottom-color 0.3s;
@@ -3458,7 +3458,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-bottom: 1.5px solid #eaeded !important;
     padding: 8px 0 !important;
     color: #2c3e50 !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 15px !important;
     font-weight: 500 !important;
     border-radius: 0 !important;
@@ -3489,7 +3489,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-checkbox-label {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 12px;
     color: #7f8c8d;
     cursor: pointer;
@@ -3511,7 +3511,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border: none !important;
     border-radius: 0.75rem !important;
     padding: 12px 30px !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px !important;
     font-weight: 700 !important;
     cursor: pointer;
@@ -3529,7 +3529,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-info-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 20px;
     font-weight: 700;
     color: #ffffff;
@@ -3560,7 +3560,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-sky-info-text {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.85);
@@ -3618,7 +3618,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background-color: #000000 !important;
     border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
     color: #a1a1aa !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     padding: 80px 0 40px 0;
     margin-top: 0 !important;
 }
@@ -3847,7 +3847,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .value-card-num-las {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 13px;
     font-weight: 800;
     color: #C5A059;
@@ -3859,7 +3859,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .value-card-title-las {
-    font-family: 'Playfair Display', Georgia, serif !important;
+    font-family: 'SF Pro Display', serif !important;
     font-size: 22px;
     font-weight: 700;
     color: #18181b;
@@ -3867,7 +3867,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .value-card-text-las {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px;
     color: #52525b;
     line-height: 1.6;
@@ -4130,7 +4130,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     top: 16px;
     left: 16px;
     padding: 6px 12px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 9px;
     font-weight: 700;
     text-transform: uppercase;
@@ -4164,7 +4164,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     flex: 1;
 }
 .premium-course-card-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 1.25rem;
     font-weight: 750;
     color: #1c1b1c;
@@ -4172,7 +4172,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     line-height: 1.3;
 }
 .premium-course-card-desc {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 0.875rem;
     color: #5A5A62;
     line-height: 1.6;
@@ -4191,7 +4191,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 11px;
     font-weight: 600;
     color: #77767b;
@@ -4205,7 +4205,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -4308,7 +4308,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     padding: 120px 0 80px 0;
     overflow: hidden;
     color: #ffffff !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 
 .contact-premium-glow {
@@ -4335,7 +4335,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     pointer-events: none;
     z-index: 0;
     user-select: none;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
 }
 
 .contact-eyebrow {
@@ -4360,7 +4360,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-left-title {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
     color: #ffffff !important;
@@ -4475,7 +4475,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 
 .contact-glass-label {
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     color: rgba(255, 255, 255, 0.8) !important;
@@ -4491,7 +4491,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-radius: 0.75rem !important;
     padding: 12px 16px !important;
     color: #ffffff !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px !important;
     font-weight: 400 !important;
     transition: all 0.3s ease !important;
@@ -4515,7 +4515,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-radius: 0.75rem !important;
     padding: 12px 16px !important;
     color: #ffffff !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 14px !important;
     font-weight: 400 !important;
     appearance: none;
@@ -4574,7 +4574,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border: none !important;
     border-radius: 0.75rem !important;
     padding: 14px !important;
-    font-family: 'Outfit', sans-serif !important;
+    font-family: 'SF Pro Display', sans-serif !important;
     font-size: 15px !important;
     font-weight: 700 !important;
     cursor: pointer;
