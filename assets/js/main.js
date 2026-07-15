@@ -500,11 +500,36 @@ document.addEventListener('DOMContentLoaded', function () {
        ============================== */
     var menuBtn = document.getElementById('mobile-menu-btn');
     var mobileMenu = document.getElementById('mobile-menu');
+    var mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+    function setMobileMenuOpen(isOpen) {
+        mobileMenu.classList.toggle('open', isOpen);
+        if (mobileMenuBackdrop) mobileMenuBackdrop.classList.toggle('open', isOpen);
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
     if (menuBtn && mobileMenu) {
         menuBtn.addEventListener('click', function () {
-            var isOpen = mobileMenu.classList.toggle('open');
-            menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            setMobileMenuOpen(!mobileMenu.classList.contains('open'));
         });
+        if (mobileMenuBackdrop) {
+            mobileMenuBackdrop.addEventListener('click', function () {
+                setMobileMenuOpen(false);
+            });
+        }
+    }
+
+    /* ==============================
+       Site Header Scroll Tint
+       ============================== */
+    var siteHeader = document.querySelector('header.site-header');
+    if (siteHeader) {
+        var isHeroHeader = siteHeader.getAttribute('data-header-mode') === 'hero';
+        var updateHeaderScroll = function () {
+            var shouldTint = !isHeroHeader || window.scrollY > 40;
+            siteHeader.classList.toggle('header-scrolled', shouldTint);
+        };
+        window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+        updateHeaderScroll();
     }
 
     /* ==============================

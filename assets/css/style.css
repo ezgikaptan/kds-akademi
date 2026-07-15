@@ -123,7 +123,7 @@ h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, 
 }
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1) !important;
-    color: #C5A059 !important;
+    color: #E8A6B4 !important;
 }
 .nav-link.active {
     background-color: rgba(255, 255, 255, 0.12) !important;
@@ -139,7 +139,18 @@ h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, 
     width: 18px;
     height: 2px;
     border-radius: 0.75rem;
-    background-color: #C5A059;
+    background-color: #E8A6B4;
+}
+header.site-header {
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background-color 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+}
+header.site-header.header-scrolled {
+    background-color: rgba(139, 38, 62, 0.62);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
 }
 html {
     scroll-behavior: smooth;
@@ -148,13 +159,26 @@ html {
     opacity: 100 !important;
     visibility: visible !important;
 }
+.mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 55;
+}
+.mobile-menu-backdrop.open {
+    opacity: 1;
+    visibility: visible;
+}
 .mobile-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    overflow-y: auto;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .mobile-menu.open {
-    max-height: 2000px;
+    transform: translateX(0);
 }
 
 /* Course filter pills */
@@ -1635,7 +1659,7 @@ body {
 
 /* Why KDS Section Custom Styles */
 .why-kds-section {
-    background-color: #faf9f5 !important;
+    background-color: transparent !important;
     padding: 100px 0 !important;
     position: relative;
     overflow: hidden;
@@ -4823,16 +4847,18 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 
 /* Premium Mobile Menu Styling Overrides */
 .mobile-menu {
-    border-bottom: 2px solid rgba(197, 168, 128, 0.4) !important;
+    position: fixed !important;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    height: 100dvh;
+    width: min(85vw, 320px);
+    border-left: 2px solid rgba(139, 38, 62, 0.4) !important;
+    border-bottom: none !important;
     background: linear-gradient(to bottom, rgba(9, 9, 11, 0.98), rgba(24, 24, 27, 0.98)) !important;
-    border-radius: 0 0 1.5rem 1.5rem !important;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+    border-radius: 0.75rem 0 0 0.75rem !important;
+    box-shadow: -20px 0 40px rgba(0, 0, 0, 0.4) !important;
     overflow-y: auto !important;
-    max-height: 0;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-}
-.mobile-menu.open {
-    max-height: calc(100vh - 130px) !important;
 }
 .mobile-menu .flex-col {
     gap: 0.5rem !important;
@@ -4858,7 +4884,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 .mobile-menu a:hover,
 .mobile-menu a.active,
 .mobile-menu button:hover {
-    color: #C5A059 !important;
+    color: #E8A6B4 !important;
     background: rgba(255, 255, 255, 0.04) !important;
 }
 .mobile-menu a.active::before {
@@ -4868,7 +4894,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     top: 20%;
     height: 60%;
     width: 3px;
-    background: #C5A059;
+    background: #E8A6B4;
     border-radius: 0.75rem;
 }
 .mobile-menu a span.material-symbols-outlined {
@@ -4878,7 +4904,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 }
 .mobile-menu a:hover span.material-symbols-outlined,
 .mobile-menu a.active span.material-symbols-outlined {
-    color: #C5A059;
+    color: #E8A6B4;
 }
 
 /* Typing Cursor blinking animations */

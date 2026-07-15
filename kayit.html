@@ -388,24 +388,24 @@
 </div>
 
 <!-- Header / Nav -->
-<header class="bg-zinc-900/95 backdrop-blur-md border-b border-white/10 sticky top-0 w-full z-50 shadow-lg transition-all duration-200">
+<header class="site-header sticky top-0 w-full z-50 shadow-lg transition-all duration-200">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20">
         <!-- Logo -->
         <a class="flex items-center gap-3" href="index.html">
-            <img alt="KDS Akademi Logo" class="h-12 w-12 object-contain rounded-xl border border-white/20" src="assets/img/kds-logo.jpg"/>
+            <img alt="KDS Akademi Logo" class="h-12 w-12 object-contain border border-white/20" src="assets/img/kds-logo.jpg"/>
             <span class="flex flex-col justify-center text-white font-black uppercase leading-none" style="font-family: 'SF Pro Display', sans-serif;">
                 <span class="text-lg tracking-widest font-extrabold text-white">KDS</span>
-                <span class="text-[9px] tracking-wider text-kds-yellow font-bold mt-0.5">AKADEMİ</span>
+                <span class="text-[9px] tracking-wider text-kds-pink font-bold mt-0.5">AKADEMİ</span>
             </span>
         </a>
 
         <!-- Desktop Menu (Hidden below lg to prevent overlap) -->
         <div class="hidden lg:flex items-center gap-1" role="navigation" aria-label="Ana navigasyon">
-            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-yellow transition-colors hover:bg-white/10" href="index.html">Anasayfa</a>
+            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-pink transition-colors hover:bg-white/10" href="index.html">Anasayfa</a>
             
             <!-- Kurslar Dropdown -->
             <div class="relative group">
-                <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-yellow transition-colors hover:bg-white/10 inline-flex items-center gap-1 cursor-pointer" href="kurslar.html">
+                <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-pink transition-colors hover:bg-white/10 inline-flex items-center gap-1 cursor-pointer" href="kurslar.html">
                     Kurslar <span class="material-symbols-outlined text-sm font-bold transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
                 </a>
                 <div class="absolute left-0 top-full mt-1 w-64 bg-white border border-zinc-200/60 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-2">
@@ -429,7 +429,7 @@
 
             <!-- Kurumsal Mega Menu -->
             <div class="relative group/mega">
-                <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-yellow transition-colors hover:bg-white/10 inline-flex items-center gap-1 cursor-pointer">
+                <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-pink transition-colors hover:bg-white/10 inline-flex items-center gap-1 cursor-pointer">
                     Kurumsal <span class="material-symbols-outlined text-sm font-bold transition-transform group-hover/mega:rotate-180">keyboard_arrow_down</span>
                 </a>
                 
@@ -534,13 +534,14 @@
                 </div>
             </div>
 
-            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-yellow transition-colors hover:bg-white/10" href="galeri.html">Galeri</a>
-            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-yellow transition-colors hover:bg-white/10" href="iletisim.html">İletişim</a>
+            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-pink transition-colors hover:bg-white/10" href="galeri.html">Galeri</a>
+            <a class="nav-link font-medium text-[15px] px-4 py-2 rounded-lg text-white/70 hover:text-kds-pink transition-colors hover:bg-white/10" href="iletisim.html">İletişim</a>
         </div>
 
         <!-- CTA & Mobile Trigger -->
         <div class="flex items-center gap-4">
             <a class="hidden sm:inline-flex bg-transparent border-2 border-white text-white hover:bg-white hover:text-zinc-900 font-bold px-6 py-2.5 rounded-lg text-[14px] transition-all hover:scale-[1.02]" href="kayit.html">Kayıt Ol</a>
+            <div class="mobile-menu-backdrop lg:hidden" id="mobile-menu-backdrop"></div>
             <button class="lg:hidden text-white p-2 hover:bg-white/10 rounded-lg" id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menüyü aç/kapat">
                 <span class="material-symbols-outlined text-2xl" aria-hidden="true">menu</span>
             </button>
