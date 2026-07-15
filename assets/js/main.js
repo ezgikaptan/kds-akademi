@@ -1029,30 +1029,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 })();
 
-// Beautify mobile menu links by adding icons dynamically
-document.addEventListener('DOMContentLoaded', function() {
-    var mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
-    var menuIcons = {
-        'Anasayfa': 'home',
-        'Kurslar': 'school',
-        'Eğitmenler': 'group',
-        'Galeri': 'photo_library',
-        'Hakkımızda': 'info',
-        'İletişim': 'mail',
-        'Kayıt Ol': 'person_add'
-    };
-    mobileMenuLinks.forEach(function(a) {
-        var text = a.textContent.trim();
-        var iconName = menuIcons[text] || 'arrow_forward';
-        if (text === 'Kayıt Ol') {
-            a.className = 'btn-nav-register mt-2 flex items-center justify-center gap-2';
-            a.innerHTML = '<span class="material-symbols-outlined text-sm">person_add</span>' + text;
-        } else {
-            a.innerHTML = '<span class="material-symbols-outlined text-[20px] text-white/50 group-hover:text-[#C5A880] transition-colors">' + iconName + '</span>' + text;
-        }
-    });
-});
-
 // Dropdown click/touch toggle logic for desktop view
 document.addEventListener('DOMContentLoaded', function() {
     var dropdownGroups = document.querySelectorAll('.relative.group');

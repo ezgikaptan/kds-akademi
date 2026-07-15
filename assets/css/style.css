@@ -122,12 +122,24 @@ h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, 
     display: none !important;
 }
 .nav-link:hover {
-    background-color: rgba(216, 95, 104, 0.08) !important;
-    color: #D85F68 !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #C5A059 !important;
 }
 .nav-link.active {
-    background-color: #18181b !important;
+    background-color: rgba(255, 255, 255, 0.12) !important;
     color: #ffffff !important;
+}
+.nav-link.active::after {
+    display: block !important;
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 2px;
+    border-radius: 0.75rem;
+    background-color: #C5A059;
 }
 html {
     scroll-behavior: smooth;
