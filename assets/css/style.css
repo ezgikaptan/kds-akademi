@@ -5149,3 +5149,48 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     }
 }
 
+/* ==========================================================================
+   Mobile Header & Hamburger Menu Optimization (KDS Website)
+   ========================================================================== */
+@media (max-width: 767px) {
+    /* Compact navbar on mobile */
+    header.site-header .h-20 {
+        height: 60px !important;
+    }
+    header.site-header {
+        height: 60px !important;
+    }
+    header.site-header img {
+        height: 38px !important;
+        width: 38px !important;
+    }
+    header.site-header .text-lg {
+        font-size: 0.95rem !important;
+    }
+    header.site-header .text-\[10px\] {
+        font-size: 8px !important;
+    }
+    
+    /* Premium dark mobile drawer menu */
+    .mobile-menu {
+        background-color: #09090b !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    .mobile-menu a,
+    .mobile-menu button {
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+    .mobile-menu a span.material-symbols-outlined,
+    .mobile-menu button span.material-symbols-outlined {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+    .mobile-menu a:hover,
+    .mobile-menu button:hover {
+        color: #fdb744 !important;
+        background: rgba(255, 255, 255, 0.05) !important;
+    }
+    .mobile-menu .border-t {
+        border-color: rgba(255, 255, 255, 0.08) !important;
+    }
+}
+
