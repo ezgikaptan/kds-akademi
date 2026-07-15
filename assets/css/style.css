@@ -142,15 +142,13 @@ h1, h2, h3, h4, h5, h6, .font-display-lg, .font-headline-lg, .font-headline-md, 
     background-color: #D7EFFF;
 }
 header.site-header {
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 70%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(20, 10, 14, 0.55) 0%, rgba(20, 10, 14, 0.2) 70%, transparent 100%);
     border-bottom: 1px solid transparent;
     transition: background 0.35s ease, border-color 0.35s ease;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
 }
 header.site-header.header-scrolled {
-    background: rgba(9, 9, 11, 0.9) !important; /* Premium dark zinc-950 black */
-    border-bottom-color: rgba(255, 255, 255, 0.08);
+    background: rgba(53, 30, 40, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
 }
 html {
     scroll-behavior: smooth;
@@ -174,7 +172,12 @@ html {
 }
 .mobile-menu {
     overflow-y: auto;
-    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    visibility: hidden;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.35s;
+}
+.mobile-menu.open {
+    visibility: visible;
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s;
 }
 /* Course filter pills */
 .filter-pill {
@@ -1832,42 +1835,6 @@ body {
 /* ==========================================================================
    Roshan Sahu Inspired Premium Animations (Phase 2 Additions)
    ========================================================================== */
-
-/* 1. Page Fade Transition Panel (Focus on text only, no sliding overlay) */
-.page-transition-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background-color: #09090b; /* zinc-950 */
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
-}
-.page-transition-overlay.is-animating-in {
-    opacity: 1 !important;
-    pointer-events: auto;
-}
-.page-transition-overlay.is-animating-out {
-    opacity: 0 !important;
-    pointer-events: none;
-}
-.page-transition-label {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: monospace;
-    font-size: 0.875rem;
-    letter-spacing: 0.25em;
-    color: #ffffff;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-.page-transition-overlay.is-animating-in .page-transition-label,
-.page-transition-overlay.is-animating-out .page-transition-label {
-    opacity: 1;
-}
 
 /* 2. Odometer Rotating Digit Loader with Pulsing Logo & Ring */
 .loader-container {
@@ -4870,6 +4837,7 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-radius: 0.75rem 0 0 0.75rem !important;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.4) !important;
     overflow-y: auto !important;
+    contain: layout !important;
 }
 .mobile-menu.open {
     right: 0 !important;
@@ -5185,12 +5153,206 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
         color: rgba(255, 255, 255, 0.5) !important;
     }
     .mobile-menu a:hover,
+    .about-hero-section {
+        height: auto !important;
+        min-height: 70vh !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+    }
+    
+    .about-hero-title {
+        font-size: 1.85rem !important;
+        margin-bottom: 18px !important;
+    }
+    
+    .about-hero-body p {
+        font-size: 0.88rem !important;
+        margin-bottom: 14px !important;
+    }
+    
+    /* Navbar compact padding on mobile */
+    .navbar-las {
+        height: 60px !important;
+    }
+    .navbar-las .max-w-container-max {
+        height: 60px !important;
+    }
+    
+    /* Section gap reduction */
+    .py-section-gap {
+        padding-top: 50px !important;
+        padding-bottom: 50px !important;
+    }
+    
+    /* Compact buttons for better mobile alignment */
+    .btn-next,
+    .btn-back,
+    .course-detail-cta {
+        padding: 11px 20px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Compact padding for general cards */
+    .kds-stories-card {
+        width: calc(100vw - 96px) !important;
+        max-width: 290px !important;
+        height: 270px !important;
+        padding: 16px !important;
+    }
+    .kds-stories-card p {
+        font-size: 0.8rem !important;
+    }
+
+    /* Testimonial carousel container padding was wide enough to push the
+       card past the right edge of the screen (card didn't fully fit) */
+    .kds-stories-section .lg\:col-span-8 {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .stories-prev-btn { left: 4px; }
+    .stories-next-btn { right: 4px; }
+
+    /* Footer feels oversized with 80px top padding on small screens */
+    .footer-clean-dark {
+        padding: 40px 0 24px 0 !important;
+    }
+
+    /* Footer: use the horizontal space with 2 columns instead of stacking
+       every column full-width (was needlessly tall on mobile) */
+    .footer-grid-layout {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 28px 20px !important;
+    }
+    .footer-brand-col {
+        grid-column: 1 / -1;
+    }
+
+    /* Why KDS section: 100px padding + big numbers made this ~2 screens tall */
+    .why-kds-section {
+        padding: 56px 0 !important;
+    }
+    .why-kds-title {
+        font-size: 1.9rem !important;
+    }
+    .why-kds-card {
+        padding: 24px 20px !important;
+    }
+    .why-kds-card-number {
+        font-size: 2.4rem !important;
+        margin-bottom: 10px !important;
+    }
+    .why-kds-card-text {
+        font-size: 0.85rem !important;
+    }
+    .why-kds-card-btn {
+        margin-top: 14px !important;
+    }
+
+    /* Course/department cards: fixed 220px image + generous padding
+       made each card very tall when stacked single-column */
+    .premium-course-card-img-wrap {
+        height: 150px !important;
+    }
+    .premium-course-card-body {
+        padding: 16px !important;
+    }
+    .premium-course-card-title {
+        font-size: 1.05rem !important;
+        margin-bottom: 6px !important;
+    }
+    .premium-course-card-desc {
+        font-size: 0.82rem !important;
+        margin-bottom: 14px !important;
+        -webkit-line-clamp: 3;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .premium-course-card-footer {
+        padding-top: 12px !important;
+    }
+    #course-grid.grid,
+    #dept-grid {
+        gap: 16px !important;
+    }
+
+    /* Department tab bar (Kurslar sayfası): horizontally scrollable, but the
+       last tab was getting abruptly cut off at the screen edge - add a
+       fade-out mask so it reads as "scroll for more" instead of a glitch */
+    .dept-tabs-container {
+        mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black calc(100% - 28px), transparent 100%);
+    }
+    .dept-tab {
+        padding: 8px 14px !important;
+        font-size: 10.5px !important;
+    }
+
+    /* Instructor cards: tighten avatar, padding and margins */
+    #instructor-grid {
+        gap: 16px !important;
+    }
+    #instructor-grid > div {
+        padding: 18px !important;
+    }
+    #instructor-grid img {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    #instructor-grid .w-20.h-20 {
+        width: 60px !important;
+        height: 60px !important;
+    }
+    #instructor-grid h3 {
+        font-size: 1rem !important;
+        margin-top: 4px !important;
+    }
+    #instructor-grid p.leading-relaxed {
+        margin-bottom: 16px !important;
+    }
+}
+
+/* ==========================================================================
+   Mobile Header & Hamburger Menu Optimization (KDS Website)
+   ========================================================================== */
+@media (max-width: 767px) {
+    /* Compact navbar on mobile */
+    header.site-header .h-20 {
+        height: 60px !important;
+    }
+    header.site-header {
+        height: 60px !important;
+    }
+    header.site-header img {
+        height: 38px !important;
+        width: 38px !important;
+    }
+    header.site-header .text-lg {
+        font-size: 0.95rem !important;
+    }
+    header.site-header .text-\[10px\] {
+        font-size: 8px !important;
+    }
+    
+    /* Premium dark mobile drawer menu */
+    .mobile-menu {
+        background-color: #09090b !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    .mobile-menu a,
+    .mobile-menu button {
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+    .mobile-menu a span.material-symbols-outlined,
+    .mobile-menu button span.material-symbols-outlined {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+    .mobile-menu a:hover,
     .mobile-menu button:hover {
-        color: #fdb744 !important;
+        color: #D7EFFF !important;
         background: rgba(255, 255, 255, 0.05) !important;
     }
     .mobile-menu .border-t {
         border-color: rgba(255, 255, 255, 0.08) !important;
     }
 }
-
