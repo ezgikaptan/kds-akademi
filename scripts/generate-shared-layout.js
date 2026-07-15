@@ -36,15 +36,15 @@ files.forEach(file => {
         }
         if (menu === 'kurumsal' && [
             'hakkimizda.html', 'kurucumuz.html', 'akademimiz.html', 'tv-programlari.html',
-            'gazete-haberleri.html', 'dergi-roportajlari.html', 'tanitim-videolari.html',
-            'fotograf-albumleri.html', 'cocuk-basari-hikayeleri.html', 'yetiskin-basari-hikayeleri.html',
+            'gazete-haberleri.html', 'dergi-roportajlari.html',
+            'cocuk-basari-hikayeleri.html', 'yetiskin-basari-hikayeleri.html',
             'cocuk-ogrenci-yorumlari.html', 'yetiskin-ogrenci-yorumlari.html', 'etkinlikler.html',
             'bizden-haberler.html', 'projeler.html', 'dokumanlar.html', 'is-ilanlari.html',
             'staj-ilanlari.html', 'kvkk.html', 'site-kullanim-sartlari.html'
         ].includes(file)) {
             return 'text-zinc-900 active font-bold';
         }
-        if (menu === 'galeri' && file === 'galeri.html') {
+        if (menu === 'galeri' && ['galeri.html', 'tanitim-videolari.html', 'fotograf-albumleri.html'].includes(file)) {
             return 'text-zinc-900 active font-bold';
         }
         if (menu === 'iletisim' && file === 'iletisim.html') {

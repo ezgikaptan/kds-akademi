@@ -17,20 +17,31 @@
 <div id="scroll-progress"></div>
 <a href="#main" class="skip-link">İçeriğe geç</a>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/fontawesome.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <!-- Top Bar -->
 <div id="top-bar-2" class="bg-sanat-yellow text-white text-xs font-semibold py-2.5 px-margin-mobile md:px-margin-desktop shadow-sm border-b border-black/5">
     <div class="max-w-container-max mx-auto flex items-center justify-between">
         <div class="flex items-center gap-4">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-white"></i> KDS Akademi | MEB Standartlarında Sanat Eğitimi</span>
+            <span class="flex items-center gap-1.5 opacity-90"><i class="fa-solid fa-circle-check text-white/70"></i> KDS Akademi | MEB Standartlarında Sanat Eğitimi</span>
         </div>
-        <div class="flex items-center gap-4">
-            <a href="https://wa.me/905419050042" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-zinc-200 transition-colors font-bold"><i class="fa-solid fa-phone text-emerald-400 text-sm"></i> 0541 905 00 42</a>
-            <div class="hidden sm:flex items-center gap-4">
-                <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:opacity-80 transition-opacity flex items-center"><i class="fa-brands fa-instagram text-base"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook" class="hover:opacity-80 transition-opacity flex items-center"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                <a href="mailto:info@kdsakademi.com" class="hover:opacity-80 transition-opacity flex items-center" aria-label="E-Posta"><i class="fa-solid fa-envelope text-sm"></i></a>
+        <div class="flex items-center gap-3">
+            <a href="tel:+905419050042" class="flex items-center gap-1.5 hover:text-white/80 transition-colors font-bold">
+                <i class="fa-solid fa-phone text-sm"></i>
+                <span>0541 905 00 42</span>
+            </a>
+            <span class="opacity-30 hidden sm:inline">|</span>
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/905419050042" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-instagram text-base"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                <a href="https://www.youtube.com/@kdsakademi" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-youtube text-base"></i></a>
+                <a href="mailto:info@kdsakademi.com" aria-label="E-Posta" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-solid fa-envelope text-sm"></i></a>
             </div>
         </div>
     </div>
@@ -416,6 +427,106 @@ function toggleMobileSubmenu(submenuId) {
 </script>
 
 
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
+<script>
+function toggleMobileSubmenu(submenuId) {
+    var submenu = document.getElementById(submenuId);
+    var arrow = document.getElementById(submenuId + '-arrow');
+    if (submenu) {
+        var isHidden = submenu.classList.contains('hidden');
+        if (isHidden) {
+            submenu.classList.remove('hidden');
+            submenu.classList.add('flex');
+            if (arrow) arrow.style.transform = 'rotate(180deg)';
+        } else {
+            submenu.classList.add('hidden');
+            submenu.classList.remove('flex');
+            if (arrow) arrow.style.transform = '';
+        }
+    }
+}
+</script>
+
+
 
 
 
@@ -486,37 +597,86 @@ function toggleMobileSubmenu(submenuId) {
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-left">
         <h2 class="text-2xl md:text-3xl font-black text-zinc-900 text-center mb-16">Eğitim ve Sanat Yolculuğu</h2>
         
-        <div class="relative border-l-2 border-zinc-200 max-w-2xl mx-auto pl-8 space-y-12">
+        <div class="relative max-w-3xl mx-auto pl-10 md:pl-12 border-l-2 border-dashed border-sanat-yellow/40 space-y-10">
             <!-- Timeline Item 1 -->
-            <div class="relative">
-                <div class="absolute -left-[41px] top-1.5 w-6.5 h-6.5 bg-sanat-yellow rounded-full flex items-center justify-center text-white border-4 border-white shadow"></div>
-                <h3 class="text-base font-bold text-zinc-900">Müzik Eğitimi Lisans Derecesi</h3>
-                <span class="text-xs text-zinc-400 font-semibold">Selçuk Üniversitesi</span>
-                <p class="text-zinc-600 text-xs leading-relaxed mt-2">Müzik Bölümü Lisans eğitimini tamamlayarak piyano ve müzik teorisi alanlarında uzmanlaştı.</p>
+            <div class="relative group">
+                <!-- Timeline dot / Icon -->
+                <div class="absolute -left-[54px] md:-left-[58px] top-1.5 w-10 h-10 rounded-full bg-white border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow shadow-md transition-transform group-hover:scale-110 duration-300">
+                    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+                    </svg>
+                </div>
+                <!-- Card content -->
+                <div class="p-6 bg-white rounded-2xl border border-zinc-200/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <h3 class="text-base md:text-lg font-bold text-zinc-900">Müzik Eğitimi Lisans Derecesi</h3>
+                        <span class="text-xs font-bold px-3 py-1 bg-sanat-yellow/10 text-sanat-yellow rounded-full">Mezuniyet</span>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-semibold uppercase tracking-wider">Selçuk Üniversitesi</span>
+                    <p class="text-zinc-650 text-xs leading-relaxed mt-2.5">Müzik Bölümü Lisans eğitimini tamamlayarak piyano ve müzik teorisi alanlarında uzmanlaştı.</p>
+                </div>
             </div>
             
             <!-- Timeline Item 2 -->
-            <div class="relative">
-                <div class="absolute -left-[41px] top-1.5 w-6.5 h-6.5 bg-sanat-yellow rounded-full flex items-center justify-center text-white border-4 border-white shadow"></div>
-                <h3 class="text-base font-bold text-zinc-900">Eğitim Bilimleri Yüksek Lisans Derecesi</h3>
-                <span class="text-xs text-zinc-400 font-semibold">Selçuk Üniversitesi</span>
-                <p class="text-zinc-600 text-xs leading-relaxed mt-2">Eğitim yönetimi ve pedagoji üzerine yüksek lisans yaparak eğitim yaklaşımlarını derinleştirdi.</p>
+            <div class="relative group">
+                <!-- Timeline dot / Icon -->
+                <div class="absolute -left-[54px] md:-left-[58px] top-1.5 w-10 h-10 rounded-full bg-white border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow shadow-md transition-transform group-hover:scale-110 duration-300">
+                    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="7" />
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                    </svg>
+                </div>
+                <!-- Card content -->
+                <div class="p-6 bg-white rounded-2xl border border-zinc-200/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <h3 class="text-base md:text-lg font-bold text-zinc-900">Eğitim Bilimleri Yüksek Lisans Derecesi</h3>
+                        <span class="text-xs font-bold px-3 py-1 bg-sanat-yellow/10 text-sanat-yellow rounded-full">Akademik İhtisas</span>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-semibold uppercase tracking-wider">Selçuk Üniversitesi</span>
+                    <p class="text-zinc-650 text-xs leading-relaxed mt-2.5">Eğitim yönetimi ve pedagoji üzerine yüksek lisans yaparak eğitim yaklaşımlarını derinleştirdi.</p>
+                </div>
             </div>
             
             <!-- Timeline Item 3 -->
-            <div class="relative">
-                <div class="absolute -left-[41px] top-1.5 w-6.5 h-6.5 bg-sanat-yellow rounded-full flex items-center justify-center text-white border-4 border-white shadow"></div>
-                <h3 class="text-base font-bold text-zinc-900">Piyano ve Müzik Eğitmenliği Kariyeri</h3>
-                <span class="text-xs text-zinc-400 font-semibold">1999 - Günümüz</span>
-                <p class="text-zinc-600 text-xs leading-relaxed mt-2">Çeşitli kurumlarda piyano eğitmeni ve koro şefi olarak yüzlerce öğrenciyi yetiştirdi, ulusal ve uluslararası sanat etkinliklerinde görev aldı.</p>
+            <div class="relative group">
+                <!-- Timeline dot / Icon -->
+                <div class="absolute -left-[54px] md:-left-[58px] top-1.5 w-10 h-10 rounded-full bg-white border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow shadow-md transition-transform group-hover:scale-110 duration-300">
+                    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 18V5l12-2v13" />
+                        <circle cx="6.5" cy="18.5" r="2.5" />
+                        <circle cx="18.5" cy="15.5" r="2.5" />
+                    </svg>
+                </div>
+                <!-- Card content -->
+                <div class="p-6 bg-white rounded-2xl border border-zinc-200/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <h3 class="text-base md:text-lg font-bold text-zinc-900">Piyano ve Müzik Eğitmenliği Kariyeri</h3>
+                        <span class="text-xs font-bold px-3 py-1 bg-[#8B263E]/10 text-[#8B263E] rounded-full font-bold">1999 - Günümüz</span>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-semibold uppercase tracking-wider">25+ Yıllık Tecrübe</span>
+                    <p class="text-zinc-650 text-xs leading-relaxed mt-2.5">Çeşitli kurumlarda piyano eğitmeni ve koro şefi olarak yüzlerce öğrenciyi yetiştirdi, ulusal ve uluslararası sanat etkinliklerinde görev aldı.</p>
+                </div>
             </div>
 
             <!-- Timeline Item 4 -->
-            <div class="relative">
-                <div class="absolute -left-[41px] top-1.5 w-6.5 h-6.5 bg-sanat-yellow rounded-full flex items-center justify-center text-white border-4 border-white shadow"></div>
-                <h3 class="text-base font-bold text-zinc-900">KDS Akademi'nin Kuruluşu</h3>
-                <span class="text-xs text-zinc-400 font-semibold">2024</span>
-                <p class="text-zinc-600 text-xs leading-relaxed mt-2">Konya Dans ve Sanat Akademisi'ni kurarak çok disiplinli sanat eğitimi modelini Konya'da hayata geçirdi.</p>
+            <div class="relative group">
+                <!-- Timeline dot / Icon -->
+                <div class="absolute -left-[54px] md:-left-[58px] top-1.5 w-10 h-10 rounded-full bg-white border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow shadow-md transition-transform group-hover:scale-110 duration-300">
+                    <svg class="w-5 h-5 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                </div>
+                <!-- Card content -->
+                <div class="p-6 bg-white rounded-2xl border border-zinc-200/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <h3 class="text-base md:text-lg font-bold text-zinc-900">KDS Akademi'nin Kuruluşu</h3>
+                        <span class="text-xs font-bold px-3 py-1 bg-sanat-yellow/10 text-sanat-yellow rounded-full">2024</span>
+                    </div>
+                    <span class="text-xs text-zinc-400 font-semibold uppercase tracking-wider">Kurucu ve Sanat Yönetmeni</span>
+                    <p class="text-zinc-650 text-xs leading-relaxed mt-2.5">Konya Dans ve Sanat Akademisi'ni kurarak çok disiplinli sanat eğitimi modelini Konya'da hayata geçirdi.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -593,6 +753,11 @@ function toggleMobileSubmenu(submenuId) {
         <p>© 2026 KDS Akademi - Konya Dans ve Sanat Akademisi. Tüm hakları saklıdır. Karatay, Konya.</p>
     </div>
 </footer>
+
+
+
+
+
 
 
 

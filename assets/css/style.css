@@ -4815,12 +4815,19 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     background: linear-gradient(to bottom, rgba(9, 9, 11, 0.98), rgba(24, 24, 27, 0.98)) !important;
     border-radius: 0 0 1.5rem 1.5rem !important;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+    overflow-y: auto !important;
+    max-height: 0;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.mobile-menu.open {
+    max-height: calc(100vh - 130px) !important;
 }
 .mobile-menu .flex-col {
     gap: 0.5rem !important;
     padding: 1.5rem 1.25rem !important;
 }
-.mobile-menu a {
+.mobile-menu a,
+.mobile-menu button {
     display: flex !important;
     align-items: center !important;
     gap: 12px !important;
@@ -4831,9 +4838,14 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     font-size: 15px !important;
     color: rgba(255, 255, 255, 0.8) !important;
     position: relative;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
 }
 .mobile-menu a:hover,
-.mobile-menu a.active {
+.mobile-menu a.active,
+.mobile-menu button:hover {
     color: #C5A059 !important;
     background: rgba(255, 255, 255, 0.04) !important;
 }

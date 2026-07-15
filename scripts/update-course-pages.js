@@ -43,7 +43,7 @@ fs.readdir(directoryPath, function (err, files) {
         </div>
     </div>
 </div>
-
+`;
 <!-- Header / Nav -->
 <header class="bg-white border-b border-zinc-200/50 sticky top-0 w-full z-50 shadow-sm transition-all duration-200">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20">

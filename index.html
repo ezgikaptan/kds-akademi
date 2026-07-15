@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image"/>
 
 <!-- FontAwesome & Google Fonts -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="assets/css/fontawesome.min.css"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -32,20 +32,32 @@
 <div id="scroll-progress"></div>
 <a href="#main" class="skip-link">İçeriğe geç</a>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <!-- Top Bar -->
 <div id="top-bar-2" class="bg-sanat-yellow text-white text-xs font-semibold py-2.5 px-margin-mobile md:px-margin-desktop shadow-sm border-b border-black/5">
     <div class="max-w-container-max mx-auto flex items-center justify-between">
         <div class="flex items-center gap-4">
-            <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-white"></i> KDS Akademi | MEB Standartlarında Sanat Eğitimi</span>
+            <span class="flex items-center gap-1.5 opacity-90"><i class="fa-solid fa-circle-check text-white/70"></i> KDS Akademi | MEB Standartlarında Sanat Eğitimi</span>
         </div>
-        <div class="flex items-center gap-4">
-            <a href="https://wa.me/905419050042" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:text-zinc-200 transition-colors font-bold"><i class="fa-solid fa-phone text-emerald-400 text-sm"></i> 0541 905 00 42</a>
-            <div class="hidden sm:flex items-center gap-4">
-                <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:opacity-80 transition-opacity flex items-center"><i class="fa-brands fa-instagram text-base"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook" class="hover:opacity-80 transition-opacity flex items-center"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                <a href="mailto:info@kdsakademi.com" class="hover:opacity-80 transition-opacity flex items-center" aria-label="E-Posta"><i class="fa-solid fa-envelope text-sm"></i></a>
+        <div class="flex items-center gap-3">
+            <a href="tel:+905419050042" class="flex items-center gap-1.5 hover:text-white/80 transition-colors font-bold">
+                <i class="fa-solid fa-phone text-sm"></i>
+                <span>0541 905 00 42</span>
+            </a>
+            <span class="opacity-30 hidden sm:inline">|</span>
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/905419050042" target="_blank" rel="noopener" aria-label="WhatsApp" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-whatsapp text-base"></i></a>
+                <a href="https://www.instagram.com/konyadansvesanatakademisi/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-instagram text-base"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61581400043466" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-facebook-f text-sm"></i></a>
+                <a href="https://www.youtube.com/@kdsakademi" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-brands fa-youtube text-base"></i></a>
+                <a href="mailto:info@kdsakademi.com" aria-label="E-Posta" class="hover:text-white/80 transition-colors flex items-center"><i class="fa-solid fa-envelope text-sm"></i></a>
             </div>
         </div>
     </div>
@@ -452,6 +464,8 @@ function toggleMobileSubmenu(submenuId) {
 
 
 
+
+
 <!-- Hero Slider / Background Video -->
 <header class="relative w-full h-[80vh] md:h-[85vh] overflow-hidden bg-zinc-950 flex items-center justify-center">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-60" id="hero-video">
@@ -503,35 +517,106 @@ function toggleMobileSubmenu(submenuId) {
             </div>
             
             <div class="flex items-center gap-6 overflow-x-auto pb-4 hide-scrollbar justify-start md:justify-center">
+                <!-- 1. Bale ve Dans -->
                 <a href="kurslar.html#dans" class="flex flex-col items-center text-center group shrink-0 w-28">
-                    <div class="w-20 h-20 rounded-full bg-white shadow-md border border-zinc-200/40 flex items-center justify-center group-hover:bg-sanat-yellow/10 transition-colors group-hover:scale-105 transform duration-300">
-                        <span class="material-symbols-outlined text-3xl text-zinc-700 group-hover:text-zinc-900">nightlife</span>
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="5" r="2.25" />
+                            <path d="M12 7.25v7" />
+                            <path d="M5.5 10.5c2.5-2.5 5-3.5 6.5-3.5s4 1 6.5 3.5" />
+                            <path d="M7 14.25h10l-2 2.5H9z" />
+                            <path d="M5.5 14.25C8.5 12 15.5 12 18.5 14.25" />
+                            <path d="M10.75 16.75l1.25 4.5" />
+                            <path d="M13.25 16.75L12 21.25" />
+                        </svg>
                     </div>
-                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Dans</span>
+                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Bale ve Dans</span>
                 </a>
+                
+                <!-- 2. Görsel Sanatlar -->
+                <a href="kurslar.html#resim" class="flex flex-col items-center text-center group shrink-0 w-28">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 21l3-16h8l3 16" />
+                            <path d="M3 16h21" />
+                            <rect x="6" y="7" width="12" height="8" rx="1" />
+                            <path d="M8 13l2-3 3 3M11 11l1.5-1.5 2 2" />
+                            <circle cx="15" cy="9" r="0.75" fill="currentColor" />
+                        </svg>
+                    </div>
+                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Görsel Sanatlar</span>
+                </a>
+                
+                <!-- 3. Enstrüman ve Müzik -->
                 <a href="kurslar.html#muzik" class="flex flex-col items-center text-center group shrink-0 w-28">
-                    <div class="w-20 h-20 rounded-full bg-white shadow-md border border-zinc-200/40 flex items-center justify-center group-hover:bg-sanat-yellow/10 transition-colors group-hover:scale-105 transform duration-300">
-                        <span class="material-symbols-outlined text-3xl text-zinc-700 group-hover:text-zinc-900">music_note</span>
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18c-1.5-1-2-3-1-4.5s2.5-2 4-1c2 1.5 2.5 4.5 1 6.5s-4.5 2.5-6.5 1-2.5-4.5-1-6.5 4.5-2.5 6.5-1M12 21V3c1-0.5 2-0.5 3 .5s1 2 0 3.5-2.5 2.5-3 3" />
+                            <ellipse cx="16.5" cy="11.5" rx="1.5" ry="1.25" />
+                            <path d="M18 11.5V6l3 1v3.5" />
+                        </svg>
                     </div>
-                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Müzik</span>
+                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Müzik Eğitimi</span>
                 </a>
+                
+                <!-- 4. Tiyatro ve Oyunculuk -->
                 <a href="kurslar.html#tiyatro" class="flex flex-col items-center text-center group shrink-0 w-28">
-                    <div class="w-20 h-20 rounded-full bg-white shadow-md border border-zinc-200/40 flex items-center justify-center group-hover:bg-sanat-yellow/10 transition-colors group-hover:scale-105 transform duration-300">
-                        <span class="material-symbols-outlined text-3xl text-zinc-700 group-hover:text-zinc-900">theater_comedy</span>
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2.5 14c0-4 2.5-7 6-7s6 3 6 7-2.5 5-6 5-6-1-6-5z" />
+                            <circle cx="6" cy="11" r="0.75" fill="currentColor" />
+                            <circle cx="9.5" cy="11" r="0.75" fill="currentColor" />
+                            <path d="M5 14.5c1 1 1.75 1.25 2.75 1.25S9.5 15.5 10.5 14.5" />
+                            <path d="M10.5 15c0-3.5 2.25-6 5.25-6s5.25 2.5 5.25 6-2.25 4.5-5.25 4.5-5.25-1-5.25-4.5z" />
+                            <circle cx="14" cy="12.25" r="0.6" />
+                            <circle cx="17.5" cy="12.25" r="0.6" />
+                            <path d="M14.75 15.75c0.75-0.4 1.5-0.4 2.25 0" />
+                        </svg>
                     </div>
                     <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Tiyatro</span>
                 </a>
-                <a href="kurslar.html#resim" class="flex flex-col items-center text-center group shrink-0 w-28">
-                    <div class="w-20 h-20 rounded-full bg-white shadow-md border border-zinc-200/40 flex items-center justify-center group-hover:bg-sanat-yellow/10 transition-colors group-hover:scale-105 transform duration-300">
-                        <span class="material-symbols-outlined text-3xl text-zinc-700 group-hover:text-zinc-900">palette</span>
+                
+                <!-- 5. Sinema ve Kamera Önü -->
+                <a href="tanitim-videolari.html" class="flex flex-col items-center text-center group shrink-0 w-28">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="8" width="18" height="11" rx="1" />
+                            <path d="M3 8l18-3.2M3 5.3l18 3.2" />
+                            <path d="M6 7.3l1.5-1.2M10 6.6l1.5-1.2M14 5.9l1.5-1.2M18 5.2l1.5-1.2" />
+                            <path d="M10 11.5l5 3-5 3v-6z" fill="currentColor" />
+                        </svg>
                     </div>
-                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Resim</span>
+                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Sinema</span>
                 </a>
-                <a href="kurslar.html#cocuk" class="flex flex-col items-center text-center group shrink-0 w-28">
-                    <div class="w-20 h-20 rounded-full bg-white shadow-md border border-zinc-200/40 flex items-center justify-center group-hover:bg-sanat-yellow/10 transition-colors group-hover:scale-105 transform duration-300">
-                        <span class="material-symbols-outlined text-3xl text-zinc-700 group-hover:text-zinc-900">child_care</span>
+                
+                <!-- 6. Fotoğrafçılık -->
+                <a href="galeri.html" class="flex flex-col items-center text-center group shrink-0 w-28">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="6" width="18" height="13" rx="1.5" />
+                            <path d="M9 6l1.2-2.2h3.6L15 6" />
+                            <circle cx="12" cy="12.5" r="4" />
+                            <circle cx="12" cy="12.5" r="1.5" />
+                            <circle cx="18" cy="8.5" r="0.5" fill="currentColor" />
+                        </svg>
                     </div>
-                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Drama</span>
+                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Fotoğrafçılık</span>
+                </a>
+                
+                <!-- 7. Etkili Diksiyon -->
+                <a href="kurs-etkili-diksiyon.html" class="flex flex-col items-center text-center group shrink-0 w-28">
+                    <div class="w-20 h-20 rounded-full bg-white shadow-md border-2 border-sanat-yellow flex items-center justify-center text-sanat-yellow group-hover:bg-sanat-yellow/5 transition-all group-hover:scale-105 transform duration-300">
+                        <svg class="w-10 h-10 stroke-current" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 18c0-2 1-3.5 2.5-4.5.5-.3.5-.8.3-1.3C5.5 11.5 5 10 5 8.5 5 5.5 7 3.5 9.5 3.5c1.5 0 2.5.8 3 1.8" />
+                            <path d="M8 12.5c.5.5.5 1.5 0 2" />
+                            <path d="M14 4.5h6a1.5 1.5 0 011.5 1.5v2.5a1.5 1.5 0 01-1.5 1.5h-2.5l-2 2v-2H14a1.5 1.5 0 01-1.5-1.5V6a1.5 1.5 0 011.5-1.5z" />
+                            <path d="M15.5 6.5h3M15.5 8h2" />
+                            <rect x="15" y="13.5" width="3.5" height="4.5" rx="1.5" />
+                            <path d="M13.5 15.5a3 3 0 006 0" />
+                            <path d="M16.5 18.5v2.5M15 21h3" />
+                        </svg>
+                    </div>
+                    <span class="text-xs font-bold text-zinc-800 mt-3 group-hover:text-sanat-yellow transition-colors">Diksiyon</span>
                 </a>
             </div>
         </div>
@@ -1059,6 +1144,13 @@ function toggleMobileSubmenu(submenuId) {
         <p>© 2026 KDS Akademi - Konya Dans ve Sanat Akademisi. Tüm hakları saklıdır. Karatay, Konya.</p>
     </div>
 </footer>
+
+
+
+
+
+
+
 
 
 
