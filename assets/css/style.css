@@ -578,7 +578,7 @@ nav > div:first-child {
 
 /* Footer Compacting */
 footer {
-    margin-top: 60px !important;
+    margin-top: 0px !important;
 }
 footer > div:first-child {
     padding-top: 40px !important;
