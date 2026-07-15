@@ -154,6 +154,10 @@ header.site-header.header-scrolled {
 }
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+body {
+    overflow-x: hidden;
 }
 .show-dropdown-active {
     opacity: 100 !important;
@@ -174,13 +178,8 @@ html {
 }
 .mobile-menu {
     overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.mobile-menu.open {
-    transform: translateX(0);
-}
-
 /* Course filter pills */
 .filter-pill {
     font-family: 'SF Pro Display', sans-serif;
@@ -4848,8 +4847,10 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
 /* Premium Mobile Menu Styling Overrides */
 .mobile-menu {
     position: fixed !important;
+    z-index: 60 !important;
+    max-height: none !important;
     top: 0;
-    right: 0;
+    right: -340px;
     height: 100vh;
     height: 100dvh;
     width: min(85vw, 320px);
@@ -4859,6 +4860,9 @@ h1, h2, h3, h4, h5, h6, .about-hero-title, .why-kds-title, .why-kds-card-title, 
     border-radius: 0.75rem 0 0 0.75rem !important;
     box-shadow: -20px 0 40px rgba(0, 0, 0, 0.4) !important;
     overflow-y: auto !important;
+}
+.mobile-menu.open {
+    right: 0 !important;
 }
 .mobile-menu .flex-col {
     gap: 0.5rem !important;
