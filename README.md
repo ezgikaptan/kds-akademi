@@ -30,3 +30,7 @@ The website was redesigned with a modern UI/UX approach, responsive layouts, smo
 - 🌐 Cross Browser Compatibility
 
 ---
+## 👥 Contributors
+
+- Sude Naz İşci
+- Ezgi Kaptan
